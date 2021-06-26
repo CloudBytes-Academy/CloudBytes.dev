@@ -6,7 +6,8 @@ SITENAME = "UberPython"
 SITEURL = ""
 
 PATH = "content"
-# ARTICLE_PATHS = ["blog"]
+
+# To keep the structure of content folder
 # PATH_METADATA = "(?P<path_no_ext>.*)\..*"
 # ARTICLE_URL = ARTICLE_SAVE_AS = PAGE_URL = PAGE_SAVE_AS = "{path_no_ext}.html"
 ARTICLE_URL = "{category}/{slug}"
