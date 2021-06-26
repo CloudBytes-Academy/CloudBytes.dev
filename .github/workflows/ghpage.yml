@@ -1,4 +1,4 @@
-name: Pelican Github Pages 
+name: Deploy
 
 on:
   push:
