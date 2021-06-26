@@ -6,3 +6,4 @@ Author: Rehan Haider
 Summary: A quickstart to using Firebase for authentication
 
 # This is how you authenticate
+Is this even working
