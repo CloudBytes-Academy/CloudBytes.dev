@@ -6,4 +6,4 @@ Author: Rehan Haider
 Summary: A simple guide to initialising Firebase with Python
 
 
-This is how you initialise Firebase in Python
+This is how you initialise Firebase in Python.
