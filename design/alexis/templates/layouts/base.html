@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="{{DEFAULT_LANG}}">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <link rel="icon" href="{{ SITEURL}}/{{ THEME_STATIC_DIR}}/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ SITEURL}}/{{ THEME_STATIC_DIR}}/img/favicon.ico" type="image/x-icon">
+
+    <!-- Hide files under hidden_pages-->
+    {% if page in hidden_pages %}
+    <meta name="robots" content="noindex, nofollow" />
+    {% else %}
+    <meta name="robots" content="{{ ROBOTS }}" />
+    {% endif %}
+
+    <!-- Load Google fonts-->
+    {% if USE_GOOGLE_FONTS != False %}
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap">
+    {% endif %}
+
+    <link rel=" stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/alexis.css">
+
+
+    <title>{{ SITENAME}}{% block title%}{% endblock %}</title>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    {% include "layouts/sidebar.html" %}
+    <!-- End Sidebar -->
+
+    <!-- Main Section -->
+    <main>
+        {% block main %}
+        {% endblock %}
+    </main>
+    <!-- End of Main Section -->
+
+</body>
+
+</html>
