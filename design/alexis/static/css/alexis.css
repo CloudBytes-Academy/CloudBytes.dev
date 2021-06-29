@@ -804,7 +804,7 @@ li code, p code {
 }
 
 .item:hover {
-    filter: brightness(200%);
+    filter: contrast(200%)
 }
 
 .item img, .item svg {

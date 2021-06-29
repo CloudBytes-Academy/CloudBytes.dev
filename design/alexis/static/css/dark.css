@@ -110,7 +110,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 main {
-    margin-left: calc(var(--nav-width)*1.5 + .5em);
+    margin-left: calc(var(--nav-width) + 1rem);
     padding: 1em;
     flex: 1;
     transition: margin .3s ease;
