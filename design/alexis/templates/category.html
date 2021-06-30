@@ -6,7 +6,9 @@
 {% endblock %}
 
 {% block main %}
-
+<header>
+    <h1 class="border-bottom">{{category}}</h1>
+</header>
 
 <div class="row">
     {% for article in articles_page.object_list %}
