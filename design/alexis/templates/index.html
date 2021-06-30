@@ -5,23 +5,28 @@ Home
 {% endblock %}
 
 {% block main %}
-<header>
-    <h1 class="border-bottom">Latest Articles & Code Snippets</h1>
-</header>
-{% include "layouts/partial/article-top5.html" %}
+<div class="row">
+    <div>
+        <header>
+            <h1 class="border-bottom">Latest Articles</h1>
+        </header>
+        {% include "layouts/partial/article-top5.html" %}
 
-<a href="{{ SITEURL }}/snippets/">
-    <button class="btn btn-green btn-block">View all articles</button>
-</a>
+        <a href="{{ SITEURL }}/snippets/">
+            <button class="btn btn-green btn-block">View all articles</button>
+        </a>
 
-<hr>
-
-<header>
-    <h1 class="border-bottom">Latest Publications</h1>
-</header>
-{% include "layouts/partial/book-top2.html" %}
-<a href="{{ SITEURL }}/books/">
-    <button class="btn btn-green btn-block">View all publications</button>
-</a>
-<hr>
+        <hr>
+    </div>
+    <div>
+        <header>
+            <h1 class="border-bottom">Latest Publications</h1>
+        </header>
+        {% include "layouts/partial/book-top2.html" %}
+        <a href="{{ SITEURL }}/books/">
+            <button class="btn btn-green btn-block">View all publications</button>
+        </a>
+        <hr>
+    </div>
+</div>
 {% endblock %}
