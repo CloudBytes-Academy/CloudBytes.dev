@@ -1,0 +1,19 @@
+{% extends "layouts/base.html" %}
+
+
+{% block title %}
+{{tag}}
+{% endblock %}
+
+{% block main %}
+<header>
+    <h2 class="border-bottom"><span class="tag tag-{{tag}}">#{{tag}}</span></h2>
+</header>
+
+<div class="row">
+    {% for article in articles_page.object_list %}
+    {% include "layouts/partial/article-card.html" %}
+    {% endfor %}
+</div>
+
+{% endblock %}
