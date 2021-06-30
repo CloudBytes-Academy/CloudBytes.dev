@@ -5,24 +5,23 @@ Home
 {% endblock %}
 
 {% block main %}
-{{SITEURL}}
-<div class="row">
-    {% for article in articles_page.object_list %}
-    <div class="box box-lg chapter-item">
-        <div class="box-content">
-            <a href="{{ SITEURL }}/{{article.url}}" style="text-decoration: none;">
-                <h3>
-                    {{article.title}}
-                </h3>
-                <div class=" subtext">
-                    {{article.summary}}
-                </div>
-            </a>
-            {% include "layouts/partial/tags.html"%}
-        </div>
-    </div>
-    {% endfor %}
-</div>
+<header>
+    <h1 class="border-bottom">Latest Articles & Code Snippets</h1>
+</header>
+{% include "layouts/partial/article-top5.html" %}
 
+<a href="{{ SITEURL }}/snippets/">
+    <button class="btn btn-green btn-block">View all articles</button>
+</a>
 
+<hr>
+
+<header>
+    <h1 class="border-bottom">Latest Publications</h1>
+</header>
+{% include "layouts/partial/book-top2.html" %}
+<a href="{{ SITEURL }}/books/">
+    <button class="btn btn-green btn-block">View all publications</button>
+</a>
+<hr>
 {% endblock %}

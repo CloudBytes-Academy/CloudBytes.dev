@@ -1,0 +1,18 @@
+{% extends "layouts/base.html" %}
+
+
+{% block title %}
+{{category}}
+{% endblock %}
+
+{% block main %}
+
+
+<div class="row">
+    {% for article in articles_page.object_list %}
+    {% include "layouts/partial/article-card.html" %}
+    {% endfor %}
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,7 @@
+<div class="row">
+    {% for article in articles_page.object_list if article.category=="Snippets" %}
+    {% if loop.index <= 2 %} {% include "layouts/partial/article-card.html" %} {% endif %} {% endfor %} </div>
+        <div class="row">
+            {% for article in articles_page.object_list if article.category=="Snippets" %}
+            {% if 2 < loop.index <=5 %} {% include "layouts/partial/article-card.html" %} {% endif %} {% endfor %}
+                </div>
