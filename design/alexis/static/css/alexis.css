@@ -117,7 +117,7 @@ main {
 }
 
 svg {
-    filter: grayscale(70%);
+    filter: grayscale(100%);
 }
 
 a {
@@ -811,6 +811,12 @@ li code, p code {
     filter: contrast(200%);
 }
 
+.item.active {
+    background: var(--green-dark);
+    box-shadow: var(--nav-shadow);
+    transition: opacity .3s;
+}
+
 .item img, .item svg {
     width: 3rem;
     height: 3rem;
@@ -901,6 +907,17 @@ a.item {
 }
 
 .logo {
+    width: var(--nav-width);
+    max-width: 70px;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    position: fixed;
+    margin-top: 0;
+}
+
+/*
+.logo {
     z-index: 999;
     position: fixed;
     background: var(--green-dark);
@@ -914,18 +931,11 @@ a.item {
 }
 
 .logo svg {
-    width: 2.5rem
+    width: 3rem
 }
 
 .logo:hover {
-    /*background-image: url(/img/computer-bg.gif);*/
     background-size: contain;
-}
-
-/*
-# Change this when you get the right GIF
-.logo:hover .version, .logo:hover svg {
-    visibility: hidden
 }
 */
 
