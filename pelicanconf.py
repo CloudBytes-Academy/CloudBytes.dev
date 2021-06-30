@@ -5,18 +5,26 @@ AUTHOR = "UberPython"
 SITENAME = "UberPython"
 SITEURL = ""
 
-# THEME = "Flex"
 THEME = "./design/alexis"
 
 PATH = "content"
 
-# To keep the structure of content folder
-PATH_METADATA = "(?P<path_no_ext>.*)\..*"
-ARTICLE_URL = ARTICLE_SAVE_AS = PAGE_URL = PAGE_SAVE_AS = "{path_no_ext}.html"
+# To keep the structure of content folder & remove .html extension
+# PATH_METADATA = "(?P<path_no_ext>.*)\..*"
+# ARTICLE_URL = PAGE_URL = "{path_no_ext}"
+# ARTICLE_SAVE_AS = PAGE_SAVE_AS = "{path_no_ext}/index.html"
 
-# Uncomment to structure the sites by category
-# ARTICLE_URL = "{category}/{slug}"
-# ARTICLE_SAVE_AS = "{category}/{slug}.html"
+
+ARTICLE_URL = "{category}/{slug}"
+ARTICLE_SAVE_AS = "{category}/{slug}/index.html"
+
+AUTHOR_URL = "authors/{slug}"
+AUTHOR_SAVE_AS = "authors/{slug}/index.html"
+CATEGORY_URL = "{slug}"
+CATEGORY_SAVE_AS = "{slug}/index.html"
+TAG_URL = "tag/{slug}"
+TAG_SAVE_AS = "tag/{slug}/index.html"
+
 
 TIMEZONE = "UTC"
 

@@ -34,13 +34,16 @@
     <!-- End Sidebar -->
 
     <!-- Main Section -->
-    <main>
+    <main role="main">
         {% block main %}
         {% endblock %}
     </main>
     <!-- End of Main Section -->
 
+
+
     {% include "layouts/footer.html" %}
+    <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/app.js"></script>
 </body>
 
 </html>

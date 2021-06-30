@@ -116,6 +116,10 @@ main {
     transition: margin .3s ease;
 }
 
+svg {
+    filter: grayscale(100%);
+}
+
 a {
     color: var(--blue);
     text-decoration: none;
@@ -565,7 +569,7 @@ li code, p code {
 }
 
 .highlight, pre.highlight {
-    padding: 1em;
+    padding: 0 1em;
     line-height: 1.5;
     color: var(--text-color);
     margin-bottom: 1rem;
@@ -804,7 +808,13 @@ li code, p code {
 }
 
 .item:hover {
-    filter: brightness(200%);
+    filter: contrast(200%);
+}
+
+.item.active {
+    background: var(--green-dark);
+    box-shadow: var(--nav-shadow);
+    transition: opacity .3s;
 }
 
 .item img, .item svg {
@@ -897,6 +907,17 @@ a.item {
 }
 
 .logo {
+    width: var(--nav-width);
+    max-width: 70px;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    position: fixed;
+    margin-top: 0;
+}
+
+/*
+.logo {
     z-index: 999;
     position: fixed;
     background: var(--green-dark);
@@ -910,18 +931,11 @@ a.item {
 }
 
 .logo svg {
-    width: 2.5rem
+    width: 3rem
 }
 
 .logo:hover {
-    /*background-image: url(/img/computer-bg.gif);*/
     background-size: contain;
-}
-
-/*
-# Change this when you get the right GIF
-.logo:hover .version, .logo:hover svg {
-    visibility: hidden
 }
 */
 
@@ -1243,7 +1257,7 @@ menu-toggler {
     display: flex;
     flex-direction: column;
     padding: 1em;
-    align-items: flex-start
+    align-items: flex-start;
 }
 
 .box .box-content a, .box .box-content h2, .box .box-content h3, .box .box-content h4 {
@@ -1640,8 +1654,22 @@ menu-toggler {
 
 .snippet-title {
     font-size: 2em;
-    padding-bottom: 10px;
-    border-bottom: var(--h-border)
+    padding-bottom: 5px;
+    border-bottom: var(--h-border);
+    margin: 0;
+}
+
+.snippet-byline {
+    font-size: 0.83rem;
+    padding: 5px 0 5px;
+    border-bottom: var(--h-border);
+    align-items: center;
+}
+
+.snippet-tags {
+    font-size: 0.83rem;
+    padding: 5px 0 5px;
+    align-items: center;
 }
 
 .user-profile {
