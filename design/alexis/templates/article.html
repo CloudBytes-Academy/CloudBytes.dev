@@ -1,0 +1,21 @@
+{% extends "layouts/base.html" %}
+
+
+{% block main %}
+<section id="main" class="content-pad">
+    <h1 id="title" class="snippet-title">{{ article.title }}</h1>
+    <div class="row snippet-byline">
+        <em>by <a href="#">{{article.author}}</a>, {{article.locale_date}}</em>
+        <span>
+            <strong>Category</strong>: <a href="#">
+                <a href="{{ SITEURL}}/{{article.category.slug}}"
+                    class="tag tag-{{article.category|lower}}">{{article.category}}</a>
+        </span>
+    </div>
+    <article id="content">
+        {{article.content}}
+    </article>
+    {% include "layouts/partial/tags.html"%}
+</section>
+
+{% endblock %}

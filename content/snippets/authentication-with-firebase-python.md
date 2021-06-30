@@ -1,6 +1,6 @@
 Title: Authentication using Firebase and Python
 Date: 2021-03-15
-Category: Firebase
+Category: Snippets
 Tags: firebase, python
 Author: Rehan Haider
 Summary: A quickstart to using Firebase for authentication

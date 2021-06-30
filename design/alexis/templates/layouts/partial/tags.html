@@ -1,0 +1,5 @@
+<div class="snippet-tags">
+    {% for tag in article.tags%}
+    <a href="tag/{{tag}}"><span class="tag tag-{{tag}}">#{{tag}}</span></a>
+    {% endfor %}
+</div>
