@@ -1,0 +1,13 @@
+<div class="box box-lg chapter-item">
+    <div class="box-content">
+        <a href="{{ SITEURL }}/{{article.url}}" style="text-decoration: none;">
+            <h3>
+                {{article.title}}
+            </h3>
+            <div class=" subtext">
+                {{article.summary}}
+            </div>
+        </a>
+        {% include "layouts/partial/tags.html"%}
+    </div>
+</div>

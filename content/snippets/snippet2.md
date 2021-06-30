@@ -1,7 +1,7 @@
-Title: Initialise Firebase with Python
+Title: Initialise Firebase with Python 2
 Date: 2021-03-15
 Category: Snippets
-Tags: firebase, html
+Tags: github, python
 Author: Rehan Haider
 Summary: A simple guide to initialising Firebase with Python
 
