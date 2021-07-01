@@ -132,3 +132,4 @@ dmypy.json
 # Custom
 output/
 cache/
+design/alexis/static/css/backup.css
