@@ -174,8 +174,8 @@ main {
 }
 
 .item img, .item svg {
-    width: 3rem;
-    height: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
 }
 
 .item a {
@@ -215,10 +215,10 @@ a.item {
     }
     .item {
         flex-direction: row;
-        margin: 0;
+        margin: 0.5rem 0;
         align-items: center;
         justify-content: center;
-        padding: 0 1rem;
+        padding: 0.5rem 1rem;
     }
     .sidebar .item {
         overflow-x: visible
