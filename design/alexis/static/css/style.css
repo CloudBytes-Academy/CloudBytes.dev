@@ -31,8 +31,16 @@
     --code-bg: #fff;
     --card-bg: #fff;
     --overlay-bg: hsla(0, 0%, 100%, 0.9);
-    --h-border: 2px dashed var(--gray1);
+    --h-border: 2px dashed var(var(--gray4));
     transition: all .5s ease;
+}
+
+#dark {
+    display: none;
+}
+
+#light {
+    display: flex;
 }
 
 :root {
@@ -193,7 +201,7 @@ a.item {
 
 .logo {
     width: var(--nav-width);
-    max-width: 70px;
+    max-width: 72px;
     z-index: 999;
 }
 
@@ -951,7 +959,8 @@ li code, p code {
 }
 
 .topnav .item {
-    box-shadow: var(--nav-shadow)
+    box-shadow: var(--nav-shadow);
+    margin: 0;
 }
 
 @media (max-width:768px) {
