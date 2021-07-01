@@ -19,15 +19,19 @@ const themeMap = {
     light: "dark"
 };
 
-function toggleTheme() {
-    const bodyClass = document.body.classList;
-    theme = bodyClass[0].split("-")[0];
-    bodyClass.replace(bodyClass[0], themeMap[theme] + "-theme");
-    document.getElementById(theme).style.display = "flex";
-    document.getElementById(themeMap[theme]).style.display = "none";
+const theme = localStorage.getItem('theme')
+    || (tmp = Object.keys(themeMap)[0],
+        localStorage.setItem('theme', tmp),
+        tmp);
+const bodyClass = document.body.classList;
+bodyClass.add(theme + "-theme");
 
-    console.log(theme);
-    console.log(themeMap[theme]);
+function toggleTheme() {
+    const current = localStorage.getItem('theme');
+    const next = themeMap[current];
+
+    bodyClass.replace(current + "-theme", next + "-theme");
+    localStorage.setItem('theme', next);
 }
 
 document.getElementById("themeButton").onclick = toggleTheme;
