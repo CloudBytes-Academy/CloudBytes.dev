@@ -6,8 +6,16 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+
+    <!-- Favicons -->
     <link rel="icon" href="{{ SITEURL}}/{{ THEME_STATIC_DIR}}/img/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="{{ SITEURL}}/{{ THEME_STATIC_DIR}}/img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ SITEURL}}/{{ THEME_STATIC_DIR}}/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ SITEURL}}/{{ THEME_STATIC_DIR}}/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ SITEURL}}/{{ THEME_STATIC_DIR}}/img/favicon-16x16.png">
+
+
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
 
     <!-- Hide files under hidden_pages-->
     {% if page in hidden_pages %}
@@ -23,7 +31,8 @@
     {% endif %}
     Google fonts-->
     <link rel=" stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/style.css">
-
+    <link rel="manifest" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/manifest.json">
+    <link rel="mask-icon" href="{{ SITEURL}}/{{ THEME_STATIC_DIR}}/img/safari-pinned-tab.svg" color="#00aba9">
 
     <title>{% block title%}{% endblock %}</title>
 </head>

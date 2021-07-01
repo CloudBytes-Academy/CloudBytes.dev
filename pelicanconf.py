@@ -5,9 +5,16 @@ AUTHOR = "UberPython"
 SITENAME = "UberPython"
 SITEURL = ""
 
+THEME_STATIC_DIR = "assets"
 THEME = "./design/alexis"
 
+# Path to blog content
 PATH = "content"
+
+# Path to static folders
+STATIC_PATHS = ["images", "extra/SW.js"]
+
+EXTRA_PATH_METADATA = {"extra/SW.js": {"path": "SW.JS"}}
 
 # To keep the structure of content folder & remove .html extension
 # PATH_METADATA = "(?P<path_no_ext>.*)\..*"
