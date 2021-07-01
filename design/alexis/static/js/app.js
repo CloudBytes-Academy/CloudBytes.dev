@@ -1,3 +1,4 @@
+// Manage highlights for current page
 window.onload = function (e) {
     var currentURL = window.location.pathname;
     var activePath = "";
@@ -14,6 +15,8 @@ window.onload = function (e) {
     document.getElementById(activePath).className += " active";
 }
 
+
+// Theme toggler
 const themeMap = {
     dark: "light",
     light: "dark"
@@ -36,3 +39,7 @@ function toggleTheme() {
 
 document.getElementById("themeButton").onclick = toggleTheme;
 
+// PWA Service worker registration
+navigator.serviceWorker &&
+    navigator.serviceWorker.register('SW.js').then(function (registration) {
+    });
