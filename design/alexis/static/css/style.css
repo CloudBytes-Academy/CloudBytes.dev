@@ -20,13 +20,13 @@
 }
 
 .light-theme {
-    --background: var(--gray0);
+    --background: var(--solar);
     --text-color: var(--gray4);
     --h-color: var(--gray6);
     --nav-shadow: 4px 0 10px -3px #c1c1c1;
     --card-shadow: 0 4px 8px rgba(0, 30, 84, 0.12);
     --toc-shadow: rgba(0, 0, 0, 0.2) 0px 10px 20px 0px;
-    --nav-bg: #fff;
+    --nav-bg: #d3cdbb;
     --tag-bg: var(--gray2);
     --code-bg: #fff;
     --card-bg: #fff;
@@ -62,13 +62,15 @@
     --pink: #ff4088;
     --pink-dark: #ff1c72;
     --pink-light: #ff649e;
+    --solar: #fdf6e3;
     --gray0: #f8f8f8;
     --gray1: #dbe1e8;
     --gray2: #b2becd;
     --gray3: #6c7983;
     --gray4: #454e56;
-    --gray5: #2a2e35;
-    --gray6: #12181b;
+    --gray5: #222831;
+    --gray6: #191c23;
+    --gray7: #12181b;
     --nav-width: 4.5rem;
     --font-body: "sofia-pro", sans-serif;
     --font-head: "sofia-pro", sans-serif;
@@ -212,6 +214,7 @@ a.item {
         padding: 1em;
         flex: 1;
         transition: margin .3s ease;
+        margin-left: auto;
     }
     .sidebar {
         bottom: 0;
@@ -399,9 +402,6 @@ blockquote {
     :root {
         --font-size: 15px;
         --nav-width: 3em;
-    }
-    main {
-        margin-left: .5em
     }
 }
 
