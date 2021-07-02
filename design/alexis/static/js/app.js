@@ -17,29 +17,45 @@ window.onload = function (e) {
 
 
 // Theme toggler
-const themeMap = {
+const themeNext = {
     dark: "light",
     light: "dark"
 };
 
-const theme = localStorage.getItem('theme')
-    || (tmp = Object.keys(themeMap)[0],
-        localStorage.setItem('theme', tmp),
-        tmp);
-const bodyClass = document.body.classList;
-bodyClass.add(theme + "-theme");
+if (localStorage.getItem('theme')) {
+    var theme = localStorage.getItem('theme');
+    console.log(theme);
+    document.body.classList.remove('dark-theme', 'light-theme');
+    document.body.classList.add(theme + '-theme');
+    document.getElementById(themeNext[theme]).style.display = "flex";
+    document.getElementById(theme).style.display = "none";
 
-function toggleTheme() {
-    const current = localStorage.getItem('theme');
-    const next = themeMap[current];
-
-    bodyClass.replace(current + "-theme", next + "-theme");
-    localStorage.setItem('theme', next);
 }
 
-document.getElementById("themeButton").onclick = toggleTheme;
+var switchTheme = document.getElementById('themeButton');
+var toggleLight = document.getElementById('light');
+var toggleDark = document.getElementById('dark');
 
+switchTheme.addEventListener('click', function (e) {
+    e.preventDefault();
+});
+toggleLight.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.body.classList.add('light-theme');
+    document.body.classList.remove('dark-theme');
+    localStorage.setItem('theme', 'light');
+    toggleLight.style.display = "none";
+    toggleDark.style.display = "flex";
+});
+toggleDark.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.body.classList.add('dark-theme');
+    document.body.classList.remove('light-theme');
+    localStorage.setItem('theme', 'dark');
+    toggleLight.style.display = "flex";
+    toggleDark.style.display = "none";
+});
 // PWA Service worker registration
 navigator.serviceWorker &&
-    navigator.serviceWorker.register('SW.js').then(function (registration) {
+    navigator.serviceWorker.register('/SW.js').then(function (registration) {
     });
