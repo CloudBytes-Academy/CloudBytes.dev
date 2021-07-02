@@ -31,7 +31,7 @@
     --code-bg: #fff;
     --card-bg: #fff;
     --overlay-bg: hsla(0, 0%, 100%, 0.9);
-    --h-border: 2px dashed var(var(--gray4));
+    --h-border: 2px dashed var(--gray4);
     transition: all .5s ease;
 }
 
@@ -218,7 +218,7 @@ a.item {
         padding: 1em;
         flex: 1;
         transition: margin .3s ease;
-        margin-left: auto;
+        margin-left: inherit;
     }
     .sidebar {
         bottom: 0;
@@ -402,7 +402,7 @@ blockquote {
     color: #fff;
 }
 
-@media (max-width:768px) {
+@media (max-width:600px) {
     :root {
         --font-size: 15px;
         --nav-width: 3em;
