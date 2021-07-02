@@ -31,7 +31,7 @@
     --code-bg: #fff;
     --card-bg: #fff;
     --overlay-bg: hsla(0, 0%, 100%, 0.9);
-    --h-border: 2px dashed var(--gray4);
+    --h-border: 2px dashed var(--nav-bg);
     transition: all .5s ease;
 }
 
@@ -41,6 +41,10 @@
 
 #light {
     display: flex;
+}
+
+.theme-icon {
+    border-radius: 15px;
 }
 
 :root {
@@ -276,9 +280,11 @@ a.item {
     }
 }
 
+/*
 svg {
     filter: grayscale(100%);
 }
+*/
 
 a {
     color: var(--blue);
