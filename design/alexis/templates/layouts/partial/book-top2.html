@@ -1,3 +1,0 @@
-<div class="row">
-    {% for article in articles_page.object_list if article.category=="Books" %}
-    {% if loop.index <= 2 %} {% include "layouts/partial/article-card.html" %} {% endif %} {% endfor %} </div>

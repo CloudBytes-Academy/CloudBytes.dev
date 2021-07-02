@@ -1,0 +1,6 @@
+<div class="row">
+    {% set articles = (articles_page.object_list|selectattr('category','eq', 'Snippets')|list) %}
+    {% for article in articles[:6] %}
+    {% include "layouts/partial/article-card.html" %}
+    {% endfor %}
+</div>
