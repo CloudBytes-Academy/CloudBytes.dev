@@ -183,6 +183,10 @@ main {
     transition: opacity .3s;
 }
 
+.item.active svg {
+    filter: invert(100%);
+}
+
 .item img, .item svg {
     width: 2.5rem;
     height: 2.5rem;
