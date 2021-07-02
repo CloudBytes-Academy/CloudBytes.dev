@@ -344,6 +344,8 @@ footer ul {
     margin: 1rem;
     padding: 1rem;
     background: var(--nav-bg);
+    border-radius: 5px;
+    min-width: 120px;
 }
 
 hr {
