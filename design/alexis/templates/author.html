@@ -1,8 +1,17 @@
 {% extends "layouts/base.html" %}
 
+{% block title %}
+{{author}}
+{% endblock %}
 
 {% block main %}
-{% for author in authors|sort %}
-{{ author }}
-{% endfor %}
+<header>
+    <h1 class="border-bottom">{{author}}</h1>
+</header>
+
+<div class="row">
+    {% for article in articles_page.object_list %}
+    {% include "layouts/partial/article-card.html" %}
+    {% endfor %}
+</div>
 {% endblock %}

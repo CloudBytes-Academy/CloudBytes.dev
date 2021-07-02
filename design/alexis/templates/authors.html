@@ -1,8 +1,0 @@
-{% extends "layouts/base.html" %}
-
-
-{% block main %}
-{% for author in authors|sort %}
-{{ SITEURL}}/ {{ author.url }}
-{% endfor %}
-{% endblock %}

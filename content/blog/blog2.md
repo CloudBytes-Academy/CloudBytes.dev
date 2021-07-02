@@ -2,7 +2,7 @@ Title: Test title 2 Test title 2 Test title 2 Test title 2
 Date: 2021-03-15
 Category: Blog
 Tags: python, flask
-Author: Rehan Haider
+Author: Mikayel Haider
 Summary: blah blah blah blah balh blah blah blah blah balh blah blah blah blah balh blah blah blah blah balh blah blah blah blah balh blah blah blah blah balh
 
 

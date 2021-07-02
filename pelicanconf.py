@@ -61,7 +61,12 @@ SOCIAL = (
     ("Another social link", "#"),
 )
 
-DEFAULT_PAGINATION = 10
+# Pagination settings
+DEFAULT_PAGINATION = 7
+PAGINATION_PATTERNS = (
+    (1, "{url}", "{save_as}"),
+    (2, "{base_name}/{number}/", "{base_name}/{number}/index.html"),
+)
 
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True
