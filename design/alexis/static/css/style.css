@@ -317,10 +317,25 @@ footer {
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    min-height: 250px;
-    margin-top: 120px;
+    margin-top: 1rem;
+    margin-bottom: 5rem;
     font-size: .85em;
     opacity: .8;
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    padding: 0.5rem;
+    margin: auto;
+}
+
+.footer-nav {
+    margin: 1rem;
+    padding: 1rem;
+    background: var(--nav-bg);
 }
 
 hr {
@@ -1101,15 +1116,6 @@ li code, p code {
         align-items: center;
         padding: 2em 2em 70px
     }
-}
-
-footer .github-link {
-    font-weight: 300;
-    color: var(--h-color)
-}
-
-footer .copyright i svg {
-    margin: 0
 }
 
 menu-toggler, theme-btn {
