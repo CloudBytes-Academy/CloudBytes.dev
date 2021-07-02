@@ -46,20 +46,20 @@ AUTHOR_FEED_RSS = None
 HOME_HIDE_TAGS = True
 
 # Blogroll
-LINKS = (
-    ("Pelican", "https://getpelican.com/"),
-    ("Python.org", "https://www.python.org/"),
-    ("Jinja2", "https://palletsprojects.com/p/jinja/"),
-    ("You can modify those links in your config file", "#"),
-)
+#LINKS = (
+#    ("Pelican", "https://getpelican.com/"),
+#    ("Python.org", "https://www.python.org/"),
+#    ("Jinja2", "https://palletsprojects.com/p/jinja/"),
+#    ("You can modify those links in your config file", "#"),
+#)
 
 # Social widget
-SOCIAL = (
-    ("twitter", "https://twitter.com/UberPython"),
-    ("github", "https://twitter.com/UberPython"),
-    ("youtube", "https://twitter.com/UberPython"),
-    ("Another social link", "#"),
-)
+#SOCIAL = (
+#    ("twitter", "https://twitter.com/UberPython"),
+#    ("github", "https://twitter.com/UberPython"),
+#    ("youtube", "https://twitter.com/UberPython"),
+#    ("Another social link", "#"),
+#)
 
 # Pagination settings
 DEFAULT_PAGINATION = 7

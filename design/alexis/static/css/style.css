@@ -125,6 +125,7 @@ body::-webkit-scrollbar-thumb {
 
 main {
     padding: 1em;
+    padding-top: var(--nav-width);
     flex: 1;
     transition: margin .3s ease;
 }
@@ -238,6 +239,7 @@ a.item {
         align-items: center;
         justify-content: center;
         padding: 0.5rem 1rem;
+        border-radius: 15px;
     }
     .sidebar .item {
         overflow-x: visible
@@ -1259,7 +1261,7 @@ menu-toggler {
     display: flex;
     min-height: 100px;
     margin: .5em 0;
-    border-radius: 3px
+    border-radius: 15px
 }
 
 .box .box-icon {
@@ -2105,7 +2107,7 @@ h1.tag {
     font-family: var(--font-body);
     text-transform: uppercase;
     font-weight: 700;
-    border-radius: 3px;
+    border-radius: 5px;
     vertical-align: bottom;
     cursor: pointer
 }
