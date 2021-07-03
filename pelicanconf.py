@@ -31,8 +31,8 @@ CATEGORY_URL = "{slug}"
 CATEGORY_SAVE_AS = "{slug}/index.html"
 TAG_URL = "tag/{slug}"
 TAG_SAVE_AS = "tag/{slug}/index.html"
-PAGE_URL = "{slug}"
-PAGE_SAVE_AS = "{slug}/index.html"
+PAGE_URL = "{slug}.html"
+PAGE_SAVE_AS = "{slug}.html"
 
 
 TIMEZONE = "UTC"
