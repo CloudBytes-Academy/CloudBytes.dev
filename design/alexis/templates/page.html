@@ -1,0 +1,15 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}
+{{page.title}}
+{% endblock %}
+
+{% block main %}
+<section id="main" class="content-pad">
+    <h1 id="title" class="snippet-title">{{ page.title }}</h1>
+    <div class="row snippet-byline">
+        <article id="content">
+            {{page.content}}
+        </article>
+</section>
+{% endblock %}
