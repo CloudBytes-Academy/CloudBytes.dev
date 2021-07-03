@@ -55,6 +55,23 @@ toggleDark.addEventListener('click', function (e) {
     toggleLight.style.display = "flex";
     toggleDark.style.display = "none";
 });
+
+// Pagination Handler
+
+pages = document.getElementsByClassName('pagination');
+console.log(pages);
+
+console.log(window.location.pathname.split('/')[-1]);
+
+
+
+
+
+
+
+
+
+
 // PWA Service worker registration
 navigator.serviceWorker &&
     navigator.serviceWorker.register('/SW.js').then(function (registration) {
