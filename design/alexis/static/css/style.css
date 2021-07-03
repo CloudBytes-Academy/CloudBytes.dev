@@ -220,7 +220,6 @@ a.item {
 
 @media only screen and (max-width: 600px) {
     main {
-        padding: 1em;
         flex: 1;
         transition: margin .3s ease;
         margin-left: inherit;
@@ -341,6 +340,7 @@ footer ul {
 }
 
 .footer-nav {
+    display: block;
     margin: 1rem;
     padding: 1rem;
     background: var(--nav-bg);
@@ -603,6 +603,7 @@ text-cycle {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .no-pad {
