@@ -326,8 +326,8 @@ footer {
     text-align: center;
     margin-top: 1rem;
     margin-bottom: 5rem;
-    font-size: .85em;
     opacity: .8;
+    font-size: calc(var(--font-size) * 0.5);
 }
 
 footer ul {
@@ -337,7 +337,6 @@ footer ul {
     justify-items: center;
     padding: 0.5rem;
     margin: auto;
-    font-size: calc(var(--font-size)*25%);
 }
 
 .footer-nav {
