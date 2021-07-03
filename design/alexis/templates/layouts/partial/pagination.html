@@ -1,23 +1,19 @@
+{% if DEFAULT_PAGINATION %}
+{% set max_pages = ((articles_paginator.object_list|list|count)/6)|round(0,'ceil')|int %}
 <ul class="pagination">
     <li class="page-item">
-        <a href="/snippets/" class="page-link" aria-label="First"><span aria-hidden="true">««</span></a>
-    </li>
-    <li class="page-item disabled">
-        <a class="page-link" aria-label="Previous"><span aria-hidden="true">«</span></a>
-    </li>
-    <li class="page-item active">
-        <a class="page-link" href="/snippets/">1</a>
+        <a href="/" class="page-link" aria-label="First"><span aria-hidden="true">««</span></a>
     </li>
     <li class="page-item">
-        <a class="page-link" href="/snippets/page/2/">2</a>
+        <a class="page-link" href="/">1</a>
     </li>
+    {% for n in range(2,max_pages+1) %}
     <li class="page-item">
-        <a class="page-link" href="/snippets/page/3/">3</a>
+        <a class="page-link" href="/{{n}}/">{{n}}</a>
     </li>
+    {% endfor %}
     <li class="page-item">
-        <a href="/snippets/page/2/" class="page-link" aria-label="Next"><span aria-hidden="true">»</span></a>
-    </li>
-    <li class="page-item">
-        <a href="/snippets/page/3/" class="page-link" aria-label="Last"><span aria-hidden="true">»»</span></a>
+        <a href="/{{ max_pages }}/" class="page-link" aria-label="Last"><span aria-hidden="true">»»</span></a>
     </li>
 </ul>
+{% endif %}
