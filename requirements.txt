@@ -7,6 +7,7 @@ livereload==2.6.3
 Markdown==3.3.4
 MarkupSafe==2.0.1
 pelican==4.6.0
+pelican-sitemap==1.0.2
 pelican-tag-cloud==1.0.0
 Pygments==2.9.0
 python-dateutil==2.8.1

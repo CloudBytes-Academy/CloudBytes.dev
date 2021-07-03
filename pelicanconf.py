@@ -83,3 +83,11 @@ TAG_CLOUD_BADGE = True
 from datetime import date
 
 CURRENTYEAR = date.today().year
+
+# Sitemap configuration
+
+SITEMAP = {
+    "format": "xml",
+    "priorities": {"articles": 1, "indexes": 1, "pages": 0.25},
+    "changefreqs": {"articles": "weekly", "indexes": "daily", "pages": "monthly"},
+}

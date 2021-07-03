@@ -337,15 +337,13 @@ footer ul {
     justify-items: center;
     padding: 0.5rem;
     margin: auto;
+    font-size: calc(var(--font-size)*25%);
 }
 
 .footer-nav {
     display: block;
-    margin: 1rem;
-    padding: 1rem;
-    background: var(--nav-bg);
-    border-radius: 5px;
-    min-width: 120px;
+    margin: 0 1rem;
+    padding: 0 1rem;
 }
 
 hr {
