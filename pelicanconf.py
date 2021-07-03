@@ -46,20 +46,20 @@ AUTHOR_FEED_RSS = None
 HOME_HIDE_TAGS = True
 
 # Blogroll
-#LINKS = (
+# LINKS = (
 #    ("Pelican", "https://getpelican.com/"),
 #    ("Python.org", "https://www.python.org/"),
 #    ("Jinja2", "https://palletsprojects.com/p/jinja/"),
 #    ("You can modify those links in your config file", "#"),
-#)
+# )
 
 # Social widget
-#SOCIAL = (
+# SOCIAL = (
 #    ("twitter", "https://twitter.com/UberPython"),
 #    ("github", "https://twitter.com/UberPython"),
 #    ("youtube", "https://twitter.com/UberPython"),
 #    ("Another social link", "#"),
-#)
+# )
 
 # Pagination settings
 DEFAULT_PAGINATION = 7
@@ -77,3 +77,9 @@ TAG_CLOUD_STEPS = 4
 TAG_CLOUD_MAX_ITEMS = 100
 TAG_CLOUD_SORTING = "size"
 TAG_CLOUD_BADGE = True
+
+
+# Current Year
+from datetime import date
+
+CURRENTYEAR = date.today().year
