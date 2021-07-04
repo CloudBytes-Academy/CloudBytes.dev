@@ -8,7 +8,7 @@ Keywords: Python, venv, virtual environment, pip, virtualenv
 
 Python is a popular and extremely versatile language, which means it is used by many developers in innumerably diverse ways. This is made possible by the plethora of Python packages published on [PyPi](https://pypi.org/) and many others. There are so many Python packages that you almost certainly can find a package to do something, as illustrated by my favourite web-comic, [xkcd](https://xkcd.com/353/).
 
-![](https://imgs.xkcd.com/comics/python.png)
+![XKCD - Python](https://imgs.xkcd.com/comics/python.png)
 
 This is made possible by building packages that depends on other packages, e.g. a very popular library used by data science professionals, [Pandas](https://pandas.pydata.org/), uses and builds on top of 3 other packages, Numpy, python-dateutil, and pytz. 
 
