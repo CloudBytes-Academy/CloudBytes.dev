@@ -79,14 +79,10 @@ toggleDark.addEventListener('click', function (e) {
 });
 
 
-
-
-
-
-
-
-
+/**
 // PWA Service worker registration
 navigator.serviceWorker &&
     navigator.serviceWorker.register('/SW.js').then(function (registration) {
     });
+
+**/
