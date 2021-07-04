@@ -453,13 +453,13 @@ figcaption {
     gap: 1rem;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 400px) {
     .row {
         grid-template-columns: repeat(auto-fit, minmax(45vw, 1fr));
     }
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 400px) {
     .row {
         grid-template-columns: repeat(auto-fit, minmax(40vw, 1fr));
     }
