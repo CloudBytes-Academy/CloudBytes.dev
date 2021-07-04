@@ -1855,7 +1855,7 @@ menu-toggler {
 }
 
 .pagination .page-item.disabled {
-    background: none
+    background: none;
 }
 
 .pagination .page-item a {

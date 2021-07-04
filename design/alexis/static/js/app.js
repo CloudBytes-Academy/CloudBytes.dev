@@ -58,12 +58,21 @@ toggleDark.addEventListener('click', function (e) {
 
 // Pagination Handler
 
-pages = document.getElementsByClassName('pagination');
-console.log(pages);
-
-console.log(window.location.pathname.split('/')[-1]);
 
 
+
+
+//console.log(window.location.pathname.split('/'));s
+pageItems = document.querySelectorAll('ul.pagination')[0].getElementsByClassName("page-item")
+
+for (let i = 0; i < pageItems.length; i++) {
+    if (pageItems[i].getElementsByTagName("a")[0].href == document.location.href) {
+        pageItems[i].getElementsByTagName("a")[0].removeAttribute("href");
+        if (!((i == 0) || (i == (pageItems.length - 1)))) {
+            pageItems[i].classList.add("active");
+        };
+    };
+};
 
 
 
