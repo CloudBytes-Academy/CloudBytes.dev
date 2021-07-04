@@ -20,7 +20,7 @@ But this diversity could also create problems for developers due to conflicts in
 
 This is where virtual environments can help. You can create different instances of Python specific for the application you're building without them conflicting with each other. 
 
-![Python virtual environments]({static}/images/python-virtual-environment.webp) 
+![Python virtual environments]({static}/images/s0001/python-virtual-environment.webp) 
 
 ### Create a virtual environment
 
