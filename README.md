@@ -17,30 +17,30 @@ The repository has the following structure:
 Additionally, the root folder contains the following files
 
 1. `pelicanconf.py`: The Pelican configuration being used by the website
-2. `Makefile`: An alternate method to generate website without the need for intallation of other tools
+2. `Makefile`: An alternate method to generate website without the need for installation of other tools
 3. `publishconf.py`: Configuration for publishing the website
 4. `requirements.txt`: All the python dependencies used
 5. `tasks.py`: Pre-configured build tasks that can be customised as per need
 
 ## Contributions
 
-You can contribute to this project in various ways, or simply reuse the repository for learning and building something yourself as outlined below.
+You can contribute 🤝🏽to this project in various ways, or simply reuse the repository for learning and building something yourself as outlined below.
 
 ### 1. Guest Post and Typo corrections
 
-If you want to post an article yourself , you can add a new file in the `content/snippet/` folder using the `Add file` inline file editor option.  Once done, submit a Pull Request (PR). 
+If you want to post an article yourself , you can add a new file in the 👉🏽 `content/snippet/` folder using the `Add file` inline file editor option.  Once done, submit a Pull Request (PR). 
 
-For correcting any typos do the same by using GitHub's inline editor and submit a PR. 
+For correcting ✅ any typos ❌do the same by using GitHub's inline editor and submit a PR. 
 
-Once the PR is merged, your article will be posted directly on the website using the Continous Delivery (CD) pipeline in place. 
+Once the PR is merged, your article will be posted directly on the website using the Continuous Delivery (CD) pipeline in place. 
 
-*If you know what you're doing, feel free to fork the repository and add the guest post in the folder mentioned above.* 
+> *If you know what you're doing* 😉*, feel free to fork the repository and add the guest post in the folder mentioned above.* ☝🏽
 
 ### 2. Add a new feature
 
 You can use this method to add any cool new feature you want. To do so, you will need to fork the repository and work on the project on our own computer. 
 
-To begin, fork the repository by clicking on the `Fork` button on top right on this page.  Depending upon your preferences, you can use one of the two below options.
+To begin, fork the repository by clicking on the `Fork` button on top right on this page.  Depending upon your preferences, you can use one of the two below 👇🏽options.
 
 #### Using VSCode Devcontainers - Easy & Recommended
 
@@ -57,11 +57,11 @@ This will create a Docker Container with Python and NodeJS installed, add all of
 
 No need for any virtual environment of conflicting packages. 
 
-Alternativelly, 
+Alternatively ....
 
-#### Cloning manually and creating a Python virtual env
+#### Cloning manually and creating a Python virtual environment
 
-Yeah, I'm not gonna be part of this.  You're on your own.
+Yeah, 🤕😐I'm not gonna be part of this.  You're on your own.
 
 ## Running the site locally
 
@@ -73,7 +73,7 @@ Open the terminal in VSCode, and run the below to generated the site
 pelican content
 ```
 
-To serve the website, run the below
+To serve the website, run the below 👇🏽
 
 ```bash
 invoke livereload
