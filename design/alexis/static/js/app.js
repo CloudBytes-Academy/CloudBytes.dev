@@ -57,23 +57,20 @@ toggleDark.addEventListener('click', function (e) {
 });
 
 // Pagination Handler
-
-
-
-
-
-//console.log(window.location.pathname.split('/'));s
-pageItems = document.querySelectorAll('ul.pagination')[0].getElementsByClassName("page-item")
-
-for (let i = 0; i < pageItems.length; i++) {
-    if (pageItems[i].getElementsByTagName("a")[0].href == document.location.href) {
-        pageItems[i].getElementsByTagName("a")[0].removeAttribute("href");
-        if (!((i == 0) || (i == (pageItems.length - 1)))) {
-            pageItems[i].classList.add("active");
+window.onload = function (e) {
+    var selection = document.querySelectorAll('ul.pagination')[0]
+    if (selection) {
+        pageItems = document.querySelectorAll('ul.pagination')[0].getElementsByClassName("page-item");
+        for (let i = 0; i < pageItems.length; i++) {
+            if (pageItems[i].getElementsByTagName("a")[0].href == document.location.href) {
+                pageItems[i].getElementsByTagName("a")[0].removeAttribute("href");
+                if (!((i == 0) || (i == (pageItems.length - 1)))) {
+                    pageItems[i].classList.add("active");
+                };
+            };
         };
     };
 };
-
 
 
 

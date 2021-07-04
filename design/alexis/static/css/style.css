@@ -451,7 +451,18 @@ figcaption {
 .row {
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(40vw, 1fr));
+}
+
+@media only screen and (max-width: 600px) {
+    .row {
+        grid-template-columns: repeat(auto-fit, minmax(45vw, 1fr));
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .row {
+        grid-template-columns: repeat(auto-fit, minmax(40vw, 1fr));
+    }
 }
 
 .row-max-1 {
