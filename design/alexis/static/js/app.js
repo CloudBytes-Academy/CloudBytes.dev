@@ -1,5 +1,12 @@
+window.addEventListener("load", myInit, true);
+
+function myInit() {
+    logo();
+    page();
+};
+
 // Manage highlights for current page
-window.onload = function (e) {
+function logo(e) {
     var currentURL = window.location.pathname;
     var activePath = "";
     if (currentURL == "/") {
@@ -13,8 +20,24 @@ window.onload = function (e) {
         activePath = pathArray[1];
     }
     document.getElementById(activePath).className += " active";
-}
+    console.log("Logo set");
+};
 
+// Pagination Handler
+function page(e) {
+    var selection = document.querySelectorAll('ul.pagination')[0]
+    if (selection) {
+        pageItems = document.querySelectorAll('ul.pagination')[0].getElementsByClassName("page-item");
+        for (let i = 0; i < pageItems.length; i++) {
+            if (pageItems[i].getElementsByTagName("a")[0].href == document.location.href) {
+                pageItems[i].getElementsByTagName("a")[0].removeAttribute("href");
+                if (!((i == 0) || (i == (pageItems.length - 1)))) {
+                    pageItems[i].classList.add("active");
+                };
+            };
+        };
+    };
+};
 
 // Theme toggler
 const themeNext = {
@@ -56,21 +79,7 @@ toggleDark.addEventListener('click', function (e) {
     toggleDark.style.display = "none";
 });
 
-// Pagination Handler
-window.onload = function (e) {
-    var selection = document.querySelectorAll('ul.pagination')[0]
-    if (selection) {
-        pageItems = document.querySelectorAll('ul.pagination')[0].getElementsByClassName("page-item");
-        for (let i = 0; i < pageItems.length; i++) {
-            if (pageItems[i].getElementsByTagName("a")[0].href == document.location.href) {
-                pageItems[i].getElementsByTagName("a")[0].removeAttribute("href");
-                if (!((i == 0) || (i == (pageItems.length - 1)))) {
-                    pageItems[i].classList.add("active");
-                };
-            };
-        };
-    };
-};
+
 
 
 
