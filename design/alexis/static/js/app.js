@@ -20,7 +20,6 @@ function logo(e) {
         activePath = pathArray[1];
     }
     document.getElementById(activePath).className += " active";
-    console.log("Logo set");
 };
 
 // Pagination Handler
