@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
+from os import environ
 
 AUTHOR = "UberPython"
 SITENAME = "UberPython"
-SITEURL = ""
+SITEURL = "" if environ.get("SITEURL") else "https://uberpython.com"
 
 THEME_STATIC_DIR = "assets"
 THEME = "./design/alexis"
