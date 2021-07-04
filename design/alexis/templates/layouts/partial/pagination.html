@@ -6,8 +6,12 @@
                 aria-hidden="true">««</span></a>
     </li>
     <li class="page-item">
-        <a href="{{ SITEURL}}/{{ category|lower }}/" class="page-link" aria-label="First"><span
+        {% if articles_page.has_previous() %}
+        <a href="{{ SITEURL}}/{{ articles_previous_page.url }}" class="page-link" aria-label="Previous"><span
                 aria-hidden="true">«</span></a>
+        {% else %}
+        <a class="page-link active" aria-label="Previous"><span aria-hidden="true">«</span></a>
+        {% endif %}
     </li>
     <li class="page-item">
         <a class="page-link" href="{{ SITEURL}}/{{ category|lower }}/">1</a>
@@ -17,6 +21,15 @@
         <a class="page-link" href="{{ SITEURL}}/{{ category|lower }}/{{n}}/">{{n}}</a>
     </li>
     {% endfor %}
+    <li class="page-item">
+        {% if articles_page.has_next() %}
+        <a href="{{ SITEURL}}/{{ articles_next_page.url }}" class="page-link" aria-label="Next"><span
+                aria-hidden="true">»</span></a>
+        {% else %}
+        <a class="page-link active" aria-label="Next"><span aria-hidden="true">»</span></a>
+        {% endif %}
+    </li>
+
     <li class="page-item">
         <a href="{{ SITEURL}}/{{ category|lower }}/{{ max_pages if max_pages != 1 }}/" class="page-link"
             aria-label="Last"><span aria-hidden="true">»»</span></a>
