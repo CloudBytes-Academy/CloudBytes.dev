@@ -4,7 +4,7 @@ from os import environ
 
 AUTHOR = "UberPython"
 SITENAME = "UberPython"
-SITEURL = "" if environ.get("SITEURL") else "https://uberpython.com"
+SITEURL = ""
 
 THEME_STATIC_DIR = "assets"
 THEME = "./design/alexis"
