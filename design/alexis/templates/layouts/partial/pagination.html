@@ -1,8 +1,10 @@
 {% if DEFAULT_PAGINATION %}
 {% set max_pages = ((articles_paginator.object_list|list|count)/6)|round(0,'ceil')|int %}
+
+{% set page_type = ('tag/' ~ tag ) if tag else category %}
 <ul class="pagination">
     <li class="page-item">
-        <a href="{{ SITEURL}}/{{ category|lower }}/" class="page-link" aria-label="First"><span
+        <a href="{{ SITEURL}}/{{ page_type|lower }}/" class="page-link" aria-label="First"><span
                 aria-hidden="true">««</span></a>
     </li>
     <li class="page-item">
@@ -14,11 +16,11 @@
         {% endif %}
     </li>
     <li class="page-item">
-        <a class="page-link" href="{{ SITEURL}}/{{ category|lower }}/">1</a>
+        <a class="page-link" href="{{ SITEURL}}/{{ page_type|lower }}/">1</a>
     </li>
     {% for n in range(2,max_pages+1) %}
     <li class="page-item">
-        <a class="page-link" href="{{ SITEURL}}/{{ category|lower }}/{{n}}/">{{n}}</a>
+        <a class="page-link" href="{{ SITEURL}}/{{ page_type|lower }}/{{n}}/">{{n}}</a>
     </li>
     {% endfor %}
     <li class="page-item">
@@ -31,7 +33,7 @@
     </li>
 
     <li class="page-item">
-        <a href="{{ SITEURL}}/{{ category|lower }}/{{ max_pages if max_pages != 1 }}/" class="page-link"
+        <a href="{{ SITEURL}}/{{ page_type|lower }}/{{ max_pages if max_pages != 1 }}/" class="page-link"
             aria-label="Last"><span aria-hidden="true">»»</span></a>
     </li>
 </ul>
