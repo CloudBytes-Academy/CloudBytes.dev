@@ -76,9 +76,9 @@
     --gray6: #191c23;
     --gray7: #12181b;
     --nav-width: 4.5rem;
-    --font-body: "sofia-pro", sans-serif;
-    --font-head: "sofia-pro", sans-serif;
-    --font-code: "consolas", monospace;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    --font-head: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    --font-code: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
     --font-size: 19px;
     --max-width-bp: 768px;
     --orange-pink: linear-gradient(to bottom right, var(--orange-light), var(--orange-dark) 85%);
