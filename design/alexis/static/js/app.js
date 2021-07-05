@@ -1,42 +1,46 @@
 window.addEventListener("load", myInit, true);
 
 function myInit() {
+    // Manage highlights for current page
+    function logo(e) {
+        var currentURL = window.location.pathname;
+        var activePath = "";
+        if (currentURL == "/") {
+            activePath = "home";
+        }
+        else if (currentURL == "/tags.html") {
+            activePath = "tag";
+        }
+        else {
+            var pathArray = window.location.pathname.split('/');
+            activePath = pathArray[1];
+        }
+        console.log(currentURL)
+        console.log(activePath)
+
+        document.getElementById(activePath).className += " active";
+    };
     logo();
+
     page();
-};
 
-// Manage highlights for current page
-function logo(e) {
-    var currentURL = window.location.pathname;
-    var activePath = "";
-    if (currentURL == "/") {
-        activePath = "home";
-    }
-    else if (currentURL == "/tags.html") {
-        activePath = "tags";
-    }
-    else {
-        var pathArray = window.location.pathname.split('/');
-        activePath = pathArray[1];
-    }
-    document.getElementById(activePath).className += " active";
-};
-
-// Pagination Handler
-function page(e) {
-    var selection = document.querySelectorAll('ul.pagination')[0]
-    if (selection) {
-        pageItems = document.querySelectorAll('ul.pagination')[0].getElementsByClassName("page-item");
-        for (let i = 0; i < pageItems.length; i++) {
-            if (pageItems[i].getElementsByTagName("a")[0].href == document.location.href) {
-                pageItems[i].getElementsByTagName("a")[0].removeAttribute("href");
-                if (!((i == 0) || (i == (pageItems.length - 1)))) {
-                    pageItems[i].classList.add("active");
+    // Pagination Handler
+    function page(e) {
+        var selection = document.querySelectorAll('ul.pagination')[0]
+        if (selection) {
+            pageItems = document.querySelectorAll('ul.pagination')[0].getElementsByClassName("page-item");
+            for (let i = 0; i < pageItems.length; i++) {
+                if (pageItems[i].getElementsByTagName("a")[0].href == document.location.href) {
+                    pageItems[i].getElementsByTagName("a")[0].removeAttribute("href");
+                    if (!((i == 0) || (i == (pageItems.length - 1)))) {
+                        pageItems[i].classList.add("active");
+                    };
                 };
             };
         };
     };
 };
+
 
 // Theme toggler
 const themeNext = {
@@ -46,7 +50,6 @@ const themeNext = {
 
 if (localStorage.getItem('theme')) {
     var theme = localStorage.getItem('theme');
-    console.log(theme);
     document.body.classList.remove('dark-theme', 'light-theme');
     document.body.classList.add(theme + '-theme');
     document.getElementById(themeNext[theme]).style.display = "flex";
