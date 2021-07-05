@@ -78,8 +78,8 @@
     --nav-width: 4.5rem;
     --font-body: "sofia-pro", sans-serif;
     --font-head: "sofia-pro", sans-serif;
-    --font-code: "attribute-mono", monospace;
-    --font-size: 20px;
+    --font-code: "consolas", monospace;
+    --font-size: 19px;
     --max-width-bp: 768px;
     --orange-pink: linear-gradient(to bottom right, var(--orange-light), var(--orange-dark) 85%);
     --green-grad: linear-gradient(to bottom right, var(--green-light), var(--green-dark) 85%);
@@ -747,7 +747,7 @@ text-cycle {
 
 code, pre {
     font-family: var(--font-code);
-    font-size: .85em;
+    font-size: .95em;
     font-weight: 400;
 }
 
