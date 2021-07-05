@@ -461,7 +461,7 @@ figcaption {
 
 @media only screen and (min-width: 600px) {
     .row {
-        grid-template-columns: repeat(auto-fit, minmax(40vw, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(35vw, 1fr));
     }
 }
 
@@ -747,7 +747,7 @@ text-cycle {
 
 code, pre {
     font-family: var(--font-code);
-    font-size: .95em;
+    font-size: .85em;
     font-weight: 400;
 }
 
