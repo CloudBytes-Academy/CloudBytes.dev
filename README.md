@@ -10,13 +10,13 @@ But most importly making your experience of learning easier and fun 🎉🎈😁
 The repository has the following structure:
 
 1. `.devcontainer`: [VSCode Devcontainer](https://code.visualstudio.com/docs/remote/containers) Dockerfile for easy configuration
-2. `.github/workflows`: Contains the script for automated deployment using this [action](https://github.com/justgoodin/pelican-build-deploy-anywhere).
+2. `.github/workflows`: Contains the script for automated deployment using this custom [action](https://github.com/justgoodin/pelican-build-deploy-anywhere).
 3. `content`: Where the content resides
 4. `design`: Themes for the website. The current version is nicknamed `alexis`.
 
 Additionally, the root folder contains the following files
 
-1. `pelicanconf.py`: The Pelican configuration being used by the website
+1. `pelicanconf.py`: The Pelican 🦢 configuration being used by the website
 2. `Makefile`: An alternate method to generate website without the need for installation of other tools
 3. `publishconf.py`: Configuration for publishing the website
 4. `requirements.txt`: All the python dependencies used
