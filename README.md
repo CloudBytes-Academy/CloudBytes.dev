@@ -16,9 +16,9 @@ The repository has the following structure:
 
 Additionally, the root folder contains the following files
 
-1. `pelicanconf.py`: The Pelican 🦢 configuration being used by the website
+1. `pelicanconf.py`: The Pelican 🦢 configuration being used by the website used for local development
 2. `Makefile`: An alternate method to generate website without the need for installation of other tools
-3. `publishconf.py`: Configuration for publishing the website
+3. `publishconf.py`: Configuration for publishing the website used for final website generation
 4. `requirements.txt`: All the python dependencies used
 5. `tasks.py`: Pre-configured build tasks that can be customised as per need
 
