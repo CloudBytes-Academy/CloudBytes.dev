@@ -95,6 +95,3 @@ SITEMAP = {
     "priorities": {"articles": 1, "indexes": 1, "pages": 0.25},
     "changefreqs": {"articles": "weekly", "indexes": "daily", "pages": "monthly"},
 }
-
-
-PLUGINS = ["minify"]
