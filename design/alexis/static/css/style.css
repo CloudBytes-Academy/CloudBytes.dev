@@ -356,9 +356,10 @@ li {
 blockquote {
     position: relative;
     padding-left: 1em;
-    border-left: 3px dashed var(--nav-bg);
-    font-size: 1.2em;
+    border-left: 6px solid var(--nav-bg);
+    font-size: 1rem;
     font-weight: 300;
+    font-style: italic;
 }
 
 .red {

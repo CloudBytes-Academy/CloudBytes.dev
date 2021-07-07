@@ -3,6 +3,7 @@ Date: 2021-07-04
 Category: Snippets
 Tags: python, pelican
 Author: Rehan Haider
+Keywords: Python, pelican, SSG, google, webmaster, sitemap
 Summary: A quick guide to correctly configurating sitemaps in Pelican & fixing URL errors thrown up by Google Search Console
 
 

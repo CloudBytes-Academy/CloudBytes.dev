@@ -6,36 +6,31 @@
     <meta http-equiv="Content-Type" content="text/html" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    {% block meta %}
+    {% endblock %}
 
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="{{ SITEURL}}/{{ THEME_STATIC_DIR}}/img/icons/favicon.svg">
     <link rel="icon" type="image/png" href="{{ SITEURL}}/{{ THEME_STATIC_DIR}}/img/icons/favicon.png">
+    <!-- App icons -->
     <link rel="apple-touch-icon" sizes="180x180"
         href="{{ SITEURL}}/{{ THEME_STATIC_DIR}}/img/icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32"
         href="{{ SITEURL}}/{{ THEME_STATIC_DIR}}/img/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16"
         href="{{ SITEURL}}/{{ THEME_STATIC_DIR}}/img/icons/favicon-16x16.png">
-    <link rel="manifest" href="{{ SITEURL}}/{{ THEME_STATIC_DIR}}/img/icons/site.webmanifest">
     <link rel="mask-icon" href="{{ SITEURL}}/{{ THEME_STATIC_DIR}}/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="mask-icon" href="{{ SITEURL}}/{{ THEME_STATIC_DIR}}/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="manifest" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/manifest.json">
     <meta name="msapplication-TileColor" content="#fdf6e3">
     <meta name="msapplication-config" content="{{ SITEURL}}/{{ THEME_STATIC_DIR}}/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
 
-    
-
-    <!-- Hide files under hidden_pages-->
-    {% if page in hidden_pages %}
-    <meta name="robots" content="noindex, nofollow" />
-    {% else %}
-    <meta name="robots" content="{{ ROBOTS }}" />
-    {% endif %}
-
+    <!-- Theme -->
     <link rel=" stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/style.css">
-    <link rel="manifest" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/manifest.json">
-    <link rel="mask-icon" href="{{ SITEURL}}/{{ THEME_STATIC_DIR}}/img/icons/safari-pinned-tab.svg" color="#5bbad5">
 
     <title>{% block title%}{% endblock %}</title>
+    <!-- App -->
     <script defer src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/app.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id={{GTAG}}"></script>
@@ -43,7 +38,6 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', '{{GTAG}}');
     </script>
 </head>

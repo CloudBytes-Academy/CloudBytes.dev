@@ -1,5 +1,11 @@
 {% extends "layouts/base.html" %}
 
+{% block meta %}
+<meta name="author" content="{{ article.author.name }}" />
+<meta name="description" content="{{ article.summary|striptags|escape }}" />
+<meta name="keywords" content="{{ article.keywords|escape }}">
+{% endblock %}
+
 {% block title %}
 {{article.title}}
 {% endblock %}
