@@ -95,3 +95,9 @@ SITEMAP = {
     "priorities": {"articles": 1, "indexes": 1, "pages": 0.25},
     "changefreqs": {"articles": "weekly", "indexes": "daily", "pages": "monthly"},
 }
+
+# SEO Settings
+SEO_REPORT = True  # To enable this feature
+SEO_ENHANCER = False  # To disable this feature
+SEO_ENHANCER_OPEN_GRAPH = False  # The default value for this feature
+SEO_ENHANCER_TWITTER_CARDS = False  # The default value for this feature
