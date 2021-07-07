@@ -15,6 +15,8 @@
     {% include "layouts/partial/article-card.html" %}
     {% endfor %}
 </div>
+
+{% set page_type = ('tag/' ~ tag ) %}
 {% include "layouts/partial/pagination.html" %}
 
 {% endblock %}

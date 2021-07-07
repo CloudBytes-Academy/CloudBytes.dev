@@ -14,4 +14,6 @@
     {% include "layouts/partial/article-card.html" %}
     {% endfor %}
 </div>
+{% set page_type = author %}
+{% include "layouts/partial/pagination.html" %}
 {% endblock %}
