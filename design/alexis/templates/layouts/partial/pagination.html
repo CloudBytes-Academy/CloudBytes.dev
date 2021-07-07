@@ -1,7 +1,7 @@
 {% if DEFAULT_PAGINATION %}
 {% set max_pages = ((articles_paginator.object_list|list|count)/6)|round(0,'ceil')|int %}
 
-{% set page_type = ('tag/' ~ tag ) if tag else category %}
+
 <ul class="pagination">
     <li class="page-item">
         <a href="{{ SITEURL}}/{{ page_type|lower }}/" class="page-link" aria-label="First"><span
