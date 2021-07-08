@@ -2105,6 +2105,16 @@ h1.tag {
     background: #bc1142
 }
 
+.tag-vscode {
+ color: #fff;
+ background: #0066b8   
+}
+
+.tag-fastapi {
+    color: #fff;
+    background: #009485;
+}
+
 .btn, .page-item {
     background: var(--nav-bg);
     margin: .25em .25em .25em 0;
