@@ -3,26 +3,26 @@ window.addEventListener("load", myInit, true);
 function myInit() {
     // Manage highlights for current page
     function logo(e) {
-        var currentURL = window.location.pathname;
-        var activePath = "";
-        if (currentURL == "/") {
-            activePath = "home";
+        try {
+            var currentURL = window.location.pathname;
+            var activePath = "";
+            if (currentURL == "/") {
+                activePath = "home";
+            }
+            else if (currentURL == "/tags.html") {
+                activePath = "tag";
+            }
+            else {
+                var pathArray = window.location.pathname.split('/');
+                activePath = pathArray[1];
+            }
+            document.getElementById(activePath).className += " active";
         }
-        else if (currentURL == "/tags.html") {
-            activePath = "tag";
+        catch (err) {
+            document.getElementById("home").className += " active";
         }
-        else {
-            var pathArray = window.location.pathname.split('/');
-            activePath = pathArray[1];
-        }
-        console.log(currentURL)
-        console.log(activePath)
-
-        document.getElementById(activePath).className += " active";
     };
     logo();
-
-    page();
 
     // Pagination Handler
     function page(e) {
@@ -39,11 +39,12 @@ function myInit() {
             };
         };
     };
+    page();
 };
 
 
 // Theme toggler
-const themeNext = {
+var themeNext = {
     dark: "light",
     light: "dark"
 };
@@ -89,3 +90,4 @@ navigator.serviceWorker &&
     });
 
 **/
+
