@@ -1529,9 +1529,10 @@ menu-toggler {
     max-height: 80vh;
     margin-top: 1em;
     overflow-y: auto;
+    position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 30px;
-    box-shadow: var(--toc-shadow)
+    box-shadow: var(--toc-shadow);
 }
 
 .toc nav::-webkit-scrollbar {
