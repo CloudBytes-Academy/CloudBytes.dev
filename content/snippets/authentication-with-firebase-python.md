@@ -4,6 +4,7 @@ Category: Snippets
 Tags: javascript, react
 Author: Rehan Haider
 Summary: A quickstart to using Firebase for authentication.
+Status: Hidden
 
 # This is how you authenticate
 Is this even working
