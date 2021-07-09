@@ -10,7 +10,7 @@ Jamstack is a serverless web-app design concept which derives its JAM from JavaS
 
 This architectural pattern can be implemented by a combination of technologies for each one of JavaScript, API, and Markup. 
 
-<img src="{static}/images/s0004/jam.png" alt="jamstack architecture" width="75%" caption="Fig. 1: Jamstack frameworks / tools combination">
+<img src="{static}/images/s0004/JAM.png" alt="jamstack architecture" width="75%" caption="Fig. 1: Jamstack frameworks / tools combination">
 
 ## So what makes a Jamstack?
 
@@ -36,7 +36,7 @@ Additionally, because of the lack of moving parts, testing becomes a lot easier 
 
 Finally, because you're using a bunch of static pages, you can use Content Delivery Network such as CloudFlare, AWS CloudFront, etc. to deliver your pages from close to where the users are resulting in sub-second page load times. 
 
-<img src="{static}/images/s0004/CDN.png" alt="jamstack content delivery network" width="75%" caption="Fig. 2: Jamstack frameworks content delivery network">
+<img src="{static}/images/s0004/cdn.png" alt="jamstack content delivery network" width="75%" caption="Fig. 2: Jamstack frameworks content delivery network">
 
 ## When to use Jamstack? 
 
