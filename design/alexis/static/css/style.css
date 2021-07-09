@@ -129,6 +129,7 @@ main {
     flex: 1;
     transition: margin .3s ease;
     border-bottom: var(--h-border);
+    margin-top: 1rem
 }
 
 .sidebar {
