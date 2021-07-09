@@ -1,7 +1,8 @@
+[![Open in VSCode](ovs.svg)](https://open.vscode.dev/UberPython/UberPython)
 [![Deploy](https://github.com/UberPython/UberPython/actions/workflows/workflow.yml/badge.svg)](https://github.com/UberPython/UberPython/actions/workflows/workflow.yml)
 
 # [UberPython](https://uberpython.com)
-Short 🤏and succint snippets explaining Python 🐍 and Computer Science 💻🧪concepts , designed for new 🆕 adopters focused on doing. 
+Short🤏 and succint snippets explaining Python🐍 and Computer Science💻🧪 concepts , designed for new 🆕 adopters focused on doing. 
 
 But most importly making your experience of learning easier and fun 🎉🎈😁. 
 
