@@ -18,9 +18,7 @@ jobs:
         GH_PAGES_CNAME: ${{secrets.DOMAIN_CNAME}}
   deploy:
     needs: build
-    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
