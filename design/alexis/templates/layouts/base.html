@@ -40,7 +40,6 @@
 </head>
 
 <body>
-
     <!--Top nav-->
     {% include "layouts/topnav.html" %}
     <!--Top nav-->
@@ -50,7 +49,6 @@
             dark: "light",
             light: "dark"
         };
-
         if (localStorage.getItem('theme')) {
             var theme = localStorage.getItem('theme');
             document.body.classList.remove('dark-theme', 'light-theme');
@@ -58,11 +56,9 @@
             document.getElementById(themeNext[theme]).style.display = "flex";
             document.getElementById(theme).style.display = "none";
         }
-
         var switchTheme = document.getElementById('themeButton');
         var toggleLight = document.getElementById('light');
         var toggleDark = document.getElementById('dark');
-
         switchTheme.addEventListener('click', function (e) {
             e.preventDefault();
         });
@@ -82,7 +78,6 @@
             toggleLight.style.display = "flex";
             toggleDark.style.display = "none";
         });
-
     </script>
     <!-- Sidebar -->
     {% include "layouts/sidebar.html" %}
