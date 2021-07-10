@@ -328,7 +328,8 @@ footer {
     margin-top: 1rem;
     margin-bottom: 5rem;
     opacity: .8;
-    font-size: calc(var(--font-size) * 0.5);
+    /*font-size: calc(var(--font-size) * 0.5);*/
+    font-size: .85em;
 }
 
 footer ul {
