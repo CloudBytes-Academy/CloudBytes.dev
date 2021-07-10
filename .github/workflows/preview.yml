@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: justgoodin/pelican-build-deploy-anywhere@v0.1.4
+    - uses: justgoodin/pelican-build-deploy-anywhere@v0.1.5
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     - uses: FirebaseExtended/action-hosting-deploy@v0
