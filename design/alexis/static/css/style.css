@@ -32,7 +32,7 @@
     --card-bg: #fff;
     --overlay-bg: hsla(0, 0%, 100%, 0.9);
     --h-border: 2px dashed var(--nav-bg);
-    transition: all .5s ease;
+    /*transition: all .5s ease;*/
 }
 
 #dark {
@@ -122,6 +122,7 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
     background: var(--blue-light);
 }
+
 
 main {
     padding: 1em;
