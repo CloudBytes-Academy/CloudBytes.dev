@@ -5,6 +5,8 @@ name: Deploy to Firebase Hosting on PR
 'on': pull_request
 jobs:
   build_and_preview:
+    run: echo "Repo Full name is: ${{github.event.pull_request.head.repo.full_name}}"
+    run: echo "Repository is: ${{github.repository}}"
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
     steps:
