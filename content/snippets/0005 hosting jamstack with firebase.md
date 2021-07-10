@@ -44,4 +44,4 @@ git commit -m "FEAT: Firebase hosting enabled"
 
 git push
 
-preview the deployment
+preview the deployment. still doing
