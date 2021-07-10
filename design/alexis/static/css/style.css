@@ -123,6 +123,7 @@ body::-webkit-scrollbar-thumb {
     background: var(--blue-light);
 }
 
+
 main {
     padding: 1em;
     padding-top: var(--nav-width);

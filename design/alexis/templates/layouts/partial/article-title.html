@@ -1,9 +1,9 @@
 <h1 id="title" class="snippet-title">{{ article.title }}</h1>
 <div class="row snippet-byline">
-    <em>by <a href="{{ SITEURL}}/authors/{{ article.author.slug }}">{{article.author}}</a>, {{article.locale_date}}</em>
+    <em>by <a href="/authors/{{ article.author.slug }}">{{article.author}}</a>, {{article.locale_date}}</em>
     <span>
         <strong>Category</strong>:
-        <a href="{{ SITEURL}}/{{article.category.slug}}" class="tag tag-{{article.category|lower}}">
+        <a href="/{{article.category.slug}}" class="tag tag-{{article.category|lower}}">
             {{article.category}}
         </a>
     </span>

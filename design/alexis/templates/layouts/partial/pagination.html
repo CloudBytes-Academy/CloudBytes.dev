@@ -4,28 +4,27 @@
 
 <ul class="pagination">
     <li class="page-item">
-        <a href="{{ SITEURL}}/{{ page_type|lower }}/" class="page-link" aria-label="First"><span
-                aria-hidden="true">««</span></a>
+        <a href="/{{ page_type|lower }}/" class="page-link" aria-label="First"><span aria-hidden="true">««</span></a>
     </li>
     <li class="page-item">
         {% if articles_page.has_previous() %}
-        <a href="{{ SITEURL}}/{{ articles_previous_page.url }}" class="page-link" aria-label="Previous"><span
+        <a href="/{{ articles_previous_page.url }}" class="page-link" aria-label="Previous"><span
                 aria-hidden="true">«</span></a>
         {% else %}
         <a class="page-link active" aria-label="Previous"><span aria-hidden="true">«</span></a>
         {% endif %}
     </li>
     <li class="page-item">
-        <a class="page-link" href="{{ SITEURL}}/{{ page_type|lower }}/">1</a>
+        <a class="page-link" href="/{{ page_type|lower }}/">1</a>
     </li>
     {% for n in range(2,max_pages+1) %}
     <li class="page-item">
-        <a class="page-link" href="{{ SITEURL}}/{{ page_type|lower }}/{{n}}/">{{n}}</a>
+        <a class="page-link" href="/{{ page_type|lower }}/{{n}}/">{{n}}</a>
     </li>
     {% endfor %}
     <li class="page-item">
         {% if articles_page.has_next() %}
-        <a href="{{ SITEURL}}/{{ articles_next_page.url }}" class="page-link" aria-label="Next"><span
+        <a href="/{{ articles_next_page.url }}" class="page-link" aria-label="Next"><span
                 aria-hidden="true">»</span></a>
         {% else %}
         <a class="page-link active" aria-label="Next"><span aria-hidden="true">»</span></a>
@@ -33,8 +32,8 @@
     </li>
 
     <li class="page-item">
-        <a href="{{ SITEURL}}/{{ page_type|lower }}/{{ max_pages if max_pages != 1 }}/" class="page-link"
-            aria-label="Last"><span aria-hidden="true">»»</span></a>
+        <a href="/{{ page_type|lower }}/{{ max_pages if max_pages != 1 }}/" class="page-link" aria-label="Last"><span
+                aria-hidden="true">»»</span></a>
     </li>
 </ul>
 {% endif %}
