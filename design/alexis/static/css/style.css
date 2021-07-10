@@ -358,10 +358,11 @@ li {
 blockquote {
     position: relative;
     padding-left: 1em;
-    border-left: 6px solid var(--nav-bg);
+    border-left: 0.5rem solid var(--nav-bg);
     font-size: 1rem;
     font-weight: 300;
     font-style: italic;
+    margin-left: 0;
 }
 
 .red {
