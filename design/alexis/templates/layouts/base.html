@@ -22,11 +22,13 @@
     <meta name="theme-color" content="#fff">
 
     <!-- Theme -->
-    <link rel=" stylesheet" href="/{{ THEME_STATIC_DIR }}/css/style.css">
+
+    <link rel="stylesheet" href="/{{ THEME_STATIC_DIR }}/css/style.css">
 
     <title>{% block title%}{% endblock %}</title>
+    <link rel="dns-prefetch" href="https://uberpython.com">
     <!-- App -->
-    <script src="/{{ THEME_STATIC_DIR }}/js/app.js"></script>
+    <script defer src="/{{ THEME_STATIC_DIR }}/js/app.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id={{GTAG}}"></script>
     <script>
@@ -38,10 +40,53 @@
 </head>
 
 <body>
+
     <!--Top nav-->
     {% include "layouts/topnav.html" %}
     <!--Top nav-->
+    <script>
+        // Theme toggler
+        const themeNext = {
+            dark: "light",
+            light: "dark"
+        };
 
+        if (localStorage.getItem('theme')) {
+            var theme = localStorage.getItem('theme');
+            console.log(document.body.classList)
+            console.log("Here")
+            document.body.classList.remove('dark-theme', 'light-theme');
+            document.body.classList.add(theme + '-theme');
+            document.getElementById(themeNext[theme]).style.display = "flex";
+            document.getElementById(theme).style.display = "none";
+
+        }
+
+        var switchTheme = document.getElementById('themeButton');
+        var toggleLight = document.getElementById('light');
+        var toggleDark = document.getElementById('dark');
+
+        switchTheme.addEventListener('click', function (e) {
+            e.preventDefault();
+        });
+        toggleLight.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.body.classList.add('light-theme');
+            document.body.classList.remove('dark-theme');
+            localStorage.setItem('theme', 'light');
+            toggleLight.style.display = "none";
+            toggleDark.style.display = "flex";
+        });
+        toggleDark.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.body.classList.add('dark-theme');
+            document.body.classList.remove('light-theme');
+            localStorage.setItem('theme', 'dark');
+            toggleLight.style.display = "flex";
+            toggleDark.style.display = "none";
+        });
+
+    </script>
     <!-- Sidebar -->
     {% include "layouts/sidebar.html" %}
     <!-- End Sidebar -->
@@ -53,6 +98,7 @@
     </main>
     <!-- End of Main Section -->
     {% include "layouts/footer.html" %}
+
 </body>
 
 </html>
