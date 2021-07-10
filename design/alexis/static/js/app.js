@@ -6,10 +6,11 @@ function myInit() {
         try {
             var currentURL = window.location.pathname;
             var activePath = "";
+            console.log(currentURL)
             if (currentURL == "/") {
                 activePath = "home";
             }
-            else if (currentURL == "/tags.html") {
+            else if (currentURL == "/tags") {
                 activePath = "tag";
             }
             else {
