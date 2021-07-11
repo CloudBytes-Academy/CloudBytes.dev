@@ -37,13 +37,5 @@
     ],
     "cleanUrls": true,
     "trailingSlash": false
-  },
-  "emulators": {
-    "hosting": {
-      "port": 8080
-    },
-    "ui": {
-      "enabled": true
-    }
   }
 }
