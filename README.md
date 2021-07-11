@@ -2,7 +2,7 @@
 [![Deploy](https://github.com/UberPython/UberPython/actions/workflows/workflow.yml/badge.svg)](https://github.com/UberPython/UberPython/actions/workflows/workflow.yml)
 
 # [UberPython](https://uberpython.com)
-Short🤏 and succint snippets explaining Python🐍 and Computer Science💻🧪 concepts , designed for new 🆕 adopters focused on doing. 
+Detail guides explaining Python🐍 and Computer Science💻🧪 concepts , designed for new 🆕 adopters focused on doing. 
 
 But most importly making your experience of learning easier and fun 🎉🎈😁. 
 
@@ -22,6 +22,7 @@ Additionally, the root folder contains the following files
 3. `publishconf.py`: Configuration for publishing the website used for final website generation
 4. `requirements.txt`: All the python dependencies used
 5. `tasks.py`: Pre-configured build tasks that can be customised as per need
+6. `sitemap.py`: Sitemap plugin by default generates URLs with .html, this script remove it to make it consistent with URL rewrite rules for Firebase hosting
 
 ## Contributions
 
