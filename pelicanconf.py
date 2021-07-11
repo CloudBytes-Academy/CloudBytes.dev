@@ -4,7 +4,7 @@ from os import environ
 
 AUTHOR = "UberPython"
 SITENAME = "UberPython"
-SITEURL = ""
+SITEURL = "https://uberpython.com"
 
 THEME_STATIC_DIR = "assets"
 THEME = "./design/alexis"
@@ -22,18 +22,23 @@ EXTRA_PATH_METADATA = {"extra/SW.js": {"path": "SW.JS"}}
 # ARTICLE_URL = PAGE_URL = "{path_no_ext}"
 # ARTICLE_SAVE_AS = PAGE_SAVE_AS = "{path_no_ext}/index.html"
 
+# To define no .html in all page types used for github pages
+# ARTICLE_URL = "{category}/{slug}"
+# ARTICLE_SAVE_AS = "{category}/{slug}/index.html"
+# AUTHOR_URL = "authors/{slug}"
+# AUTHOR_SAVE_AS = "authors/{slug}/index.html"
+# CATEGORY_URL = "{slug}"
+# CATEGORY_SAVE_AS = "{slug}/index.html"
+# TAG_URL = "tag/{slug}"
+# TAG_SAVE_AS = "tag/{slug}/index.html"
+# PAGE_URL = "{slug}.html"
+# PAGE_SAVE_AS = "{slug}.html"
 
-ARTICLE_URL = "{category}/{slug}"
-ARTICLE_SAVE_AS = "{category}/{slug}/index.html"
-
-AUTHOR_URL = "authors/{slug}"
-AUTHOR_SAVE_AS = "authors/{slug}/index.html"
-CATEGORY_URL = "{slug}"
-CATEGORY_SAVE_AS = "{slug}/index.html"
-TAG_URL = "tag/{slug}"
-TAG_SAVE_AS = "tag/{slug}/index.html"
-PAGE_URL = "{slug}.html"
-PAGE_SAVE_AS = "{slug}.html"
+#
+ARTICLE_URL = ARTICLE_SAVE_AS = "{category}/{slug}.html"
+PAGE_URL = PAGE_SAVE_AS = "{slug}.html"
+CATEGORY_URL = CATEGORY_SAVE_AS = "{slug}.html"
+TAG_URL = TAG_SAVE_AS = "tag/{slug}.html"
 
 
 TIMEZONE = "UTC"
