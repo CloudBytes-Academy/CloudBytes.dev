@@ -15,7 +15,6 @@ jobs:
     - uses: justgoodin/pelican-build-action
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-    - run: python sitemap.py    
     - uses: FirebaseExtended/action-hosting-deploy@v0
       with:
         repoToken: '${{ secrets.GITHUB_TOKEN }}'
