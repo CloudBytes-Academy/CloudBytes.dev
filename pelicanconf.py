@@ -78,7 +78,7 @@ PAGINATION_PATTERNS = (
 PAGINATED_TEMPLATES = {"index": None, "tag": None, "category": None, "author": None}
 
 # Uncomment following line if you want document-relative URLs when developing
-# RELATIVE_URLS = True
+RELATIVE_URLS = True
 
 
 # Tag Cloud settings
