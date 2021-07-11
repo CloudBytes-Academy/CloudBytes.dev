@@ -1235,7 +1235,7 @@ menu-toggler {
     }
 }
 
-.snippet-list-link {
+.article-list-link {
     text-decoration: none;
     margin-bottom: 10px;
     text-align: left;
@@ -1694,21 +1694,21 @@ menu-toggler {
     min-height: 240px
 }
 
-.snippet-title {
+.article-title {
     font-size: 2em;
     padding-bottom: 5px;
     border-bottom: var(--h-border);
     margin: 0;
 }
 
-.snippet-byline {
+.article-byline {
     font-size: 0.83rem;
     padding: 5px 0 5px;
     border-bottom: var(--h-border);
     align-items: center;
 }
 
-.snippet-tags {
+.article-tags {
     font-size: 0.83rem;
     padding: 5px 0 5px;
     align-items: center;

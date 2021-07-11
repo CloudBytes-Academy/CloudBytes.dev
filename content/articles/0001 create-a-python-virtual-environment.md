@@ -1,6 +1,6 @@
 Title: Create a Python virtual environment using venv
 Date: 2021-07-04
-Category: Snippets
+Category: Articles
 Tags: python
 Author: Rehan Haider
 Summary: A quick guide to why you need a virtual environment, how to create, activate and manage

@@ -1,6 +1,6 @@
 Title: Configure & Fix Pelican Sitemap Error on Google Search Console
 Date: 2021-07-04
-Category: Snippets
+Category: Articles
 Tags: python, pelican
 Author: Rehan Haider
 Keywords: Python, pelican, SSG, google, webmaster, sitemap

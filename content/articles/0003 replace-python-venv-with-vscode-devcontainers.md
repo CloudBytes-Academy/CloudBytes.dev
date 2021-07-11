@@ -1,6 +1,6 @@
 Title: Use VSCode Devcontainers instead of Python venv
 Date: 2021-07-07
-Category: Snippets
+Category: Articles
 Tags: python, vscode, github
 Author: Rehan Haider
 Summary: VSCode Devcontainers are game changers that makes Python dependency management much easier. 
