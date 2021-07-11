@@ -123,7 +123,6 @@ body::-webkit-scrollbar-thumb {
     background: var(--blue-light);
 }
 
-
 main {
     padding: 1em;
     padding-top: var(--nav-width);
@@ -326,7 +325,6 @@ footer {
     flex-direction: column;
     text-align: center;
     margin-top: 1rem;
-    margin-bottom: 1rem;
     opacity: .8;
     /*font-size: calc(var(--font-size) * 0.5);*/
     font-size: .85em;
@@ -345,6 +343,22 @@ footer ul {
     display: block;
     margin: 0 1rem;
     padding: 0 1rem;
+}
+
+/* Small screens */
+
+@media only screen and (max-width: 600px) {
+    footer {
+        margin-bottom: 5rem;
+    }
+}
+
+/* Large screens */
+
+@media only screen and (min-width: 600px) {
+    footer {
+        margin-bottom: 1rem;
+    }
 }
 
 hr {
@@ -1533,7 +1547,8 @@ menu-toggler {
     max-height: 80vh;
     margin-top: 1em;
     overflow-y: auto;
-    position: -webkit-sticky; /* Safari */
+    position: -webkit-sticky;
+    /* Safari */
     position: sticky;
     top: 30px;
     box-shadow: var(--toc-shadow);
@@ -2110,8 +2125,8 @@ h1.tag {
 }
 
 .tag-vscode {
- color: #fff;
- background: #0066b8   
+    color: #fff;
+    background: #0066b8
 }
 
 .tag-fastapi {
