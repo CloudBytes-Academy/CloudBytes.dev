@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: justgoodin/pelican-build-action
+    - uses: justgoodin/pelican-build-action@v0.1.6
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     - uses: FirebaseExtended/action-hosting-deploy@v0
