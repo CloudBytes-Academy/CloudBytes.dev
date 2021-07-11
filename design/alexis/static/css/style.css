@@ -221,7 +221,6 @@ a.item {
 @media only screen and (max-width: 600px) {
     main {
         flex: 1;
-        transition: margin .3s ease;
         margin-left: inherit;
     }
     .sidebar {
