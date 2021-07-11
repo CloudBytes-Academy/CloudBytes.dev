@@ -12,10 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: justgoodin/pelican-build-action@v0.1.5
+    - uses: justgoodin/pelican-build-action
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-    - run: python sitemap.py    
     - uses: FirebaseExtended/action-hosting-deploy@v0
       with:
         repoToken: '${{ secrets.GITHUB_TOKEN }}'
