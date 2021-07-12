@@ -6,7 +6,6 @@ Jinja2==3.0.1
 livereload==2.6.3
 Markdown==3.3.4
 MarkupSafe==2.0.1
-minify-html==0.4.11
 pelican==4.6.0
 pelican-sitemap==1.0.2
 pelican-tag-cloud==1.0.0

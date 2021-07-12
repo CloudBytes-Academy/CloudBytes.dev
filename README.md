@@ -1,4 +1,4 @@
-[![Open in VSCode](ovs.svg)](https://open.vscode.dev/UberPython/UberPython)
+[![Open in VSCode](resources/ovs.svg)](https://open.vscode.dev/UberPython/UberPython)
 [![Deploy](https://github.com/UberPython/UberPython/actions/workflows/workflow.yml/badge.svg)](https://github.com/UberPython/UberPython/actions/workflows/workflow.yml)
 
 # [UberPython](https://uberpython.com)
@@ -22,7 +22,7 @@ Additionally, the root folder contains the following files
 3. `publishconf.py`: Configuration for publishing the website used for final website generation
 4. `requirements.txt`: All the python dependencies used
 5. `tasks.py`: Pre-configured build tasks that can be customised as per need
-6. `sitemap.py`: Sitemap plugin by default generates URLs with .html, this script remove it to make it consistent with URL rewrite rules for Firebase hosting
+6. `addons.py`: Hook to run any post-build actions not covered by Pelican plugins, such as sitemap corrections, etc.
 
 ## Contributions
 

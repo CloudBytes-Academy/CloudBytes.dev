@@ -1,7 +1,7 @@
 window.addEventListener("load", myInit, true);
 
 function myInit() {
-    // Manage highlights for current page
+    /* Manage highlights for current page */
     function logo(e) {
         try {
             var currentURL = window.location.pathname;
