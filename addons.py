@@ -1,3 +1,4 @@
-from hooks.sitemap import fix_sitemap
+from calepin.hooks.sitemap import fix_sitemap
 
 fix_sitemap()
+print("This got executed")
