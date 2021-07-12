@@ -129,7 +129,6 @@ main {
     flex: 1;
     transition: margin .3s ease;
     border-bottom: var(--h-border);
-    margin-top: 1rem;
 }
 
 .sidebar {
@@ -222,6 +221,7 @@ a.item {
     main {
         flex: 1;
         margin-left: inherit;
+        margin-top: 0.5rem;
     }
     .sidebar {
         bottom: 0;
@@ -1802,11 +1802,11 @@ menu-toggler {
 }
 
 .content-pad {
-    padding: 0 3em;
+    padding: 0 2em;
     margin-bottom: 2em
 }
 
-@media (max-width:768px) {
+@media (max-width:600px) {
     .content-pad {
         padding: 0 .5em
     }
