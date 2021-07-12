@@ -7,9 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: justgoodin/pelican-build-action@v0.1.7
+    - uses: justgoodin/pelican-build-action@v0.1.9
       env:
-        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        PELICAN_CONFIG_FILE: calepin/publishconf.py
+        PELICAN_CONTENT_FOLDER: caleping/content
     - uses: FirebaseExtended/action-hosting-deploy@v0
       with:
         repoToken: '${{ secrets.GITHUB_TOKEN }}'

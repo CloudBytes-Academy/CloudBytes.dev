@@ -16,7 +16,6 @@ jobs:
       env:
         PELICAN_CONFIG_FILE: calepin/publishconf.py
         PELICAN_CONTENT_FOLDER: caleping/content
-        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     - uses: FirebaseExtended/action-hosting-deploy@v0
       with:
         repoToken: '${{ secrets.GITHUB_TOKEN }}'
