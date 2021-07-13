@@ -4,11 +4,18 @@
             href="https://github.com/UberPython/UberPython/tree/main/calepin/content/{{article.relative_source_path}}">GitHub.</a>
     </h3>
     {% endif %}
-    <p>Generated using Python🐍 3.9 & Pelican 🦢</p>
+    {% if not article %}
+    <p>
+        <b>Generated using Python🐍 3.9 & Pelican 🦢. View the Source Code on <a
+                href="https://github.com/UberPython/UberPython">GitHub
+            </a>.
+        </b>
+    </p>
+    {% endif %}
     <p>Copyright &copy; 2020 - {{CURRENTYEAR}} UberPython. All rights reserved.</p>
     <ul>
-        <li class="footer-nav"><a href=" /terms.html ">Terms</a></li>
-        <li class="footer-nav"><a href="/privacy.html">Privacy Policy</a></li>
+        <li class="footer-nav"><a href=" /terms ">Terms</a></li>
+        <li class="footer-nav"><a href="/privacy">Privacy Policy</a></li>
         <li class="footer-nav"><a href="/sitemap.xml">Sitemap</a></li>
     </ul>
 </footer>
