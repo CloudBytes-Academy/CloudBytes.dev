@@ -344,6 +344,10 @@ footer ul {
     padding: 0 1rem;
 }
 
+footer p {
+    margin: 0.4rem;
+}
+
 /* Small screens */
 
 @media only screen and (max-width: 600px) {
