@@ -1,5 +1,9 @@
 {% extends "layouts/base.html" %}
 
+{% block meta %}
+<link rel="canonical" href="{{ SITEURL }}/{{category.url}}">
+{% endblock %}
+
 
 {% block title %}
 {{category}}
