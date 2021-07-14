@@ -11,7 +11,7 @@
     --card-bg: var(--gray5);
     --overlay-bg: rgba(0, 0, 0, 0.9);
     --h-border: 2px dashed var(--nav-bg);
-    --card-radius: 0.25em;
+    --card-radius: 0.5em;
     transition: all .3s ease;
 }
 
@@ -1293,7 +1293,7 @@ menu-toggler {
     display: flex;
     min-height: 100px;
     margin: .5em 0;
-    border-radius: 15px
+    border-radius: var(--card-radius)
 }
 
 .box .box-icon {
@@ -1536,73 +1536,49 @@ menu-toggler {
     background-color: rgba(0, 255, 242, .3)
 }
 
-.toc {
-    min-width: 250px;
-    margin-right: .5em
+.toctitle {
+    margin: 1rem 0.5rem;
 }
 
-.toc nav {
-    border-top-left-radius: var(--card-radius);
-    border-bottom-left-radius: var(--card-radius);
+.toc {
+    border-radius: var(--card-radius);
     margin-bottom: 1em;
     background: var(--nav-bg);
     padding: .5em;
-    max-height: 80vh;
     margin-top: 1em;
-    overflow-y: auto;
-    position: -webkit-sticky;
-    /* Safari */
-    position: sticky;
     top: 30px;
     box-shadow: var(--toc-shadow);
 }
 
-.toc nav::-webkit-scrollbar {
-    height: 4px;
-    width: 4px
-}
-
-.toc nav::-webkit-scrollbar-track {
-    background: var(--background)
-}
-
-.toc nav::-webkit-scrollbar-thumb {
-    background: var(--gray3)
-}
-
-.toc nav::-webkit-scrollbar-thumb:hover {
-    background: var(--gray4)
-}
-
-.toc nav ul {
+.toc ul {
     list-style: none;
-    padding: 0;
-    margin: 0
+    padding: 0.5rem 1rem;
+    margin: 0;
 }
 
-.toc nav ul li {
-    padding: .5em
+.toc ul li {
+    padding: .25em
 }
 
-.toc nav ul li a {
+.toc ul li a {
     color: var(--blue);
     font-weight: 500;
     transition: color .4s
 }
 
-.toc nav ul li a:hover {
+.toc ul li a:hover {
     color: var(--purple);
     transition: color .4s;
     border-bottom: 1px solid var(--purple)
 }
 
-.toc nav ul li ul {
+.toc ul li ul {
     font-size: .75em;
     font-weight: 500;
     margin-left: 5px
 }
 
-.toc nav ul li ul a {
+.toc ul li ul a {
     color: var(--text-color)
 }
 
