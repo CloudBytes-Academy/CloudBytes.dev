@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: justgoodin/pelican-build-action@v0.1.10
+    - uses: rehanhaider/pelican-build-action@v0.1.10
       env:
         PELICAN_CONFIG_FILE: calepin/publishconf.py
         PELICAN_CONTENT_FOLDER: calepin/content

@@ -150,7 +150,7 @@ After that we defined the `steps` that need to be followed which are,
 4. Finally, we use official Firebase action to deploy the contents of `output` folder that the action will create into Firebase hosting 
 5. The above action will be performed with a `repoToken` that is provided by GitHub automatically, the `FIREBASE_SERVICE_ACCOUNT` credentials that we stored in previous section, into the `live` channel and finally the `projectId` that you should change to the name of the project you had created on Firebase
 
-## Push the Code to GitHub and watch the fun unfold
+## 5. Push the Code to GitHub and watch the fun unfold
 
 Open the VSCode terminal and run the below command to add all your files to your GitHub repository tracking
 ```bash
