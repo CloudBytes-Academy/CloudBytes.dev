@@ -131,7 +131,7 @@ main {
     border-bottom: var(--h-border);
 }
 
-.sidebar {
+.navbar {
     overflow-x: visible;
     position: fixed;
     left: 0;
@@ -143,12 +143,12 @@ main {
     transition: left .3s ease
 }
 
-.sidebar .item:hover .item-label {
+.navbar .item:hover .item-label {
     transform: scale(1) translateX(var(--nav-width));
     transition: transform 0ms ease-in
 }
 
-.sidebar .item .item-label {
+.navbar .item .item-label {
     position: fixed;
     transform: scale(0) translateX(0);
     transition: transform .3s ease-out;
@@ -156,11 +156,11 @@ main {
     left: 10px
 }
 
-.sidebar .item.item-highlight {
+.navbar .item.item-highlight {
     color: var(--green)
 }
 
-.sidebar::-webkit-scrollbar {
+.navbar::-webkit-scrollbar {
     width: 0;
     background: transparent
 }
@@ -223,7 +223,7 @@ a.item {
         margin-left: inherit;
         margin-top: 0.5rem;
     }
-    .sidebar {
+    .navbar {
         bottom: 0;
         left: 0;
         width: 100vw;
@@ -239,7 +239,7 @@ a.item {
         padding: 0.5rem 1rem;
         border-radius: 15px;
     }
-    .sidebar .item {
+    .navbar .item {
         overflow-x: visible
     }
     .logo {
@@ -253,7 +253,7 @@ a.item {
     main {
         margin-left: calc(var(--nav-width) + 1rem);
     }
-    .sidebar {
+    .navbar {
         top: 0;
         height: 100vh;
         min-height: 500px;
@@ -268,7 +268,7 @@ a.item {
         align-items: center;
         justify-content: center;
     }
-    .sidebar .item {
+    .navbar .item {
         margin-bottom: 10px;
         overflow-x: visible;
     }
