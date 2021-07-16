@@ -13,12 +13,16 @@
 
 
 {% block main %}
-<section id=" main" class="content-pad">
-    {% include "layouts/partial/article-title.html" %}
-    <article id="content">
-        {{article.content}}
-    </article>
-    {% include "layouts/partial/tags.html"%}
-</section>
-
+<article class="content-pad">
+    <div class="content-main">
+        <section class="content-article">
+            {% include "layouts/partial/article-title.html" %}
+            <article id="content">
+                {{article.content}}
+            </article>
+            {% include "layouts/partial/tags.html"%}
+        </section>
+        {% include "layouts/sidebar.html" %}
+    </div>
+</article>
 {% endblock %}

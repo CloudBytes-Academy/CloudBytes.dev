@@ -10,7 +10,7 @@ Home
 {% endblock %}
 
 {% block main %}
-<div class="row">
+<div class="content-main">
     <div>
         <header>
             <h1 class="border-bottom">Featured Articles</h1>
@@ -20,5 +20,7 @@ Home
             <button class="btn btn-green btn-block">View all articles</button>
         </a>
     </div>
+    {% include "layouts/sidebar.html" %}
 </div>
+
 {% endblock %}

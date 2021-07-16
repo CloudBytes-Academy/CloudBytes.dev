@@ -10,14 +10,16 @@
 {% endblock %}
 
 {% block main %}
-<header>
-    <h1 class="border-bottom">{{category}}</h1>
-</header>
+<div class="content">
+    <header>
+        <h1 class="border-bottom">{{category}}</h1>
+    </header>
 
-<div class="row">
-    {% for article in articles_page.object_list %}
-    {% include "layouts/partial/article-card.html" %}
-    {% endfor %}
+    <div class="row">
+        {% for article in articles_page.object_list %}
+        {% include "layouts/partial/article-card.html" %}
+        {% endfor %}
+    </div>
 </div>
 {% set page_type = category %}
 {% include "layouts/partial/pagination.html" %}

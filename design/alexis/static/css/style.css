@@ -280,11 +280,29 @@ a.item {
     }
 }
 
-/*
-svg {
-    filter: grayscale(100%);
+.sidebar {
+    height: 75vh;
+    position: fixed;
+    right: 1.5em;
+    display: inline-flex;
+    background: var(--nav-bg);
+    box-shadow: var(--nav-shadow);
+    z-index: 99;
+    transition: left .3s ease
 }
-*/
+
+@media only screen and (min-width: 600px) {
+    .sidebar {
+        min-width: calc(var(--nav-width) * 4 + 1rem);
+        margin: var(--nav-width) 0 0 0;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .sidebar {
+        display: none;
+    }
+}
 
 a {
     color: var(--blue);
@@ -370,7 +388,7 @@ hr {
 }
 
 li {
-    padding: .5em 0;
+    padding: .3em 0;
 }
 
 blockquote {
@@ -473,26 +491,37 @@ figcaption {
     gap: 1rem;
 }
 
-@media only screen and (max-width: 600px) {
-    .row {
-        grid-template-columns: repeat(auto-fit, minmax(50vw, 1fr));
-    }
-}
-
-@media only screen and (min-width: 600px) {
-    .row {
-        grid-template-columns: repeat(auto-fit, minmax(35vw, 1fr));
-    }
-}
-
 .row-max-1 {
     gap: 1.5rem;
-    grid-template-columns: repeat(1, minmax(250px, 650px));
 }
 
 .row-max-1, .row-max-2 {
     display: grid;
     justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .row {
+        grid-template-columns: repeat(auto-fit, minmax(50vw, 1fr));
+    }
+    .row-max-1 {
+        grid-template-columns: repeat(1, auto);
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .row-max-1 {
+        grid-template-columns: repeat(1, auto);
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .row {
+        grid-template-columns: repeat(auto-fit, minmax(35vw, 1fr));
+    }
+    .row-max-1 {
+        grid-template-columns: repeat(1, 60vw);
+    }
 }
 
 .row-max-2 {
@@ -1488,8 +1517,8 @@ menu-toggler {
 }
 
 .content-article {
-    width: 75%;
-    margin: 1em 2.5em
+    width: 70%;
+    /*margin: 1em 2.5em*/
 }
 
 .content-article.no-toc {
@@ -1507,8 +1536,8 @@ menu-toggler {
 
 .content-article ol, .content-article ul {
     font-weight: 300;
-    color: var(--h-color);
-    font-size: 1.1em
+    /*color: var(--h-color);
+    font-size: 1.1em*/
 }
 
 .content-article p {
@@ -1634,7 +1663,7 @@ menu-toggler {
 @media (max-width:1024px) {
     .content-main {
         flex-direction: column-reverse;
-        flex-wrap: wrap
+        /*flex-wrap: wrap*/
     }
     .content-article, .content-main, .toc {
         position: static;
