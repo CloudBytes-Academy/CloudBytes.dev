@@ -124,8 +124,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 main {
-    padding: 1em;
-    padding-top: var(--nav-width);
+    padding: var(--nav-width) 1em 0 1em;
     flex: 1;
     transition: margin .3s ease;
 }
@@ -336,14 +335,26 @@ i svg {
 
 footer {
     display: flex;
-    align-items: center;
+    /*align-items: center;*/
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    margin-top: 1rem;
     opacity: .8;
     /*font-size: calc(var(--font-size) * 0.5);*/
     font-size: .85em;
+}
+
+@media only screen and (min-width: 800px) {
+    .footer-row {
+        display: grid;
+        grid-template-columns: repeat(1, 70vw);
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    footer {
+        align-items: center;
+    }
 }
 
 footer ul {
