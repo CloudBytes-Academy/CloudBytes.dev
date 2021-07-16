@@ -1696,6 +1696,9 @@ menu-toggler {
 }
 
 .article-byline {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
     font-size: 0.83rem;
     padding: 5px 0 5px;
     border-bottom: var(--h-border);
