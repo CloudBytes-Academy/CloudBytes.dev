@@ -46,12 +46,6 @@ In VSCode, bring up your terminal and then install Pelican by running
 pip install "pelican[markdown]"
 ```
 
-Also install `invoke` and `livereload` libraries to automate local development and testing
-
-```bash
-pip install invoke livereload
-```
-
 ### Step 3: Setup Pelican
 
 In the terminal type the below to trigger Pelican setup
@@ -102,7 +96,7 @@ And it looks wonderful!
 To generate and serve your Pelican Website, run the below command
 
 ```bash
-invoke livereload
+make devserver
 ```
 
 This will build your blog in the `output` folder and start serving it on `localhost:8000`.
@@ -145,7 +139,7 @@ You can read more about the action at the [GitHub Marketplace](https://github.co
 
 ## Deploying the Pelican
 
-Go back to your VSCode terminal and run the below commands to push your repository to GitHub. Press `Ctrl+c` to stop `livereload` if it is still running. 
+Go back to your VSCode terminal and run the below commands to push your repository to GitHub. 
 
 ```bash
 pip freeze > requirements.txt
