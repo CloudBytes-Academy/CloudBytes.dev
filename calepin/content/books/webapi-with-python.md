@@ -1,5 +1,5 @@
 Title: Build WebAPIs with Python using Flask & FastAPI
-Date: 2021-03-15
+Date: 2021-07-15
 Category: Books
 Tags: python, fastapi, flask, heroku, github, jupyter
 Author: Rehan Haider
@@ -21,3 +21,4 @@ In this book you will learn
 5. FastAPI backed / API design
 6. Asynchronous API development
 
+Get is at Amazon or Kindle !

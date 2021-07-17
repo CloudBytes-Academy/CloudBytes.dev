@@ -303,6 +303,11 @@ a.item {
     }
 }
 
+.sidebar .banner img {
+    margin-top: 1.5em;
+    border-radius: var(--card-radius);
+}
+
 a {
     color: var(--blue);
     text-decoration: none;
@@ -1591,7 +1596,13 @@ menu-toggler {
 }
 
 .toc {
-    min
+    border-radius: var(--card-radius);
+    margin-bottom: 1em;
+    background: var(--nav-bg);
+    padding: .5em;
+    margin-top: 1em;
+    top: 30px;
+    box-shadow: var(--toc-shadow);
 }
 
 .toc ul {
