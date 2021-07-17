@@ -1,7 +1,7 @@
 Title: What is Jamstack and why should you be using it?
 Date: 2021-07-08
 Category: Articles
-Tags: python, javascript, pelican
+Tags: python, javascript, pelican, netlify
 Author: Rehan Haider
 Summary: An introduction to Jamstack concepts and why should you be using it instead of wordpress.
 Keywords: Jamstack, hugo, functions, serverless, netlify, firebase, pelican, 11ty, eleventy, jekyll, github, static website

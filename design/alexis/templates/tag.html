@@ -9,17 +9,20 @@
 {% endblock %}
 
 {% block main %}
-<header>
-    <h1 class="border-bottom"><span class="tag tag-{{tag}}">#{{tag}}</span></h1>
-</header>
+<div class="content-main">
 
-<div class="row">
-    {% for article in articles_page.object_list %}
-    {% include "layouts/partial/article-card.html" %}
-    {% endfor %}
+    <div>
+        <header>
+            <h1 class="border-bottom"><span class="tag tag-{{tag}}">#{{tag}}</span></h1>
+        </header>
+
+        <div class="row-max-1">
+            {% for article in articles_page.object_list %}
+            {% include "layouts/partial/article-card.html" %}
+            {% endfor %}
+            {% set page_type = ('tag/' ~ tag ) %}
+            {% include "layouts/partial/pagination.html" %}
+        </div>
+    </div>
 </div>
-
-{% set page_type = ('tag/' ~ tag ) %}
-{% include "layouts/partial/pagination.html" %}
-
 {% endblock %}

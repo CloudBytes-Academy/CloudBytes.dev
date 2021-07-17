@@ -11,15 +11,18 @@ Tag Cloud
 
 
 {% block main %}
-<header>
-    <h1 class="border-bottom">Tags</h1>
-</header>
-{% for tag in tag_cloud %}
-<a href="/tag/{{tag.0}}">
-    <span class="tag tag-lg tag-{{tag.0}}">
-        #{{tag.0}}
-    </span>
-</a>
-{% endfor %}
-
+<div class="content-main">
+    <div class="content-article">
+        <header>
+            <h1 class="border-bottom">Tags</h1>
+        </header>
+        {% for tag in tag_cloud %}
+        <a href="/tag/{{tag.0}}">
+            <span class="tag tag-lg tag-{{tag.0}}">
+                #{{tag.0}}
+            </span>
+        </a>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
