@@ -304,6 +304,8 @@ a.item {
 }
 
 .sidebar .banner img {
+    width: 100%;
+    height: auto;
     margin-top: 1.5em;
     border-radius: var(--card-radius);
 }
