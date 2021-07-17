@@ -279,20 +279,21 @@ a.item {
 }
 
 .sidebar {
+    margin: calc(var(--nav-width)*2) 0 0 0.5em;
     height: 75vh;
     position: fixed;
     right: 1.5em;
     display: inline-flex;
     background: var(--nav-bg);
     box-shadow: var(--nav-shadow);
+    border-radius: var(--card-radius);
     z-index: 99;
     transition: left .3s ease
 }
 
 @media only screen and (min-width: 800px) {
     .sidebar {
-        min-width: calc(var(--nav-width) * 4 + 1rem);
-        margin: var(--nav-width) 0 0 0;
+        width: calc(var(--nav-width) * 4 + 1rem);
     }
 }
 
@@ -346,12 +347,21 @@ footer {
 
 @media only screen and (min-width: 800px) {
     .footer-row {
+        margin-left: var(--nav-width);
         display: grid;
         grid-template-columns: repeat(1, 70vw);
     }
 }
 
 @media only screen and (max-width: 800px) {
+    footer {
+        margin-left: var(--nav-width);
+        align-items: center;
+        justify-items: center;
+    }
+}
+
+@media only screen and (max-width: 600px) {
     footer {
         align-items: center;
     }
@@ -361,7 +371,7 @@ footer ul {
     list-style: none;
     display: flex;
     flex-direction: row;
-    justify-items: center;
+    justify-content: center;
     padding: 0.5rem;
     margin: auto;
 }
@@ -530,7 +540,7 @@ figcaption {
         grid-template-columns: repeat(auto-fit, minmax(35vw, 1fr));
     }
     .row-max-1 {
-        grid-template-columns: repeat(1, 60vw);
+        grid-template-columns: repeat(1, 64vw);
     }
 }
 
@@ -1528,6 +1538,7 @@ menu-toggler {
 
 .content-article {
     width: 70%;
+    border-bottom: var(--h-border);
     /*margin: 1em 2.5em*/
 }
 
@@ -1580,13 +1591,7 @@ menu-toggler {
 }
 
 .toc {
-    border-radius: var(--card-radius);
-    margin-bottom: 1em;
-    background: var(--nav-bg);
-    padding: .5em;
-    margin-top: 1em;
-    top: 30px;
-    box-shadow: var(--toc-shadow);
+    min
 }
 
 .toc ul {
@@ -1748,8 +1753,6 @@ menu-toggler {
     font-size: 0.83rem;
     padding: 5px 0 5px;
     align-items: center;
-    border-top: var(--h-border);
-    border-bottom: var(--h-border);
 }
 
 .user-profile {

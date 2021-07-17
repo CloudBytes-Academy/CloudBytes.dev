@@ -41,7 +41,9 @@
 
 <body>
     <!--Top nav-->
-    {% include "layouts/topnav.html" %}
+    <nav class="topnav">
+        {% include "layouts/topnav.html" %}
+    </nav>
     <!--Top nav-->
     <script>
         // Theme toggler
@@ -79,17 +81,25 @@
             toggleDark.style.display = "none";
         });
     </script>
-    <!-- Sidebar -->
-    {% include "layouts/navbar.html" %}
-    <!-- End Sidebar -->
+    <!-- Navbar -->
+    <nav class="navbar">
+        {% include "layouts/navbar.html" %}
+    </nav>
+    <!-- End Navbar -->
 
     <!-- Main Section -->
     <main>
+
         {% block main %}
         {% endblock %}
     </main>
+    <aside class="sidebar">
+        {% include "layouts/sidebar.html" %}
+    </aside>
     <!-- End of Main Section -->
-    {% include "layouts/footer.html" %}
+    <footer>
+        {% include "layouts/footer.html" %}
+    </footer>
 
 </body>
 

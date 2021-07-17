@@ -10,17 +10,19 @@
 {% endblock %}
 
 {% block main %}
-<div class="content">
-    <header>
-        <h1 class="border-bottom">{{category}}</h1>
-    </header>
+<div class="content-main">
+    <div>
+        <header>
+            <h1 class="border-bottom">{{category}}</h1>
+        </header>
 
-    <div class="row">
-        {% for article in articles_page.object_list %}
-        {% include "layouts/partial/article-card.html" %}
-        {% endfor %}
+        <div class="row-max-1">
+            {% for article in articles_page.object_list %}
+            {% include "layouts/partial/article-card.html" %}
+            {% endfor %}
+            {% set page_type = category %}
+            {% include "layouts/partial/pagination.html" %}
+        </div>
     </div>
-</div>
-{% set page_type = category %}
-{% include "layouts/partial/pagination.html" %}
-{% endblock %}
+
+    {% endblock %}

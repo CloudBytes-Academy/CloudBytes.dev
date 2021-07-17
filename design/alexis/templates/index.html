@@ -16,11 +16,13 @@ Home
             <h1 class="border-bottom">Featured Articles</h1>
         </header>
         {% include "layouts/partial/featured-articles.html" %}
-        <a href="/articles/">
-            <button class="btn btn-green btn-block">View all articles</button>
-        </a>
+        <div>
+            <a href="/articles/">
+                <button class="btn btn-green btn-block">View all articles</button>
+            </a>
+        </div>
     </div>
-    {% include "layouts/sidebar.html" %}
+    
 </div>
 
 {% endblock %}
