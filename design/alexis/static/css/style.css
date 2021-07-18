@@ -2173,6 +2173,26 @@ h1.tag {
     background: #009485;
 }
 
+.tag-pelican {
+    color: #0ea0c4;
+    background: #fff;
+}
+
+.tag-heroku {
+    color: #430098;
+    background: #fff;
+}
+
+.tag-jupyter {
+    color: #fff;
+    background: #e46e2e;
+}
+
+.tag-netlify {
+    color: #000;
+    background: #40a6bc;
+}
+
 .btn, .page-item {
     background: var(--nav-bg);
     margin: .25em .25em .25em 0;
