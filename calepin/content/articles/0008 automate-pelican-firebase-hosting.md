@@ -95,7 +95,7 @@ Scroll to the bottom -> Click on *Generate new private key* then in the popup bo
 You will be prompted to save the file ending in `.json` extension. 
 
 
-**WARNING: Never share or upload this service account credentials including in GitHub repository.**
+!!! danger "WARNING: Never share or upload this service account credentials including in GitHub repository"
 
 The right way to handle such credentials is via encrypted secrets. 
 
