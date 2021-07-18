@@ -17,11 +17,11 @@
         ]
       },
       {
-        "source": "**/*.@(jpg|jpeg|gif|png)",
+        "source": "**/*.@(jpg|jpeg|gif|png|webp)",
         "headers": [
           {
             "key": "Cache-Control",
-            "value": "max-age=72000"
+            "value": "max-age=86400"
           }
         ]
       },
