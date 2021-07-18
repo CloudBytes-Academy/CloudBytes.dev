@@ -3,19 +3,19 @@
 {% block meta %}
 <link rel="canonical" href="{{ SITEURL }}">
 <meta name="description"
-    content="UberPython: Exploring Python from a developers practice | Code snippets, lessons, tutorials, and more." {%
-    endblock %} {% block title %} Home {% endblock %} {% block main %} <div class="content-main">
-<div>
-    <header>
-        <h1 class="border-bottom">Featured Articles</h1>
-    </header>
-    {% include "layouts/partial/featured-articles.html" %}
+    content="UberPython: Exploring Python from a developers practice | Code snippets, lessons, tutorials, and more."> {%
+endblock %} {% block title %} Home {% endblock %} {% block main %} <div class="content-main">
     <div>
-        <a href="/articles/">
-            <button class="btn btn-green btn-block">View all articles</button>
-        </a>
+        <header>
+            <h1 class="border-bottom">Featured Articles</h1>
+        </header>
+        {% include "layouts/partial/featured-articles.html" %}
+        <div>
+            <a href="/articles/">
+                <button class="btn btn-green btn-block">View all articles</button>
+            </a>
+        </div>
     </div>
-</div>
 
 </div>
 
