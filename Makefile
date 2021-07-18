@@ -68,5 +68,10 @@ devserver-global:
 publish:
 	"$(PELICAN)" "$(INPUTDIR)" -o "$(OUTPUTDIR)" -s "$(PUBLISHCONF)" $(PELICANOPTS)
 
+firebase-hosting:
+	firebase emulators:start --only hosting
+
+firebase:
+	make -j 2 devserver firebase-hosting
 
 .PHONY: html help clean regenerate serve serve-global devserver publish 

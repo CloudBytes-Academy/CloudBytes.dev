@@ -69,7 +69,7 @@ Yeah, 🤕😐I'm not gonna be part of this.  You're on your own.
 
 ## Running the site locally
 
-Recommendation is to use the pelican inbuilt generation mechanism using `pelican content` to generate the static website and use `invoke` combined with `livereload` to serve the website during development. 
+Recommendation is to use the pelican inbuilt generation mechanism using `pelican content` to generate the static website and use `make devserver` to serve the website during development. 
 
 Open the terminal in VSCode, and run the below to generated the site
 
@@ -80,5 +80,5 @@ pelican content
 To serve the website, run the below 👇🏽
 
 ```bash
-invoke livereload
+make devserver
 ```
