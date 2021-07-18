@@ -31,7 +31,7 @@
     --code-bg: #fff;
     --card-bg: #fff;
     --overlay-bg: hsla(0, 0%, 100%, 0.9);
-    --h-border: 2px dashed var(--nav-bg);
+    --h-border: 2px solid var(--nav-bg);
     /*transition: all .5s ease;*/
 }
 
@@ -94,7 +94,6 @@
     --code-bg: #22262f;
     --card-bg: var(--gray5);
     --overlay-bg: rgba(0, 0, 0, 0.9);
-    --h-border: 2px dashed var(--nav-bg);
     --nav-border: 2px dashed var(--text-color);
     --card-radius: 0.25em;
     transition: all .3s ease;
@@ -2174,13 +2173,13 @@ h1.tag {
 }
 
 .tag-pelican {
-    color: #0ea0c4;
-    background: #fff;
+    color: #fff;
+    background: #0ea0c4;
 }
 
 .tag-heroku {
-    color: #430098;
-    background: #fff;
+    color: #fff;
+    background: #430098;
 }
 
 .tag-jupyter {
