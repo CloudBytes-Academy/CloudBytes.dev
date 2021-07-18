@@ -125,7 +125,6 @@ body::-webkit-scrollbar-thumb {
 
 main {
     padding: var(--nav-width) 1em 0 1em;
-    flex: 1;
     transition: margin .3s ease;
 }
 
@@ -217,7 +216,6 @@ a.item {
 
 @media only screen and (max-width: 600px) {
     main {
-        flex: 1;
         margin-left: inherit;
         margin-top: 0.5rem;
     }
@@ -249,6 +247,8 @@ a.item {
 
 @media only screen and (min-width: 600px) {
     main {
+        display: grid;
+        grid-template-columns: auto;
         margin-left: calc(var(--nav-width) + 1rem);
     }
     .navbar {
@@ -279,8 +279,8 @@ a.item {
 }
 
 .sidebar {
-    margin: calc(var(--nav-width)*2) 0 0 0.5em;
-    height: 75vh;
+    margin: var(--nav-width) 0 0 0.5em;
+    height: auto;
     position: fixed;
     right: 1.5em;
     display: inline-flex;

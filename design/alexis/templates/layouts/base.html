@@ -89,13 +89,13 @@
 
     <!-- Main Section -->
     <main>
-
         {% block main %}
         {% endblock %}
+        <aside class="sidebar">
+            {% include "layouts/sidebar.html" %}
+        </aside>
     </main>
-    <aside class="sidebar">
-        {% include "layouts/sidebar.html" %}
-    </aside>
+
     <!-- End of Main Section -->
     <footer>
         {% include "layouts/footer.html" %}
