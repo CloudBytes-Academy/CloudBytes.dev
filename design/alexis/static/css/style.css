@@ -10,7 +10,7 @@
     --code-bg: #22262f;
     --card-bg: var(--gray5);
     --overlay-bg: rgba(0, 0, 0, 0.9);
-    --h-border: 2px solid var(--nav-bg);
+    --h-border: 1px solid var(--nav-bg);
     --card-radius: 0.5em;
     transition: all .3s ease;
 }
@@ -31,7 +31,7 @@
     --code-bg: #fff;
     --card-bg: #fff;
     --overlay-bg: hsla(0, 0%, 100%, 0.9);
-    --h-border: 2px solid var(--nav-bg);
+    --h-border: 1px solid var(--nav-bg);
     /*transition: all .5s ease;*/
 }
 
@@ -1553,7 +1553,7 @@ menu-toggler {
 
 .content-article h2 {
     border-bottom: var(--h-border);
-    padding-bottom: .7em
+    padding-bottom: .3em
 }
 
 .content-article h3 {
