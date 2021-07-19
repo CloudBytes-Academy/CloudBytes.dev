@@ -114,47 +114,5 @@ You can use a bit of CSS to format your TOC by adding the below to your CSS styl
 .toc ul li ul a {
     color: #b2becd;
 }
-
-.toc {
-    border-radius: 0.5em;
-    margin-bottom: 1em;
-    background: #222831;
-    padding: .5em;
-    margin-top: 1em;
-    top: 30px;
-    box-shadow: rgba(0, 0, 0, 0.7) 0px 10px 20px 0px;
-}
-
-.toc ul {
-    list-style: none;
-    padding: 0.5rem 1rem;
-    margin: 0;
-}
-
-.toc ul li {
-    padding: .25em;
-}
-
-.toc ul li a {
-    color: #498afb;
-    font-weight: 500;
-    transition: color .4s;
-}
-
-.toc ul li a:hover {
-    color: #9166cc;
-    transition: color .4s;
-    border-bottom: 1px solid #9166cc;
-}
-
-.toc ul li ul {
-    font-size: .75em;
-    font-weight: 500;
-    margin-left: 5px
-}
-
-.toc ul li ul a {
-    color: #b2becd;
-}
 ```
 This is how you add a table of contents to a markdown document in Pelican.
