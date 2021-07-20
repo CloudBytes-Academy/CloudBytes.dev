@@ -43,9 +43,20 @@ function myInit() {
     page();
 };
 
+var openMenu = document.getElementById("open")
+var closeMenu = document.getElementById("close")
+console.log(menuOpener)
 
+openMenu.addEventListener("click", function (e) {
+    e.preventDefault();
+    //script
+}
 
-
+)
+closeMenu.addEventListener("click", function (e) {
+    e.preventDefault();
+    //script
+})
 
 
 /**
