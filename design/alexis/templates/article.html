@@ -1,8 +1,8 @@
 {% extends "layouts/base.html" %}
 
 {% block meta %}
-<meta name="author" content="{{ article.author.name }}" />
-<meta name="description" content="{{ article.summary|striptags|escape }}" />
+<meta name="author" content="{{ article.author.name }}">
+<meta name="description" content="{{ article.summary|striptags|escape }}">
 <meta name="keywords" content="{{ article.keywords|escape }}">
 <link rel="canonical" href="{{ SITEURL }}/{{article.url}}">
 {% endblock %}
@@ -10,7 +10,6 @@
 {% block title %}
 {{article.title}}
 {% endblock %}
-
 
 {% block main %}
 <article class="content-pad">
