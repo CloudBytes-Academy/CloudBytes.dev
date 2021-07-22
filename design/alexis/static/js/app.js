@@ -45,13 +45,16 @@ function myInit() {
 
 var openMenu = document.getElementById("open")
 var closeMenu = document.getElementById("close")
-closeMenu.style.display = "none";
+var megaMenu = document.getElementById("mega")
+
+
 
 openMenu.addEventListener("click", function (e) {
     e.preventDefault();
     //script
     openMenu.style.display = "none";
     closeMenu.style.display = "flex";
+    megaMenu.style.visibility = "visible";
 }
 
 )
@@ -59,6 +62,7 @@ closeMenu.addEventListener("click", function (e) {
     e.preventDefault();
     closeMenu.style.display = "none";
     openMenu.style.display = "flex";
+    megaMenu.style.visibility = "hidden";
 })
 
 
