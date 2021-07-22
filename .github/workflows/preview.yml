@@ -1,5 +1,10 @@
 name: Preview
-'on': pull_request
+
+on:
+  pull_request:
+    # Optionally configure to run only for specific files. For example:
+    # paths:
+    # - "website/**"
 
 jobs:
   build_and_preview:
@@ -15,4 +20,5 @@ jobs:
       with:
         repoToken: '${{ secrets.GITHUB_TOKEN }}'
         firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_UBERPYTHON_PROD }}'
+        expires: 30d
         projectId: uberpython-prod
