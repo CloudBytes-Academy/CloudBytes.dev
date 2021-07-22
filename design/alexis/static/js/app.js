@@ -45,17 +45,20 @@ function myInit() {
 
 var openMenu = document.getElementById("open")
 var closeMenu = document.getElementById("close")
-console.log(menuOpener)
+closeMenu.style.display = "none";
 
 openMenu.addEventListener("click", function (e) {
     e.preventDefault();
     //script
+    openMenu.style.display = "none";
+    closeMenu.style.display = "flex";
 }
 
 )
 closeMenu.addEventListener("click", function (e) {
     e.preventDefault();
-    //script
+    closeMenu.style.display = "none";
+    openMenu.style.display = "flex";
 })
 
 
