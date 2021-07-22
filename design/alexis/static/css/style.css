@@ -48,6 +48,8 @@
 }
 
 :root {
+    --python-blue: #4584b6;
+    --python-yellow: #ffde57;
     --red: #ff3860;
     --red-dark: #ff1443;
     --red-light: #ff5c7c;
@@ -232,7 +234,7 @@ a.item {
         align-items: center;
         justify-content: center;
         padding: 0.5rem 1rem;
-        border-radius: 15px;
+        /*border-radius: 15px;*/
     }
     .navbar .item {
         overflow-x: visible
@@ -488,7 +490,7 @@ blockquote {
     color: #fff;
 }
 
-@media (max-width:600px) {
+@media (max-width:768px) {
     :root {
         --font-size: 15px;
         --nav-width: 3em;
@@ -1110,20 +1112,20 @@ li code, p code {
 
 .mega-dropdown {
     cursor: pointer;
-    z-index: 999
+    z-index: 9999
 }
 
 .mega-menu {
     position: fixed;
-    opacity: 0;
+    /*opacity: 0;*/
     width: 60%;
     min-width: 750px;
-    visibility: hidden;
+    /*visibility: hidden;*/
     color: #fff;
     box-shadow: var(--nav-shadow);
     top: 5em;
     right: 1.5em;
-    background: var(--orange-pink);
+    background: var(--python-blue);
     transform: translateY(2em);
     transition: transform .3s
 }
@@ -1172,14 +1174,13 @@ li code, p code {
 @media (max-width:768px) {
     .mega-menu {
         position: fixed;
-        top: 0;
+        top: 2em;
         left: 0;
         right: 0;
         bottom: 0;
         font-size: 1.2em;
         font-weight: 500;
         min-width: 0;
-        padding-top: 2em;
         width: 100vw;
         height: 100vh;
         overflow-y: auto;
