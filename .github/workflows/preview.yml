@@ -1,4 +1,4 @@
-name: Deploy to Preview Channel
+name: Preview Channel
 
 on:
   pull_request:
