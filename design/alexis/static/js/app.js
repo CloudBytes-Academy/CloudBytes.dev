@@ -10,12 +10,10 @@ function myInit() {
             if (currentURL == "/") {
                 activePath = "home";
             }
-            else if (currentURL == "/tags") {
-                activePath = "tag";
-            }
             else {
                 var pathArray = window.location.pathname.split('/');
                 activePath = pathArray[1];
+                
             }
             document.getElementById(activePath).className += " active";
         }
