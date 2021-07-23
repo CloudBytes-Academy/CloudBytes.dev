@@ -15,7 +15,6 @@
         <header>
             <h1 class="border-bottom">{{category}}</h1>
         </header>
-
         <div class="row-max-1">
             {% for article in articles_page.object_list %}
             {% include "layouts/partial/article-card.html" %}
@@ -24,5 +23,5 @@
             {% include "layouts/partial/pagination.html" %}
         </div>
     </div>
-
-    {% endblock %}
+</div>
+{% endblock %}
