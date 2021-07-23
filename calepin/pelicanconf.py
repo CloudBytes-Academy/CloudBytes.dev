@@ -109,3 +109,6 @@ MARKDOWN = {
     },
     "output_format": "html5",
 }
+
+
+DISQUS_SITENAME = "uberpython.disqus.com"
