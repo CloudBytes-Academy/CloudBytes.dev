@@ -29,14 +29,6 @@
     <link rel="dns-prefetch" href="https://uberpython.com">
     <!-- App -->
     <script defer src="/{{ THEME_STATIC_DIR }}/js/app.js"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{GTAG}}"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', '{{GTAG}}');
-    </script>
 </head>
 
 <body>
@@ -96,6 +88,15 @@
         </aside>
     </main>
     <!-- End of Main Section -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{GTAG}}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', '{{GTAG}}');
+    </script>
+    <!-- Footer -->
     <footer>
         {% include "layouts/footer.html" %}
     </footer>
