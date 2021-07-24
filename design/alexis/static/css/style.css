@@ -362,7 +362,7 @@ footer {
 
 @media only screen and (max-width: 800px) {
     footer {
-        margin-left: var(--nav-width);
+        /*margin-left: var(--nav-width);*/
         align-items: center;
         justify-items: center;
     }
