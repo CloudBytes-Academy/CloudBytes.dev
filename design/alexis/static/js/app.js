@@ -41,11 +41,9 @@ function myInit() {
     page();
 };
 
-var openMenu = document.getElementById("open")
-var closeMenu = document.getElementById("close")
-var megaMenu = document.getElementById("mega")
-
-
+var openMenu = document.getElementById("open");
+var closeMenu = document.getElementById("close");
+var megaMenu = document.getElementById("mega");
 
 openMenu.addEventListener("click", function (e) {
     e.preventDefault();
@@ -53,15 +51,14 @@ openMenu.addEventListener("click", function (e) {
     openMenu.style.display = "none";
     closeMenu.style.display = "flex";
     megaMenu.style.visibility = "visible";
-}
+});
 
-)
 closeMenu.addEventListener("click", function (e) {
     e.preventDefault();
     closeMenu.style.display = "none";
     openMenu.style.display = "flex";
     megaMenu.style.visibility = "hidden";
-})
+});
 
 // Check that service workers are supported
 if ('serviceWorker' in navigator) {
@@ -69,5 +66,4 @@ if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('/SW.js');
     });
-}
-console.log("WTF")
+};
