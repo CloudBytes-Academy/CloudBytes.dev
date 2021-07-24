@@ -1,19 +1,19 @@
 window.addEventListener("load", myInit, true);
 
 function myInit() {
-    /* Manage highlights for current page */
+    //Manage highlights for current page
     function logo(e) {
         try {
             var currentURL = window.location.pathname;
             var activePath = "";
-            console.log(currentURL)
+            //console.log(currentURL)
             if (currentURL == "/") {
                 activePath = "home";
             }
             else {
                 var pathArray = window.location.pathname.split('/');
                 activePath = pathArray[1];
-                
+
             }
             document.getElementById(activePath).className += " active";
         }
@@ -64,11 +64,11 @@ closeMenu.addEventListener("click", function (e) {
 })
 
 
-/**
 // PWA Service worker registration
-navigator.serviceWorker &&
-    navigator.serviceWorker.register('/SW.js').then(function (registration) {
-    });
+//navigator.serviceWorker &&
+//    navigator.serviceWorker.register('SW.js').then(function (registration) {
+//    });
 
-**/
+
+
 
