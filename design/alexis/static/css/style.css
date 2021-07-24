@@ -234,7 +234,6 @@ a.item {
         align-items: center;
         justify-content: center;
         padding: 0.5rem 1rem;
-        /*border-radius: 15px;*/
     }
     .navbar .item {
         overflow-x: visible
@@ -242,6 +241,10 @@ a.item {
     .logo {
         left: 0;
     }
+}
+
+.active {
+    border-radius: var(--card-radius);
 }
 
 /* Large screens */
