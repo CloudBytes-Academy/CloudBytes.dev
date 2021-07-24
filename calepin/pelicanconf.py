@@ -15,7 +15,7 @@ PATH = "content"
 # Path to static folders
 STATIC_PATHS = ["images", "extra/SW.js"]
 
-EXTRA_PATH_METADATA = {"extra/SW.js": {"path": "SW.JS"}}
+EXTRA_PATH_METADATA = {"extra/SW.js": {"path": "SW.js"}}
 
 # To keep the structure of content folder & remove .html extension
 # PATH_METADATA = "(?P<path_no_ext>.*)\..*"
