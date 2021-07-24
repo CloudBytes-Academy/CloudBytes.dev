@@ -183,6 +183,7 @@ main {
     background: var(--green-dark);
     box-shadow: var(--nav-shadow);
     transition: opacity .3s;
+    border-radius: var(--card-radius);
 }
 
 .item.active svg {
@@ -241,10 +242,6 @@ a.item {
     .logo {
         left: 0;
     }
-}
-
-.active {
-    border-radius: var(--card-radius);
 }
 
 /* Large screens */

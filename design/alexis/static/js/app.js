@@ -63,9 +63,11 @@ closeMenu.addEventListener("click", function (e) {
     megaMenu.style.visibility = "hidden";
 })
 
-
-// PWA Service worker registration
-
+// Check that service workers are supported
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/SW.js')
+    // Use the window load event to keep the page load performant
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/SW.js');
+    });
 }
+console.log("WTF")
