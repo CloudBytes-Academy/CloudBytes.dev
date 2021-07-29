@@ -4,9 +4,9 @@ slug: privacy
 
 
 Last Updated: 03 July 2021
-UberPython.com ("UberPython", "we", or "us) is committed to protecting your privacy. This Privacy Policy explains the methods and reasons we collect, use, disclose, transfer, and store your information. If you have any questions about the contents of this policy, don’t hesitate to contact us.
+CloudBytes.dev ("CloudBytes", "we", or "us) is committed to protecting your privacy. This Privacy Policy explains the methods and reasons we collect, use, disclose, transfer, and store your information. If you have any questions about the contents of this policy, don’t hesitate to contact us.
 
-If you do not consent to the collection and use of information from or about you in accordance with this Privacy Policy, then you are not permitted to use UberPython or any services provided on https://UberPython.com.
+If you do not consent to the collection and use of information from or about you in accordance with this Privacy Policy, then you are not permitted to use CloudBytes or any services provided on https://cloudbytes.dev.
 
 # What do we mean by "Personal Information"?
 For us, "personal information" means information which either directly identifies you (like your name, email address, or billing information) or can be reasonably linked or combined to identify you (like an account identification number or IP address). We’ll always tell you what personal information we’re collecting from you.
@@ -25,13 +25,13 @@ Log Files: We collect information when you use services provided on our site. Th
 Cookies: We use cookies and related technologies to keep track of user preferences and activity. Cookies are small text files created by a web server, delivered through a web browser, and stored on your computer. Most Internet browsers automatically accept cookies. You can instruct your browser, by changing its settings, to stop accepting cookies or to prompt you before accepting a cookie from the websites you visit.
     
 #Third Party Services
-This site contains links to other websites not owned by UberPython. In general, the third-party services used by us will only collect, use and disclose your information to the extent necessary to allow them to perform their intended services. Please be aware that we are not responsible for the privacy policies of third-party services. Below is a list of third-party services used on this site.
+This site contains links to other websites not owned by CloudBytes. In general, the third-party services used by us will only collect, use and disclose your information to the extent necessary to allow them to perform their intended services. Please be aware that we are not responsible for the privacy policies of third-party services. Below is a list of third-party services used on this site.
 
 Children and COPPA
-UberPython is committed to complying with the Children’s Online Privacy Protection Act (COPPA). We do not use our services to intentionally solicit data from or market to children under the age of 13. We encourage parents and guardians to report any suspicions that a child has provided us with information without their consent. We will take reasonable action to remove this information.
+CloudBytes is committed to complying with the Children’s Online Privacy Protection Act (COPPA). We do not use our services to intentionally solicit data from or market to children under the age of 13. We encourage parents and guardians to report any suspicions that a child has provided us with information without their consent. We will take reasonable action to remove this information.
 Your Choices
 
-Opt-Out of Third Party Advertisement Cookies: You may opt out of a third-party vendor's use of cookies for interest based advertising by visiting aboutads.info. Do Not Track Browser settings: If you enable Do Not Track settings in the browser you are using, UberPython will not use information about websites you visit, other than our site. Learn more about Do Not Track by visiting allaboutdnt.com Email Communication Opt-Out If you receive promotional emails from UberPython, you can unsubscribe by clicking the bottom Unsubscribe or Opt-Out link at the bottom of every email.
+Opt-Out of Third Party Advertisement Cookies: You may opt out of a third-party vendor's use of cookies for interest based advertising by visiting aboutads.info. Do Not Track Browser settings: If you enable Do Not Track settings in the browser you are using, CloudBytes will not use information about websites you visit, other than our site. Learn more about Do Not Track by visiting allaboutdnt.com Email Communication Opt-Out If you receive promotional emails from CloudBytes, you can unsubscribe by clicking the bottom Unsubscribe or Opt-Out link at the bottom of every email.
 
 Contact Us
-At UberPython, we believe our talented customer service staff will be able to resolve any issues you may have using the our services. If you would like additional information about this privacy policy, please visit our homepage at https://UberPython.com.
+At CloudBytes, we believe our talented customer service staff will be able to resolve any issues you may have using the our services. If you would like additional information about this privacy policy, please visit our homepage at https://cloudbytes.dev.

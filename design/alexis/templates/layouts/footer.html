@@ -1,22 +1,21 @@
-
-    <div class="footer-row">
-        {% if article %}
-        <h3>Want to improve this guide? Submit your changes on <a
-                href="https://github.com/UberPython/UberPython/tree/main/calepin/content/{{article.relative_source_path}}">GitHub.</a>
-        </h3>
-        {% endif %}
-        {% if not article %}
-        <p>
-            <b>Generated using Python🐍 3.9 & Pelican 🦢. View the Source Code on <a
-                    href="https://github.com/UberPython/UberPython">GitHub
-                </a>.
-            </b>
-        </p>
-        {% endif %}
-        <p>Copyright &copy; 2020 - {{CURRENTYEAR}} UberPython. All rights reserved.</p>
-        <ul>
-            <li class="footer-nav"><a href=" /terms ">Terms</a></li>
-            <li class="footer-nav"><a href="/privacy">Privacy Policy</a></li>
-            <li class="footer-nav"><a href="/sitemap.xml">Sitemap</a></li>
-        </ul>
-    </div>
+<div class="footer-row">
+    {% if article %}
+    <h3>Want to improve this guide? Submit your changes on <a
+            href="https://github.com/CloudBytesDotDev/CloudBytes.dev/tree/main/calepin/content/{{article.relative_source_path}}">GitHub.</a>
+    </h3>
+    {% endif %}
+    {% if not article %}
+    <p>
+        <b>Generated using Python🐍 3.9 & Pelican 🦢. View the Source Code on <a
+                href="https://github.com/CloudBytesDotDev/CloudBytes.dev">GitHub
+            </a>.
+        </b>
+    </p>
+    {% endif %}
+    <p>Copyright &copy; 2020 - {{CURRENTYEAR}} CloudBytes. All rights reserved.</p>
+    <ul>
+        <li class="footer-nav"><a href=" /terms ">Terms</a></li>
+        <li class="footer-nav"><a href="/privacy">Privacy Policy</a></li>
+        <li class="footer-nav"><a href="/sitemap.xml">Sitemap</a></li>
+    </ul>
+</div>

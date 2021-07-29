@@ -44,7 +44,7 @@ Theoretically, you can build almost anything using Jamstack architecture by util
 
 E.g., you can replace a WordPress blog completely with Jamstack and still get 100 Rating on [Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) without breaking a sweat, since, the webpages are generated ahead of time, there is 0 lag due to server side rendering (SSR). 
 
-<img src="{static}/images/s0004/pagespeed.png" alt="uberpython pagespeed results" caption="Fig. 3: uberpython pagespeed results">
+<img src="{static}/images/s0004/pagespeed.png" alt="UberPython pagespeed results" caption="Fig. 3: UberPython pagespeed results">
 
 Static Site Generators (SSGs) Such as Hugo, [Pelican](https://docs.getpelican.com/en/latest/), [Gatsby](https://www.gatsbyjs.com/), [11ty](https://www.11ty.dev/), etc. provide a rich plugin and theme ecosystem which can get your started with less technical knowledge than what is required for implementing WordPress. 
 
@@ -52,7 +52,7 @@ But that is not all, more complex use cases such as websites that offer courses,
 
 ## Which combination to choose?
 
-That depends on several factors and one usually ends up doing some trial and error before finalising on one. But you can follow some guidelines below that we used to arrive at the stack for [UberPython](https://uberpython.com/).
+That depends on several factors and one usually ends up doing some trial and error before finalising on one. But you can follow some guidelines below that we used to arrive at the stack for [CloudBytes](https://cloudbytes.dev/).
 
 * **Speed**: If your website has thousands of pages, use Hugo which is written in Go and designed to be really fast but has a steep learning curve. 
 * **Familiar with React**: Use [Next.js](https://nextjs.org/) is a full React based framework that comes with kitchen sink. The alternative is [Gatsby](https://www.gatsbyjs.com/) which is equally popular and is a lot more customisable. 

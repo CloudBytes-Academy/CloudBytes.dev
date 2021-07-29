@@ -53,15 +53,15 @@ You either create a new repository on GitHub directly by clicking on the ➕ sig
 ![Create a GitHub Repo]({static}/images/s0011/create-a-repo.png).
 
 ### Fork a repository
-Most of the times, you don't want to start from scratch and instead build on top of already existing and opensource tools / software. E.g. if you want to build your own copy of [UberPython](https://uberpython.com), you can do so by "forking" the publicly available [UberPython source code on GitHub](https://github.com/UberPython/UberPython).
+Most of the times, you don't want to start from scratch and instead build on top of already existing and opensource tools / software. E.g. if you want to build your own copy of [CloudBytes](https://cloudbytes.dev), you can do so by "forking" the publicly available [CloudBytes source code on GitHub](https://github.com/CloudBytesDotDev/CloudBytes.dev).
 
-To fork a repository, go to [UberPython source code on GitHub](https://github.com/UberPython/UberPython) or any other repo that you want to fork and click on the fork button on top right. 
+To fork a repository, go to [CloudBytes source code on GitHub](https://github.com/CloudBytesDotDev/CloudBytes.dev) or any other repo that you want to fork and click on the fork button on top right. 
 
 ### Clone a repository
-Now a copy or fork of the repository has been created on GitHub, but you need to create a local copy for you to be able to make changes. This is called cloning, e.g. to clone the forked copy of UberPython repo
+Now a copy or fork of the repository has been created on GitHub, but you need to create a local copy for you to be able to make changes. This is called cloning, e.g. to clone the forked copy of CloudBytes repo
 
 ```bash
-git clone https://github.com/<your-username>/UberPython.git
+git clone https://github.com/<your-username>/CloudBytes.dev.git
 ```
 
 ### Create a Branch

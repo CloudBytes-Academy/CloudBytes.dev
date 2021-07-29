@@ -1,8 +1,8 @@
-[![Open in VSCode](resources/ovs.svg)](https://open.vscode.dev/UberPython/UberPython)
-[![Deploy](https://github.com/UberPython/UberPython/actions/workflows/workflow.yml/badge.svg)](https://github.com/UberPython/UberPython/actions/workflows/workflow.yml)
+[![Open in VSCode](resources/ovs.svg)](https://open.vscode.dev/CloudBytesDotDev/CloudBytes.dev)
+[![Deploy](https://github.com/CloudBytesDotDev/CloudBytes.dev/actions/workflows/workflow.yml/badge.svg)](https://github.com/CloudBytesDotDev/CloudBytes.dev/actions/workflows/workflow.yml)
 
-# [UberPython](https://uberpython.com)
-Detail guides explaining Python🐍 and Computer Science💻🧪 concepts , designed for new 🆕 adopters focused on doing. 
+# [CloudBytes](https://cloudbytes.dev)
+Detail guides explaining Cloud ☁☁, Python🐍 and Computer Science💻🧪 concepts , designed for new 🆕 adopters focused on doing. 
 
 But most importly making your experience of learning easier and fun 🎉🎈😁. 
 

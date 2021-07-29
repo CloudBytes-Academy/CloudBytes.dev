@@ -1,6 +1,6 @@
-## UberPython
-- Site: https://UberPython.com
-- Source: https://github.com/UberPython/UberPython
+## [CloudBytes.dev](https://cloudbytes.dev)
+- Site: https://cloudbytes.dev
+- Source: https://github.com/CloudBytesDotDev/CloudBytes.dev
 - Theme: Fully custom dual-tone theme inspired by [Fireship.io](https://fireship.io)
 - Features:
     * Automated Continuous Deployment (CD) to Firebase Hosting using GitHub Actions

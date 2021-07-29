@@ -57,9 +57,9 @@ HOME_HIDE_TAGS = True
 
 # Social widget
 # SOCIAL = (
-#    ("twitter", "https://twitter.com/UberPython"),
-#    ("github", "https://twitter.com/UberPython"),
-#    ("youtube", "https://twitter.com/UberPython"),
+#    ("twitter", "#"),
+#    ("github", "#"),
+#    ("youtube", "#"),
 #    ("Another social link", "#"),
 # )
 

@@ -96,7 +96,7 @@ Open your website in either Chrome or Edge browser, press F12 or go to Developer
 
 
 ## Register the service worker
-This has to be in your main theme JavaScript application file. E.g. in UberPython's case the `app.js` is stored under `//assets/js` folder. If you view source, you should see an HTML header that links this
+This has to be in your main theme JavaScript application file. E.g. in CloudBytes's case the `app.js` is stored under `//assets/js` folder. If you view source, you should see an HTML header that links this
 
 ```html
 <script defer src="/assets/js/app.js"></script>

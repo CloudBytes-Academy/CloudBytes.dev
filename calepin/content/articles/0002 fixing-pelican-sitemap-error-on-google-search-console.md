@@ -13,7 +13,7 @@ If you have have recently started using Pelican and have struggled with it compr
 
 ## What is SITEURL?
 
-Pelican's SITEURL refers to the URL of your website, e.g. example.com, or blog.example.com. In our website's case the SITEURL is "uberpython.com". 
+Pelican's SITEURL refers to the URL of your website, e.g. example.com, or blog.example.com. In our website's case the SITEURL is "https://cloudbytes.dev". 
 
 Pelican needs the SITEURL to define the `href` links in  your website correctly while publishing the website. 
 

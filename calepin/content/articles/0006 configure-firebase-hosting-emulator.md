@@ -91,12 +91,12 @@ The above configuration would have created two files
 ```json
 {
   "projects": {
-    "default": "uberpython-prod"
+    "default": "cloudbytes-prod"
   }
 }
 ```
 
-Instead of "uberpython-prod" you should see the project you chose during the configuration.
+Instead of "cloudbytes-prod" you should see the project you chose during the configuration.
 
 `firebase.json`: Contains the configuration of your services, 
 
