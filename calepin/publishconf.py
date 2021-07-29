@@ -11,7 +11,7 @@ sys.path.append(os.curdir)
 from calepin.pelicanconf import *
 
 # If your site is available via HTTPS, make sure SITEURL begins with https://
-SITEURL = "https://uberpython.com"
+SITEURL = "https://cloudbytes.dev"
 RELATIVE_URLS = False
 
 FEED_ALL_ATOM = "feeds/all.atom.xml"
@@ -20,4 +20,4 @@ CATEGORY_FEED_ATOM = "feeds/{slug}.atom.xml"
 DELETE_OUTPUT_DIRECTORY = True
 
 # Following items are often useful when publishing
-GTAG = "G-2X08GQZGV7"
+GTAG = "G-9VKX48YDBH"

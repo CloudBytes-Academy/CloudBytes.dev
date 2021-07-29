@@ -19,5 +19,5 @@ jobs:
     - uses: FirebaseExtended/action-hosting-deploy@v0
       with:
         repoToken: '${{ secrets.GITHUB_TOKEN }}'
-        firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_UBERPYTHON_PROD }}'
-        projectId: uberpython-prod
+        firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CLOUDBYTES_PROD }}'
+        projectId: cloudbytes-prod

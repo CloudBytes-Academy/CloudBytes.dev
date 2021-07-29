@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*- #
 from os import environ
 
-AUTHOR = "UberPython"
-SITENAME = "UberPython"
-SITEURL = "https://uberpython.com"
+AUTHOR = "CloudBytes"
+SITENAME = "CloudBytes"
+SITEURL = "https://cloudbytes.dev"
 
 THEME_STATIC_DIR = "assets"
 THEME = "./design/alexis"
