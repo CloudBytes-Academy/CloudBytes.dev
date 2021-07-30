@@ -21,4 +21,4 @@ In this book you will learn
 5. FastAPI backed / API design
 6. Asynchronous API development
 
-Get is at Amazon or Kindle !
+Get is at [Amazon](https://www.amazon.com/dp/B09BJLKM6F) or [Kindle](https://www.amazon.com/dp/B09BJLKM6F) !
