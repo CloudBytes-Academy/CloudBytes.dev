@@ -2192,6 +2192,11 @@ h1.tag {
     background: #40a6bc;
 }
 
+.tag-aws {
+    color: #ec912d;
+    background: #232f3e;
+}
+
 .btn, .page-item {
     background: var(--nav-bg);
     margin: .25em .25em .25em 0;
