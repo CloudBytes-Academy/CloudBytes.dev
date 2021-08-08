@@ -1,10 +1,10 @@
 Title: Build & Deploy serverless apps on AWS with SAM CLI
 Date: 2021-08-02
 Category: Articles
-Tags: python, aws, 
+Tags: python, aws
 Author: Rehan Haider
 Summary: A short introduction to Anaconda for Python, how to configure and use Anaconda.
-Keywords: Python, Anaconda, AWS, CloudFormation
+Keywords: Python, AWS, CloudFormation, Lambda, sam, serverless,
 
 
 [TOC]
@@ -201,7 +201,7 @@ Go to the `sam-app` directory
 ```bash
 cd sam-app
 ```
-You should see the following file
+You should see the following files
 ```bash
 .
 ├── README.md
