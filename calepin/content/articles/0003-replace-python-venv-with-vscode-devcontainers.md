@@ -6,7 +6,7 @@ Author: Rehan Haider
 Summary: VSCode Devcontainers are game changers that makes Python dependency management much easier. 
 Keywords: Python, venv, virtual environment, vscode, containers, docker, devcontainers
 
-I wrote [about why Python virtual environments]({filename}0001 create-a-python-virtual-environment.md) are needed and how to [create them]({filename}0001 create-a-python-virtual-environment.md). All Python developers end up using some kind of environment manager similar to `venv` for any meaningful development effort. 
+I wrote [about why Python virtual environments]({filename}0001-create-a-python-virtual-environment.md) are needed and how to [create them]({filename}0001-create-a-python-virtual-environment.md). All Python developers end up using some kind of environment manager similar to `venv` for any meaningful development effort. 
 
 VSCode, a few years ago, released a concept called **devcontainers** that takes away the pain of managing multiple virtual environments for Python and other languages such as NodeJS, etc.
 

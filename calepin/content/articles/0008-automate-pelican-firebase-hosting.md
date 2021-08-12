@@ -8,11 +8,11 @@ Keywords: pelican, firebase, github, python, github actions, deploy, hosting
 
 [TOC]
 
-In a previous article I wrote about [how you can host a simple Pelican static website on Github Pages]({filename}0005 automate-pelican-github-pages.md) and automate the deployment process using Github Action. 
+In a previous article I wrote about [how you can host a simple Pelican static website on Github Pages]({filename}0005-automate-pelican-github-pages.md) and automate the deployment process using Github Action. 
 
 GitHub Pages is brilliant and extremely useful for a simple blog or small webites, but quickly becomes limited in features if you're trying to build anything serious. 
 
-For starters, if you recall from the [Jamstack explanation]({filename}0004 what-is-jamstack.md) and its principles, you rely on third party APIs. E.g. if you want to build a user management system into your website you will need to use a Auth API from a third party such as Okta, Azure, or AWS. 
+For starters, if you recall from the [Jamstack explanation]({filename}0004-what-is-jamstack.md) and its principles, you rely on third party APIs. E.g. if you want to build a user management system into your website you will need to use a Auth API from a third party such as Okta, Azure, or AWS. 
 
 This is where Firebase has a massive advantage by providing an integrated end to end development framework. Thus if you want to build more dynamic features into your Pelican / Jamstack website, you may want to use Firebase for your hosting purposes. 
 
@@ -33,7 +33,7 @@ So in this tutorial, we will
 
 
 ## 1. Setting up Pelican 
-Use the instructions in [this guide on how to install Pelican in a VSCode devcontainer]({filename}0007 install-pelican-in-devcontainer.md) and create a small blog. 
+Use the instructions in [this guide on how to install Pelican in a VSCode devcontainer]({filename}0007-install-pelican-in-devcontainer.md) and create a small blog. 
 
 Then capture your dependencies by running
 

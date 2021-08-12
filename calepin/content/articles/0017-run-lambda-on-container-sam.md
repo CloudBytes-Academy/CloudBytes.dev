@@ -8,7 +8,7 @@ Keywords: Python, AWS, CloudFormation, lambda, serverless, docker, container, sa
 
 [TOC]
 
-I wrote about [building and deploying a AWS Lambda using SAM CLI]({filename}0016 deploy-serverless-apps-with-aws-sam.md) previously.
+I wrote about [building and deploying a AWS Lambda using SAM CLI]({filename}0016-deploy-serverless-apps-with-aws-sam.md) previously.
 
 In this guide, we try to run a Lambda function inside a container. 
 
@@ -24,13 +24,13 @@ You need [Docker](https://docs.docker.com/get-docker/) & [VSCode](https://code.v
 
 Then follow the following steps. 
 
-**Step 1**: Install Python using [these instructions]({filename}0013 how-to-check-python-version.md).
+**Step 1**: Install Python using [these instructions]({filename}0013-how-to-check-python-version.md).
 
-**Step 2**: [Install AWS CLI]({filename}0016 20deploy-serverless-apps-with-aws-sam.md#install-aws-cli)
+**Step 2**: [Install AWS CLI]({filename}0016-deploy-serverless-apps-with-aws-sam.md#install-aws-cli)
 
-**Step 3**: [Install SAM CLI]({filename}0016 deploy-serverless-apps-with-aws-sam.md#install-aws-sam-cli)
+**Step 3**: [Install SAM CLI]({filename}0016-deploy-serverless-apps-with-aws-sam.md#install-aws-sam-cli)
 
-**Step 4**: [Configure AWS & AWS CLI]({filename}0016 deploy-serverless-apps-with-aws-sam.md#configuring-aws-aws-cli)
+**Step 4**: [Configure AWS & AWS CLI]({filename}0016-deploy-serverless-apps-with-aws-sam.md#configuring-aws-aws-cli)
 
 
 ## Create a new app
@@ -123,7 +123,7 @@ You should see the following files
 └── tests
 ```
 
-[Compared to the standard Lambda example]({filename}0016 deploy-serverless-apps-with-aws-sam.md), this has an additional file, the `Dockerfile` that contains the instructions to build the container where the lambda will be executed. 
+[Compared to the standard Lambda example]({filename}0016-deploy-serverless-apps-with-aws-sam.md), this has an additional file, the `Dockerfile` that contains the instructions to build the container where the lambda will be executed. 
 
 ```Dockerfile
 FROM public.ecr.aws/lambda/python:3.8
