@@ -13,7 +13,7 @@ from pelican import main as pelican_main
 from pelican.server import ComplexHTTPRequestHandler, RootedHTTPServer
 from pelican.settings import DEFAULT_CONFIG, get_settings_from_file
 
-SETTINGS_FILE_BASE = "calepin/pelicanconf.py"
+SETTINGS_FILE_BASE = "app/pelicanconf.py"
 SETTINGS = {}
 SETTINGS.update(DEFAULT_CONFIG)
 LOCAL_SETTINGS = get_settings_from_file(SETTINGS_FILE_BASE)
@@ -21,7 +21,7 @@ SETTINGS.update(LOCAL_SETTINGS)
 
 CONFIG = {
     "settings_base": SETTINGS_FILE_BASE,
-    "settings_publish": "calepin/publishconf.py",
+    "settings_publish": "app/publishconf.py",
     # Output path. Can be absolute or relative to tasks.py. Default: 'output'
     "deploy_path": SETTINGS["OUTPUT_PATH"],
     # Host and port for `serve`
