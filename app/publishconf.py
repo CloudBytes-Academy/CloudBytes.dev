@@ -8,7 +8,7 @@ import os
 import sys
 
 sys.path.append(os.curdir)
-from calepin.pelicanconf import *
+from app.pelicanconf import *
 
 # If your site is available via HTTPS, make sure SITEURL begins with https://
 SITEURL = "https://cloudbytes.dev"

@@ -383,6 +383,10 @@ footer ul {
     margin: auto;
 }
 
+footer h3 {
+    margin: 0.5rem;
+}
+
 .footer-nav {
     display: block;
     margin: 0 1rem;
@@ -1763,7 +1767,7 @@ menu-toggler {
 
 .article-tags {
     font-size: 0.83rem;
-    padding: 5px 0 5px;
+    padding: 5px 0 15px;
     align-items: center;
 }
 
@@ -1842,7 +1846,7 @@ menu-toggler {
 
 .content-pad {
     padding: 0 1em;
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
 }
 
 @media (max-width:600px) {

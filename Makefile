@@ -2,7 +2,7 @@ PY?=python3
 PELICAN?=pelican
 PELICANOPTS=
 
-BASEDIR=$(CURDIR)/calepin
+BASEDIR=$(CURDIR)/app
 INPUTDIR=$(BASEDIR)/content
 OUTPUTDIR=$(CURDIR)/output
 CONFFILE=$(BASEDIR)/pelicanconf.py
