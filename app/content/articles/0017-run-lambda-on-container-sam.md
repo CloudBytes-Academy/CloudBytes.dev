@@ -3,7 +3,7 @@ Date: 2021-08-08
 Category: Articles
 Tags: python, aws
 Author: Rehan Haider
-Summary: A short introduction to Anaconda for Python, how to configure and use Anaconda.
+Summary: Learn how to use a custom docker container to run Lambda functions on AWS. 
 Keywords: Python, AWS, CloudFormation, lambda, serverless, docker, container, sam
 
 [TOC]

@@ -3,7 +3,7 @@ Date: 2021-08-02
 Category: Articles
 Tags: python, aws
 Author: Rehan Haider
-Summary: A short introduction to Anaconda for Python, how to configure and use Anaconda.
+Summary: Detailed step by step guide on how to use SAM CLI to build serverless apps.
 Keywords: Python, AWS, CloudFormation, Lambda, sam, serverless,
 
 

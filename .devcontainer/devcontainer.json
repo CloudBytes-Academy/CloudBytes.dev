@@ -35,7 +35,8 @@
 		"ms-python.vscode-pylance",
 		"aeschli.vscode-css-formatter",
 		"yzhang.markdown-all-in-one",
-		"visualstudioexptteam.vscodeintellicode"
+		"visualstudioexptteam.vscodeintellicode",
+		"redhat.vscode-yaml"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
