@@ -1,9 +1,9 @@
-Title: Getting Started with AWS Cloud Development Kit
+Title: AWS CDK: Building a EventBridge scheduled Lambda that reads and writes to s3
 Date: 2021-08-12
 Category: Articles
 Tags: python, aws
 Author: Rehan Haider
-Summary: A guide on how to create, configure, test and deploy a CDK project using Python
+Summary: A getting started guide that builds a servelss app to using EventBridge, Lambda & s3 while introducing how to create, configure, test and deploy a CDK project using Python
 Keywords: Python, AWS, CloudFormation, lambda, serverless, docker, container, cdk
 
 
