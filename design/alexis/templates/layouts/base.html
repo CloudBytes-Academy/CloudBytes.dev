@@ -89,6 +89,7 @@
     </main>
     <!-- End of Main Section -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
+    {% if GTAG %}
     <script defer src="https://www.googletagmanager.com/gtag/js?id={{GTAG}}"></script>
     <script defer>
         window.dataLayer = window.dataLayer || [];
@@ -96,6 +97,7 @@
         gtag('js', new Date());
         gtag('config', '{{GTAG}}');
     </script>
+    {% endif %}
     <!-- Footer -->
     <footer>
         {% include "layouts/footer.html" %}
