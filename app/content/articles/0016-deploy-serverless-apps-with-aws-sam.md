@@ -28,9 +28,9 @@ The application of our choice is a Lambda function behind API Gateway that will 
 
 ## Setting up the development environment
 
-Download and install Python 3.8 for your OS from [Python Website](https://www.python.org/ftp/python/3.8.10/). 
+Download and install Python 3.9 for your OS from [Python Website](https://www.python.org/ftp/python/3.9.6/). 
 
-> !!! tip "IMPORTANT: The latest supported Python version on AWS Lambda is 3.8, thus you need 3.8 to be able to build your Lambda application"
+> !!! tip "IMPORTANT: The latest supported Python version on AWS Lambda is 3.8, thus you need 3.9 to be able to build your Lambda application"
 
 You can refer to [this tutorial]({filename}0013-how-to-check-python-version.md#2-how-to-install-python) if you need help in installing python correctly. 
 
@@ -70,9 +70,9 @@ Download and run the [64-bit installer](https://github.com/aws/aws-sam-cli/relea
 **On Linux**, run the below
 ```bash
 wget "https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip" \
-   -O "awssambeta.zip" \
-   && unzip awssambeta.zip -d sam \
-   && ./sam/install
+   -O "awssam.zip" \
+   && unzip awssam.zip -d sam \
+   && sudo ./sam/install
 ```
 
 **On MacOS** run
