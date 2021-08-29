@@ -141,5 +141,7 @@ Now you can go back to console and test the Lambda Functions using the instructi
 ### What happened here? 
 This was an extremely simple example where a Lambda function was invoked by a Get request to API Gateway (the value of the second block in the diagram above) and returned a simple hello message. 
 
-The workflow of how this worked is 
+The workflow of how this worked is show below. 
+
+
 
