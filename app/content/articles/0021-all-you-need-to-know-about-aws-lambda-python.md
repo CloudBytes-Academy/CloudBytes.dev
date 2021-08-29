@@ -5,7 +5,7 @@ Tags: python, aws
 Author: Rehan Haider
 Summary: A detailed tutorial on how to create complex AWS Lambda functions using Python on AWS
 Keywords: Lambda, Docker, AWS, Python
-Status: Draft
+Status: hidden
 
 [TOC]
 
@@ -111,5 +111,32 @@ And build the sample app by running
 sam build
 ```
 
+You will a message similar to below on successfult completion
+![SAM CLI Build success message]({static}/images/s0021/sam_build.png)
+
+To test this app locally, run
+```text
+sam local invoke
+```
+
+![SAM CLI local invoke success]({static}/images/s0021/sam_local_invoke_success.png)
+
+
+Now finally deploy it to AWS by running
+
+```bash
+sam deploy --guided
+```
+> NOTE: `--guided` flag is only needed when deploying the app for the first time. 
+
+You can leave all answers as default, except when prompted for *"HelloWorldFunction may not have authorization defined, Is this okay?"* select *Y* as show below
+
+![sam deploy guided]({static}/images/s0021/sam_deploy_guided.png)
+
+After that it will go through several automated steps but end with a summary similar to below
+![sam deploy to aws cloud]({static}/images/s0021/sam_deploy.png)
+
+### What happened here? 
+This was an extremely simple example where a Lambda function was invoked by a Get request to API Gateway (the value of the second block in the diagram above) and returned a simple hello message. 
 
 
