@@ -136,7 +136,10 @@ You can leave all answers as default, except when prompted for *"HelloWorldFunct
 After that it will go through several automated steps but end with a summary similar to below
 ![sam deploy to aws cloud]({static}/images/s0021/sam_deploy.png)
 
+Now you can go back to console and test the Lambda Functions using the instructions from earlier.
+
 ### What happened here? 
 This was an extremely simple example where a Lambda function was invoked by a Get request to API Gateway (the value of the second block in the diagram above) and returned a simple hello message. 
 
+The workflow of how this worked is 
 
