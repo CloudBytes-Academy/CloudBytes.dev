@@ -26,7 +26,7 @@ sudo apt-get update
 Check if Python 3.9 is available by running
 
 ```bash
-apt list | grep python3.8
+apt list | grep python3.9
 ```
 
 This will produce the below result, if you see python3.9 it means you can install it
@@ -47,7 +47,7 @@ To do this you need to add both versions to an alternatives by running the below
 
 ```bash
 sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
-sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 2
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.9 2
 ```
 
 Now run 
