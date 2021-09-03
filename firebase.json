@@ -6,6 +6,13 @@
       "**/.*",
       "**/node_modules/**"
     ],
+    "redirects": [
+      {
+        "source": "/articles/upgrade-python-to-latest-version-on-ubuntu-linux",
+        "destination": "/articles/upgrade-python-to-latest-version-39-on-ubuntu-linux",
+        "type": 301
+      }
+    ],
     "headers": [
       {
         "source": "**/*.@(eot|otf|ttf|ttc|woff|font.css)",
@@ -46,11 +53,4 @@
       "enabled": true
     }
   },
-  "redirects": [
-    {
-      "source": "/articles/upgrade-python-to-latest-version-on-ubuntu-linux",
-      "destination": "/articles/upgrade-python-to-latest-version-39-on-ubuntu-linux",
-      "type": 301
-    }
-  ]
 }
