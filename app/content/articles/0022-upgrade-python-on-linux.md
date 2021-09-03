@@ -5,6 +5,7 @@ Tags: python
 Author: Rehan Haider
 Summary: A brief guide on how to upgrade Python to the latest version (Python 3.9) on Ubuntu Linux and solve associated issues
 Keywords: Linux, Python
+Slug: upgrade-python-to-latest-version-on-ubuntu-linux
 
 Linux systems come with Python install by default, however, they are usually not the latest. Python also typically is not updated by a typical `apt-get upgrade` command as well. 
 
