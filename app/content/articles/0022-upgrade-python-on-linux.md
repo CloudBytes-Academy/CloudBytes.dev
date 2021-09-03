@@ -1,4 +1,4 @@
-Title: Upgrade Python to latest version on Ubuntu Linux
+Title: Upgrade Python to latest version (3.9) on Ubuntu Linux
 Date: 2021-08-29
 Category: Articles
 Tags: python
