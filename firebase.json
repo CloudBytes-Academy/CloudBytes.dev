@@ -45,5 +45,12 @@
     "ui": {
       "enabled": true
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/articles/upgrade-python-to-latest-version-on-ubuntu-linux",
+      "destination": "/articles/upgrade-python-to-latest-version-39-on-ubuntu-linux",
+      "type": 301
+    }
+  ]
 }
