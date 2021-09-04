@@ -4,6 +4,7 @@ Category: Books
 Tags: python, fastapi
 Author: Rehan Haider
 Summary: Ultra fast optimised static website generation using Python Pelican static site generator
+Status: Draft
 
 This is how you initialise Firebase in Python
 
