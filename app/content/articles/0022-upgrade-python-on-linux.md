@@ -68,16 +68,24 @@ Installing the new version of Python will break pip as the `disutils` for Python
 ImportError: cannot import name 'sysconfig' from 'distutils' (/usr/lib/python3.9/distutils/__init__.py)
 ```
 
-To fix this, run the below
+Or you might also see an error stating `No module named 'distutils.util'`. 
+
+To fix this, we need to first remove the previous version of Python by running
+```bash
+sudo apt remove python3.8
+sudo apt autoremove
+```
+
+Next to install `disutils`, run the below
 ```bash
 sudo apt install python3.9-distutils
 ```
 
-Then upgrade pip to the latest version by running
+Reinstall the latest pip by running
 
 ```bash
-sudo apt-get install --reinstall python3-apt
-python3 -m pip install --upgrade pip
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python3.9 get-pip.py
 ```
 
 ## Fix Python3-apt 
