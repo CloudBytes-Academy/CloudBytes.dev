@@ -5,7 +5,7 @@ Tags: python, aws
 Author: Rehan Haider
 Summary: A detailed tutorial on how to create complex AWS Lambda functions using Python on AWS
 Keywords: Lambda, Docker, AWS, Python
-Status: hidden
+Status: Draft
 
 [TOC]
 
