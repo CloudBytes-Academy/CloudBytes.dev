@@ -4,7 +4,7 @@
 # [CloudBytes](https://cloudbytes.dev)
 Detail guides explaining Cloud ☁☁, Python🐍 and Computer Science💻🧪 concepts , designed for new 🆕 adopters focused on doing. 
 
-But most importly making your experience of learning easier and fun 🎉🎈😁. 
+But most importantly making your experience of learning easier and fun 🎉🎈😁. 
 
 ## Repository Structure
 
