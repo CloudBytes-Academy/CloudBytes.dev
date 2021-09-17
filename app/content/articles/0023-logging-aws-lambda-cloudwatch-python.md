@@ -5,3 +5,4 @@ Tags: python, aws
 Author: Rehan Haider
 Summary: 
 Keywords: AWS, Lambda, Python
+Status: Draft
