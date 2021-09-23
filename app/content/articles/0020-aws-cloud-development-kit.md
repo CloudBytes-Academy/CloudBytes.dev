@@ -3,7 +3,7 @@ Date: 2021-08-12
 Category: Articles
 Tags: python, aws
 Author: Rehan Haider
-Summary: A getting started guide that builds a servelss app to using EventBridge, Lambda & s3 while introducing how to create, configure, test and deploy a CDK project using Python
+Summary: A guide to building a serverless app using EventBridge, Lambda & s3 while introducing how to create, configure, test and deploy a CDK project using Python
 Keywords: Python, AWS, CloudFormation, lambda, serverless, docker, container, cdk
 
 
