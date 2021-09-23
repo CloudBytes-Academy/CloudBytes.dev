@@ -212,7 +212,8 @@ Configuring SAM deploy
         Stack Name [sam-app]: hello-world
         AWS Region [us-east-1]: 
         Image Repository for HelloWorldFunction: 231871475778.dkr.ecr.us-east-1.amazonaws.com/hello
-          helloworldfunction:python3.8-v1 to be pushed to 231871475778.dkr.ecr.us-east-1.amazonaws.com/hello:helloworldfunction-37e1fa9d5777-python3.8-v1
+          helloworldfunction:python3.8-v1 to be pushed 
+          to 231871475778.dkr.ecr.us-east-1.amazonaws.com/hello:helloworldfunction-37e1fa9d5777-python3.8-v1
 
         #Shows you resources changes to be deployed and require a 'Y' to initiate deploy
         Confirm changes before deploy [y/N]: 
