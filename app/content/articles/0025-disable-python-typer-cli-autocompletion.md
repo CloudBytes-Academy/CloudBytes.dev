@@ -1,10 +1,13 @@
 Title: Disable the default completion options in Python Typer CLI 
-Date: 2021-10-01
+Date: 2021-09-25
 Category: Articles
 Tags: python, typer
 Author: Rehan Haider
 Summary: A short guide to disable the default options such as install-completion and show-completion in Python Typer CLI, a popular CLI building tool
 Keywords: Python, typer
+
+
+TL;DR - jump to the [solution](#disable-completion-option).
 
 [Typer](https://typer.tiangolo.com/) is a great! But it's documentation isn't. 
 
@@ -34,15 +37,13 @@ Unfortunately, as I mentioned earlier, the documentation didn't talk about it.
 So eventually it took a bit of reading the source course to figure out how to disable it. The trick is to pass `add_completion=False` argument while initialising the `typer.Typer` app, as shown below
 
 ```python
-import getpass
 import typer
-import time
 
 app = typer.Typer(add_completion=False)
 
 @app.command()
 def foo(lat: float = None, long: float = None, method: str = None):
-    print(lat, long, method)
+    typer.echo(f"{lat}, {long}, {method}")
 
 
 
