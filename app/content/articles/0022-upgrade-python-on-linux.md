@@ -111,9 +111,11 @@ Then do some cleanup
 sudo apt autoremove
 ```
 
-Finally install python3-apt by running
-```bash
-sudo apt install python3-apt
-```
+<!--
+(Finally install python3-apt by running)
+[//]: <> ```bash
+[//]: <> sudo apt install python3-apt
+[//]: <> ```
+-->
 
 It is complicated, but this is how you update Python to latest version
