@@ -88,6 +88,12 @@ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python3.9 get-pip.py
 ```
 
+### Fix pip-env errors
+Run the following to fix errors similar to `Error: Command '['/path/to/env/bin/python3', '-Im', 'ensurepip', '--upgrade', '--default-pip']' returned non-zero exit status 1`
+```bash
+sudo apt install python3.9-venv
+```
+
 ## Fix Python3-apt 
 
 The update would also break python3-apt, that will generate an error like
