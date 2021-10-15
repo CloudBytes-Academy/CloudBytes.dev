@@ -37,7 +37,7 @@ help:
 	@echo '   make publish							generate using production settings					'
 	@echo '   make serve [PORT=8000]				serve site at http://localhost:8000					'
 	@echo '   make serve-global [SERVER=0.0.0.0]	serve (as root) to $(SERVER):80    					'
-	@echo '   make devserver [PORT=8000]			serve and regenerate together      					'
+	@echo '   make dev [PORT=8000]					serve and regenerate together      					'
 	@echo '   make devserver-global					regenerate and serve on 0.0.0.0    					'
 	@echo '   make firebase							serve firebase emulator on http://localhost:8080	'
 	@echo '																								'

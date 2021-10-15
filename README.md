@@ -57,7 +57,7 @@ You need to have [VSCode](https://code.visualstudio.com/download), [Git](https:/
 5. Open the cloned repository in VSCode
 6. After a few seconds, you should get a prompt to reopen the repository in Container. Choose `Reopen in Container`
 
-This will create a Docker Container with Python and NodeJS installed, add all of the cloned files in that and install all the dependencies defined under `requirements.txt`
+This will create a Docker Container with Python, NodeJS and Firebase CLI installed, add all of the cloned files in that and install all the dependencies defined under `requirements.txt`
 
 No need for any virtual environment of conflicting packages. 
 
@@ -69,16 +69,15 @@ Yeah, 🤕😐I'm not gonna be part of this.  You're on your own.
 
 ## Running the site locally
 
-Recommendation is to use the pelican inbuilt generation mechanism using `pelican content` to generate the static website and use `make devserver` to serve the website during development. 
+This repository comes packaged with Firebase Hosting Emulator tool that can be used to serve the website locally. 
 
-Open the terminal in VSCode, and run the below to generated the site
-
-```bash
-pelican content
+Open the terminal in VSCode and run the below to continously regenerate the output
+```
+make dev
 ```
 
-To serve the website, run the below 👇🏽
+Open another terminal in VSCode and runt he below to serve on localhost:8080
 
-```bash
-make devserver
+```
+make firebase
 ```
