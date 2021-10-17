@@ -16,10 +16,10 @@ jobs:
         env:
           PELICAN_CONFIG_FILE: app/publishconf.py
           PELICAN_CONTENT_FOLDER: app/content
+          ALGOLIA_ADMIN_API_KEY: "${{ secrets.ALGOLIA_ADMIN_API_KEY }}"
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_CLOUDBYTES_PROD }}"
-          ALGOLIA_API_KEY: "${{ secrets.ALGOLIA_ADMIN_API_KEY }}"
           channelId: live
           projectId: cloudbytes-prod
