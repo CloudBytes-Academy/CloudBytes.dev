@@ -1,13 +1,16 @@
+"""
 # -*- coding: utf-8 -*- #
 
 # This file is only used if you use `make publish` or
 # explicitly specify it as your config file.
+"""
 
 import os
 import sys
+from app.pelicanconf import *
 
 sys.path.append(os.curdir)
-from app.pelicanconf import *
+
 
 # If your site is available via HTTPS, make sure SITEURL begins with https://
 SITEURL = "https://cloudbytes.dev"
@@ -20,3 +23,17 @@ DELETE_OUTPUT_DIRECTORY = True
 
 # Following items are often useful when publishing
 GTAG = "G-9VKX48YDBH"
+
+# Algolia Data
+ALGOLIA_APP_ID = "XE8PCLJHAE"
+ALGOLIA_SEARCH_API_KEY = "<SEARCH_API_KEY>"
+ALGOLIA_INDEX_NAME = "cloudbytes_dev"
+ALGOLIA_ADMIN_API_KEY = os.environ.get("ALGOLIA_ADMIN_API_KEY")
+
+
+PLUGINS = [
+    "pelican.plugins.sitemap",
+    "pelican.plugins.tag_cloud",
+    "plugins.fix_sitemap",
+    "plugins.search",
+]

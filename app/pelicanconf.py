@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
-from os import environ
+
 
 AUTHOR = "CloudBytes"
 SITENAME = "CloudBytes"
@@ -96,4 +96,7 @@ MARKDOWN = {
 }
 
 
-# ANALYTICS SETUP
+PLUGINS = [
+    "pelican.plugins.sitemap",
+    "pelican.plugins.tag_cloud",
+]
