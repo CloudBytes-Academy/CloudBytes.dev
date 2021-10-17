@@ -2,12 +2,6 @@ from pelican import signals
 from algoliasearch.search_client import SearchClient
 
 
-# ALGOLIA_ADMIN_API = os.environ.get("ALGOLIA_ADMIN_API")
-# print(ALGOLIA_ADMIN_API)
-# client = SearchClient.create("XE8PCLJHAE", "ALGOLIA_ADMIN_API")
-# index = client.init_index("cloudbytes_dev")
-
-
 def main(generator):
     ALGOLIA_INDEX_NAME = generator.settings.get("ALGOLIA_INDEX_NAME")
     ALGOLIA_APP_ID = generator.settings.get("ALGOLIA_APP_ID")
