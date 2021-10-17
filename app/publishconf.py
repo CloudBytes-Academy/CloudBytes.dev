@@ -7,10 +7,10 @@
 
 import os
 import sys
-from app.pelicanconf import *
 
 sys.path.append(os.curdir)
-
+# This needs to be below the sys.path directive above to work
+from app.pelicanconf import *
 
 # If your site is available via HTTPS, make sure SITEURL begins with https://
 SITEURL = "https://cloudbytes.dev"
