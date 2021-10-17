@@ -8,16 +8,16 @@ on:
 
 jobs:
   build_and_deploy:
-    if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
+    if: "${{ github.event.pull_request.head.repo.full_name == github.repository }}"
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: rehanhaider/pelican-build-action@v0.1.10
-      env:
-        PELICAN_CONFIG_FILE: app/publishconf.py
-        PELICAN_CONTENT_FOLDER: app/content
-    - uses: FirebaseExtended/action-hosting-deploy@v0
-      with:
-        repoToken: '${{ secrets.GITHUB_TOKEN }}'
-        firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CLOUDBYTES_PROD }}'
-        projectId: cloudbytes-prod
+      - uses: actions/checkout@v2
+      - uses: rehanhaider/pelican-build-action@v0.1.10
+        env:
+          PELICAN_CONFIG_FILE: app/pelicanconf.py
+          PELICAN_CONTENT_FOLDER: app/content
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_CLOUDBYTES_PROD }}"
+          projectId: cloudbytes-prod
