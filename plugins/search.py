@@ -46,4 +46,4 @@ def register():
     """
     Register the plugin to Pelican
     """
-    signals.finalized.connect(main)
+    signals.article_generator_finalized.connect(main)
