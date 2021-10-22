@@ -103,4 +103,5 @@ PLUGINS = [
     "pelican.plugins.sitemap",
     "pelican.plugins.tag_cloud",
     "plugins.fix_sitemap",
+    "plugins.search",
 ]
