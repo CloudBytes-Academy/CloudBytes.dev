@@ -10,7 +10,7 @@ from algoliasearch.search_client import SearchClient
 logger = logging.getLogger()
 
 
-def main(generator):
+def main(generator, writer):
     """
     Main function to configure and send data to Algolia
     """
@@ -46,4 +46,4 @@ def register():
     """
     Register the plugin to Pelican
     """
-    signals.article_generator_finalized.connect(main)
+    signals.article_writer_finalized.connect(main)
