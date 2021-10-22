@@ -1,6 +1,9 @@
+"""
+Development time Pelican configuration
+"""
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
-
+from datetime import date
 
 AUTHOR = "CloudBytes"
 SITENAME = "CloudBytes"
@@ -68,7 +71,7 @@ TAG_CLOUD_BADGE = True
 
 
 # Current Year
-from datetime import date
+
 
 CURRENTYEAR = date.today().year
 
@@ -99,4 +102,6 @@ MARKDOWN = {
 PLUGINS = [
     "pelican.plugins.sitemap",
     "pelican.plugins.tag_cloud",
+    "plugins.fix_sitemap",
+    "plugins.search",
 ]
