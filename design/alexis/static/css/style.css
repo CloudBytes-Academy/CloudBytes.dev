@@ -2531,7 +2531,7 @@ label {
 }
 
 .algolia-close {
-    float: right;
+    /*float: right;*/
     margin-top: 10px
 }
 
