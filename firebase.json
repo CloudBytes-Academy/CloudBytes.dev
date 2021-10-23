@@ -16,6 +16,11 @@
         "source": "/articles/:post",
         "destination": "/snippets/:post",
         "type": 301
+      },
+      {
+        "source": "/articles",
+        "destination": "/snippets",
+        "type": 301
       }
     ],
     "headers": [
