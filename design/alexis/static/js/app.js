@@ -77,6 +77,7 @@ closeSearch.addEventListener("click", function (e) {
     megaSearch.style.visibility = "hidden";
 });
 
+
 // Check that service workers are supported
 if ('serviceWorker' in navigator) {
     // Use the window load event to keep the page load performant

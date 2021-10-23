@@ -105,5 +105,31 @@
         {% include "layouts/footer.html" %}
     </footer>
 </body>
+<!-- Include AlgoliaSearch JS Client and autocomplete.js library -->
+<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
+<!-- Initialize autocomplete menu -->
+<script>
+    var client = algoliasearch("{{ALGOLIA_APP_ID}}", "{{ALGOLIA_SEARCH_API_KEY}}");
+    var index = client.initIndex('{{ALGOLIA_INDEX_NAME}}');
+    //initialize autocomplete on search input (ID selector must match)
+    autocomplete('#algolia-input',
+        { hint: false }, {
+        source: autocomplete.sources.hits(index, { hitsPerPage: 10 }),
+        //value to be displayed in input control after user's suggestion selection
+        displayKey: 'title',
+        //hash of templates used when rendering dataset
+        templates: {
+            //'suggestion' templating function used to render a single suggestion
+            suggestion: function (suggestion) {
+                return '<a class="algolia-hit" href="' + suggestion.url + '">' +
+                    '<h4>' +
+                    '<span class="hit-title">' + suggestion._highlightResult.title.value + '</span>' +
+                    '</h4>' +
+                    '</a>'
+            }
+        }
+    });
+</script>
 
 </html>
