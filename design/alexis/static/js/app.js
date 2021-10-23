@@ -60,6 +60,23 @@ closeMenu.addEventListener("click", function (e) {
     megaMenu.style.visibility = "hidden";
 });
 
+// Setup search
+var openSearch = document.getElementById("search-open");
+var closeSearch = document.getElementById("search-close");
+var megaSearch = document.getElementById("search");
+
+openSearch.addEventListener("click", function (e) {
+    e.preventDefault();
+    //script
+    megaSearch.style.visibility = "visible";
+});
+
+closeSearch.addEventListener("click", function (e) {
+    e.preventDefault();
+    //script
+    megaSearch.style.visibility = "hidden";
+});
+
 // Check that service workers are supported
 if ('serviceWorker' in navigator) {
     // Use the window load event to keep the page load performant
@@ -67,3 +84,4 @@ if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/SW.js');
     });
 };
+
