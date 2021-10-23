@@ -1,6 +1,6 @@
 Title: How to Install, Check Python Version and Update it
 Date: 2021-07-25
-Category: Articles
+Category: Snippets
 Tags: python
 Author: Rehan Haider
 Summary: A simple guide on how to Install Python, how to check Python version installed and upgrade Python to the latest version

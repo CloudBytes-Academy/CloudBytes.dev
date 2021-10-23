@@ -1,6 +1,6 @@
 Title: Run AWS Lambda using custom docker container
 Date: 2021-08-08
-Category: Articles
+Category: Snippets
 Tags: python, aws
 Author: Rehan Haider
 Summary: Learn how to use a custom docker container to run Lambda functions on AWS. 

@@ -1,6 +1,6 @@
 Title: How to use Git and GitHub to contributed to Open Source Projects
 Date: 2021-07-24
-Category: Articles
+Category: Snippets
 Tags: github
 Author: Rehan Haider
 Summary: A guide to Git and GitHub basics, and using them correctly to contribute to open source projects on GitHub

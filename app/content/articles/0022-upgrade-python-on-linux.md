@@ -1,6 +1,6 @@
 Title: Upgrade Python to latest version (3.9) on Ubuntu Linux
 Date: 2021-08-29
-Category: Articles
+Category: Snippets
 Tags: python
 Author: Rehan Haider
 Summary: A brief guide on how to upgrade Python to the latest version (Python 3.9) on Ubuntu Linux and solve associated issues

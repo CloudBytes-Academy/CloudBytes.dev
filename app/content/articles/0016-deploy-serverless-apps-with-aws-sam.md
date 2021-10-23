@@ -1,6 +1,6 @@
 Title: Build & Deploy serverless apps on AWS with SAM CLI
 Date: 2021-08-02
-Category: Articles
+Category: Snippets
 Tags: python, aws
 Author: Rehan Haider
 Summary: Detailed step by step guide on how to use SAM CLI to build serverless apps.

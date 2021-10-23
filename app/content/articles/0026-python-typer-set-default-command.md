@@ -1,6 +1,6 @@
 Title: Set the default command in Python Typer CLI
 Date: 2021-10-01
-Category: Articles
+Category: Snippets
 Tags: python, typer
 Author: Rehan Haider
 Summary: A short guide to setting a default command using callback when making multiple commands in Python Typer 

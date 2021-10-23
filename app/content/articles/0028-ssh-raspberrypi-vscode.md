@@ -1,6 +1,6 @@
 Title: Develop remotely on Raspberry Pi using VSCode Remote SSH
 Date: 2021-10-16
-Category: Articles
+Category: Snippets
 Tags: python, raspberrypi
 Author: Rehan Haider
 Summary: How to connect and develop remotely on Raspberry PI by SSHing in using VSCode 

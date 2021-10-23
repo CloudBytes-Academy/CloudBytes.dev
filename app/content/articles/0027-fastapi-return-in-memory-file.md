@@ -1,6 +1,6 @@
 Title: Received & return a file from in-memory buffer using FastAPI
 Date: 2021-10-15
-Category: Articles
+Category: Snippets
 Tags: python, fastapi
 Author: Rehan Haider
 Summary: How to receive a file to the in-memory buffer and then return the file from buffer using FastAPI without saving it to disk. 
