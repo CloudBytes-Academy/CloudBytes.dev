@@ -105,3 +105,8 @@ PLUGINS = [
     "plugins.fix_sitemap",
     "plugins.search",
 ]
+
+# Algolia Publish Data
+ALGOLIA_APP_ID = "XE8PCLJHAE"
+ALGOLIA_SEARCH_API_KEY = "ec75de1d8ce87dee234a2fd47cec2d76"
+ALGOLIA_INDEX_NAME = "cloudbytes_dev"
