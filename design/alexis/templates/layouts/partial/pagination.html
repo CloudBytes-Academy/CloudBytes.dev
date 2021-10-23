@@ -4,7 +4,8 @@
 
 <ul class="pagination">
     <li class="page-item">
-        <a href="/{{ page_type|lower }}/" class="page-link" aria-label="First"><span aria-hidden="true">««</span></a>
+        <a href="/{{ page_type.page_name|lower }}/" class="page-link" aria-label="First"><span
+                aria-hidden="true">««</span></a>
     </li>
     <li class="page-item">
         {% if articles_page.has_previous() %}
@@ -15,11 +16,11 @@
         {% endif %}
     </li>
     <li class="page-item">
-        <a class="page-link" href="/{{ page_type|lower }}/">1</a>
+        <a class="page-link" href="/{{ page_type.page_name|lower }}/">1</a>
     </li>
     {% for n in range(2,max_pages+1) %}
     <li class="page-item">
-        <a class="page-link" href="/{{ page_type|lower }}/{{n}}/">{{n}}</a>
+        <a class="page-link" href="/{{ page_type.page_name|lower }}/{{n}}/">{{n}}</a>
     </li>
     {% endfor %}
     <li class="page-item">
@@ -32,8 +33,8 @@
     </li>
 
     <li class="page-item">
-        <a href="/{{ page_type|lower }}/{{ max_pages if max_pages != 1 }}/" class="page-link" aria-label="Last"><span
-                aria-hidden="true">»»</span></a>
+        <a href="/{{ page_type.page_name|lower }}/{{ max_pages if max_pages != 1 }}/" class="page-link"
+            aria-label="Last"><span aria-hidden="true">»»</span></a>
     </li>
 </ul>
 {% endif %}
