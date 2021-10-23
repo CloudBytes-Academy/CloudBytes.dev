@@ -1,6 +1,6 @@
 Title: Disable the default completion options in Python Typer CLI 
 Date: 2021-09-25
-Category: Articles
+Category: Snippets
 Tags: python, typer
 Author: Rehan Haider
 Summary: A short guide to disable the default options such as install-completion and show-completion in Python Typer CLI, a popular CLI building tool

@@ -1,6 +1,6 @@
 Title: Add a Table of Contents using Markdown in Pelican
 Date: 2021-07-18
-Category: Articles
+Category: Snippets
 Tags: python, pelican, markdown
 Author: Rehan Haider
 Summary: A guide to customising Markdown to add table of contents in Python Pelican

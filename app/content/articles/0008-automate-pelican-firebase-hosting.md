@@ -1,6 +1,6 @@
 Title: Auto Deploy Pelican Websites to Firebase Hosting
 Date: 2021-07-13
-Category: Articles
+Category: Snippets
 Tags: firebase, python, pelican
 Author: Rehan Haider
 Summary: A step by step guide to installing and configuring Pelican and hosting the final blog on Firebase Hosting

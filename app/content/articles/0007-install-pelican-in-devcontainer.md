@@ -1,6 +1,6 @@
 Title: Beginner's guide to installing Pelican in a Container
 Date: 2021-07-13
-Category: Articles
+Category: Snippets
 Tags: python, pelican, vscode
 Author: Rehan Haider
 Summary: Step by step guide on how to install and configure Pelican in a Docker Container for development for developement os static websites following Jamstack architecture

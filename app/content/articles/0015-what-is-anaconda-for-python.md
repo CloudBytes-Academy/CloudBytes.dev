@@ -1,6 +1,6 @@
 Title: What is Anaconda for Python?
 Date: 2021-08-01
-Category: Articles
+Category: Snippets
 Tags: python
 Author: Rehan Haider
 Summary: A short introduction to Anaconda for Python, how to configure and use Anaconda.

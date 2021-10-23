@@ -11,6 +11,11 @@
         "source": "/articles/upgrade-python-to-latest-version-39-on-ubuntu-linux",
         "destination": "/articles/upgrade-python-to-latest-version-on-ubuntu-linux",
         "type": 301
+      },
+      {
+        "source": "/articles/:post",
+        "destination": "/snippets/:post",
+        "type": 301
       }
     ],
     "headers": [

@@ -1,6 +1,6 @@
 Title: Get username, hostname and home directory using Python
 Date: 2021-09-22
-Category: Articles
+Category: Snippets
 Tags: python
 Author: Rehan Haider
 Summary: A quick guide to fetching the username, hostname and home directory using Python on both Windows & Linux

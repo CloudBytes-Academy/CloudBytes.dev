@@ -1,6 +1,6 @@
 Title: Python For Loops, using range vs enumerate
 Date: 2021-07-31
-Category: Articles
+Category: Snippets
 Tags: python
 Author: Rehan Haider
 Summary: How to use python for loops, using range vs enumerate

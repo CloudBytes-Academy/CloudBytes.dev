@@ -1,6 +1,6 @@
 Title: All you need to know about creating AWS Lambda Functions using Python
 Date: 2021-08-12
-Category: Articles
+Category: Snippets
 Tags: python, aws
 Author: Rehan Haider
 Summary: A detailed tutorial on how to create complex AWS Lambda functions using Python on AWS
