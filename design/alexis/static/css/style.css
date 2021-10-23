@@ -2443,7 +2443,7 @@ label {
     width: 100vw;
     height: 100vh;
     background: var(--overlay-bg);
-    z-index: 99;
+    z-index: 999;
     transform: scale(0);
     transition: transform .2s ease-out;
     overflow-y: scroll
@@ -2469,6 +2469,87 @@ label {
 .modal-overlay.modal-show {
     transform: scale(1);
     transition: transform .2s ease-in
+}
+
+.algolia-hits {
+    width: auto;
+    height: 100%;
+    padding: var(--nav-width);
+    padding-top: 5em;
+    overflow-y: scroll
+}
+
+.algolia-hits::-webkit-scrollbar {
+    height: 6px;
+    width: 6px
+}
+
+.algolia-hits::-webkit-scrollbar-track {
+    background: var(--background)
+}
+
+.algolia-hits::-webkit-scrollbar-thumb {
+    background: var(--gray3)
+}
+
+.algolia-hits::-webkit-scrollbar-thumb:hover {
+    background: var(--gray4)
+}
+
+.algolia-hits em {
+    color: var(--green)
+}
+
+.algolia-hits h4, .algolia-hits p {
+    margin: .25em;
+    font-weight: 400
+}
+
+.algolia-hits p {
+    color: var(--text-color);
+    font-size: .85em
+}
+
+.algolia-hit {
+    display: block;
+    margin-top: .2em;
+    background: var(--card-bg);
+    box-shadow: var(--card-shadow);
+    padding: 10px;
+    transition: all .3s ease
+}
+
+.algolia-hit:hover {
+    background: var(--tag-bg);
+    transition: all .3s ease
+}
+
+.algolia-hit .hit-type {
+    color: var(--text-color);
+    font-size: .9em;
+    font-weight: 400
+}
+
+.algolia-close {
+    float: right;
+    margin-top: 10px
+}
+
+.algolia-input {
+    background: var(--overlay-bg);
+    color: var(--h-color);
+    outline: none;
+    font-size: 5vw;
+    display: block;
+    border: none;
+    border-bottom: 5px solid;
+    font-family: var(--body-font);
+    width: 100%;
+    background: transparent
+}
+
+.algolia-input::placeholder {
+    opacity: .7
 }
 
 .toggle-replies {
