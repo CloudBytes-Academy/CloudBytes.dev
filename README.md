@@ -6,7 +6,7 @@ CloudBytes☁ is a community that provides detail guides and how-tos🤔 explain
 
 But most importantly making your experience of learning some complex topics from scratch a bit easier and hopefully more fun 🎉🎈😁. 
 
-## Engaging with the community
+## Engage with the community
 You can open a new discussion here on this repository's [Help / Discussion Community Forum](https://github.com/CloudBytesDotDev/CloudBytes.dev/discussions) to ask for help, or even provide suggestions / feedback.
 
 ## Contributing to the project
