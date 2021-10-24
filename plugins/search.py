@@ -3,9 +3,10 @@ Plugin to integrate and send data to Algolia
 """
 
 import logging
+import hashlib
 from pelican import signals
 from algoliasearch.search_client import SearchClient
-import hashlib
+
 
 logger = logging.getLogger()
 
