@@ -14,7 +14,7 @@ One of the most vital features Firebase Hosting has is the ability to do **URL R
 
 If you have a firebase project, you can configure Firebase Hosting following [these steps]({filename}0008-automate-pelican-firebase-hosting.md#2-create-configure-the-firebase-project).
 
-Then, if you want to redirect a URL "*www.example.com/articles/my-brilliant-article*" to "*www.example.com/post/my-brilliant-post*"  you just need to add a directive in `firebase.json` file that was created as part of the above configuration
+Then, if you want to redirect a URL `www.example.com/articles/my-brilliant-article` to `www.example.com/post/my-brilliant-post`  you just need to add a directive in `firebase.json` file that was created as part of the above configuration
 
 ```json
 {
