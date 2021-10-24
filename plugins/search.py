@@ -5,7 +5,7 @@ Plugin to integrate and send data to Algolia
 import logging
 from pelican import signals
 from algoliasearch.search_client import SearchClient
-
+import hashlib
 
 logger = logging.getLogger()
 
@@ -36,7 +36,8 @@ def main(generator, writer):
             records["content"] = article.content
             records["category"] = article.category
             logger.debug("Adding Algolia object...")
-            index.save_objects([records], {"autoGenerateObjectIDIfNotExist": True})
+            records["objectID"] = hashlib.sha256(str(article.slug).encode("utf-8")).hexdigest()
+            index.save_objects([records])
         logger.debug("Indexing complete...")
     else:
         logger.warning("No Algolia Configuration Found: Skipping Algolia update")
