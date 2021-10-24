@@ -22,7 +22,7 @@
             {% for article in articles_page.object_list %}
             {% include "layouts/partial/article-card.html" %}
             {% endfor %}
-            {% set page_type = ('tags/' ~ tag ) %}
+            {% set page_type = tag %}
             {% include "layouts/partial/pagination.html" %}
         </div>
     </div>
