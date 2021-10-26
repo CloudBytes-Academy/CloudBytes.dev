@@ -102,8 +102,9 @@ MARKDOWN = {
 PLUGINS = [
     "pelican.plugins.sitemap",
     "pelican.plugins.tag_cloud",
-    "plugins.fix_sitemap",
-    "plugins.search",
+    # "plugins.fix_sitemap",
+    # "plugins.search",
+    "plugins.minify",
 ]
 
 # Algolia Publish Data
