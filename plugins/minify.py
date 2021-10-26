@@ -1,22 +1,21 @@
+import minify_html
 import glob
 import os
 import sys
 
-from css_html_js_minify import (
-    process_single_css_file,
-    process_single_html_file,
-    process_single_js_file,
-)
 from pelican import signals
 
 
 def main(pelican):
-    for f in glob.iglob(pelican.output_path + "/**/*.htm*", recursive=True):
-        process_single_html_file(f, overwrite=True)
-    for f in glob.iglob(pelican.output_path + "/**/*.css", recursive=True):
-        process_single_css_file(f, overwrite=True)
-    for f in glob.iglob(pelican.output_path + "/**/*.js", recursive=True):
-        process_single_js_file(f, overwrite=True)
+    for file in glob.iglob(pelican.output_path + "/**/*.html", recursive=True):
+        print(f"Processing {file}")
+        try:
+            with open(file, "r", encoding="utf-8") as html:
+                minified = minify_html.minify(html.read(), remove_processing_instructions=True)
+            with open(file, "w", encoding="utf-8") as html:
+                html.write(minified)
+        except Exception as error:
+            print(error)
 
 
 def register():
