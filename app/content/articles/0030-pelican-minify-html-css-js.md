@@ -5,7 +5,6 @@ Tags: pelican, python
 Author: Rehan Haider
 Summary: Write a Pelican plugin to minify HTML, CSS, and JS files without breaking your website
 Keywords: Python, pelican, minify
-Status: Draft
 
 TL;DR - [Minify you Pelican Website](#)
 
@@ -19,4 +18,50 @@ To make websites faster still, you minify the contents of all the HTML, CSS & JS
 
 ![Minify Reduction]({static}/images/s0030/minify_reduction.png)
 
-## Minify you Pelican Website
+## Minify your Pelican Website
+
+There are a lot of options in Python to minify your webassets, but none of them work. Either they break your website (e.g. remove embedded JS code) or are outdated and not maintained. I personally tried the below in dev environment:
+
+1. ❌ [Unofficial Pelican Plugin: css-html-js-minify](https://github.com/getpelican/pelican-plugins/tree/master/css-html-js-minify): Broke the website 💔, removed embedded JS, deleted some CSS variables & class definitions.
+2. ❌[Official Pelican Plugin](https://github.com/pelican-plugins/webassets): Extremely promising, is useless, and doesn't work. Becase it doesn't minify HTML pages, and it relies on additional 3rd party modules for minification and those modules are either unmaintained ([cssmin](https://github.com/zacharyvoase/cssmin),css_yui, etc) or simply doesn't work and breaks the site ([cssutils](http://cthedot.de/cssutils/)), or requires NPM/NodeJS modules that needs to be installed manually ([cleancss](https://github.com/clean-css/clean-css),)
+3. ❌Non-Python packages such as [html-minifier](https://github.com/kangax/html-minifier), [minimize](https://github.com/Swaagie/minimize), etc. These could have been used but the hassle of integrating them into the CI/CD workflow was too much
+4. ✅ [minify-html](https://pypi.org/project/minify-html/): This seemed to work without breaking this. It is an app written in Rust but with APIs available in several languages (Python, Ruby, NodeJS, Java, etc) which made it easy to write a simple plugin.
+
+
+## Writing the Minification Plugin
+
+First install the library by running pip
+```bash
+pip install minify-html
+```
+
+Then create a plugin, using the below code
+```python
+import minify_html
+import glob
+import os
+import sys
+import logging
+
+from pelican import signals
+
+logger = logging.getLogger()
+
+
+def main(pelican):
+    for file in glob.iglob(pelican.output_path + "/**/*.html", recursive=True):
+        print(f"Processing {file}")
+        try:
+            with open(file, "r", encoding="utf-8") as html:
+                minified = minify_html.minify(html.read(), do_not_minify_doctype=True)
+            with open(file, "w", encoding="utf-8") as html:
+                html.write(minified)
+        except Exception as error:
+            logging.error(error)
+
+
+def register():
+    signals.finalized.connect(main)
+```
+
+Add it to the plugins list in `pelicanconf.py` and you're good to go with a website that is almost 20-30% faster
