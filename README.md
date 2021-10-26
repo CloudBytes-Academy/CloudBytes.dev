@@ -43,8 +43,6 @@ This will create a Docker Container with Python, NodeJS and Firebase CLI install
 
 No need for any virtual environment of conflicting packages. 
 
-Alternatively ....
-
 ## Running the site locally
 
 This repository comes packaged with Firebase Hosting Emulator tool that can be used to serve the website locally. 

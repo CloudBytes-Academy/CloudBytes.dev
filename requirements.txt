@@ -8,6 +8,8 @@ idna==3.3
 Jinja2==3.0.1
 Markdown==3.3.4
 MarkupSafe==2.0.1
+minify_html==0.6.10
+packaging==21.0
 pelican==4.6.0
 pelican-sitemap==1.0.2
 pelican-tag-cloud==1.0.0
