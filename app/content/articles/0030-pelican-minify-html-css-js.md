@@ -64,4 +64,4 @@ def register():
     signals.finalized.connect(main)
 ```
 
-Add it to the plugins list in `pelicanconf.py` and you're good to go with a website that is almost 20-30% faster
+Add it to the plugins list in `pelicanconf.py` and you're good to go with a website that is almost 20-30% faster.
