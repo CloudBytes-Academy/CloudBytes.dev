@@ -1,9 +1,10 @@
-Title: Pelican plugin to minify HTML, CSS, and JS
+Title: Create a Pelican plugin to minify HTML, CSS, and JS
 Date: 2021-10-26
 Category: Snippets
 Tags: pelican, python
 Author: Rehan Haider
 Summary: Write a Pelican plugin to minify HTML, CSS, and JS files without breaking your website
+slug: pelican-plugin-to-minify-html-css-and-js
 Keywords: Python, pelican, minify
 
 TL;DR - [Minify you Pelican Website](#)
@@ -25,7 +26,7 @@ There are a lot of options in Python to minify your webassets, but none of them 
 1. ❌ [Unofficial Pelican Plugin: css-html-js-minify](https://github.com/getpelican/pelican-plugins/tree/master/css-html-js-minify): Broke the website 💔, removed embedded JS, deleted some CSS variables & class definitions.
 2. ❌[Official Pelican Plugin](https://github.com/pelican-plugins/webassets): Extremely promising, is useless, and doesn't work. Becase it doesn't minify HTML pages, and it relies on additional 3rd party modules for minification and those modules are either unmaintained ([cssmin](https://github.com/zacharyvoase/cssmin),css_yui, etc) or simply doesn't work and breaks the site ([cssutils](http://cthedot.de/cssutils/)), or requires NPM/NodeJS modules that needs to be installed manually ([cleancss](https://github.com/clean-css/clean-css),)
 3. ❌Non-Python packages such as [html-minifier](https://github.com/kangax/html-minifier), [minimize](https://github.com/Swaagie/minimize), etc. These could have been used but the hassle of integrating them into the CI/CD workflow was too much
-4. ✅ [minify-html](https://pypi.org/project/minify-html/): This seemed to work without breaking this. It is an app written in Rust but with APIs available in several languages (Python, Ruby, NodeJS, Java, etc) which made it easy to write a simple plugin.
+4. ✅ [minify-html](https://pypi.org/project/minify-html/): This seemed to work without breaking the website. [Minify HTML](https://github.com/wilsonzlin/minify-html) is an app  Rust app but with APIs available in several languages (Python, Ruby, NodeJS, Java, etc) which made it easy to write a simple plugin.
 
 
 ## Writing the Minification Plugin
@@ -64,4 +65,4 @@ def register():
     signals.finalized.connect(main)
 ```
 
-Add it to the plugins list in `pelicanconf.py` and you're good to go with a website that is almost 20-30% faster.
+Add it to the plugins list in `pelicanconf.py` and you're good to go with a website that is almost 20-30% faster
