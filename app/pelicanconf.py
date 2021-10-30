@@ -20,11 +20,6 @@ STATIC_PATHS = ["images", "extra/SW.js"]
 
 EXTRA_PATH_METADATA = {"extra/SW.js": {"path": "SW.js"}}
 
-# To keep the structure of content folder & remove .html extension
-# PATH_METADATA = "(?P<path_no_ext>.*)\..*"
-# ARTICLE_URL = PAGE_URL = "{path_no_ext}"
-# ARTICLE_SAVE_AS = PAGE_SAVE_AS = "{path_no_ext}/index.html"
-
 # To define no .html in all page types used for github pages
 ARTICLE_URL = "{category}/{slug}"
 ARTICLE_SAVE_AS = "{category}/{slug}/index.html"
@@ -36,7 +31,6 @@ TAG_URL = "tags/{slug}"
 TAG_SAVE_AS = "tags/{slug}/index.html"
 PAGE_URL = "{slug}.html"
 PAGE_SAVE_AS = "{slug}.html"
-
 
 TIMEZONE = "UTC"
 
@@ -71,18 +65,16 @@ TAG_CLOUD_BADGE = True
 
 
 # Current Year
-
-
 CURRENTYEAR = date.today().year
 
 # Sitemap configuration
-
 SITEMAP = {
     "format": "xml",
     "priorities": {"articles": 1, "indexes": 1, "pages": 0.25},
     "changefreqs": {"articles": "weekly", "indexes": "daily", "pages": "monthly"},
 }
 
+# Python-Markdown extension configuration
 MARKDOWN = {
     "extension_configs": {
         # Needed for code syntax highlighting
@@ -98,7 +90,7 @@ MARKDOWN = {
     "output_format": "html5",
 }
 
-
+# Active Plugins
 PLUGINS = [
     "pelican.plugins.sitemap",
     "pelican.plugins.tag_cloud",
@@ -113,5 +105,5 @@ ALGOLIA_APP_ID = "XE8PCLJHAE"
 ALGOLIA_SEARCH_API_KEY = "ec75de1d8ce87dee234a2fd47cec2d76"
 ALGOLIA_INDEX_NAME = "cloudbytes_dev"
 
-
+# Related Post Settings
 RELATED_POSTS_MAX = 5
