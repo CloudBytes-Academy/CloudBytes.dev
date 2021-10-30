@@ -36,6 +36,7 @@ jobs:
           retention-days: 1
   deploy:
     name: Deploy to Production
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - name: Download the build output
