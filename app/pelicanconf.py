@@ -16,9 +16,9 @@ THEME = "./design/alexis"
 PATH = "content"
 
 # Path to static folders
-STATIC_PATHS = ["images", "extra/SW.js"]
+STATIC_PATHS = ["images", "extra/SW.js", "extra/robots.txt"]
 
-EXTRA_PATH_METADATA = {"extra/SW.js": {"path": "SW.js"}}
+EXTRA_PATH_METADATA = {"extra/SW.js": {"path": "SW.js"}, "extra/robots.txt": {"path": "robots.txt"}}
 
 # To define no .html in all page types used for github pages
 ARTICLE_URL = "{category}/{slug}"
@@ -97,7 +97,7 @@ PLUGINS = [
     "pelican.plugins.related_posts",
     # "plugins.fix_sitemap",
     # "plugins.search",
-    "plugins.minify",
+    # "plugins.minify",
 ]
 
 # Algolia Publish Data
