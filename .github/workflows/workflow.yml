@@ -1,11 +1,11 @@
-name: CI
+name: Deployment
 
 on:
   push:
     branches:
       - main
     paths-ignore:
-      - ".github/workflows/**"
+      #- ".github/workflows/**"
       - "README.md"
       - "Makefile"
       - ".gitignore"
@@ -14,8 +14,8 @@ on:
       - "resources/**"
 
 jobs:
-  deploy:
-    name: Deploy to Production
+  build:
+    name: Build the output
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -25,6 +25,23 @@ jobs:
           PELICAN_CONFIG_FILE: app/publishconf.py
           PELICAN_CONTENT_FOLDER: app/content
           ALGOLIA_ADMIN_API_KEY: "${{ secrets.ALGOLIA_ADMIN_API_KEY }}"
+      - name: Upload the build output
+        uses: actions/upload-artifact@v2
+        with:
+          name: pelican-output
+          path: |
+            output/
+            .firebaserc
+            firebase.json
+          retention-days: 1
+  deploy:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download the build output
+        uses: actions/download-artifact@v2
+        with:
+          name: pelican-output
       - name: Deploy to Firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
