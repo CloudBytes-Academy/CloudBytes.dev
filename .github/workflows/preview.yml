@@ -9,6 +9,7 @@ on:
       - ".gitignore"
       - ".devcontainer/**"
       - ".vscode/**"
+      - "resources/**"
 
 jobs:
   preview:
