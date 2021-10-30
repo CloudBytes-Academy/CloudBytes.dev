@@ -3,7 +3,7 @@ name: Preview
 on:
   pull_request:
     paths-ignore:
-      - ".github/workflows/**"
+      #- ".github/workflows/**"
       - "README.md"
       - "Makefile"
       - ".gitignore"
@@ -12,17 +12,39 @@ on:
       - "resources/**"
 
 jobs:
-  preview:
-    name: Preview the PR
+  build:
+    name: Build
     if: "${{ github.event.pull_request.head.repo.full_name == github.repository }}"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Build the Preview
+      - name: Build the Preview Website
         uses: rehanhaider/pelican-build-action@v0.1.10
         env:
           PELICAN_CONFIG_FILE: app/pelicanconf.py
           PELICAN_CONTENT_FOLDER: app/content
+      - name: Upload the build artefacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: output
+          path: |
+            output/
+            .firebaserc
+            firebase.json
+          retention-days: 1
+  preview:
+    name: Preview
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download the build artefacts
+        uses: actions/download-artifact@v2
+        with:
+          name: output
+          path: |
+            output/
+            .firebaserc
+            firebase.json
       - name: Deploy to Preview Channel
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:

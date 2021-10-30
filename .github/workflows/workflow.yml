@@ -15,7 +15,7 @@ on:
 
 jobs:
   build:
-    name: Build the output
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -28,21 +28,21 @@ jobs:
       - name: Upload the build output
         uses: actions/upload-artifact@v2
         with:
-          name: pelican-output
+          name: output
           path: |
             output/
             .firebaserc
             firebase.json
           retention-days: 1
   deploy:
-    name: Deploy to Production
+    name: Deploy
     needs: [build]
     runs-on: ubuntu-latest
     steps:
       - name: Download the build output
         uses: actions/download-artifact@v2
         with:
-          name: pelican-output
+          name: output
       - name: Deploy to Firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
