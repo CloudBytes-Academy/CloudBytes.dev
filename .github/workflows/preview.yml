@@ -1,4 +1,4 @@
-name: Preview Channel
+name: Preview
 
 on:
   pull_request:
@@ -7,16 +7,19 @@ on:
     # - "website/**"
 
 jobs:
-  build_and_deploy:
+  preview:
+    name: Preview the PR
     if: "${{ github.event.pull_request.head.repo.full_name == github.repository }}"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: rehanhaider/pelican-build-action@v0.1.10
+      - name: Build the Preview
+        uses: rehanhaider/pelican-build-action@v0.1.10
         env:
           PELICAN_CONFIG_FILE: app/pelicanconf.py
           PELICAN_CONTENT_FOLDER: app/content
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - name: Deploy to Preview Channel
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_CLOUDBYTES_PROD }}"
