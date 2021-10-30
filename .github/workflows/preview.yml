@@ -2,9 +2,13 @@ name: Preview
 
 on:
   pull_request:
-    # Optionally configure to run only for specific files. For example:
-    # paths:
-    # - "website/**"
+    paths-ignore:
+      - ".github/workflows/**"
+      - "README.md"
+      - "Makefile"
+      - ".gitignore"
+      - ".devcontainer/**"
+      - ".vscode/**"
 
 jobs:
   preview:
