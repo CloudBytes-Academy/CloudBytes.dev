@@ -4,7 +4,7 @@ Category: Snippets
 Tags: github, pelican, python
 Author: Rehan Haider
 Summary: Create a CI/CD pipeline using GitHub Actions to build, test, and deploy you website
-Keywords: Github, pelican, devops
+Keywords: Github, pelican, devops, actions, artifacts
 
 
 This guide will differ from other guides about GitHub Actions in that it will be focused on how to transfer the build artifacts & outputs across multiple steps. 

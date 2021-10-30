@@ -3,7 +3,7 @@ name: Preview
 on:
   pull_request:
     paths-ignore:
-      #- ".github/workflows/**"
+      - ".github/workflows/**"
       - "README.md"
       - "Makefile"
       - ".gitignore"
