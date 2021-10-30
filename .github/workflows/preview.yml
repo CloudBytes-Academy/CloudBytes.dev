@@ -26,7 +26,7 @@ jobs:
       - name: Upload the build artefacts
         uses: actions/upload-artifact@v2
         with:
-          name: output
+          name: build-output
           path: |
             output/
             .firebaserc
@@ -40,7 +40,7 @@ jobs:
       - name: Download the build artefacts
         uses: actions/download-artifact@v2
         with:
-          name: output
+          name: build-output
       - name: Deploy to Preview Channel
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
