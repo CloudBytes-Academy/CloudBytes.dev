@@ -4,6 +4,13 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - ".github/workflows/**"
+      - "README.md"
+      - "Makefile"
+      - ".gitignore"
+      - ".devcontainer/**"
+      - ".vscode/**"
 
 jobs:
   deploy:
