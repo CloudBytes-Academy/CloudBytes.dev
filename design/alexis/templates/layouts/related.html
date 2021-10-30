@@ -1,0 +1,23 @@
+{% if article.related_posts %}
+<div class="chapter-list">
+    <div class="chapter-wrap">
+        <span style="text-align: center;">
+            <h3>Related Posts</h3>
+        </span>
+        {% for related_post in article.related_posts %}
+        <a href="{{ SITEURL }}/{{ related_post.url }}">
+            <div class="box box-sm chapter-item">
+                <i class="box-icon">
+                    <div>
+                        <i class="emoji">📄</i>
+                    </div>
+                </i>
+                <div class="box-content">
+                    <span class="subtext">{{ related_post.title }}</span>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}

@@ -87,7 +87,8 @@
         {% block main %}
         {% endblock %}
         <aside class="sidebar">
-            {% include "layouts/sidebar.html" %}
+            {% block sidebar_contents %}
+            {% endblock %}
         </aside>
     </main>
     <!-- End of Main Section -->
