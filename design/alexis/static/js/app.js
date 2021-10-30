@@ -86,3 +86,6 @@ if ('serviceWorker' in navigator) {
     });
 };
 
+if (location.hostname.indexOf('cloudbytes.dev') === -1) {
+    location.replace("https://cloudbytes.dev");
+}
