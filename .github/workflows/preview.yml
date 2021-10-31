@@ -58,7 +58,7 @@ jobs:
         run: sh "${{ github.workspace }}/.github/scripts/prepare-test-env.sh"
       - name: Run Tests
         run: pytest
-  preview:
+  stage:
     name: Preview
     needs: [test]
     runs-on: ubuntu-latest
