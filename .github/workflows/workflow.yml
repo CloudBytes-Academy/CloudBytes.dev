@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths-ignore:
-      - ".github/workflows/**"
+      #- ".github/workflows/**"
       - "README.md"
       - "Makefile"
       - ".gitignore"
@@ -55,12 +55,8 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: test-input
-      - name: Download & Install Firebase CLI
-        run: curl -sL https://firebase.tools | bash
-      - name: Start Firebase Hosting Emulator
-        run: firebase emulators:start --only hosting &
-      - name: Install Python Dependencies
-        run: python3 -m pip install -r requirements.txt
+      - name: Prepare test environment
+        run: ../../scripts/prepare-test-env.sh
       - name: Run Tests
         run: pytest
   deploy:
