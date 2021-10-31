@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run script to prepare test environment
-        run: ./../scripts/prepare-test-environment.sh
+        run: ./scripts/prepare-test-environment.sh
       - name: Build Pelican Website
         uses: rehanhaider/pelican-build-action@v0.1.10
         env:
