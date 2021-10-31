@@ -46,7 +46,7 @@ jobs:
       - name: Install Firebase CLI
         run: curl -sL https://firebase.tools | bash
       - name: Start Firebase Hosting Emulator
-        run: firebase emulators:start --only hosting
+        run: firebase emulators:start --only hosting &
       - name: Start tests
         run: pytest
   deploy:
