@@ -1,7 +1,7 @@
 [![Open in VSCode](resources/ovs.svg)](https://open.vscode.dev/CloudBytesDotDev/CloudBytes.dev)
 [![Deploy](https://github.com/CloudBytesDotDev/CloudBytes.dev/actions/workflows/workflow.yml/badge.svg)](https://github.com/CloudBytesDotDev/CloudBytes.dev/actions/workflows/workflow.yml)
 
-# [CloudBytes](https://cloudbytes.dev)
+# [CloudBytes/Dev](https://cloudbytes.dev)
 CloudBytes☁ is a community that provides detail guides and how-tos🤔 explaining Cloud ☁☁, Python🐍 and Computer Science💻🧪 concepts , designed for new 🆕 adopters focused on making things work. 
 
 But most importantly making your experience of learning some complex topics from scratch a bit easier and hopefully more fun 🎉🎈😁. 
