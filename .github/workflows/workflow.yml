@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths-ignore:
-      - ".github/workflows/**"
+      #- #".github/workflows/**"
       - "README.md"
       - "Makefile"
       - ".gitignore"
@@ -25,15 +25,22 @@ jobs:
           PELICAN_CONFIG_FILE: app/publishconf.py
           PELICAN_CONTENT_FOLDER: app/content
           ALGOLIA_ADMIN_API_KEY: "${{ secrets.ALGOLIA_ADMIN_API_KEY }}"
-      - name: Upload the build output
+      - name: Upload the build files
         uses: actions/upload-artifact@v2
         with:
           name: build-output
           path: |
             output/
-            tests/
             .firebaserc
             firebase.json
+          retention-days: 1
+      - name: Upload the test files
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-input
+          path: |
+            tests/
+            requirements.txt
           retention-days: 1
   test:
     name: Test
@@ -44,12 +51,13 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: build-output
-      - name: Install Firebase CLI
-        run: curl -sL https://firebase.tools | bash
-      - name: Start Firebase Hosting Emulator
-        run: firebase emulators:start --only hosting &
-      - name: Install pytest
-        run: python3 -m pip install pytest
+      - name: Download the test input
+        uses: actions/download-artifact@v2
+        with:
+          name: test-input
+      - run: curl -sL https://firebase.tools | bash
+      - run: firebase emulators:start --only hosting &
+      - run: python3 -m pip install requirements.txt
       - name: Start tests
         run: pytest
   deploy:
