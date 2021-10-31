@@ -47,6 +47,8 @@ jobs:
         run: curl -sL https://firebase.tools | bash
       - name: Start Firebase Hosting Emulator
         run: firebase emulators:start --only hosting &
+      - name: Install pytest
+        run: python3 -m pip install pytest
       - name: Start tests
         run: pytest
   deploy:
