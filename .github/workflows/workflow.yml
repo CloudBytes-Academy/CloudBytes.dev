@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run script to prepare test environment
-        run: cat "${{ github.workspace }}/.github/scripts/prepare-test-env-sh"
+        run: ls "${{ github.workspace }}"
         #- name: Build Pelican Website
         #  uses: rehanhaider/pelican-build-action@v0.1.10
         env:
