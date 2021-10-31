@@ -46,6 +46,13 @@ And on Windows
 
 
 ## Get the hostname
+
+```python
+import socket
+hostname = socket.gethostname()
+print(hostname)
+```
+### Output
 On Linux
 ![python find hostname linux]({static}/images/s0024/hostname-linux.png)
 
