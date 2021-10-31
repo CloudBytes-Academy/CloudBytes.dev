@@ -31,6 +31,7 @@ jobs:
           name: build-output
           path: |
             output/
+            tests/
             .firebaserc
             firebase.json
           retention-days: 1
