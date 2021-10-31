@@ -56,7 +56,7 @@ jobs:
         with:
           name: test-input
       - name: Prepare test environment
-        run: ../../scripts/prepare-test-env.sh
+        run: .github/scripts/prepare-test-env.sh
       - name: Run Tests
         run: pytest
   deploy:
