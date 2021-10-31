@@ -1,6 +1,6 @@
 """
 # --*-- coding: utf-8 --*--
-# Plugin to strip ".hmml" from sitemap. This is pecific for clean URLs in Firebase hosting 
+# Plugin to strip ".hmml" from sitemap. This is pecific for clean URLs in Firebase hosting
 """
 
 import logging
