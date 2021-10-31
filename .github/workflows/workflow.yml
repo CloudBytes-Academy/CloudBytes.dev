@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths-ignore:
-      - ".github/workflows/**"
+      #  - ".github/workflows/**"
       - "README.md"
       - "Makefile"
       - ".gitignore"
@@ -41,13 +41,13 @@ jobs:
           path: |
             tests/
             requirements.txt
+            .github/scripts/prepare-test-env.sh
           retention-days: 1
   test:
     name: Test
     needs: [build]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - name: Download the Build Output
         uses: actions/download-artifact@v2
         with:
@@ -57,7 +57,7 @@ jobs:
         with:
           name: test-input
       - name: Prepare Test Environment
-        run: sh "${{ github.workspace }}/.github/scripts/prepare-test-env.sh"
+        run: chmod +x  "${{ github.workspace }}/.github/scripts/prepare-test-env.sh" | sh
       - name: Run Tests
         run: pytest
   deploy:

@@ -32,9 +32,35 @@ jobs:
             .firebaserc
             firebase.json
           retention-days: 1
+      - name: Upload the Test Files
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-input
+          path: |
+            tests/
+            requirements.txt
+            .github/scripts/prepare-test-env.sh
+          retention-days: 1
+  test:
+    name: Test
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download the Build Output
+        uses: actions/download-artifact@v2
+        with:
+          name: build-output
+      - name: Download the test input
+        uses: actions/download-artifact@v2
+        with:
+          name: test-input
+      - name: Prepare Test Environment
+        run: chmod +x  "${{ github.workspace }}/.github/scripts/prepare-test-env.sh" | sh
+      - name: Run Tests
+        run: pytest
   preview:
     name: Preview
-    needs: [build]
+    needs: [test]
     runs-on: ubuntu-latest
     steps:
       - name: Download the build artefacts
