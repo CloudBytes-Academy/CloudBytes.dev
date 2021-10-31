@@ -1,22 +1,48 @@
-name: Preview Channel
+name: Preview
 
 on:
   pull_request:
-    # Optionally configure to run only for specific files. For example:
-    # paths:
-    # - "website/**"
+    paths-ignore:
+      - ".github/workflows/**"
+      - "README.md"
+      - "Makefile"
+      - ".gitignore"
+      - ".devcontainer/**"
+      - ".vscode/**"
+      - "resources/**"
 
 jobs:
-  build_and_deploy:
+  build:
+    name: Build
     if: "${{ github.event.pull_request.head.repo.full_name == github.repository }}"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: rehanhaider/pelican-build-action@v0.1.10
+      - name: Build the Preview Website
+        uses: rehanhaider/pelican-build-action@v0.1.10
         env:
           PELICAN_CONFIG_FILE: app/pelicanconf.py
           PELICAN_CONTENT_FOLDER: app/content
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - name: Upload the build artefacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-output
+          path: |
+            output/
+            .firebaserc
+            firebase.json
+          retention-days: 1
+  preview:
+    name: Preview
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download the build artefacts
+        uses: actions/download-artifact@v2
+        with:
+          name: build-output
+      - name: Deploy to Preview Channel
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_CLOUDBYTES_PROD }}"

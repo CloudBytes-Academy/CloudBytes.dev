@@ -16,14 +16,9 @@ THEME = "./design/alexis"
 PATH = "content"
 
 # Path to static folders
-STATIC_PATHS = ["images", "extra/SW.js"]
+STATIC_PATHS = ["images", "extra/SW.js", "extra/robots.txt"]
 
-EXTRA_PATH_METADATA = {"extra/SW.js": {"path": "SW.js"}}
-
-# To keep the structure of content folder & remove .html extension
-# PATH_METADATA = "(?P<path_no_ext>.*)\..*"
-# ARTICLE_URL = PAGE_URL = "{path_no_ext}"
-# ARTICLE_SAVE_AS = PAGE_SAVE_AS = "{path_no_ext}/index.html"
+EXTRA_PATH_METADATA = {"extra/SW.js": {"path": "SW.js"}, "extra/robots.txt": {"path": "robots.txt"}}
 
 # To define no .html in all page types used for github pages
 ARTICLE_URL = "{category}/{slug}"
@@ -36,7 +31,6 @@ TAG_URL = "tags/{slug}"
 TAG_SAVE_AS = "tags/{slug}/index.html"
 PAGE_URL = "{slug}.html"
 PAGE_SAVE_AS = "{slug}.html"
-
 
 TIMEZONE = "UTC"
 
@@ -71,18 +65,16 @@ TAG_CLOUD_BADGE = True
 
 
 # Current Year
-
-
 CURRENTYEAR = date.today().year
 
 # Sitemap configuration
-
 SITEMAP = {
     "format": "xml",
     "priorities": {"articles": 1, "indexes": 1, "pages": 0.25},
     "changefreqs": {"articles": "weekly", "indexes": "daily", "pages": "monthly"},
 }
 
+# Python-Markdown extension configuration
 MARKDOWN = {
     "extension_configs": {
         # Needed for code syntax highlighting
@@ -98,15 +90,20 @@ MARKDOWN = {
     "output_format": "html5",
 }
 
-
+# Active Plugins
 PLUGINS = [
     "pelican.plugins.sitemap",
     "pelican.plugins.tag_cloud",
-    "plugins.fix_sitemap",
-    "plugins.search",
+    "pelican.plugins.related_posts",
+    # "plugins.fix_sitemap",
+    # "plugins.search",
+    # "plugins.minify",
 ]
 
 # Algolia Publish Data
 ALGOLIA_APP_ID = "XE8PCLJHAE"
 ALGOLIA_SEARCH_API_KEY = "ec75de1d8ce87dee234a2fd47cec2d76"
 ALGOLIA_INDEX_NAME = "cloudbytes_dev"
+
+# Related Post Settings
+RELATED_POSTS_MAX = 5

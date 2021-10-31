@@ -24,5 +24,15 @@ DELETE_OUTPUT_DIRECTORY = True
 # Following items are often useful when publishing
 GTAG = "G-9VKX48YDBH"
 
+PLUGINS = [
+    "pelican.plugins.sitemap",
+    "pelican.plugins.tag_cloud",
+    "pelican.plugins.related_posts",
+    "plugins.fix_sitemap",
+    "plugins.search",
+    "plugins.minify",
+]
+
+
 # Algolia Publish Data
 ALGOLIA_ADMIN_API_KEY = os.environ.get("ALGOLIA_ADMIN_API_KEY")
