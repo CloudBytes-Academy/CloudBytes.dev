@@ -1,5 +1,6 @@
 """
-Plugin to integrate and send data to Algolia
+# --*-- coding: utf-8 --*--
+# Plugin to integrate and send data to Algolia
 """
 
 import logging
