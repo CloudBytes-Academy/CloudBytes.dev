@@ -97,3 +97,48 @@ def test_topnav():
     assert topnav.find("a", {"aria-label": "GitHub"}).find("svg") is not None
     assert len(topnav.find("div", {"id": "themeButton"}).find_all("svg")) == 2
     assert len(topnav.find("menu-toggler").find_all("svg")) == 2
+
+
+def test_footer():
+    """
+    # Test the footer
+    """
+    footer = soup.find("footer")
+
+    # Test the footer exists
+    assert footer is not None
+
+    # check the class of elements in footer
+    assert footer.find("div", {"class": "footer-row"}) is not None
+    assert len(footer.find("div", {"class": "footer-row"}).findChildren(recursive=False)) == 3
+
+    # check the links in the footer
+    assert len(footer.find("div", {"class": "footer-row"}).find_all("a")) == 4
+    assert len(footer.find("div", {"class": "footer-row"}).find("ul").find_all("a")) == 3
+
+    # check the contents of the footer
+    assert footer.find("a", {"href": "/terms"}).text.strip() == "Terms"
+    assert footer.find("a", {"href": "/privacy"}).text.strip() == "Privacy Policy"
+    assert footer.find("a", {"href": "/sitemap.xml"}).text.strip() == "Sitemap"
+
+
+def test_content():
+    """
+    # Test the main content
+    """
+    content = soup.find("div", {"class": "content-main"})
+
+    # Test the content exists
+    assert content is not None
+
+    # Check the content header
+    assert content.find("h1").text.strip() == "Latest Code Snippets"
+
+    # Check the card container
+    assert content.find("div", {"class": "row-max-1"}) is not None
+
+    # Check the number of cards
+    assert len(content.find("div", {"class": "row-max-1"}).findChildren(recursive=False)) == 6
+
+    # check the link to snippets
+    assert content.find("a", {"href": "/snippets"}).text.strip() == "View all Code Snippets"
