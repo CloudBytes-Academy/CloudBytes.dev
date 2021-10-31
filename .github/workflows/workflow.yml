@@ -19,15 +19,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Run script to prepare test environment
-        run: sh "${{ github.workspace }}/.github/scripts/prepare-test-env.sh"
-        #- name: Build Pelican Website
-        #  uses: rehanhaider/pelican-build-action@v0.1.10
+      - name: Build Pelican Website
+        uses: rehanhaider/pelican-build-action@v0.1.10
         env:
           PELICAN_CONFIG_FILE: app/publishconf.py
           PELICAN_CONTENT_FOLDER: app/content
           ALGOLIA_ADMIN_API_KEY: "${{ secrets.ALGOLIA_ADMIN_API_KEY }}"
-      - name: Upload the build files
+      - name: Upload the Build Files
         uses: actions/upload-artifact@v2
         with:
           name: build-output
@@ -36,7 +34,7 @@ jobs:
             .firebaserc
             firebase.json
           retention-days: 1
-      - name: Upload the test files
+      - name: Upload the Test Files
         uses: actions/upload-artifact@v2
         with:
           name: test-input
@@ -49,7 +47,7 @@ jobs:
     needs: [build]
     runs-on: ubuntu-latest
     steps:
-      - name: Download the build output
+      - name: Download the Build Output
         uses: actions/download-artifact@v2
         with:
           name: build-output
@@ -57,8 +55,8 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: test-input
-      - name: Run script to prepare test environment
-        run: ./.github/scripts/prepare-test-env.sh
+      - name: Prepare Test Environment
+        run: sh "${{ github.workspace }}/.github/scripts/prepare-test-env.sh"
       - name: Run Tests
         run: pytest
   deploy:
