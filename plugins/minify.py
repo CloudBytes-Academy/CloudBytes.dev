@@ -1,12 +1,12 @@
 """
-Minify HTML
+# --*-- coding: utf-8 --*--
+# Minify HTML Files
 """
 
-import minify_html
 import glob
-import os
-import sys
 import logging
+import minify_html
+
 
 from pelican import signals
 
@@ -15,7 +15,7 @@ logger = logging.getLogger()
 
 def main(pelican):
     """
-    Minify HTML
+    # Minify HTML Files
     """
     for file in glob.iglob(pelican.output_path + "/**/*.html", recursive=True):
         logger.info(f"Processing {file}")
@@ -24,12 +24,12 @@ def main(pelican):
                 minified = minify_html.minify(html.read(), do_not_minify_doctype=True)
             with open(file, "w", encoding="utf-8") as html:
                 html.write(minified)
-        except Exception as error:
-            logging.error(error)
+        except Exception as e:
+            logger.error(f"Error while minifying {file}: {e}")
 
 
 def register():
     """
-    Register Plugin
+    # Register Plugin
     """
     signals.finalized.connect(main)
