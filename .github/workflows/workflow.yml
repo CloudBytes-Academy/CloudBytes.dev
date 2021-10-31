@@ -20,9 +20,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run script to prepare test environment
-        run: cwd
-      - name: Build Pelican Website
-        uses: rehanhaider/pelican-build-action@v0.1.10
+        run: pwd
+        #- name: Build Pelican Website
+        #  uses: rehanhaider/pelican-build-action@v0.1.10
         env:
           PELICAN_CONFIG_FILE: app/publishconf.py
           PELICAN_CONTENT_FOLDER: app/content
