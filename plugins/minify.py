@@ -18,7 +18,7 @@ def main(pelican):
     Minify HTML
     """
     for file in glob.iglob(pelican.output_path + "/**/*.html", recursive=True):
-        print(f"Processing {file}")
+        logger.info(f"Processing {file}")
         try:
             with open(file, "r", encoding="utf-8") as html:
                 minified = minify_html.minify(html.read(), do_not_minify_doctype=True)
