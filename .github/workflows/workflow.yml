@@ -34,9 +34,24 @@ jobs:
             .firebaserc
             firebase.json
           retention-days: 1
+  test:
+    name: Test
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download the build output
+        uses: actions/download-artifact@v2
+        with:
+          name: build-output
+      - name: Install Firebase CLI
+        run: curl -sL https://firebase.tools | bash
+      - name: Start Firebase Hosting Emulator
+        run: firebase emulators:start --only hosting
+      - name: Start tests
+        run: pytest
   deploy:
     name: Deploy
-    needs: [build]
+    needs: [test]
     runs-on: ubuntu-latest
     steps:
       - name: Download the build output
