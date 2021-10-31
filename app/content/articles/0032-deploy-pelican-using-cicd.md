@@ -9,3 +9,4 @@ Status: Hidden
 
 [TOC]
 
+In this guide I will provide a step by step method to automatically deploy a Pelican website to Firebase using a CI/CD pipeline built using GitHub Actions.
