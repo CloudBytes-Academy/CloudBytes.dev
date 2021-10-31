@@ -58,7 +58,7 @@ jobs:
       - run: curl -sL https://firebase.tools | bash
       - run: firebase emulators:start --only hosting &
       - run: python3 -m pip install requirements.txt
-      - name: Start tests
+      - name: Run tests
         run: pytest
   deploy:
     name: Deploy
