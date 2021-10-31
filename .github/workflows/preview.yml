@@ -55,7 +55,7 @@ jobs:
         with:
           name: test-input
       - name: Prepare Test Environment
-        run: chmod +x  "${{ github.workspace }}/.github/scripts/prepare-test-env.sh" | sh
+        run: sh "${{ github.workspace }}/.github/scripts/prepare-test-env.sh"
       - name: Run Tests
         run: pytest
   preview:
