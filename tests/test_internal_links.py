@@ -35,20 +35,24 @@ def get_page_links(url):
     """
     This function gets all links from a page
     """
-
     page_response = requests.get(url)
     page_soup = BeautifulSoup(page_response.text, "html5lib")
     page_links = page_soup.find_all("a")
-
     page_urls = []
     for link in page_links:
         url = link.get("href")
         if url is not None:
             if url.startswith("/"):
                 url = BASE_URL + url
+                page_urls.append(url)
             elif url.startswith(BASE_URL):
                 page_urls.append(url)
+            elif url.startswith("../"):
+                url = url.replace("../", "/")
+                url = BASE_URL + url
+                page_urls.append(url)
             else:
+                # print(url)
                 pass
 
     return page_urls
@@ -59,7 +63,10 @@ def test_internal_links():
     This function tests all internal links in the URLs on the sitemap
     """
     sitemap_urls = get_sitemap_links()
+    sitemap_urls.remove(f"{BASE_URL}/404")
+
     valid_urls = []
+
     for url in sitemap_urls:
         page_urls = get_page_links(url)
         for page_url in page_urls:
