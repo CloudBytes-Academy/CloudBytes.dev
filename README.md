@@ -1,7 +1,5 @@
 [![Open in VSCode](resources/ovs.svg)](https://open.vscode.dev/CloudBytesDotDev/CloudBytes.dev)
-[![Deploy](https://github.com/CloudBytesDotDev/CloudBytes.dev/actions/workflows/workflow.yml/badge.svg?job=deploy)](https://github.com/CloudBytesDotDev/CloudBytes.dev/actions/workflows/workflow.yml)
-[![Deploy](https://github.com/CloudBytesDotDev/CloudBytes.dev/actions/workflows/workflow.yml/badge.svg?job=test)](https://github.com/CloudBytesDotDev/CloudBytes.dev/actions/workflows/workflow.yml)
-[![Deploy](https://github.com/CloudBytesDotDev/CloudBytes.dev/actions/workflows/workflow.yml/badge.svg?job=build)](https://github.com/CloudBytesDotDev/CloudBytes.dev/actions/workflows/workflow.yml)
+[![Deploy](https://github.com/CloudBytesDotDev/CloudBytes.dev/actions/workflows/workflow.yml/badge.svg)](https://github.com/CloudBytesDotDev/CloudBytes.dev/actions/workflows/workflow.yml)
 
 
 # [CloudBytes/Dev](https://cloudbytes.dev)

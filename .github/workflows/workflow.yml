@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths-ignore:
-      #- ".github/workflows/**"
+      - ".github/workflows/**"
       - "README.md"
       - "Makefile"
       - ".gitignore"
@@ -62,7 +62,7 @@ jobs:
         run: pytest
   deploy:
     name: Deploy
-    #needs: [test]
+    needs: [test]
     runs-on: ubuntu-latest
     steps:
       - name: Download the Build
