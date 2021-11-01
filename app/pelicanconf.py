@@ -95,7 +95,7 @@ PLUGINS = [
     "pelican.plugins.sitemap",
     "pelican.plugins.tag_cloud",
     "pelican.plugins.related_posts",
-    # "plugins.fix_sitemap",
+    "plugins.fix_sitemap",
     # "plugins.search",
     # "plugins.minify",
 ]
