@@ -14,6 +14,14 @@ name: "CodeQL"
 on:
   push:
     branches: [ main ]
+    paths-ignore:
+    - ".github/workflows/**"
+    - "README.md"
+    - "Makefile"
+    - ".gitignore"
+    - ".devcontainer/**"
+    - ".vscode/**"
+    - "resources/**"
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [ main ]
