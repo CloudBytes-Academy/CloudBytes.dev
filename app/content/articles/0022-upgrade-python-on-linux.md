@@ -1,10 +1,10 @@
 Title: Upgrade Python to latest version (3.10) on Ubuntu Linux
 Date: 2021-11-01
 Category: Snippets
-Tags: python
+Tags: python, ubuntu
 Author: Rehan Haider
-Summary: A brief guide on how to upgrade Python to the latest version (Python 3.10) on Ubuntu Linux and solve associated issues
-Keywords: Linux, Python
+Summary: A complete guide on how to upgrade Python to the latest version (Python 3.10) on Ubuntu Linux and solve associated issues
+Keywords: Linux, Python, Ubuntu, Python 3.10, 
 Slug: upgrade-python-to-latest-version-on-ubuntu-linux
 
 Linux systems come with Python install by default, however, they are usually not the latest. Python also typically is not updated by a typical `apt-get upgrade` command as well. 
