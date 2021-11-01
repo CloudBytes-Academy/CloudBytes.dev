@@ -2025,7 +2025,7 @@ h1.tag {
     color: var(--background)
 }
 
-.tag-javascript {
+.tag-javascript, .tag-pwa {
     background: #f0db4f;
     color: #000
 }
@@ -2035,24 +2035,9 @@ h1.tag {
     color: #fff
 }
 
-.tag-angular {
-    background: #dc0530;
-    color: #fff
-}
-
 .tag-firebase {
     background: #ffcb2b;
     color: #12181a
-}
-
-.tag-vue {
-    background: #41b883;
-    color: #35495e
-}
-
-.tag-rxjs {
-    background: var(--pink);
-    color: var(--gray5)
 }
 
 .tag-node {
@@ -2060,80 +2045,9 @@ h1.tag {
     color: #46483d
 }
 
-.tag-cloud-functions {
-    background: var(--blue);
-    color: #fff
-}
-
-.tag-flutter {
-    background: #54c5f8;
-    color: #003b6c
-}
-
-.tag-google-maps {
-    background: #33a668;
-    color: #f8d845
-}
-
-.tag-android {
-    background: #a4c34a;
-    color: #fff
-}
-
-.tag-fauna, .tag-stripe {
-    color: #fff;
-    background: #6675e0
-}
-
-.tag-machine-learning {
-    color: #fff;
-    background: var(--purple-light)
-}
-
 .tag-python {
     color: #ffda5d;
     background: #3879ab
-}
-
-.tag-svelte {
-    color: #fff;
-    background: #ff3e00
-}
-
-.tag-react {
-    color: #00d8ff;
-    background: #222
-}
-
-.tag-ios {
-    color: #fff;
-    background: #000
-}
-
-.tag-minimum-viable-product, .tag-mvp {
-    color: #fff;
-    background-image: linear-gradient(90deg, #ff8901, #db1d5f);
-    font-weight: 700
-}
-
-.tag-ionic {
-    background: #fff;
-    color: #4a8afc
-}
-
-.tag-nest {
-    color: #e0234e;
-    background: #000
-}
-
-.tag-graphql {
-    color: #fff;
-    background: #e10097
-}
-
-.tag-electron {
-    color: #313244;
-    background: #adecf3
 }
 
 .tag-css {
@@ -2146,23 +2060,18 @@ h1.tag {
     background: #24292e
 }
 
-.tag-deno {
-    color: #e1e9d5;
-    background: #222220
-}
-
 .tag-docker {
     color: #fff;
     background: #2496ed
 }
 
-.tag-nextjs {
+.tag-rpi {
     color: #fff;
-    background: #000
+    background: #bc1142
 }
 
-.tag-rpi {
-    color: #000;
+.tag-raspberrypi, .tag-rpi {
+    color: #fff;
     background: #bc1142
 }
 
@@ -2174,6 +2083,16 @@ h1.tag {
 .tag-fastapi {
     color: #fff;
     background: #009485;
+}
+
+.tag-typer {
+    color: #fff;
+    background: #000;
+}
+
+.tag-flask {
+    color: #000;
+    background: #fff;
 }
 
 .tag-pelican {
