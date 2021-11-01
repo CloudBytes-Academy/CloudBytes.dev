@@ -8,9 +8,11 @@ css-html-js-minify==2.5.5
 csscompressor==0.9.5
 docutils==0.17.1
 feedgenerator==1.9.1
+html5lib==1.1
 idna==3.3
 iniconfig==1.1.1
 Jinja2==3.0.1
+lxml==4.6.3
 Markdown==3.3.4
 MarkupSafe==2.0.1
 minify_html==0.6.10
@@ -34,3 +36,4 @@ toml==0.10.2
 tornado==6.1
 Unidecode==1.2.0
 urllib3==1.26.7
+webencodings==0.5.1

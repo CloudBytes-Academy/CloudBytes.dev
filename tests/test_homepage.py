@@ -1,7 +1,7 @@
 """
 # --*-- coding: utf-8 --*--
 # Path: tests/test_base.py
-# Test the base data
+# Test the home page structure
 """
 from datetime import date
 import pytest
@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 
 BASE_URL = "http://localhost:8080"
 response = requests.get(BASE_URL)
-soup = BeautifulSoup(response.text, "html.parser")
+soup = BeautifulSoup(response.text, "html5lib")
 
 
 def test_homepage():
@@ -111,6 +111,7 @@ def test_footer():
 
     # check the class of elements in footer
     assert footer.find("div", {"class": "footer-row"}) is not None
+    print(footer.find("div", {"class": "footer-row"}).findChildren(recursive=False))
     assert len(footer.find("div", {"class": "footer-row"}).findChildren(recursive=False)) == 3
 
     # check the links in the footer
