@@ -13,8 +13,6 @@ So, I recently managed to break something on [CloudBytes/Dev](https://cloudbytes
 
 I only noticed the error when the number of 404 erros increased significantly in the analytics report. So I set about creating a Python script to find the broken links and highlight them during the [Continous Integration process I have setup]({filename}0031-building-cicd-pipelines-with-github-actions.md). 
 
-
-
 ## The Solution Workflow to validate the links
 
 I came up with the following set of steps to first populate the links and then validate if they exist. 
@@ -35,16 +33,13 @@ import pytest
 import requests
 from bs4 import BeautifulSoup
 
-
 BASE_URL = "http://localhost:8080"
 SITE_URL = "https://cloudbytes.dev"
-
 
 def get_sitemap_links():
     """
     This function gets all links from the sitemap
     """
-
     sitemap_url = BASE_URL + "/sitemap.xml"
     sitemap_response = requests.get(sitemap_url)
     sitemap_soup = BeautifulSoup(sitemap_response.text, "lxml")
@@ -62,7 +57,6 @@ def get_page_links(url):
     """
     This function gets all links from a page
     """
-
     page_response = requests.get(url)
     page_soup = BeautifulSoup(page_response.text, "html5lib")
     page_links = page_soup.find_all("a")
@@ -114,7 +108,6 @@ def get_sitemap_links():
     """
     This function gets all links from the sitemap
     """
-
     sitemap_url = BASE_URL + "/sitemap.xml"
     sitemap_response = requests.get(sitemap_url)
     sitemap_soup = BeautifulSoup(sitemap_response.text, "lxml")
