@@ -11,6 +11,8 @@ from bs4 import BeautifulSoup
 
 BASE_URL = "http://localhost:8080"
 response = requests.get(BASE_URL)
+
+# Using HTML to account for minification and malformed HTML
 soup = BeautifulSoup(response.text, "html5lib")
 
 
