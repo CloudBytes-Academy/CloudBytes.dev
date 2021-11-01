@@ -74,3 +74,11 @@ def test_internal_links():
                 response = requests.get(page_url)
                 assert response.status_code == 200
                 valid_urls.append(page_url)
+
+
+def test_404_page():
+    """
+    This function tests the 404 page
+    """
+    response = requests.get(f"{BASE_URL}/404")
+    assert response.status_code == 404
