@@ -56,7 +56,7 @@ def get_page_links(url):
 
 def test_internal_links():
     """
-    This function tests all internal links in the sitemap
+    This function tests all internal links in the URLs on the sitemap
     """
     sitemap_urls = get_sitemap_links()
     valid_urls = []
