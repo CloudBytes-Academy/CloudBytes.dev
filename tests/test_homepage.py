@@ -3,6 +3,7 @@
 # Path: tests/test_base.py
 # Test the base data
 """
+from datetime import date
 import pytest
 import requests
 from bs4 import BeautifulSoup
@@ -120,6 +121,13 @@ def test_footer():
     assert footer.find("a", {"href": "/terms"}).text.strip() == "Terms"
     assert footer.find("a", {"href": "/privacy"}).text.strip() == "Privacy Policy"
     assert footer.find("a", {"href": "/sitemap.xml"}).text.strip() == "Sitemap"
+
+    # Check copyright message & year
+
+    assert (
+        footer.find("p", {"class": "copyright"}).text.strip()
+        == f"Copyright © 2020 - {date.today().year} CloudBytes. All rights reserved."
+    )
 
 
 def test_content():
