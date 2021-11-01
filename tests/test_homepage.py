@@ -111,7 +111,6 @@ def test_footer():
 
     # check the class of elements in footer
     assert footer.find("div", {"class": "footer-row"}) is not None
-    print(footer.find("div", {"class": "footer-row"}).findChildren(recursive=False))
     assert len(footer.find("div", {"class": "footer-row"}).findChildren(recursive=False)) == 3
 
     # check the links in the footer
