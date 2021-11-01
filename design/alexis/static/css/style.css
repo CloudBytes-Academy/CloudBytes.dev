@@ -2010,7 +2010,7 @@ h1.tag {
     background: var(--background)
 }
 
-.tag-green, .tag-pro {
+.tag-green, .tag-pro, .tag-snippets {
     background: var(--green);
     color: #fff
 }
