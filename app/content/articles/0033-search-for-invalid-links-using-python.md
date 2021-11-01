@@ -7,7 +7,7 @@ Summary: A short guide to scrape your own website, find invalid links, and highl
 Keywords: python, beautifulsoup, sitemap, 404, scrape
 
 
-TL;DR: Go to the solution
+TL;DR: Go to the [solution](#the-solution-workflow-to-validate-the-links) directly.
 
 So, I recently managed to break something on [CloudBytes/Dev](https://cloudbytes.dev). All the internal links on the site were broken, and I published the website. 
 
@@ -26,7 +26,7 @@ To begin with:
 5. If the page exists, then add it to the list of valid links
 
 
-## The Test Script
+## Pytest Program to Scrawl & Test Website
 
 ```python
 import pytest
