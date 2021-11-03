@@ -7,10 +7,10 @@
 		"context": "..",
 		"args": {
 			// Update 'VARIANT' to pick a Python version: 3, 3.6, 3.7, 3.8, 3.9
-			"VARIANT": "3.10",
+			"VARIANT": "3.9",
 			// Options
 			"INSTALL_NODE": "true",
-			"NODE_VERSION": "16*"
+			"NODE_VERSION": "16"
 		}
 	},
 	// Set *default* container specific settings.json values on container create.
@@ -36,7 +36,8 @@
 		"aeschli.vscode-css-formatter",
 		"yzhang.markdown-all-in-one",
 		"visualstudioexptteam.vscodeintellicode",
-		"redhat.vscode-yaml"
+		"redhat.vscode-yaml",
+		"github.copilot"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
