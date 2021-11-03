@@ -125,7 +125,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: justgoodin/pelican-build-action@v0.1.10
+    - uses: rehanhaider/pelican-build-action@v0.1.11
       env:
         PELICAN_CONFIG_FILE: app/publishconf.py
         PELICAN_CONTENT_FOLDER: app/content
@@ -145,7 +145,7 @@ Then we created a `job`, and named it `build_and_deploy` that will run on `ubunt
 After that we defined the `steps` that need to be followed which are, 
 
 1. Use `actions/checkout@v2` to access the branch of your repository which contains your code
-2. Use another action that I built named `justgoodin/pelican-build-action@v0.1.10` that will install all of your dependencies stored in `requirements.txt` and execute the `pelican content` command to generate the output in a folder named `output`
+2. Use another action that I built named `rehanhaider/pelican-build-action@v0.1.11` that will install all of your dependencies stored in `requirements.txt` and execute the `pelican content` command to generate the output in a folder named `output`
 3. The above action is performed using the environmental variables under `env` that contains the path to the config file and the content folder where the markdown content is stored. 
 4. Finally, we use official Firebase action to deploy the contents of `output` folder that the action will create into Firebase hosting 
 5. The above action will be performed with a `repoToken` that is provided by GitHub automatically, the `FIREBASE_SERVICE_ACCOUNT` credentials that we stored in previous section, into the `live` channel and finally the `projectId` that you should change to the name of the project you had created on Firebase
