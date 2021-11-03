@@ -63,7 +63,7 @@ Open the URL `localhost:8080` in your browser.
 The repository has the following structure:
 
 1. `.devcontainer`: [VSCode Devcontainer](https://code.visualstudio.com/docs/remote/containers) Dockerfile for easy configuration
-2. `.github/workflows`: Contains the script for automated deployment using this custom [action](https://github.com/justgoodin/pelican-build-deploy-anywhere).
+2. `.github/workflows`: Contains the script for automated deployment using this custom [action](https://github.com/rehanhaider/pelican-build-deploy-anywhere).
 3. `app/content`: Where the content resides
 4. `plugins`: Custom plugins to add additional features
 5. `design`: Themes for the website. The current version is nicknamed `alexis`.
