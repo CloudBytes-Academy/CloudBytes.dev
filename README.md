@@ -21,7 +21,7 @@ For correcting ✅ any typos ❌do the same by using GitHub's inline editor and 
 
 Once the PR is merged, your article will be posted directly on the website using the Continuous Delivery (CD) pipeline in place. 
 
-> *If you know what you're doing* 😉*, feel free to fork the repository and add the guest post in the folder mentioned above.* ☝🏽
+> *If you know what you're doing* 😉, *feel free to fork the repository and add the guest post in the folder mentioned above.* ☝🏽
 
 ### 2. Add a new feature
 
