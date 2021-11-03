@@ -60,7 +60,7 @@ serve:
 serve-global:
 	"$(PELICAN)" -l "$(INPUTDIR)" -o "$(OUTPUTDIR)" -s "$(CONFFILE)" $(PELICANOPTS) -b $(SERVER)
 
-dev:
+devserver:
 	"$(PELICAN)" -lr "$(INPUTDIR)" -o "$(OUTPUTDIR)" -s "$(CONFFILE)" $(PELICANOPTS)
 
 devserver-global:
@@ -72,4 +72,8 @@ publish:
 firebase:
 	firebase emulators:start --only hosting
 
-.PHONY: html help clean regenerate serve serve-global devserver publish 
+dev:
+	make -j 2 devserver firebase
+
+
+.PHONY: html help clean regenerate serve serve-global devserver publish
