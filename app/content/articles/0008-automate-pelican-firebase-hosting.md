@@ -33,7 +33,7 @@ So in this tutorial, we will
 ## The workflow
 
 We will use the following setup & automation to automate the deployment process.
-![pelican ci cd]({filename}/images/s0008/pelican-ci-cd.png)
+![pelican ci cd]({static}/images/s0008/pelican-ci-cd.png)
 
 ## 1. Setting up Pelican 
 Use the instructions in [this guide on how to install Pelican in a VSCode devcontainer]({filename}0007-install-pelican-in-devcontainer.md) and create a small blog. 
