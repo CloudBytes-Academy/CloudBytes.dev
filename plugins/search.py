@@ -28,15 +28,18 @@ def main(generator, writer):
 
         for article in generator.articles:
             print(f"Indexing article: {article.title}")
-            records = {}
-            records["title"] = article.title
-            records["slug"] = article.slug
-            records["url"] = article.url
-            records["tags"] = []
+            records = {
+                "title": article.title,
+                "slug": article.slug,
+                "url": article.url,
+                "tags": [],
+                "content": article.content,
+                "category": article.category,
+            }
+
             for tag in getattr(article, "tags", []):
                 records["tags"].append(tag.name)
-            records["content"] = article.content
-            records["category"] = article.category
+
             logger.debug("Adding Algolia object...")
             records["objectID"] = hashlib.sha256(str(article.slug).encode("utf-8")).hexdigest()
             index.save_objects([records])
