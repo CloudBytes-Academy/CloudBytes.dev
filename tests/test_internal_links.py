@@ -51,6 +51,7 @@ def get_page_links(url):
                 url = url.replace("../", "/")
                 url = BASE_URL + url
                 page_urls.append(url)
+
     return page_urls
 
 
