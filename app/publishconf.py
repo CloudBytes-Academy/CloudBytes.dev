@@ -29,6 +29,7 @@ PLUGINS = [
     "pelican.plugins.tag_cloud",
     "pelican.plugins.related_posts",
     "plugins.fix_sitemap",
+    # "pelican.plugins.pelican_algolia",
     "plugins.search",
     "plugins.minify",
 ]
