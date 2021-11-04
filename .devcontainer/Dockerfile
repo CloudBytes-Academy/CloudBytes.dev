@@ -13,9 +13,9 @@ RUN if [ "${NODE_VERSION}" != "none" ]; then su vscode -c "umask 0002 && . /usr/
 
 
 # [Optional] If your pip requirements rarely change, uncomment this section to add them to the image.
-#COPY requirements.txt /tmp/pip-tmp/
-#RUN pip3 --disable-pip-version-check --no-cache-dir install -r /tmp/pip-tmp/requirements.txt \
-#    && rm -rf /tmp/pip-tmp
+COPY requirements.txt /tmp/pip-tmp/
+RUN pip3 --disable-pip-version-check --no-cache-dir install -r /tmp/pip-tmp/requirements.txt \
+    && rm -rf /tmp/pip-tmp
 
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
@@ -24,16 +24,5 @@ RUN if [ "${NODE_VERSION}" != "none" ]; then su vscode -c "umask 0002 && . /usr/
 # [Optional] Uncomment this line to install global node packages.
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g firebase-tools" 2>&1
 
-# Change user to vscode
-USER vscode
-
 # Install Firebase CLI using auto install script
-RUN curl -sL https://firebase.tools | bash
-
-# Install PDM CLI using auto install script
-RUN curl -sSL https://raw.githubusercontent.com/pdm-project/pdm/main/install-pdm.py | python -
-
-# Add PDM to PATH
-ENV PATH ":$PATH:/home/vscode/.local/bin/"
-# Enable PEP 582 Globally
-RUN pdm --pep582 bash >> ~/.bash_profile
+RUN su vscode -c "curl -sL https://firebase.tools | bash"
