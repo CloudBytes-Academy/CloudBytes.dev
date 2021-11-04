@@ -40,6 +40,7 @@ jobs:
             tests/
             requirements.txt
             .github/scripts/prepare-test-env.sh
+            pytest.ini
           retention-days: 1
   test:
     name: Test
