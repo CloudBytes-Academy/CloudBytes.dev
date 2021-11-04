@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 echo "Downloading & Installing 🔥Firebase CLI"
-curl -sL https://firebase.tools | bash
+curl -sSL https://firebase.tools | bash
 
 echo "Starting 🔥Firebase CLI"
 firebase emulators:start --only hosting &
