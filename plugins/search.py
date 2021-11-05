@@ -27,7 +27,8 @@ def main(generator, writer):
         index = client.init_index(ALGOLIA_INDEX_NAME)
 
         for article in generator.articles:
-            print(f"Indexing article: {article.title}")
+            # print(f"Indexing article: {article.title}")
+            print(f"Indexing article: {article.url}")
             records = {
                 "title": article.title,
                 "slug": article.slug,
