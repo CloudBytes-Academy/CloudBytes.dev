@@ -97,7 +97,7 @@ The code below includes JINJA syntax so it needs to be added to your HTML templa
         templates: {
             //'suggestion' templating function used to render a single suggestion
             suggestion: function (suggestion) {
-                return '<a class="algolia-hit" href="' + suggestion.url + '">' +
+                return '<a class="algolia-hit" href="/' + suggestion.url + '">' +
                     '<h4>' +
                     '<span class="hit-title">' + suggestion._highlightResult.title.value + '</span>' +
                     '</h4>' +
