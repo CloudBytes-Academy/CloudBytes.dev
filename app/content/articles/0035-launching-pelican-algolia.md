@@ -60,7 +60,7 @@ To make a working search box, you need to do two things
 
 
 ### 1. HTML Search box
-Here's what I have on [CloudBytes/dev>](https://cloudbytes.dev)
+Here's what I have on [CloudBytes\dev>](https://cloudbytes.dev)
 
 ```html
     <div class="algolia-hits">

@@ -9,7 +9,7 @@ Keywords: python, beautifulsoup, sitemap, 404, scrape
 
 TL;DR: Go to the [solution](#the-solution-workflow-to-validate-the-links) directly.
 
-So, I recently managed to break something on [CloudBytes/Dev](https://cloudbytes.dev). All the internal links on the site were broken, and I published the website. 
+So, I recently managed to break something on [CloudBytes\dev>](https://cloudbytes.dev). All the internal links on the site were broken, and I published the website. 
 
 I only noticed the error when the number of 404 erros increased significantly in the analytics report. So I set about creating a Python script to find the broken links and highlight them during the [Continous Integration process I have setup]({filename}0031-building-cicd-pipelines-with-github-actions.md). 
 
