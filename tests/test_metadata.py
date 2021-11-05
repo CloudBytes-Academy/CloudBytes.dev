@@ -91,6 +91,7 @@ def test_canonical(URL):
     canonical = soup.find("link", {"rel": "canonical"})
     assert canonical is not None
     # Check if the canonical url matches with the expected URL
+    print(os.environ.get("TEST_ENV"))
     if os.environ.get("TEST_ENV"):
         URL = URL.replace(BASE_URL, SITE_URL)
     assert canonical["href"] == URL
