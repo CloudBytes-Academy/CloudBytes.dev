@@ -8,7 +8,3 @@ firebase emulators:start --only hosting &
 
 echo "Install 🐍Python Dependencies"
 python3 -m pip install -r requirements.txt
-
-
-echo "Setting Test Environment"
-export TEST_ENV=true
