@@ -24,7 +24,7 @@ def get_sitemap_links():
     sitemap_urls = []
     for link in sitemap_links:
         url = link.text.replace(SITE_URL, BASE_URL)
-        sitemap_urls.append(url)
+        sitemap_urls.append(url.rstrip("/"))  # Remove trailing slash from certain urls
 
     return sitemap_urls
 
@@ -79,7 +79,7 @@ def test_keywords(URL):
     assert keywords is not None
 
 
-# Check if a link has valid canonical url
+# Check if a link has valid canonical url & it matches with expectd URL
 @pytest.mark.parametrize("URL", sitemap_urls)
 def test_canonical(URL):
     """
@@ -89,3 +89,5 @@ def test_canonical(URL):
     soup = BeautifulSoup(response.text, "html5lib")
     canonical = soup.find("link", {"rel": "canonical"})
     assert canonical is not None
+    # Check if the canonical url matches with the expected URL
+    assert canonical["href"] == URL

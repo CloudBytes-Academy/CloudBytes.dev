@@ -7,7 +7,7 @@ from datetime import date
 
 AUTHOR = "CloudBytes"
 SITENAME = "CloudBytes"
-SITEURL = "https://cloudbytes.dev"
+SITEURL = "http://localhost:8080"
 
 THEME_STATIC_DIR = "assets"
 THEME = "./design/alexis"
@@ -54,7 +54,7 @@ PAGINATION_PATTERNS = (
 PAGINATED_TEMPLATES = {"index": None, "tag": None, "category": None, "author": None}
 
 # Uncomment following line if you want document-relative URLs when developing
-RELATIVE_URLS = True
+# RELATIVE_URLS = True
 
 
 # Tag Cloud settings
