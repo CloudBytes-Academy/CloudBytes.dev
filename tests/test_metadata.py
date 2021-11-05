@@ -32,7 +32,7 @@ def get_sitemap_links():
 
 sitemap_urls = get_sitemap_links()
 
-# check if the a link has valid favicons
+# Check if the a link has valid favicons
 @pytest.mark.parametrize("URL", sitemap_urls)
 def test_favicon(URL):
     """
@@ -68,7 +68,7 @@ def test_description(URL):
     assert description is not None
 
 
-# check if a link has valid keywords
+# Check if a link has valid keywords
 @pytest.mark.parametrize("URL", sitemap_urls)
 def test_keywords(URL):
     """
