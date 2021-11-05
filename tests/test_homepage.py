@@ -33,7 +33,7 @@ def test_title():
     assert title is not None
 
     # Test the title contains the correct text
-    assert title.text.strip() == "Home"
+    assert title.text.strip() == "CloudBytes\dev> Home"
 
 
 def test_navbar():

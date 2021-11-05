@@ -29,8 +29,10 @@ def get_sitemap_links():
     return sitemap_urls
 
 
+sitemap_urls = get_sitemap_links()
+
 # check if the a link has valid favicons
-@pytest.mark.parametrize("URL", get_sitemap_links())
+@pytest.mark.parametrize("URL", sitemap_urls)
 def test_favicon(URL):
     """
     Test if the a link has a valid favicon
@@ -42,7 +44,7 @@ def test_favicon(URL):
 
 
 # Check if the a link has valid title
-@pytest.mark.parametrize("URL", get_sitemap_links())
+@pytest.mark.parametrize("URL", sitemap_urls)
 def test_title(URL):
     """
     Test if the a link has a valid title
@@ -51,3 +53,39 @@ def test_title(URL):
     soup = BeautifulSoup(response.text, "html5lib")
     title = soup.find("title")
     assert title is not None
+
+
+# Check if the a link has valid description
+@pytest.mark.parametrize("URL", sitemap_urls)
+def test_description(URL):
+    """
+    Test if the a link has a valid description
+    """
+    response = requests.get(URL)
+    soup = BeautifulSoup(response.text, "html5lib")
+    description = soup.find("meta", {"name": "description"})
+    assert description is not None
+
+
+# check if a link has valid keywords
+@pytest.mark.parametrize("URL", sitemap_urls)
+def test_keywords(URL):
+    """
+    Test if the a link has a valid keywords
+    """
+    response = requests.get(URL)
+    soup = BeautifulSoup(response.text, "html5lib")
+    keywords = soup.find("meta", {"name": "keywords"})
+    assert keywords is not None
+
+
+# Check if a link has valid canonical url
+@pytest.mark.parametrize("URL", sitemap_urls)
+def test_canonical(URL):
+    """
+    Test if the a link has a valid canonical url
+    """
+    response = requests.get(URL)
+    soup = BeautifulSoup(response.text, "html5lib")
+    canonical = soup.find("link", {"rel": "canonical"})
+    assert canonical is not None
