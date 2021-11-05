@@ -54,4 +54,4 @@ The second is, you can potentially stop Pelican from processing a file if it con
 But the main reason I wouldn't limit it at generation is because pelican's internals are a bit fragile and I've managed to break it in a few ways, so I'm not sure if it's worth the risk.
 
 
-If you have questions / suggestions feel free to create a new discussion on [CloudBytes\dev> Github discussions](https://github.com/CloudBytesDotDev/CloudBytes.dev/discussions)
+If you have questions / suggestions feel free to create a new discussion on [CloudBytes/dev> Github discussions](https://github.com/CloudBytesDotDev/CloudBytes.dev/discussions)

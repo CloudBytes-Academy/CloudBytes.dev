@@ -9,7 +9,7 @@ Keywords: Python, pelican, minify
 
 TL;DR - [Minify you Pelican Website](#)
 
-[Minification](https://developers.google.com/speed/docs/insights/MinifyResources) of wesite resources is an essential step for good PageSpeed / Lighthouse scores, and as I've bragged in past, [CloudBytes\dev>](https://cloudbytes.dev) scores a perfect 100. 
+[Minification](https://developers.google.com/speed/docs/insights/MinifyResources) of wesite resources is an essential step for good PageSpeed / Lighthouse scores, and as I've bragged in past, [CloudBytes/dev>](https://cloudbytes.dev) scores a perfect 100. 
 
 ![CloudBytes.dev PageSpeed Score]({static}/images/s0030/PageSpeed%20Score%20(Small).png)
 
