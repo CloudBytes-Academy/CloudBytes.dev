@@ -71,7 +71,7 @@ Here's what I have on [CloudBytes/dev>](https://cloudbytes.dev)
         </div>
     </div>
 ```
-Note the `id=algolia-input` in the <input> tag above, this needs to be added to the JavaScript code below.
+Note the `id=algolia-input` in the `<input>` tag above, this needs to be added to the JavaScript code below.
 
 ### 2. Javascript code
 Place this right at the bottom of you HTML just before closing </html> tag.
