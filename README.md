@@ -3,7 +3,7 @@
 [![Code Quality](https://github.com/CloudBytesDotDev/CloudBytes.dev/actions/workflows/codeql.yml/badge.svg)](https://github.com/CloudBytesDotDev/CloudBytes.dev/actions/workflows/codeql.yml)
 
 # [CloudBytes/dev>](https://cloudbytes.dev)
-CloudBytes\dev> ☁ is a community that provides detail guides and how-tos🤔 explaining Cloud ☁☁, Python🐍 and Computer Science💻🧪 concepts , designed for new 🆕 adopters focused on making things work. 
+CloudBytes/dev> ☁ is a community that provides detail guides and how-tos🤔 explaining Cloud ☁☁, Python🐍 and Computer Science💻🧪 concepts , designed for new 🆕 adopters focused on making things work. 
 
 But most importantly making your experience of learning some complex topics from scratch a bit easier and hopefully more fun 🎉🎈😁. 
 
