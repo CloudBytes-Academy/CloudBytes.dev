@@ -1,5 +1,12 @@
 {% extends "layouts/base.html" %}
 
+{% block meta %}
+<meta name="description" content="{{ page.summary|striptags|escape }}">
+<meta name="keywords" content="{{ page.keywords|escape }}">
+<link rel="canonical" href="{{ SITEURL }}/{{page.url}}">
+{% endblock %}
+
+
 {% block title %}
 {{page.title}}
 {% endblock %}
