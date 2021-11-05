@@ -1,7 +1,8 @@
 Title: Terms and Conditions
 Date: 2021-03-15
 slug: terms
-
+Summary: Term of use for cloudbytes
+Keywords: TOS
 
 By accessing this website, and any services provided by CloudBytes, you consent to all the terms under following schedules.
 

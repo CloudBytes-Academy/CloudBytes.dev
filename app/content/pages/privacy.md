@@ -1,7 +1,8 @@
 Title: Privacy Policy
 Date: 2021-07-03
 slug: privacy
-
+Summary: Privacy policy for cloudbytes.dev
+Keywords: privacy policy
 
 Last Updated: 03 July 2021
 CloudBytes.dev ("CloudBytes", "we", or "us) is committed to protecting your privacy. This Privacy Policy explains the methods and reasons we collect, use, disclose, transfer, and store your information. If you have any questions about the contents of this policy, don’t hesitate to contact us.
