@@ -28,7 +28,7 @@ def main(generator, writer):
 
         for article in generator.articles:
             # print(f"Indexing article: {article.title}")
-            print(f"Indexing article: {article.url}")
+            logger.debug(f"Indexing article: {article.url}")
             records = {
                 "title": article.title,
                 "slug": article.slug,
