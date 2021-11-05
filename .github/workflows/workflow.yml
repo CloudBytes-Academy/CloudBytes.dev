@@ -60,8 +60,6 @@ jobs:
       - name: Prepare Test Environment
         run: sh "${{ github.workspace }}/.github/scripts/prepare-test-env.sh"
       - name: Run Tests
-        env:
-          TEST_ENV: "true"
         run: pytest
 
   deploy:
