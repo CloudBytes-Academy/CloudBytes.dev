@@ -39,18 +39,74 @@ ALGOLIA_SEARCH_API_KEY = "<Your Search-only Api Key>"
 ALGOLIA_INDEX_NAME = "<You Algolia App Index name>"
 ```
 
-## What gets uploaded to Algolia
+### What gets uploaded to Algolia
 
 For every article that gets published, the following record gets uploaded to Algolia:
-1. Slug
-2. Title
-3. URL
-4. tags
-5. category
-6. content
+
+1. **Slug**: The slug of the article, e.g. the slug of this article is `launching-pelican-algolia-plugin-for-pelican` that can be seen in the URL of this article.
+2. **Title**: Title of the article
+3. **URL**: Full URL of the article, this is needed to ensure the results have correct links.
+4. **tags**: Tags assigned to an article
+5. **category**: Category assigned to an article
+6. **content**: Full content of your article
 
 With slug used as the primary key to avoid duplication.
 
+## Creating a search box
+To make a working search box, you need to do two things
+
+1. Create a [HTML Search box](#1-html-search-box)
+2. Include the [Javascript code](#2-javascript-code) in your HTML page
+
+
+### 1. HTML Search box
+Here's what I have on [CloudBytes/dev>](https://cloudbytes.dev)
+
+```html
+    <div class="algolia-hits">
+        <div class="algolia-form-wrap">
+            <input placeholder="Search for bytes ..." type="text" id="algolia-input" class="algolia-input"
+                autocomplete="off" />
+            <span id="search-close" class="algolia-close btn btn-red">X</span>
+        </div>
+    </div>
+```
+Note the `id=algolia-input` in the <input> tag above, this needs to be added to the JavaScript code below.
+
+### 2. Javascript code
+Place this right at the bottom of you HTML just before closing </html> tag.
+Replace the `autocomplete('#algolia-input', ... ) with the ID of input field shown above.
+
+The code below includes JINJA syntax so it needs to be added to your HTML templates to ensure they are correctly replaced during generation.
+
+```javascript
+<!-- Include AlgoliaSearch JS Client and autocomplete.js library -->
+<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
+<!-- Initialize autocomplete menu -->
+<script>
+    var client = algoliasearch("{{ALGOLIA_APP_ID}}", "{{ALGOLIA_SEARCH_API_KEY}}");
+    var index = client.initIndex('{{ALGOLIA_INDEX_NAME}}');
+    //initialize autocomplete on search input (ID selector must match)
+    autocomplete('#algolia-input',
+        { hint: false }, {
+        source: autocomplete.sources.hits(index, { hitsPerPage: 10 }),
+        //value to be displayed in input control after user's suggestion selection
+        displayKey: 'title',
+        //hash of templates used when rendering dataset
+        templates: {
+            //'suggestion' templating function used to render a single suggestion
+            suggestion: function (suggestion) {
+                return '<a class="algolia-hit" href="' + suggestion.url + '">' +
+                    '<h4>' +
+                    '<span class="hit-title">' + suggestion._highlightResult.title.value + '</span>' +
+                    '</h4>' +
+                    '</a>'
+            }
+        }
+    });
+</script>
+```
 
 ## What next?
 
