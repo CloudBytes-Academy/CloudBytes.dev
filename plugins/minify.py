@@ -21,7 +21,9 @@ def main(pelican):
         logger.info(f"Processing {file}")
         try:
             with open(file, "r", encoding="utf-8") as html:
-                minified = minify_html.minify(html.read(), do_not_minify_doctype=True)
+                minified = minify_html.minify(
+                    html.read(), do_not_minify_doctype=True, keep_html_and_head_opening_tags=True
+                )
             with open(file, "w", encoding="utf-8") as html:
                 html.write(minified)
         except Exception as e:
