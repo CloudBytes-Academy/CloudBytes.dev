@@ -18,7 +18,7 @@ python3 --version
 ## Updating Python to the latest version 
 Typically Ubuntu's default repositories do not contain the latest version of Python, but an open source repository named `deadsnakes` does. Let's use that by running
 
-### Step 1: Check if Python3.9 is available for install
+### Step 1: Check if Python3.10 is available for install
 ```bash
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt-get update
