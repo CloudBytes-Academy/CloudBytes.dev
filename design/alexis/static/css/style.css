@@ -2026,101 +2026,6 @@ h1.tag {
     color: var(--background)
 }
 
-.tag-javascript, .tag-pwa {
-    background: #f0db4f;
-    color: #000
-}
-
-.tag-typescript {
-    background: #2775c3;
-    color: #fff
-}
-
-.tag-firebase {
-    background: #ffcb2b;
-    color: #12181a
-}
-
-.tag-node {
-    background: #90c53f;
-    color: #46483d
-}
-
-.tag-python {
-    color: #ffda5d;
-    background: #3879ab
-}
-
-.tag-css {
-    color: #313244;
-    background: #f954be
-}
-
-.tag-github {
-    color: #fff;
-    background: #24292e
-}
-
-.tag-docker {
-    color: #fff;
-    background: #2496ed
-}
-
-.tag-rpi {
-    color: #fff;
-    background: #bc1142
-}
-
-.tag-raspberrypi, .tag-rpi {
-    color: #fff;
-    background: #bc1142
-}
-
-.tag-vscode {
-    color: #fff;
-    background: #0066b8
-}
-
-.tag-fastapi {
-    color: #fff;
-    background: #009485;
-}
-
-.tag-typer {
-    color: #fff;
-    background: #000;
-}
-
-.tag-flask {
-    color: #000;
-    background: #fff;
-}
-
-.tag-pelican {
-    color: #fff;
-    background: #0ea0c4;
-}
-
-.tag-heroku {
-    color: #fff;
-    background: #430098;
-}
-
-.tag-jupyter {
-    color: #fff;
-    background: #e46e2e;
-}
-
-.tag-netlify {
-    color: #000;
-    background: #40a6bc;
-}
-
-.tag-aws {
-    color: #ec912d;
-    background: #232f3e;
-}
-
 .btn, .page-item {
     background: var(--nav-bg);
     margin: .25em .25em .25em 0;
@@ -2479,6 +2384,8 @@ label {
     cursor: pointer
 }
 
+/** Admonitions */
+
 div.admonition {
     padding: 0;
     margin-bottom: 20px;
@@ -2607,4 +2514,121 @@ div.hint p.admonition-title:before, div.tip p.admonition-title:before {
     background-repeat: no-repeat;
     background-image: url('data:image/svg+xml;utf8,<svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><path fill="white" d="M176 80c-52.94 0-96 43.06-96 96 0 8.84 7.16 16 16 16s16-7.16 16-16c0-35.3 28.72-64 64-64 8.84 0 16-7.16 16-16s-7.16-16-16-16zM96.06 459.17c0 3.15.93 6.22 2.68 8.84l24.51 36.84c2.97 4.46 7.97 7.14 13.32 7.14h78.85c5.36 0 10.36-2.68 13.32-7.14l24.51-36.84c1.74-2.62 2.67-5.7 2.68-8.84l.05-43.18H96.02l.04 43.18zM176 0C73.72 0 0 82.97 0 176c0 44.37 16.45 84.85 43.56 115.78 16.64 18.99 42.74 58.8 52.42 92.16v.06h48v-.12c-.01-4.77-.72-9.51-2.15-14.07-5.59-17.81-22.82-64.77-62.17-109.67-20.54-23.43-31.52-53.15-31.61-84.14-.2-73.64 59.67-128 127.95-128 70.58 0 128 57.42 128 128 0 30.97-11.24 60.85-31.65 84.14-39.11 44.61-56.42 91.47-62.1 109.46a47.507 47.507 0 0 0-2.22 14.3v.1h48v-.05c9.68-33.37 35.78-73.18 52.42-92.16C335.55 260.85 352 220.37 352 176 352 78.8 273.2 0 176 0z"></path></svg>');
     vertical-align: -20%
+}
+
+/** Color definitions for tags */
+
+.tag-algolia {
+    color: #fff;
+    background-color: #5468ff;
+}
+
+.tag-aws {
+    color: #ec912d;
+    background: #232f3e;
+}
+
+.tag-css {
+    color: #313244;
+    background: #f954be
+}
+
+.tag-docker {
+    color: #fff;
+    background: #2496ed
+}
+
+.tag-fastapi {
+    color: #fff;
+    background: #009485;
+}
+
+.tag-firebase {
+    background: #ffcb2b;
+    color: #12181a
+}
+
+.tag-flask {
+    color: #000;
+    background: #fff;
+}
+
+.tag-github {
+    color: #fff;
+    background: #24292e
+}
+
+.tag-heroku {
+    color: #fff;
+    background: #430098;
+}
+
+.tag-jupyter {
+    color: #fff;
+    background: #e46e2e;
+}
+
+.tag-javascript, .tag-pwa {
+    background: #f0db4f;
+    color: #000
+}
+
+.tag-markdown {
+    color: #000;
+    background: #f8f8f8
+}
+
+.tag-netlify {
+    color: #000;
+    background: #40a6bc;
+}
+
+.tag-node {
+    background: #90c53f;
+    color: #46483d
+}
+
+.tag-pelican {
+    color: #fff;
+    background: #0ea0c4;
+}
+
+.tag-python {
+    color: #ffda5d;
+    background: #3879ab
+}
+
+.tag-raspberrypi, .tag-rpi {
+    color: #fff;
+    background: #bc1142
+}
+
+.tag-typer {
+    color: #fff;
+    background: #000;
+}
+
+.tag-typescript {
+    background: #2775c3;
+    color: #fff
+}
+
+.tag-ubuntu {
+    color: #fff;
+    background: #f50;
+}
+
+.tag-vscode {
+    color: #fff;
+    background: #0066b8
+}
+
+.tag-windows {
+    color: #fff;
+    background: #0078d7
+}
+
+.tag-wsl {
+    color: #fff;
+    background: #0078d7
 }
