@@ -2628,7 +2628,7 @@ div.hint p.admonition-title:before, div.tip p.admonition-title:before {
     background: #0078d7
 }
 
-.tag-wsl {
+.tag-wsl, .tag-wsl2 {
     color: #fff;
     background: #0078d7
 }
