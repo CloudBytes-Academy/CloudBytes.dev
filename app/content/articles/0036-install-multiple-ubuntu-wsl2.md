@@ -105,12 +105,9 @@ passwd "$NEW_USER"
 
 ### Step 6: Configure default user
 
-Next, we need to configure Ubuntu to log in as your new user by default instead of root. To do so, run the below command:
+Next, we need to configure Ubuntu to log in as your new user by default instead of root. 
 
-```bash
-tee /etc/wsl.conf <<_EOF
-```
-This will open an interactive editor, paste the entire block of code below into your teminal and press enter.
+To do so, run the below command: paste the entire block of code below into your teminal and press enter.
 
 ```bash
 tee /etc/wsl.conf <<_EOF
