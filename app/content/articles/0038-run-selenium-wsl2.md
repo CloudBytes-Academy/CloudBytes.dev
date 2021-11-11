@@ -1,10 +1,11 @@
-Title: Run Selenium and Chrome/Chromium on WSL2 using Python and Selenium webdriver
+Title: Run Selenium and Chrome on WSL2 using Python and Selenium webdriver
 Date: 2021-11-11
 Category: Snippets
 Tags: wsl2, ubuntu,selenium, python
 Author: Rehan Haider
 Summary: A guide to installating, configuring and running Selenium and Chrome/Chromiums on Windows Subsystem for Linux (WSL2) and run tests using Python and Selenium webdriver.
 Keywords: linux, chrome, chromium, selenium, webdriver, wsl2, ubuntu, ubuntu 20.04
+slug: run-selenium-and-chrome-on-wsl2
 
 
 [TOC]
