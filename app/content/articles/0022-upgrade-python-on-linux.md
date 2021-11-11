@@ -1,5 +1,5 @@
 Title: Upgrade Python to latest version (3.10) on Ubuntu Linux
-Date: 2021-11-01
+Date: 2021-08-29
 Category: Snippets
 Tags: python, ubuntu
 Author: Rehan Haider
