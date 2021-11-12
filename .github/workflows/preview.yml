@@ -54,13 +54,14 @@ jobs:
           name: build-output
       - name: Download the test input
         uses: actions/download-artifact@v2
-        env:
-          PUBLISH: True
+
         with:
           name: test-input
       - name: Prepare Test Environment
         run: sh "${{ github.workspace }}/.github/scripts/prepare-test-env.sh"
       - name: Run Tests
+        env:
+          PUBLISH: True
         run: pytest
   stage:
     name: Preview

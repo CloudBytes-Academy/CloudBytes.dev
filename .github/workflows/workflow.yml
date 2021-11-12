@@ -62,7 +62,7 @@ jobs:
         run: sh "${{ github.workspace }}/.github/scripts/prepare-test-env.sh"
       - name: Run Tests
         env:
-          TEST_ENV: "true" # This indicates that the test environment is being used
+          PUBLISH: True # This indicates that the test environment is being used
         run: pytest
 
   deploy:
