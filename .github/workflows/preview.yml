@@ -54,6 +54,8 @@ jobs:
           name: build-output
       - name: Download the test input
         uses: actions/download-artifact@v2
+        env:
+          PUBLISH: True
         with:
           name: test-input
       - name: Prepare Test Environment

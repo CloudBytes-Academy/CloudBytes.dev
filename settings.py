@@ -7,7 +7,6 @@ import os
 
 PUBLISH = os.environ.get("PUBLISH")
 
-
 AUTHOR = "CloudBytes"
 SITENAME = "CloudBytes/dev>"
 SITEURL = "http://localhost:8080" if PUBLISH else "https://cloudbytes.dev"
