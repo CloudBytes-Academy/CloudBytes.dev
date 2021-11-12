@@ -14,7 +14,7 @@ TIMEZONE = "UTC"
 DEFAULT_LANG = "en"
 AUTHOR = "CloudBytes"
 SITENAME = "CloudBytes/dev>"
-SITEURL = "http://localhost:8080" if PUBLISH else "https://cloudbytes.dev"
+SITEURL = "https://cloudbytes.dev" if PUBLISH else "http://localhost:8080"
 
 
 # Paths
