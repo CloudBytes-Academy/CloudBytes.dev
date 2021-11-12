@@ -94,27 +94,24 @@ MARKDOWN = {
     "output_format": "html5",
 }
 
-# Active Plugins
-PLUGINS = (
-    [
-        "pelican.plugins.sitemap",
-        "pelican.plugins.tag_cloud",
-        "pelican.plugins.related_posts",
-        "plugins.fix_sitemap",
-        # "plugins.search",
-        # "plugins.minify",
-    ]
-    if PUBLISH
-    else [
-        "pelican.plugins.sitemap",
-        "pelican.plugins.tag_cloud",
-        "pelican.plugins.related_posts",
-        "plugins.fix_sitemap",
-        # "pelican.plugins.pelican_algolia",
-        "plugins.search",
-        "plugins.minify",
-    ]
-)
+
+# Plugins
+dev_plugins = [
+    "pelican.plugins.sitemap",
+    "pelican.plugins.tag_cloud",
+    "pelican.plugins.related_posts",
+    "plugins.fix_sitemap",
+]
+prod_plugins = [
+    "pelican.plugins.sitemap",
+    "pelican.plugins.tag_cloud",
+    "pelican.plugins.related_posts",
+    "plugins.fix_sitemap",
+    "plugins.search",
+    "plugins.minify",
+]
+
+PLUGINS = prod_plugins if PUBLISH else dev_plugins
 
 
 # Algolia Publish Data
