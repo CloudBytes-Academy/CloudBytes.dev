@@ -33,7 +33,7 @@ This will take care of all the steps required, i.e.
 
 Then type `wsl` in your terminal and press enter to login to WSL2. 
 
-!!! warning " NOTE: The code any codeblocks below needs to be copy pasted fully and not line by line"
+!!! warning " NOTE: All codeblocks below are formatted as multi-line commands so the entire block needs to be copy pasted and not line by line."
 
 Ensure you go to your home directory, update the repository and any packages
 
