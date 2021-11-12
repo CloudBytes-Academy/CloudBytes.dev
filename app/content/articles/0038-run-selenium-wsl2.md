@@ -246,4 +246,4 @@ python3 -m pip install selenium
 popd
 ```
 
-Alternatively, this script is also available on [GitHub as a repository](https://github.com/rehanhaider/selenium-wsl-ubuntu.git).
+Alternatively, this script is also available on [GitHub as a repository](https://github.com/rehanhaider/selenium-wsl2-ubuntu.git).

@@ -7,7 +7,9 @@ Summary: A complete guide on how to upgrade Python to the latest version (Python
 Keywords: Linux, Python, Ubuntu, Python 3.10, 
 Slug: upgrade-python-to-latest-version-on-ubuntu-linux
 
-Linux systems come with Python install by default, however, they are usually not the latest. Python also typically is not updated by a typical `apt-get upgrade` command as well. 
+**Last Updated:** 2020-11-13
+
+Linux systems come with Python install by default, however, they are usually not the latest. Python also typically is not updated by a typical `apt upgrade` command as well. 
 
 To check the version of Python installed on your system run
 ```bash
@@ -21,7 +23,7 @@ Typically Ubuntu's default repositories do not contain the latest version of Pyt
 ### Step 1: Check if Python3.10 is available for install
 ```bash
 sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt-get update
+sudo apt update
 ```
 
 Check if Python 3.10 is available by running
@@ -38,7 +40,7 @@ This will produce the below result, if you see python3.10 it means you can insta
 Now you can install Python 3.10 by running
 
 ```bash 
-sudo apt-get install python3.10
+sudo apt install python3.10
 ```
 
 Now though Python 3.10 is installed, if you check the version of your python by running `python3 --version` you will still see an older version. This is because you have two version of Python installed and you need to choose Python 3.10 as the default. 
