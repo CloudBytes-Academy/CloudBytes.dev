@@ -64,7 +64,7 @@ jobs:
           PUBLISH: True
         run: pytest
   stage:
-    name: Preview
+    name: Stage
     needs: [test]
     runs-on: ubuntu-latest
     steps:

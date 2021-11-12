@@ -64,7 +64,6 @@ jobs:
         env:
           PUBLISH: True # This indicates that the test environment is being used
         run: pytest
-
   deploy:
     name: Deploy
     needs: [test]
