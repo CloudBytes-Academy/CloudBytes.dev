@@ -298,7 +298,7 @@ a.item {
     }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1024px) {
     .sidebar {
         display: none;
     }
@@ -528,7 +528,7 @@ figcaption {
 
 .row-max-1, .row-max-2 {
     display: grid;
-    justify-content: center;
+    /*justify-content: center;*/
 }
 
 @media only screen and (max-width: 600px) {
