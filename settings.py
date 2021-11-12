@@ -5,24 +5,28 @@
 from datetime import date
 import os
 
+# ENVIRONMENT
 PUBLISH = os.environ.get("PUBLISH")
+CURRENTYEAR = date.today().year
 
+# General settings
+TIMEZONE = "UTC"
+DEFAULT_LANG = "en"
 AUTHOR = "CloudBytes"
 SITENAME = "CloudBytes/dev>"
 SITEURL = "http://localhost:8080" if PUBLISH else "https://cloudbytes.dev"
 
+
+# Paths
 THEME_STATIC_DIR = "assets"
 THEME = "design/alexis"
-
-# Path to blog content
+## Path to blog content
 PATH = "content"
-
-# Path to static folders
+## Path to static folders
 STATIC_PATHS = ["images", "extra/SW.js", "extra/robots.txt"]
-
 EXTRA_PATH_METADATA = {"extra/SW.js": {"path": "SW.js"}, "extra/robots.txt": {"path": "robots.txt"}}
 
-# To define no .html in all page types used for github pages
+# Page naming convention
 ARTICLE_URL = "{category}/{slug}"
 ARTICLE_SAVE_AS = "{category}/{slug}/index.html"
 AUTHOR_URL = "authors/{slug}"
@@ -34,9 +38,6 @@ TAG_SAVE_AS = "tags/{slug}/index.html"
 PAGE_URL = "{slug}.html"
 PAGE_SAVE_AS = "{slug}.html"
 
-TIMEZONE = "UTC"
-
-DEFAULT_LANG = "en"
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = "feeds/all.atom.xml"
@@ -61,24 +62,7 @@ PAGINATED_TEMPLATES = {"index": None, "tag": None, "category": None, "author": N
 # RELATIVE_URLS = True
 
 
-# Tag Cloud settings
-TAG_CLOUD_STEPS = 4
-TAG_CLOUD_MAX_ITEMS = 100
-TAG_CLOUD_SORTING = "size"
-TAG_CLOUD_BADGE = True
-
-
-# Current Year
-CURRENTYEAR = date.today().year
-
-# Sitemap configuration
-SITEMAP = {
-    "format": "xml",
-    "priorities": {"articles": 1, "indexes": 1, "pages": 0.25},
-    "changefreqs": {"articles": "weekly", "indexes": "daily", "pages": "monthly"},
-}
-
-# Python-Markdown extension configuration
+## Python-Markdown extension configuration
 MARKDOWN = {
     "extension_configs": {
         # Needed for code syntax highlighting
@@ -95,7 +79,37 @@ MARKDOWN = {
 }
 
 
-# Plugins
+# Plugin Settings
+# ----------------
+
+## Tag Cloud settings
+TAG_CLOUD_STEPS = 4
+TAG_CLOUD_MAX_ITEMS = 100
+TAG_CLOUD_SORTING = "size"
+TAG_CLOUD_BADGE = True
+
+## Sitemap configuration
+SITEMAP = {
+    "format": "xml",
+    "priorities": {"articles": 1, "indexes": 1, "pages": 0.25},
+    "changefreqs": {"articles": "weekly", "indexes": "daily", "pages": "monthly"},
+}
+
+
+# Algolia Publish Data
+ALGOLIA_APP_ID = "XE8PCLJHAE"
+ALGOLIA_SEARCH_API_KEY = "ec75de1d8ce87dee234a2fd47cec2d76"
+ALGOLIA_INDEX_NAME = "cloudbytes_dev"
+ALGOLIA_ADMIN_API_KEY = os.environ.get("ALGOLIA_ADMIN_API_KEY")
+
+# Related Post Settings
+RELATED_POSTS_MAX = 5
+
+# Following items are often useful when publishing
+
+GTAG = "G-9VKX48YDBH" if PUBLISH else None
+
+# Active Plugins
 dev_plugins = [
     "pelican.plugins.sitemap",
     "pelican.plugins.tag_cloud",
@@ -112,17 +126,3 @@ prod_plugins = [
 ]
 
 PLUGINS = prod_plugins if PUBLISH else dev_plugins
-
-
-# Algolia Publish Data
-ALGOLIA_APP_ID = "XE8PCLJHAE"
-ALGOLIA_SEARCH_API_KEY = "ec75de1d8ce87dee234a2fd47cec2d76"
-ALGOLIA_INDEX_NAME = "cloudbytes_dev"
-ALGOLIA_ADMIN_API_KEY = os.environ.get("ALGOLIA_ADMIN_API_KEY")
-
-# Related Post Settings
-RELATED_POSTS_MAX = 5
-
-# Following items are often useful when publishing
-
-GTAG = "G-9VKX48YDBH" if PUBLISH else None
