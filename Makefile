@@ -2,11 +2,11 @@ PY?=python3
 PELICAN?=pelican
 PELICANOPTS=
 
-BASEDIR=$(CURDIR)/app
+BASEDIR=$(CURDIR)
 INPUTDIR=$(BASEDIR)/content
 OUTPUTDIR=$(CURDIR)/output
-CONFFILE=$(BASEDIR)/pelicanconf.py
-PUBLISHCONF=$(BASEDIR)/publishconf.py
+CONFFILE=$(BASEDIR)/settings.py
+PUBLISHCONF=$(BASEDIR)/settings.py
 
 
 DEBUG ?= 0

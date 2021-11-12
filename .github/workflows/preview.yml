@@ -21,8 +21,9 @@ jobs:
       - name: Build the Preview Website
         uses: rehanhaider/pelican-build-action@v0.1.11
         env:
-          PELICAN_CONFIG_FILE: app/pelicanconf.py
-          PELICAN_CONTENT_FOLDER: app/content
+          PELICAN_CONFIG_FILE: settings.py
+          PELICAN_CONTENT_FOLDER: content
+          PUBLISH: True
       - name: Upload the build artefacts
         uses: actions/upload-artifact@v2
         with:
@@ -53,14 +54,17 @@ jobs:
           name: build-output
       - name: Download the test input
         uses: actions/download-artifact@v2
+
         with:
           name: test-input
       - name: Prepare Test Environment
         run: sh "${{ github.workspace }}/.github/scripts/prepare-test-env.sh"
       - name: Run Tests
+        env:
+          PUBLISH: True
         run: pytest
   stage:
-    name: Preview
+    name: Stage
     needs: [test]
     runs-on: ubuntu-latest
     steps:

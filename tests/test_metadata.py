@@ -8,7 +8,7 @@ import pytest
 import requests
 from bs4 import BeautifulSoup
 
-BASE_URL = "http://localhost:8080"
+LOCALHOST = "http://localhost:8080"
 SITE_URL = "https://cloudbytes.dev"
 
 # Get list of all links in sitemap
@@ -17,14 +17,14 @@ def get_sitemap_links():
     This function gets all links from the sitemap
     """
 
-    sitemap_url = BASE_URL + "/sitemap.xml"
+    sitemap_url = LOCALHOST + "/sitemap.xml"
     sitemap_response = requests.get(sitemap_url)
     sitemap_soup = BeautifulSoup(sitemap_response.text, "lxml")
     sitemap_links = sitemap_soup.find_all("loc")
 
     sitemap_urls = []
     for link in sitemap_links:
-        url = link.text.replace(SITE_URL, BASE_URL)
+        url = link.text.replace(SITE_URL, LOCALHOST)
         sitemap_urls.append(url.rstrip("/"))  # Remove trailing slash from certain urls
 
     return sitemap_urls
@@ -91,7 +91,7 @@ def test_canonical(URL):
     canonical = soup.find("link", {"rel": "canonical"})
     assert canonical is not None
     # Check if the canonical url matches with the expected URL
-    if os.environ.get("TEST_ENV"):
+    if os.environ.get("PUBLISH"):
         # In test environments, the base url served by firebase is localhost:8080
-        URL = URL.replace(BASE_URL, SITE_URL)
+        URL = URL.replace(LOCALHOST, SITE_URL)
     assert canonical["href"] == URL
