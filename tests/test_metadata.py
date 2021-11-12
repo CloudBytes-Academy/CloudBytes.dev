@@ -91,7 +91,7 @@ def test_canonical(URL):
     canonical = soup.find("link", {"rel": "canonical"})
     assert canonical is not None
     # Check if the canonical url matches with the expected URL
-    if os.environ.get("TEST_ENV"):
+    if not os.environ.get("PUBLISH"):
         # In test environments, the base url served by firebase is localhost:8080
         URL = URL.replace(BASE_URL, SITE_URL)
     assert canonical["href"] == URL

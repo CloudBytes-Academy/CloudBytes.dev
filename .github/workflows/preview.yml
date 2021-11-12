@@ -21,8 +21,9 @@ jobs:
       - name: Build the Preview Website
         uses: rehanhaider/pelican-build-action@v0.1.11
         env:
-          PELICAN_CONFIG_FILE: app/pelicanconf.py
-          PELICAN_CONTENT_FOLDER: app/content
+          PELICAN_CONFIG_FILE: settings.py
+          PELICAN_CONTENT_FOLDER: content
+          PUBLISH: True
       - name: Upload the build artefacts
         uses: actions/upload-artifact@v2
         with:

@@ -1,16 +1,19 @@
 """
-Development time Pelican configuration
-"""
-#!/usr/bin/env python
 # -*- coding: utf-8 -*- #
+# Pelican configuration file
+"""
 from datetime import date
+import os
+
+PUBLISH = os.environ.get("PUBLISH")
+
 
 AUTHOR = "CloudBytes"
-SITENAME = "CloudBytes"
-SITEURL = "http://localhost:8080"
+SITENAME = "CloudBytes/dev>"
+SITEURL = "http://localhost:8080" if PUBLISH else "https://cloudbytes.dev"
 
 THEME_STATIC_DIR = "assets"
-THEME = "./design/alexis"
+THEME = "design/alexis"
 
 # Path to blog content
 PATH = "content"
@@ -44,6 +47,8 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 HOME_HIDE_TAGS = True
 
+# Delete output directory before build
+DELETE_OUTPUT_DIRECTORY = True
 
 # Pagination settings
 DEFAULT_PAGINATION = 6
@@ -91,19 +96,37 @@ MARKDOWN = {
 }
 
 # Active Plugins
-PLUGINS = [
-    "pelican.plugins.sitemap",
-    "pelican.plugins.tag_cloud",
-    "pelican.plugins.related_posts",
-    "plugins.fix_sitemap",
-    # "plugins.search",
-    # "plugins.minify",
-]
+PLUGINS = (
+    [
+        "pelican.plugins.sitemap",
+        "pelican.plugins.tag_cloud",
+        "pelican.plugins.related_posts",
+        "plugins.fix_sitemap",
+        # "plugins.search",
+        # "plugins.minify",
+    ]
+    if PUBLISH
+    else [
+        "pelican.plugins.sitemap",
+        "pelican.plugins.tag_cloud",
+        "pelican.plugins.related_posts",
+        "plugins.fix_sitemap",
+        # "pelican.plugins.pelican_algolia",
+        "plugins.search",
+        "plugins.minify",
+    ]
+)
+
 
 # Algolia Publish Data
 ALGOLIA_APP_ID = "XE8PCLJHAE"
 ALGOLIA_SEARCH_API_KEY = "ec75de1d8ce87dee234a2fd47cec2d76"
 ALGOLIA_INDEX_NAME = "cloudbytes_dev"
+ALGOLIA_ADMIN_API_KEY = os.environ.get("ALGOLIA_ADMIN_API_KEY")
 
 # Related Post Settings
 RELATED_POSTS_MAX = 5
+
+# Following items are often useful when publishing
+
+GTAG = "G-9VKX48YDBH" if PUBLISH else None
