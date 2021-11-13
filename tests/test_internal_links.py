@@ -7,7 +7,9 @@
 import pytest
 import requests
 from bs4 import BeautifulSoup
+import logging
 
+logger = logging.getLogger(__name__)
 
 BASE_URL = "http://localhost:8080"
 SITE_URL = "https://cloudbytes.dev"
@@ -31,45 +33,34 @@ def get_sitemap_links():
     return sitemap_urls
 
 
-def get_page_links(url):
+def get_internal_urls():
     """
-    This function gets all links from a page
+    This function gets all internal links from the site
     """
-    page_response = requests.get(url)
-    page_soup = BeautifulSoup(page_response.text, "html5lib")
-    page_links = page_soup.find_all("a")
-    page_urls = []
-    for link in page_links:
-        url = link.get("href")
-        if url is not None:
-            if url.startswith("/"):
-                url = BASE_URL + url
-                page_urls.append(url)
-            elif url.startswith(BASE_URL):
-                page_urls.append(url)
-            elif url.startswith("../"):
-                url = url.replace("../", "/")
-                url = BASE_URL + url
-                page_urls.append(url)
-    return page_urls
+
+    internal_urls = []
+    for url in get_sitemap_links():
+        response = requests.get(url)
+        soup = BeautifulSoup(response.text, "lxml")
+        for link in soup.find_all("a"):
+            href = link.get("href")
+            logger.info(f"Found {link}")
+            if href is not None and href.startswith(BASE_URL):
+                internal_urls.append(href)
+            elif href is not None and not href.startswith("http"):
+                internal_urls.append(f"{BASE_URL}/{href}")
+    return set(internal_urls)
 
 
 def test_internal_links():
     """
-    This function tests all internal links in the URLs on the sitemap
+    This function tests the internal links
     """
-    sitemap_urls = get_sitemap_links()
-    sitemap_urls.remove(f"{BASE_URL}/404")
-
-    valid_urls = []
-
-    for url in sitemap_urls:
-        page_urls = get_page_links(url)
-        for page_url in page_urls:
-            if page_url not in valid_urls:
-                response = requests.get(page_url)
-                assert response.status_code == 200
-                valid_urls.append(page_url)
+    internal_urls = get_internal_urls()
+    for url in internal_urls:
+        logger.info(f"Testing {url}")
+        response = requests.get(url)
+        assert response.status_code == 200
 
 
 def test_404_page():
