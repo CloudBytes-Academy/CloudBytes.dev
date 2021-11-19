@@ -15,7 +15,7 @@ Jinja2==3.0.1
 lxml==4.6.3
 Markdown==3.3.4
 MarkupSafe==2.0.1
-minify_html==0.7.0
+minify_html
 packaging==21.0
 pelican==4.6.0
 pelican-algolia==2.1.0
