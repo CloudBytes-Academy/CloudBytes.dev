@@ -14,6 +14,12 @@ workbox.routing.registerRoute(
         // Put all cached files in a cache named 'pages'
         cacheName: 'pages',
         plugins: [
+            // Store caches for 1 week
+            new workbox.expiration.ExpirationPlugin({
+                maxEntries: 128,
+                maxAgeSeconds: 7 * 24 * 60 * 60, // 1 week
+                purgeOnQuotaError: true, // Opt-in to automatic cleanup
+            }),
             // Ensure that only requests that result in a 200 status are cached
             new workbox.cacheableResponse.CacheableResponsePlugin({
                 statuses: [200],
@@ -65,3 +71,12 @@ workbox.routing.registerRoute(
 );
 
 
+workbox.routing.registerRoute(
+    new RegExp(/.*\.(?:js|css)/g),
+    new workbox.strategies.NetworkFirst()
+);
+
+workbox.routing.registerRoute(
+    new RegExp(/.*\.(?:png|jpg|jpeg|svg|gif|webp)/g),
+    new workbox.strategies.CacheFirst()
+);
