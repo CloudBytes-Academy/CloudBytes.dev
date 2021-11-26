@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build Pelican Website
-        uses: rehanhaider/pelican-build-action@v0.1.11
+        uses: rehanhaider/pelican-build-action@v1.0.0
         env:
           PELICAN_CONFIG_FILE: settings.py
           PELICAN_CONTENT_FOLDER: content
