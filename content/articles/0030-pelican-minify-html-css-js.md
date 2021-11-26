@@ -31,16 +31,11 @@ There are a lot of options in Python to minify your webassets, but none of them 
 
 ## Writing the Minification Plugin
 
-Step 1 is to install the minify-html package. 
-If you're running Python 3.10 or above, run
+First step is to install the minify-html package. Run the following command
 ```bash
-pip install minify-html
+pip install minify_html
 ```
-Or, if you're on Python 3.9 or less, run
-```
-```bash
-pip install minify-html==0.6.10
-```
+
 
 
 Then create a plugin, using the below code
