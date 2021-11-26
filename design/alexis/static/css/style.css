@@ -221,6 +221,7 @@ a.item {
         margin-left: inherit;
         margin-top: 0.5rem;
     }
+
     .navbar {
         bottom: 0;
         left: 0;
@@ -229,6 +230,7 @@ a.item {
         flex-direction: row;
         justify-content: space-around;
     }
+
     .item {
         flex-direction: row;
         margin: 0.5rem 0;
@@ -236,9 +238,11 @@ a.item {
         justify-content: center;
         padding: 0.5rem 1rem;
     }
+
     .navbar .item {
         overflow-x: visible
     }
+
     .logo {
         left: 0;
     }
@@ -252,6 +256,7 @@ a.item {
         grid-template-columns: auto;
         margin-left: calc(var(--nav-width) + 1rem);
     }
+
     .navbar {
         top: 0;
         height: 100vh;
@@ -261,16 +266,19 @@ a.item {
         padding-top: var(--nav-width);
         align-items: center;
     }
+
     .item {
         flex-direction: column;
         margin: 2rem 0;
         align-items: center;
         justify-content: center;
     }
+
     .navbar .item {
         margin-bottom: 10px;
         overflow-x: visible;
     }
+
     .logo {
         top: 0;
         left: 0;
@@ -535,6 +543,7 @@ figcaption {
     .row {
         grid-template-columns: repeat(auto-fit, minmax(50vw, 1fr));
     }
+
     .row-max-1 {
         grid-template-columns: repeat(1, auto);
     }
@@ -550,6 +559,7 @@ figcaption {
     .row {
         grid-template-columns: repeat(auto-fit, minmax(35vw, 1fr));
     }
+
     .row-max-1 {
         grid-template-columns: repeat(1, 64vw);
     }
@@ -696,12 +706,12 @@ text-cycle {
 }
 
 .no-pad {
-    padding: 0!important;
+    padding: 0 !important;
 }
 
 .no-animate {
-    transform: none!important;
-    transition: none!important;
+    transform: none !important;
+    transition: none !important;
 }
 
 .truncate {
@@ -764,9 +774,11 @@ text-cycle {
     0% {
         opacity: 1;
     }
+
     50% {
         opacity: 1;
     }
+
     to {
         opacity: 0;
     }
@@ -1191,25 +1203,31 @@ li code, p code {
         overflow-y: auto;
         overflow-x: auto
     }
+
     .mega-menu::-webkit-scrollbar {
         height: 4px;
         width: 4px
     }
+
     .mega-menu::-webkit-scrollbar-track {
         background: var(--background)
     }
+
     .mega-menu::-webkit-scrollbar-thumb {
         background: var(--gray3)
     }
+
     .mega-menu::-webkit-scrollbar-thumb:hover {
         background: var(--gray4)
     }
+
     .mega-menu .mega-main {
         min-height: 80vh;
         flex: 1;
         display: flex;
         flex-direction: column
     }
+
     .mega-menu .mega-footer {
         min-height: 10vh;
         justify-content: space-evenly;
@@ -1697,13 +1715,16 @@ menu-toggler {
         flex-direction: column-reverse;
         /*flex-wrap: wrap*/
     }
+
     .content-article, .content-main, .toc {
         position: static;
         width: 100%
     }
+
     .toc {
         margin-left: 0
     }
+
     .content-article {
         margin: 0
     }
@@ -1974,6 +1995,7 @@ route-loader {
     0%, to {
         transform: scale(0)
     }
+
     50% {
         transform: scale(1)
     }
@@ -2056,8 +2078,8 @@ h1.tag {
 }
 
 .btn:disabled, .btn[disabled] {
-    transform: translateY(0)!important;
-    opacity: .8!important;
+    transform: translateY(0) !important;
+    opacity: .8 !important;
     cursor: not-allowed
 }
 
@@ -2176,6 +2198,7 @@ h1.tag {
     0% {
         transform: rotate(0deg)
     }
+
     to {
         transform: rotate(180deg)
     }
@@ -2401,7 +2424,7 @@ div.admonition p {
 }
 
 div.admonition p a {
-    color: inherit!important
+    color: inherit !important
 }
 
 div.admonition div.highlight {
@@ -2573,6 +2596,11 @@ div.hint p.admonition-title:before, div.tip p.admonition-title:before {
     color: #000
 }
 
+.tag-linux {
+    color: #fff;
+    background: #f57d00;
+}
+
 .tag-markdown {
     color: #000;
     background: #f8f8f8
@@ -2601,6 +2629,11 @@ div.hint p.admonition-title:before, div.tip p.admonition-title:before {
 .tag-raspberrypi, .tag-rpi {
     color: #fff;
     background: #bc1142
+}
+
+.tag-selenium {
+    color: #fff;
+    background: #b0c5d6
 }
 
 .tag-typer {
