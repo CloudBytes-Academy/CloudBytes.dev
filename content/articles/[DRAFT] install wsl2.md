@@ -1,7 +1,0 @@
-Title: How to install WSL on Windows 11
-Date: 2021-08-12
-Category: Snippets
-Tags: python, aws
-Author: Rehan Haider
-Summary: A detailed tutorial on how to create complex AWS Lambda functions using Python on AWS
-Keywords: Lambda, Docker, AWS, Python

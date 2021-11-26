@@ -39,10 +39,10 @@
 		"ms-python.python",
 		"ms-python.vscode-pylance",
 		"aeschli.vscode-css-formatter",
-		"yzhang.markdown-all-in-one",
 		"visualstudioexptteam.vscodeintellicode",
+		"github.copilot",
+		"yzhang.markdown-all-in-one",
 		"redhat.vscode-yaml",
-		"github.copilot"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
