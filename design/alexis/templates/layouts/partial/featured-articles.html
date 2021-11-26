@@ -1,6 +1,6 @@
 <div class="row-max-1">
     {% set articles = (articles_page.object_list|list) %}
-    {% for article in articles[:6] %}
+    {% for article in articles[:10] %}
     {% include "layouts/partial/article-card.html" %}
     {% endfor %}
 </div>
