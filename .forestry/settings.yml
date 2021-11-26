@@ -9,6 +9,8 @@ sections:
   label: Snippets
   create: documents
   match: "**/*.md"
+  templates:
+  - snippet
 upload_dir: uploads
 public_path: "/uploads"
 front_matter_path: ''
