@@ -3,8 +3,8 @@ Date: 2021-11-26
 Category: Snippets
 Tags: wsl2, windows
 Author: Rehan Haider
-Summary: A guide to installs WSL2 on Windows 10/11
-Keywords: WSL2, WSL, Windows
+Summary: A guide to install WSL2 on Windows 10/11
+Keywords: WSL2, Windows, wsl2 install, wsl 2 install, WSL
 
 
 [TOC]
