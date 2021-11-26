@@ -1,15 +1,13 @@
 {% extends "layouts/base.html" %}
 
 {% block meta %}
-<link rel="canonical" href="{{ SITEURL }}/{{category.url}}">
-<meta name="description" content="all {{category}}">
 <meta name="keywords" content="{{ category }}">
 {% endblock %}
 
+{% block canonical_url %}{{ SITEURL }}/{{category.url}}{% endblock %}
+{% block description %} all {{category}} {% endblock %}
 
-{% block title %}
-{{category}}
-{% endblock %}
+{% block title %}{{category}}{% endblock %}
 
 {% block main %}
 <div class="content-main">

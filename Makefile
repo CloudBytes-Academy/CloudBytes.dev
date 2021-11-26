@@ -66,6 +66,9 @@ devserver:
 devserver-global:
 	$(PELICAN) -lr $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS) -b 0.0.0.0
 
+debug:
+	$(PELICAN) -vD "$(INPUTDIR)" -o "$(OUTPUTDIR)" -s "$(CONFFILE)" $(PELICANOPTS)
+
 publish:
 	"$(PELICAN)" "$(INPUTDIR)" -o "$(OUTPUTDIR)" -s "$(PUBLISHCONF)" $(PELICANOPTS)
 
@@ -76,4 +79,4 @@ dev:
 	make -j 2 devserver firebase
 
 
-.PHONY: html help clean regenerate serve serve-global devserver publish
+.PHONY: html help clean regenerate serve serve-global devserver publish debug

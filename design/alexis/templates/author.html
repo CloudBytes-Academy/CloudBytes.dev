@@ -1,15 +1,13 @@
 {% extends "layouts/base.html" %}
 
 {% block meta %}
-<link rel="canonical" href="{{ SITEURL }}/{{author.url}}">
-<meta name="description" content="All articles by {{author}}">
 <meta name="keywords" content="{{ author }}">
 {% endblock %}
 
+{% block canonical_url %}{{ SITEURL }}/{{author.url}}{% endblock %}
+{% block description %} All articles by {{author}} {% endblock %}
 
-{% block title %}
-{{author}}
-{% endblock %}
+{% block title %}{{author}}{% endblock %}
 
 {% block main %}
 <div class="content-main">

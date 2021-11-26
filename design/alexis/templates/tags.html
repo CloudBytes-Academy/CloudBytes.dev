@@ -1,9 +1,10 @@
 {% extends "layouts/base.html" %}
 
 {% block meta %}
-<link rel="canonical" href="{{SITEURL}}/tags">
 {% endblock %}
 
+{% block canonical_url %}{{ SITEURL }}/tags{% endblock %}
+{% block description %} Tag Cloud {% endblock %}
 
 {% block title %}
 Tag Cloud

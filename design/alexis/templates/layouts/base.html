@@ -2,11 +2,23 @@
 <html lang="{{DEFAULT_LANG}}">
 
 <head>
+
+    <!-- Metadata -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes" />
+    <meta name="generator" content="Pelican 4.7.1" />
     {% block meta %}
     {% endblock %}
+    <meta name="description" content="{% block description %}{% endblock %}">
+    <link rel="canonical" href="{% block canonical_url %}{% endblock %}">
 
+    <!-- Prefetches -->
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="prefetch" as="script" href="/{{ THEME_STATIC_DIR }}/js/app.js" />
+
+    <!-- Title -->
+    <title>{% block title%}{% endblock %}</title>
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="/{{ THEME_STATIC_DIR}}/img/icons/favicon.svg">
     <link rel="icon" type="image/png" href="/{{ THEME_STATIC_DIR}}/img/icons/favicon.png">
@@ -21,12 +33,23 @@
     <meta name="msapplication-config" content="/{{ THEME_STATIC_DIR}}/browserconfig.xml">
     <meta name="theme-color" content="#fff">
 
-    <!-- Theme -->
+    <!-- Social -->
+    <meta property="og:title" content="{{self.title()|striptags}}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{self.canonical_url}}" />
+    <meta property="og:image" content="/{{ THEME_STATIC_DIR }}/img/banner.png" />
+    <meta property="og:description" content="{{self.description()|striptags}}" />
 
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@cloudbytes_dev" />
+    <meta name="twitter:title" content="{{self.title()|striptags}}" />
+    <meta name="twitter:description" content="{{self.description()|striptags}}" />
+    <meta name="twitter:image" content="/{{ THEME_STATIC_DIR }}/img/banner.png" />
+
+
+    <!-- Theme -->
     <link rel="stylesheet" href="/{{ THEME_STATIC_DIR }}/css/style.css">
 
-    <title>{% block title%}{% endblock %}</title>
-    <link rel="dns-prefetch" href="https://cloudbytes.dev">
     <!-- App -->
     <script defer src="/{{ THEME_STATIC_DIR }}/js/app.js"></script>
 </head>

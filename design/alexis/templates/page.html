@@ -1,15 +1,13 @@
 {% extends "layouts/base.html" %}
 
 {% block meta %}
-<meta name="description" content="{{ page.summary|striptags|escape }}">
 <meta name="keywords" content="{{ page.keywords|escape }}">
-<link rel="canonical" href="{{ SITEURL }}/{{page.slug}}">
 {% endblock %}
 
+{% block canonical_url %}{{ SITEURL }}/{{page.slug}}{% endblock %}
+{% block description %} {{ page.summary|striptags|escape }} {% endblock %}
 
-{% block title %}
-{{page.title}}
-{% endblock %}
+{% block title %}{{page.title}}{% endblock %}
 
 {% block main %}
 <article class="content-pad">
