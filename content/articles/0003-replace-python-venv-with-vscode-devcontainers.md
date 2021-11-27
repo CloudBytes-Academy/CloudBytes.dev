@@ -6,9 +6,10 @@ Author: Rehan Haider
 Summary: VSCode Devcontainers are game changers that makes Python dependency management much easier. 
 Keywords: Python, venv, virtual environment, vscode, containers, docker, devcontainers
 
-I wrote [about why Python virtual environments]({filename}0001-create-a-python-virtual-environment.md) are needed and how to [create them]({filename}0001-create-a-python-virtual-environment.md). All Python developers end up using some kind of environment manager similar to `venv` for any meaningful development effort. 
+I wrote about [why you need Python virtual environments]({filename}0001-create-a-python-virtual-environment.md) and how to [create them]({filename}0001-create-a-python-virtual-environment.md). 
+All Python developers end up using some kind of environment manager like `venv` for any meaningful development effort. 
 
-VSCode, a few years ago, released a concept called **devcontainers** that takes away the pain of managing multiple virtual environments for Python and other languages such as NodeJS, etc.
+VSCode, a few years ago, released a concept called **devcontainers** that takes away the pain of managing many virtual environments for Python and other languages such as NodeJS, etc.
 
 ## VSCode's venv killer
 
@@ -22,7 +23,7 @@ Each such devcontainer also acts like a workspace and can have its own set of ex
 
 ## How to use devcontainers
 
-First you will need to install the appropriate version of [Docker Desktop](https://www.docker.com/products/docker-desktop), If you're using a Windows system, installing WSL and enabling [Docker WSL2 backend](https://aka.ms/vscode-remote/containers/docker-wsl2) is highly recommended. 
+First, the appropriate version of [Docker Desktop](https://www.docker.com/products/docker-desktop), If you're using a Windows system, you need to [install WSL2]({filename}0038-install-wsl2.md) and enable [Docker WSL2 backend](https://aka.ms/vscode-remote/containers/docker-wsl2) is recommended. 
 
 Once you have these setup, open VSCode and from Getting started page, click on "Open Folder" to open the folder where your project is stored.
 
@@ -39,7 +40,7 @@ Once the build process is complete, at the bottom left, you will see `Dev Contai
 
 ## Preparing the environment
 
-Now you have access to a fully functional actual Docker container running Debian Linux with Python and PostgreSQL already installed. 
+Now you have access to a functional actual Docker container running Debian Linux with Python and PostgreSQL already installed. 
 
 If you are using `requirements.txt` to keep the list of dependencies, you will need to install your dependencies for the first time by opening the Terminal within VSCode and running
 
@@ -47,7 +48,7 @@ If you are using `requirements.txt` to keep the list of dependencies, you will n
 pip install requirements.txt
 ```
 
-Alternatively you can install them one by one and run the below to create a `requirements.txt`.
+Or you can install them one by one and run the below to create a `requirements.txt`.
 
 ```bash
 pip freeze > requirements.txt
@@ -55,7 +56,7 @@ pip freeze > requirements.txt
 
 ## Enabling automatic installation
 
-To enable VScode Remote Containers to install all of your dependencies should you choose to rebuild the container, browse to the `.devcontainer` folder and open the `Dockerfile`
+To enable VScode Remote Containers to install your dependencies, you should choose to rebuild the container, browse to the `.devcontainer` folder and open the `Dockerfile`
 
 You need to uncomment the below block as shown below 👇🏽
 
@@ -66,7 +67,7 @@ RUN pip3 --disable-pip-version-check --no-cache-dir install -r /tmp/pip-tmp/requ
    && rm -rf /tmp/pip-tmp
 ```
 
-This will automatically reinstall any dependencies that you may have noted under `requirements.txt`. 
+This will reinstall any dependencies that you may have noted under `requirements.txt`. 
 
 > Make sure you have requirements.txt file present before doing the above, attempt to rebuild the container without the file present will result in failure
 
