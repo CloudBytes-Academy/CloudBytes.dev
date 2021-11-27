@@ -67,7 +67,7 @@ for i in range(len(fruits)):
 
 ### enumerate()
 
-Instead of calculating the length and iterating over the list, we can also simply use enumerate() to get the same results.
+Instead of calculating the length and iterating over the list, we can also use enumerate() to get the same results.
 
 ```python
 fruits = ['apple', 'orange', 'banana', 'tomato', 'cucumber']
@@ -80,7 +80,7 @@ for i, item in enumerate(fruits):
 
 As with most things, the answer is, it depends! And more often than not, it will end up being a personal choice. 
 
-But from purely a performance perspective, we can test it. 
+But from a performance perspective, we can test it. 
 
 ### Performance testing range() and enumerate()
 
