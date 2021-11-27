@@ -9,16 +9,16 @@ Slug: upgrade-python-to-latest-version-on-ubuntu-linux
 
 **Last Updated:** 2020-11-13
 
-Linux systems come with Python install by default, however, they are usually not the latest. Python also typically is not updated by a typical `apt upgrade` command as well. 
+Linux systems come with Python install by default, but, they are usually not the latest. Python also cannot be updated by a typical `apt upgrade` command as well. 
 
 To check the version of Python installed on your system run
 ```bash
 python3 --version
 ```
-> Typically `python` keyword is used for Python 2.x versions which have been deprecated
+> `python` keyword is used for Python 2.x versions which has been deprecated
 
 ## Updating Python to the latest version 
-Typically Ubuntu's default repositories do not contain the latest version of Python, but an open source repository named `deadsnakes` does. Let's use that by running
+Ubuntu's default repositories do not contain the latest version of Python, but an open source repository named `deadsnakes` does.
 
 ### Step 1: Check if Python3.10 is available for install
 ```bash
@@ -64,7 +64,7 @@ Choose the selection corresponding to Python3.10 (if not selected by default).
 Now run `python3 --version` again and you should see the latest Python as the output.
 
 ## Fix pip and disutils
-Installing the new version of Python will break `pip` as the `disutils` for Python3.10 is missing. You will see an error similar to the below
+Installing the new version of Python will break `pip` as the `disutils` for Python3.10 is missing. You will see an error like the below
 
 ```text
 ImportError: cannot import name 'sysconfig' from 'distutils' (/usr/lib/python3.10/distutils/__init__.py)
@@ -91,7 +91,7 @@ python3.10 get-pip.py
 ```
 
 ### Fix pip-env errors
-Run the following to fix errors similar to `Error: Command '['/path/to/env/bin/python3', '-Im', 'ensurepip', '--upgrade', '--default-pip']' returned non-zero exit status 1`
+Run the following to fix errors like `Error: Command '['/path/to/env/bin/python3', '-Im', 'ensurepip', '--upgrade', '--default-pip']' returned non-zero exit status 1`
 ```bash
 sudo apt install python3.10-venv
 ```
