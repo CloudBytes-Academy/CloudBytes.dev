@@ -6,7 +6,3 @@ Author: Rehan Haider
 Summary: A guide to download Python from official sources
 Keywords: download python, python downloaf, cpython
 Status: draft
-
-
-
-
