@@ -116,6 +116,7 @@ dev_plugins = [
     "pelican.plugins.tag_cloud",
     "pelican.plugins.related_posts",
     "plugins.fix_sitemap",
+    "plugins.minify",
 ]
 prod_plugins = [
     "pelican.plugins.sitemap",
