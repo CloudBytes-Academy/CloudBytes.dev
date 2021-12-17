@@ -7,6 +7,7 @@ import os
 
 # ENVIRONMENT
 PUBLISH = os.environ.get("PUBLISH")
+print(f"PUBLISH: {PUBLISH}")
 CURRENTYEAR = date.today().year
 
 # General settings
