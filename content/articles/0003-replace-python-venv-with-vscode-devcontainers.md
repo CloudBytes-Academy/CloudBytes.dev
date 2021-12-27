@@ -23,7 +23,7 @@ Each such devcontainer also acts like a workspace and can have its own set of ex
 
 ## How to use devcontainers
 
-First, the appropriate version of [Docker Desktop](https://www.docker.com/products/docker-desktop), If you're using a Windows system, you need to [install WSL2]({filename}0038-install-wsl2.md) and enable [Docker WSL2 backend](https://aka.ms/vscode-remote/containers/docker-wsl2) is recommended. 
+First, the appropriate version of [Docker Desktop](https://www.docker.com/products/docker-desktop), If you're using a Windows system, you need to [install WSL2]({filename}0039-install-wsl2.md) and enable [Docker WSL2 backend](https://aka.ms/vscode-remote/containers/docker-wsl2) is recommended. 
 
 Once you have these setup, open VSCode and from Getting started page, click on "Open Folder" to open the folder where your project is stored.
 

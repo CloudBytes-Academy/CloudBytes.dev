@@ -56,19 +56,20 @@ Which base image would you like to use?
         1 - amazon/nodejs14.x-base
         2 - amazon/nodejs12.x-base
         3 - amazon/nodejs10.x-base
-        4 - amazon/python3.8-base
-        5 - amazon/python3.7-base
-        6 - amazon/python3.6-base
-        7 - amazon/python2.7-base
-        8 - amazon/ruby2.7-base
-        9 - amazon/ruby2.5-base
-        10 - amazon/go1.x-base
-        11 - amazon/java11-base
-        12 - amazon/java8.al2-base
-        13 - amazon/java8-base
-        14 - amazon/dotnet5.0-base
-        15 - amazon/dotnetcore3.1-base
-        16 - amazon/dotnetcore2.1-base
+        4 - amazon/python3.9-base
+        5 - amazon/python3.8-base
+        6 - amazon/python3.7-base
+        7 - amazon/python3.6-base
+        8 - amazon/python2.7-base
+        9 - amazon/ruby2.7-base
+        10 - amazon/ruby2.5-base
+        11 - amazon/go1.x-base
+        12 - amazon/java11-base
+        13 - amazon/java8.al2-base
+        14 - amazon/java8-base
+        15 - amazon/dotnet5.0-base
+        16 - amazon/dotnetcore3.1-base
+        17 - amazon/dotnetcore2.1-base
 Base image: 4
 
 Project name [sam-app]:
@@ -90,8 +91,9 @@ Template selection: 1
     -----------------------
     Generating application:
     -----------------------
-    Name: twitter
-    Base Image: amazon/python3.8-base
+    Name: sam-app
+    Base Image: amazon/python3.9-base
+    Architectures: x86_64
     Dependency Manager: pip
     Output Directory: .
 
@@ -154,38 +156,12 @@ sam build
 
 ### Test the build
 To test if you application is working correctly, run
-```bash
-sam invoke local
+```text
+sam local invoke
 ```
 > Again, you need Docker & Python3.8 to be installed for this to work
 
 ## Deploy the project
-
-Before you can deploy the project, you need to deploy the custom image we created to the private ECR repository. 
-
-First we'll create a repository by 
-```bash
-aws ecr create-repository --repository-name hello --image-scanning-configuration scanOnPush=true
-```
-This will result in an output similar to below, note the respositoryUri value from your output. 
-```bash
-{
-    "repository": {
-        "repositoryArn": "arn:aws:ecr:us-east-1:231871475778:repository/hello",
-        "registryId": "231871475778",
-        "repositoryName": "hello",
-        "repositoryUri": "231871475778.dkr.ecr.us-east-1.amazonaws.com/hello",
-        "createdAt": "2021-08-08T06:53:54+00:00",
-        "imageTagMutability": "MUTABLE",
-        "imageScanningConfiguration": {
-            "scanOnPush": true
-        },
-        "encryptionConfiguration": {
-            "encryptionType": "AES256"
-        }
-    }
-}
-```
 
 Now there are three more steps that needs to be performed, but in our case, SAM CLI will do them in one go. 
 
@@ -211,17 +187,15 @@ Configuring SAM deploy
         =========================================
         Stack Name [sam-app]: hello-world
         AWS Region [us-east-1]: 
-        Image Repository for HelloWorldFunction: 231871475778.dkr.ecr.us-east-1.amazonaws.com/hello
-          helloworldfunction:python3.8-v1 to be pushed 
-          to 231871475778.dkr.ecr.us-east-1.amazonaws.com/hello:helloworldfunction-37e1fa9d5777-python3.8-v1
-
         #Shows you resources changes to be deployed and require a 'Y' to initiate deploy
         Confirm changes before deploy [y/N]: 
         #SAM needs permission to be able to create roles to connect to the resources in your template
-        Allow SAM CLI IAM role creation [Y/n]: 
-        IPTwitterFunction may not have authorization defined, Is this okay? [y/N]: y
+        Allow SAM CLI IAM role creation [Y/n]: y
+        #Preserves the state of previously provisioned resources when an operation fails
+        Disable rollback [y/N]: 
+        HelloWorldFunction may not have authorization defined, Is this okay? [y/N]: y
         Save arguments to configuration file [Y/n]: 
         SAM configuration file [samconfig.toml]: 
-        SAM configuration environment [default]:
+        SAM configuration environment [default]: 
 ```
 This will deploy your app to AWS. 

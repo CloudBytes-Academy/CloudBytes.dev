@@ -92,7 +92,12 @@ curl -Lo chromedriver_linux64.zip "https://chromedriver.storage.googleapis.com/\
 ${chrome_driver}/chromedriver_linux64.zip"
 ```
 
-**c) Unzip the binary file and make it executable**
+**c) Install unzip**
+```bash
+sudo apt install unzip
+```
+
+**d) Unzip the binary file and make it executable**
 ```bash
 mkdir -p "chromedriver/stable" && \
 unzip -q "chromedriver_linux64.zip" -d "chromedriver/stable" && \
@@ -113,7 +118,7 @@ Run `python3 --version` and note the version, e.g. in my case I get the version 
 
 Next, we need to install `venv`, choose the Python version based on what you have installed.
 ```
-sudo apt install python3.8-venv unzip -y
+sudo apt install python3.9-venv -y
 ```
 
 Then create a virtual environment
@@ -168,7 +173,7 @@ chrome_options.add_argument("--headless") # Ensure GUI is off
 chrome_options.add_argument("--no-sandbox")
 
 # Set path to chromedriver as per your configuration
-webdriver_service = Service("/home/cbd/chromedriver/stable/chromedriver")
+webdriver_service = Service("/home/cloudbytes/chromedriver/stable/chromedriver")
 
 # Choose Chrome Browser
 browser = webdriver.Chrome(service=webdriver_service, options=chrome_options)

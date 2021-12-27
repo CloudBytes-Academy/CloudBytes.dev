@@ -49,7 +49,12 @@ Download the [64-bit installer](https://awscli.amazonaws.com/AWSCLIV2.msi) and r
 **On Linux**, run 
 ```bash
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
-   && unzip awscliv2.zip && ./aws/install
+   && unzip awscliv2.zip
+```
+
+Then Install the AWS CLI by running the following command:
+```bash
+sudo ./aws/install
 ```
 
 **On MacOS**
@@ -151,20 +156,21 @@ Package type: 1
 
 Which runtime would you like to use?
         1 - nodejs14.x
-        2 - python3.8
+        2 - python3.9
         3 - ruby2.7
         4 - go1.x
         5 - java11
         6 - dotnetcore3.1
         7 - nodejs12.x
         8 - nodejs10.x
-        9 - python3.7
-        10 - python3.6
-        11 - python2.7
-        12 - ruby2.5
-        13 - java8.al2
-        14 - java8
-        15 - dotnetcore2.1
+        9 - python3.8
+        10 - python3.7
+        11 - python3.6
+        12 - python2.7
+        13 - ruby2.5
+        14 - java8.al2
+        15 - java8
+        16 - dotnetcore2.1
 Runtime: 2
 
 Project name [sam-app]: 
@@ -244,7 +250,7 @@ Looking for config file [samconfig.toml] :  Not found
 
 But then if will continue and ask you a few questions, choose as per below
 
-```bash
+```text
         Setting default arguments for 'sam deploy'
         =========================================
         Stack Name [sam-app]: 
@@ -253,19 +259,27 @@ But then if will continue and ask you a few questions, choose as per below
         Confirm changes before deploy [y/N]: y
         #SAM needs permission to be able to create roles to connect to the resources in your template
         Allow SAM CLI IAM role creation [Y/n]: y
+        #Preserves the state of previously provisioned resources when an operation fails
+        Disable rollback [y/N]: 
         HelloWorldFunction may not have authorization defined, Is this okay? [y/N]: y
-        Save arguments to configuration file [Y/n]: y
+        Save arguments to configuration file [Y/n]: 
         SAM configuration file [samconfig.toml]: 
         SAM configuration environment [default]: 
 ```
 
-SAM CLI will print out a lot of debug information, but you should finally get a prompt asking for confirmation
+If there are any unreferenced ECR repositories, it will ask you to confirm the deletion.
+```bash
+         Delete the unreferenced repositories listed above when deploying? [y/N]: y
+```
+
+
+SAM CLI will print out a lot of debug information, but you should get a prompt asking for confirmation
 ```bash
 Deploy this changeset? [y/N]: y
 ```
 
 Finally you app is deployed. You should see a final output similar to the below
-```
+```text
 CloudFormation outputs from deployed stack
 ---------------------------------------------------------------------------------------------------------------------------
 Outputs                                                                                                                   
