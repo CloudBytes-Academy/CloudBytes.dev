@@ -2009,7 +2009,7 @@ route-loader {
     background: var(--tag-bg);
     color: var(--text-color);
     font-weight: 600;
-    margin: .25em .1em
+    margin: .25em .25em;
 }
 
 h1.tag {
@@ -2633,7 +2633,7 @@ div.hint p.admonition-title:before, div.tip p.admonition-title:before {
 
 .tag-selenium {
     color: #fff;
-    background: #b0c5d6
+    background: #43b02a
 }
 
 .tag-typer {
