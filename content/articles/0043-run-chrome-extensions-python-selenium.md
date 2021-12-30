@@ -247,7 +247,8 @@ ARG FUNCTION_DIR
 WORKDIR ${FUNCTION_DIR}
 
 # Copy setup & other temporary files
-COPY *.sh requirements.txt GoFullPage.crx /tmp/
+COPY *.sh requirements.txt /tmp/
+COPY GoFullPage.crx /opt/
 
 # Install the python dependencies
 RUN pip install --upgrade pip -q
@@ -410,7 +411,7 @@ def handler(event=None, context=None):
     chrome_options.add_argument("window-size=2560x1440")
     chrome_options.add_argument("--remote-debugging-port=9222")
     chrome_options.add_argument("--user-data-dir=/tmp/chrome-user-data")
-    chrome_options.add_extension("/tmp/GoFullPage.crx")
+    chrome_options.add_extension("/opt/GoFullPage.crx")
     download_directory = {"download.default_directory": "/tmp/"}
     chrome_options.add_experimental_option("prefs", download_directory)
     webdriver_service = Service("/opt/chromedriver/stable/chromedriver")
