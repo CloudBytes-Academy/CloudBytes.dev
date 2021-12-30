@@ -29,7 +29,7 @@ Yes you can, of course you can, I'll show you how.
 
 ## How to run Chrome with extensions in AWS Lambda
 
-For this example, a reader [George Amin](https://www.linkedin.com/in/george-amine/), asked to try to run [GoFullPage](https://chrome.google.com/webstore/detail/gofullpage-full-page-scre/fdpohaocaechififmbbbbbknoalclacl?hl=en) extension in AWS Lambda. This extension relies on user-interaction thus presents a complex problem.
+For this example, a reader asked to try to run [GoFullPage](https://chrome.google.com/webstore/detail/gofullpage-full-page-scre/fdpohaocaechififmbbbbbknoalclacl?hl=en) extension in AWS Lambda. This extension relies on user-interaction thus presents a complex problem.
 
 Let's try and break this problem down.
 
