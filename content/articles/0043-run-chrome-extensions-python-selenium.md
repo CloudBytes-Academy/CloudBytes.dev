@@ -7,7 +7,6 @@ Summary: A detailed guide to use Selenium and Chrome with extensions on AWS Lamb
 Keywords: aws, lambda, selenium, python, chrome, chromedriver
 
 
-
 I earlier wrote about how to [run Chrome AWS Lambda using Python and Selenium webdriver]({filename}0019-run-selenium-in-aws-lambda.md), but running Chrome with extensions is a different ball game. So let's unpack the problem first, and then we'll get to the solution. 
 
 Chrome, when started in headless mode will start without browser UI, it is just a webpage viewport sans anything else. 
@@ -210,36 +209,36 @@ Our Dockerfile needs to do the following
 3. Install Lambda Runtime Interface Client to implement Lambda Runtime API
 4. Copy the extension, app.py and requirements.txt to the Docker image
 5. Install the python dependencies
-6. Install Chrome Browser
-7. Install Chromedriver
-8. Install Xvfb and dependencies
-9. Configure Lambda Runtime API to execute the Lambda function
+6. Install Chrome Browser to auto install Chromium dependencies
+7. Install latest Chromium Browser
+8. Install latest Chromedriver
+9. Install Xvfb and dependencies
+10. Configure Lambda Runtime API to execute the Lambda function
+
 
 ```Dockerfile
 # Define function directory
 ARG FUNCTION_DIR="/function"
+ARG RUNTIME_VERSION="3.9"
 
-FROM python:buster as build-image
 
-# Install aws-lambda-cpp build dependencies
-RUN apt-get update && export DEBIAN_FRONTEND=noninteractive
+FROM ubuntu:latest as base-image
 
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC
 RUN apt-get install -y g++ make cmake unzip libcurl4-openssl-dev
+RUN apt-get install -y python3 python3-pip 
+RUN apt-get install xvfb python3-tk python3-dev -y
+RUN apt-get install curl wget -y
 
-# Include global arg in this stage of the build
 ARG FUNCTION_DIR
 # Create function directory
 RUN mkdir -p ${FUNCTION_DIR}
 # Copy function code
-COPY app.py ${FUNCTION_DIR}
 
-# Install the runtime interface client
+
 RUN pip install \
     --target ${FUNCTION_DIR} \
     awslambdaric
-
-# Multi-stage build: grab a fresh copy of the base image
-FROM python:buster
 
 # Include global arg in this stage of the build
 ARG FUNCTION_DIR
@@ -247,25 +246,22 @@ ARG FUNCTION_DIR
 WORKDIR ${FUNCTION_DIR}
 
 # Copy setup & other temporary files
-COPY *.sh requirements.txt /tmp/
-COPY GoFullPage.crx /opt/
-
-# Install the python dependencies
+COPY requirements.txt /tmp/
+#COPY GoFullPage.crx /opt/
 RUN pip install --upgrade pip -q
 RUN pip install -r /tmp/requirements.txt -q
-
-# Install chrome browser & chromedriver
+COPY install_chrome.sh /tmp/
 RUN /bin/bash /tmp/install_chrome.sh
+COPY install_driver.sh /tmp/
 RUN /bin/bash /tmp/install_driver.sh
+COPY install_chromium.sh /tmp/
+RUN /bin/bash /tmp/install_chromium.sh
+COPY app.py ${FUNCTION_DIR}
 
-# Install Xvfb & dependencies
-RUN apt-get install xvfb python3-tk python3-dev -y
+COPY GoFullPage.crx /opt/
+RUN ls -al /opt/chrome/stable/
 
-# Copy in the build image dependencies
-COPY --from=build-image ${FUNCTION_DIR} ${FUNCTION_DIR}
-
-# Execute the Lambda function
-ENTRYPOINT [ "/usr/local/bin/python", "-m", "awslambdaric" ]
+ENTRYPOINT [ "python3", "-m", "awslambdaric" ]
 CMD [ "app.handler" ]
 ```
 
@@ -308,7 +304,31 @@ Make sure you make this file executable by running the following command
 chmod +x src/install_chrome.sh
 ```
 
-### g) src/install_driver.sh
+### g) src/install_chromium.sh
+
+Now with dependencies installed we can install Chromium browser
+
+```bash
+#!/bin/bash
+
+echo "Downloading Chromium"
+mkdir -p "/opt/chrome/stable"
+curl -Lo "/opt/chrome/stable/chrome-linux.zip" \
+    "https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/\
+    o/Linux_x64%2F954502%2Fchrome-linux.zip?generation=1640815524872726&alt=media"
+unzip -q "/opt/chrome/stable/chrome-linux.zip" -d "/opt/chrome/stable/"
+ls -al /opt/chrome/stable/chrome-linux
+mv /opt/chrome/stable/chrome-linux/* /opt/chrome/stable/
+rm -rf /opt/chrome/stable/chrome-linux /opt/chrome/stable/chrome-linux.zip
+```
+
+Make this file executable by running 
+
+```bash
+chmod +x src/install_chromium.sh
+```
+
+### h) src/install_driver.sh
 
 Now we install a compatible chrome driver. The below script 
 
@@ -343,11 +363,30 @@ fi
 
 echo "Downloading latest Chromedriver..."
 mkdir -p "/opt/chromedriver/stable/"
-curl -Lo "/opt/chromedriver/stable/chromedriver_linux64.zip" \
-    "https://chromedriver.storage.googleapis.com/$chromedriver_version_full/chromedriver_linux64.zip"
+
+ curl 'https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2F954502%2Fchromedriver_linux64.zip?generation=1640815530134396&alt=media' \
+  -H 'authority: www.googleapis.com' \
+  -H 'sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="96", "Google Chrome";v="96"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  -H 'dnt: 1' \
+  -H 'upgrade-insecure-requests: 1' \
+  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36' \
+  -H 'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9' \
+  -H 'x-client-data: CLO1yQEIhrbJAQiktskBCMG2yQEIqZ3KAQjRoMoBCMCXywEI6vLLAQie+csBCNf8ywEI5oTMAQi1hcwBCMuJzAEI0IvMAQisjswBCJqPzAEI0o/MAQjakMwBCMmSzAEIoZPMAQjHk8wBCIqUzAEY5KDLAQ==' \
+  -H 'sec-fetch-site: none' \
+  -H 'sec-fetch-mode: navigate' \
+  -H 'sec-fetch-user: ?1' \
+  -H 'sec-fetch-dest: document' \
+  -H 'accept-language: en-GB,en-US;q=0.9,en;q=0.8,ms;q=0.7' \
+  --compressed > /opt/chromedriver/stable/chromedriver_linux64.zip
+
+
 
 unzip -q "/opt/chromedriver/stable/chromedriver_linux64.zip" \
     -d "/opt/chromedriver/stable/"
+
+mv /opt/chromedriver/stable/chromedriver_linux64/chromedriver /opt/chromedriver/stable/chromedriver
 
 chmod +x "/opt/chromedriver/stable/chromedriver"
 rm -rf "/opt/chromedriver/stable/chromedriver_linux64.zip"
@@ -361,7 +400,7 @@ Again, make sure you make this file executable by running the following command
 chmod +x src/install_driver.sh
 ```
 
-### h) src/app.py
+### i) src/app.py
 
 The app.py file needs model the following user behavior 
 1. Open the browser with the extension installed
@@ -402,6 +441,7 @@ def handler(event=None, context=None):
     chrome_options = Options()
     # Headless environment starts without browser UI so no extensions
     #chrome_options.add_argument("--headless") 
+    chrome_options.binary_location = "/opt/chrome/stable/chrome"
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("--disable-gpu")
@@ -468,7 +508,7 @@ def handler(event=None, context=None):
 Make sure you replace the `BUCKET_NAME` in the code with your bucket name. 
 
 
-### i) src/requirements.txt
+### j) src/requirements.txt
 This will contain the python dependencies required for the Lambda function
 
 ```text
