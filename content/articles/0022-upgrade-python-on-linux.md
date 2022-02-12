@@ -7,7 +7,7 @@ Summary: A complete guide on how to upgrade Python to the latest version (Python
 Keywords: Linux, Python, Ubuntu, Python 3.10, 
 Slug: upgrade-python-to-latest-version-on-ubuntu-linux
 
-**Last Updated:** 2020-11-13
+**Last Updated:** 2022-02-10
 
 Linux systems come with Python install by default, but, they are usually not the latest. Python also cannot be updated by a typical `apt upgrade` command as well. 
 
@@ -72,7 +72,10 @@ ImportError: cannot import name 'sysconfig' from 'distutils' (/usr/lib/python3.1
 
 Or you might also see an error stating `No module named 'distutils.util'`. 
 
-To fix this, we need to first remove the previous version of Python by running
+### WARNING: REMOVING PYTHON 3.8 CAN BRICK YOUR SYSTEM ON UBUNTU 20.xx 
+### YOU CAN SKIP DIRECTLY TO THE DISTUTIL INSTALLATION STEP
+
+[OPTIONAL] To fix this, we need to first remove the previous version of Python by running
 ```bash
 sudo apt remove python3.8
 sudo apt autoremove
