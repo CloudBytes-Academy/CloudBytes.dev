@@ -49,7 +49,7 @@ Now though Python 3.10 is installed, if you check the version of your python by 
 To do this you need to add both versions to an alternatives by running the below
 
 ```bash
-sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 1
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.9 1
 sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 2
 ```
 
@@ -63,7 +63,7 @@ Choose the selection corresponding to Python3.10 (if not selected by default).
 
 Now run `python3 --version` again and you should see the latest Python as the output.
 
-## Fix pip and disutils
+## [OPTIONAL] Fix pip and disutils errors
 Installing the new version of Python will break `pip` as the `disutils` for Python3.10 is missing. You will see an error like the below
 
 ```text
@@ -72,15 +72,14 @@ ImportError: cannot import name 'sysconfig' from 'distutils' (/usr/lib/python3.1
 
 Or you might also see an error stating `No module named 'distutils.util'`. 
 
-### WARNING: REMOVING PYTHON 3.8 CAN BRICK YOUR SYSTEM ON UBUNTU 20.xx 
-### YOU CAN SKIP DIRECTLY TO THE DISTUTIL INSTALLATION STEP
-
-[OPTIONAL] To fix this, we need to first remove the previous version of Python by running
+To fix this, first remove the previous version of Python by running
 ```bash
-sudo apt remove python3.8
+sudo apt remove python3.9
 sudo apt autoremove
 ```
 
+###  Install disutils
+-->
 Next to install `disutils`, run the below
 ```bash
 sudo apt install python3.10-distutils
@@ -99,7 +98,7 @@ Run the following to fix errors like `Error: Command '['/path/to/env/bin/python3
 sudo apt install python3.10-venv
 ```
 
-## Fix Python3-apt 
+## [OPTIONAL] Fix Python3-apt 
 
 The update would also break python3-apt, that will generate an error like
 ```text
