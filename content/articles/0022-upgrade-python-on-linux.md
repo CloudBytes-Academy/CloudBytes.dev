@@ -64,7 +64,7 @@ Choose the selection corresponding to Python3.10 (if not selected by default).
 Now run `python3 --version` again and you should see the latest Python as the output.
 
 ## [OPTIONAL] Fix pip and disutils errors
-
+!!! warning "Below steps may be needed only if pip or disutils break. If you are not sure, skip this section."
 
 Installing the new version of Python will break `pip` as the `disutils` for Python3.10 is missing. You will see an error like the below
 
@@ -74,7 +74,7 @@ ImportError: cannot import name 'sysconfig' from 'distutils' (/usr/lib/python3.1
 
 Or you might also see an error stating `No module named 'distutils.util'`. 
 
-!!! danger "Below steps may be needed only if you face the disutils error highlighted above."
+!!! warning "Some users have reported system instability and crashes, back up before running the below commands."
 
 To fix this, first remove the previous version of Python by running
 ```bash
