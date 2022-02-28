@@ -153,4 +153,4 @@ You can fix this by reinstalling venv by running
 sudo apt install python3.10-venv
 ```
 
-All should be done now. It is complicated, but this is how you update Python to latest version
+All should be done now. It is complicated, but this is how you update Python to latest version.
