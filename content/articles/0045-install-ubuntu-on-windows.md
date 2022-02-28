@@ -5,7 +5,7 @@ Tags: linux, windows
 Author: Rehan Haider
 Summary: Step by step guide to install Ubuntu 20.04 in a VM on Windows using Hyper-V
 Keywords: linux, windows, hyper-v, virtualization, ubuntu
-
+Status: Draft
 
 I wrote earlier about how to install [Ubuntu 20.04 using WSL2 on Windows]({filename}0039-install-wsl2.md), and also how to [configure Hyper-V on Windows 10/11 Home edition]({filename}0044-enable-hyperv-windows10-home.md). IN this post I will show you how to install Ubuntu 20.04 in a VM on Windows using Hyper-V.
 

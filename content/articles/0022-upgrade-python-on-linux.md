@@ -7,7 +7,7 @@ Summary: A complete guide on how to upgrade Python to the latest version (Python
 Keywords: Linux, Python, Ubuntu, Python 3.10, 
 Slug: upgrade-python-to-latest-version-on-ubuntu-linux
 
-**Last Updated:** 2022-02-10
+**Last Updated:** 2022-03-03
 
 Linux systems come with Python install by default, but, they are usually not the latest. Python also cannot be updated by a typical `apt upgrade` command as well. 
 
