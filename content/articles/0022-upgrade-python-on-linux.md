@@ -17,8 +17,11 @@ python3 --version
 ```
 > `python` keyword is used for Python 2.x versions which has been deprecated
 
+
 ## Updating Python to the latest version 
 Ubuntu's default repositories do not contain the latest version of Python, but an open source repository named `deadsnakes` does.
+
+> !!! warning "Python3.10 is not officially available on Ubuntu 20.04, ensure you backup your system before upgrading."
 
 ### Step 1: Check if Python3.10 is available for install
 ```bash
@@ -43,9 +46,10 @@ Now you can install Python 3.10 by running
 sudo apt install python3.10
 ```
 
-Now though Python 3.10 is installed, if you check the version of your python by running `python3 --version` you will still see an older version. This is because you have two version of Python installed and you need to choose Python 3.10 as the default. 
+Now though Python 3.10 is installed, if you check the version of your python by running `python3 --version` you will still see an older version. This is because you have two versions of Python installed and you need to choose Python 3.10 as the default. 
 
 ### Step 3: Set Python 3.10 as default
+
 To do this you need to add both versions to an alternatives by running the below
 
 ```bash
@@ -63,10 +67,11 @@ Choose the selection corresponding to Python3.10 (if not selected by default).
 
 Now run `python3 --version` again and you should see the latest Python as the output.
 
-## [OPTIONAL] Fix pip and disutils errors
-!!! warning "Below steps may be needed only if pip or disutils break. If you are not sure, skip this section."
+## Fix pip and disutils errors
 
-Installing the new version of Python will break `pip` as the `disutils` for Python3.10 is missing. You will see an error like the below
+Installing the new version of Python will break `pip` as the `distutils` for Python3.10 is not installed yet. 
+
+Running `python3 -m pip`  will throw below error.
 
 ```text
 ImportError: cannot import name 'sysconfig' from 'distutils' (/usr/lib/python3.10/distutils/__init__.py)
@@ -74,6 +79,9 @@ ImportError: cannot import name 'sysconfig' from 'distutils' (/usr/lib/python3.1
 
 Or you might also see an error stating `No module named 'distutils.util'`. 
 
+###  Install distutils
+
+<!--
 !!! warning "Some users have reported system instability and crashes, back up before running the below commands."
 
 To fix this, first remove the previous version of Python by running
@@ -81,10 +89,8 @@ To fix this, first remove the previous version of Python by running
 sudo apt remove python3.9
 sudo apt autoremove
 ```
-
-###  Install disutils
 -->
-Next to install `disutils`, run the below
+To install `disutils`, run the below
 ```bash
 sudo apt install python3.10-distutils
 ```
@@ -96,8 +102,26 @@ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python3.10 get-pip.py
 ```
 
-### Fix pip-env errors
-Run the following to fix errors like `Error: Command '['/path/to/env/bin/python3', '-Im', 'ensurepip', '--upgrade', '--default-pip']' returned non-zero exit status 1`
+This installs `pip` in user's local directory (`~/.local/bin`) and not on PATH, to run pip you need to run
+
+```bash
+python3 -m pip --version
+```
+
+Alternatively, though not recommended, you can install pip globally by running
+```bash
+sudo python3.10 get-pip.py
+```
+This will install `pip` in system's `/usr/local/bin` directory and enable you to run pip from anywhere. 
+
+
+### Fix pip-env errors when using venv
+When you try to create a new virtual environment using `python -m venv env`, you may into the following error. 
+```bash
+Error: Command '['/path/to/env/bin/python3', '-Im', 'ensurepip', '--upgrade', '--default-pip']' returned non-zero exit status 1
+```
+
+You can fix this by reinstalling venv by running
 ```bash
 sudo apt install python3.10-venv
 ```
@@ -123,13 +147,13 @@ sudo apt remove --purge python3-apt
 Then do some cleanup
 ```bash
 sudo apt autoremove
+sudo apt autoclean
 ```
 
-<!--
+
 Finally install python3-apt by running
 ```bash
 sudo apt install python3-apt
 ```
--->
 
 It is complicated, but this is how you update Python to latest version
