@@ -69,66 +69,10 @@ Now run `python3 --version` again and you should see the latest Python as the ou
 
 ## Fix pip and disutils errors
 
-Installing the new version of Python will break `pip` as the `distutils` for Python3.10 is not installed yet. 
+Installing the new version of Python will break `pip` as the `distutils` for Python3.10 is not installed yet.
 
-Running `python3 -m pip`  will throw below error.
-
-```text
-ImportError: cannot import name 'sysconfig' from 'distutils' (/usr/lib/python3.10/distutils/__init__.py)
-```
-
-Or you might also see an error stating `No module named 'distutils.util'`. 
-
-###  Install distutils
-
-<!--
-!!! warning "Some users have reported system instability and crashes, back up before running the below commands."
-
-To fix this, first remove the previous version of Python by running
-```bash
-sudo apt remove python3.9
-sudo apt autoremove
-```
--->
-To install `disutils`, run the below
-```bash
-sudo apt install python3.10-distutils
-```
-
-Reinstall the latest pip by running
-
-```bash
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-python3.10 get-pip.py
-```
-
-This installs `pip` in user's local directory (`~/.local/bin`) and not on PATH, to run pip you need to run
-
-```bash
-python3 -m pip --version
-```
-
-Alternatively, though not recommended, you can install pip globally by running
-```bash
-sudo python3.10 get-pip.py
-```
-This will install `pip` in system's `/usr/local/bin` directory and enable you to run pip from anywhere. 
-
-
-### Fix pip-env errors when using venv
-When you try to create a new virtual environment using `python -m venv env`, you may into the following error. 
-```bash
-Error: Command '['/path/to/env/bin/python3', '-Im', 'ensurepip', '--upgrade', '--default-pip']' returned non-zero exit status 1
-```
-
-You can fix this by reinstalling venv by running
-```bash
-sudo apt install python3.10-venv
-```
-
-## [OPTIONAL] Fix Python3-apt 
-
-The update would also break python3-apt, that will generate an error like
+### Fix Python3-apt 
+Running `pip` in terminal will not work, as the current pip is not compatible with Python3.10 and python3-apt will be broken, that will generate an error like
 ```text
 Traceback (most recent call last):   
     File "/usr/lib/command-not-found", line 28, in <module>     
@@ -150,10 +94,40 @@ sudo apt autoremove
 sudo apt autoclean
 ```
 
+###  Install pip & distutils
 
-Finally install python3-apt by running
+Running `pip`  will still throw an error `pip: command not found`. We need to install the latest version of pip compatible with Python 3.10. 
+
+But if try to install the latest version of pip, it will throw an error like
+```text
+ImportError: cannot import name 'sysconfig' from 'distutils' 
+(/usr/lib/python3.10/distutils/__init__.py)
+```
+Or you might also see an error stating `No module named 'distutils.util'`. This is because the `distutils` module is not installed yet, to install run the below command
+
 ```bash
-sudo apt install python3-apt
+sudo apt install python3.10-distutils
 ```
 
-It is complicated, but this is how you update Python to latest version
+Now you can install `pip` by running
+
+```bash
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+sudo python3.10 get-pip.py
+```
+> If you get an error like `bash: curl: command not found` then you need to install curl first by running `sudo apt install curl`
+
+
+### Fix pip-env errors when using venv
+When you try to create a new virtual environment using `python -m venv env`, you may into the following error. 
+```bash
+Error: Command '['/path/to/env/bin/python3', '-Im', 'ensurepip', '--upgrade', '--default-pip']' returned non-zero exit status 1
+```
+
+You can fix this by reinstalling venv by running
+```bash
+sudo apt install python3.10-venv
+```
+
+
+All should be done now. It is complicated, but this is how you update Python to latest version
