@@ -18,6 +18,7 @@ python3 --version
 > `python` keyword is used for Python 2.x versions which has been deprecated
 
 In this guide we will
+
 1. Update Python to the latest version
 2. Fix pip & other Python related issues
 3. While doing the above two, ensure your Ubuntu which is heavily dependent on Python does not break
@@ -54,7 +55,7 @@ Now though Python 3.10 is installed, if you check the version of your python by 
 
 ### Step 3: Set Python 3.10 as default
 
-!!! warning "Steps beyond here are tested but experimental procedures, proceed at your own risk."
+> !!! warning "Steps beyond here are tested on Ubuntu 20.04 in VM & WSL2, but are experimental , proceed at your own risk."
 
 Changing the default alternatives for Python will break your Gnome terminal. To avoid this, you need to edit the `gnome-terminal` configuration file.
 
@@ -109,7 +110,7 @@ Then do some cleanup
 sudo apt autoclean
 ```
 
-!!! danger "DO NOT RUN `sudo apt autoremove` as it will remove several packages that are required. This will break your system."
+!!! danger "DO NOT RUN `sudo apt autoremove` as it will remove several packages that are required. This may break your system if you're using GUI, if you're on WSL2 you can proceed."
 
 Finally, reinstall `python3-apt` by running
 
