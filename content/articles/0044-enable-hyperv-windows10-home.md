@@ -71,4 +71,4 @@ Go to the start menu and search for Hyper-V, open the Hyper-V Manager.
 
 From here you can start creating VMs, creating a new VM, or even creating a new VM template.
 
-For a quick start, follow this [guide to installing Ubuntu on Hyper-V]({filename})0045-install-ubuntu-on-windows.md.
+For a quick start, follow this [guide to installing Ubuntu on Hyper-V]({filename}0045-install-ubuntu-on-windows.md)
