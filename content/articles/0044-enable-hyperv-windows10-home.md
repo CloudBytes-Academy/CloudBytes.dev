@@ -17,7 +17,7 @@ This is because Hyper-V is a Professional and Enterprise edition feature, but it
 
 We're going to use the [Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701) so make sure you install it from the [Windows Store](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701).
 
-### 1. Check Minimum System Requirements
+### Step 1. Check Minimum System Requirements
 
 Your PC should support Hardware virtualisation for Hyper-V to work. 
 
@@ -35,7 +35,7 @@ You should get the below output
 
 This means that your PC supports hardware virtualisation.
 
-### 2. Enable Hyper-V
+### Step 2. Enable Hyper-V
 
 Create a file on your PC called "enable-hyperv.bat" and paste the following code in it.
 
@@ -56,7 +56,7 @@ Once the process is complete, you should see the following message asking for co
 
 ![enable-hyperv-complete]({static}/images/s0044/enable-hyperv-complete.png)
 
-### 3. Check if Hyper-V is enabled
+### Step 3. Check if Hyper-V is enabled
 
 Open your teminal and run `optionalfeatures` to see the status of Windows features. You should be able to see a Hyper-V feature listed now. 
 
@@ -70,3 +70,5 @@ Go to the start menu and search for Hyper-V, open the Hyper-V Manager.
 ![open-hyperv-manager]({static}/images/s0044/open-hyperv-manager.png)
 
 From here you can start creating VMs, creating a new VM, or even creating a new VM template.
+
+For a quick start, follow this [guide to installing Ubuntu on Hyper-V]({filename})0045-install-ubuntu-on-windows.md.
