@@ -34,11 +34,11 @@ You need [Docker](https://docs.docker.com/get-docker/) & [VSCode](https://code.v
 
 Then follow the following steps. 
 
-**Step 1**: Install Python using [these instructions]({filename}0013-how-to-check-python-version.md).
+**Step 1**: Install Python using [these instructions]({filename}99999987-how-to-check-python-version.md).
 
-**Step 2**: [Install AWS CLI]({filename}0016-deploy-serverless-apps-with-aws-sam.md#install-aws-cli)
+**Step 2**: [Install AWS CLI]({filename}99999984-deploy-serverless-apps-with-aws-sam.md#install-aws-cli)
 
-**Step 3**: [Configure AWS & AWS CLI]({filename}0016-deploy-serverless-apps-with-aws-sam.md#configuring-aws-aws-cli)
+**Step 3**: [Configure AWS & AWS CLI]({filename}99999984-deploy-serverless-apps-with-aws-sam.md#configuring-aws-aws-cli)
 
 **Step 4**: [Install and configure AWS CDK](https://docs.aws.amazon.com/cdk/latest/guide/getting_started.html#getting_started_install)
 

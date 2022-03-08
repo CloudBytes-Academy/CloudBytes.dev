@@ -7,7 +7,7 @@ Summary: A detailed guide to use Selenium and Chrome with extensions on AWS Lamb
 Keywords: aws, lambda, selenium, python, chrome, chromedriver
 
 
-I earlier wrote about how to [run Chrome AWS Lambda using Python and Selenium webdriver]({filename}0019-run-selenium-in-aws-lambda.md), but running Chrome with extensions is a different ball game. So let's unpack the problem first, and then we'll get to the solution. 
+I earlier wrote about how to [run Chrome AWS Lambda using Python and Selenium webdriver]({filename}99999982-run-selenium-in-aws-lambda.md), but running Chrome with extensions is a different ball game. So let's unpack the problem first, and then we'll get to the solution. 
 
 Chrome, when started in headless mode will start without browser UI, it is just a webpage viewport sans anything else. 
 
@@ -41,7 +41,7 @@ Now with that out of the way, let's get started.
 
 ## Setting up the development environment
 
-**Step 1**: You need [VSCode](https://code.visualstudio.com/download), [Docker Desktop](https://www.docker.com/products/docker-desktop), and WSL2 as the development environment. You can find instructions on how to setup WSL2 [here]({filename}0039-install-wsl2.md)
+**Step 1**: You need [VSCode](https://code.visualstudio.com/download), [Docker Desktop](https://www.docker.com/products/docker-desktop), and WSL2 as the development environment. You can find instructions on how to setup WSL2 [here]({filename}99999965-install-wsl2.md)
 
 
 **Step 2**: Start the VScode editor
@@ -65,16 +65,16 @@ e. Leave the default selections and choose OK in the next two dialogues
 
 Next, install the following:
 
-**Step 4**: [Install AWS CLI]({filename}0016-deploy-serverless-apps-with-aws-sam.md#install-aws-cli)
+**Step 4**: [Install AWS CLI]({filename}99999984-deploy-serverless-apps-with-aws-sam.md#install-aws-cli)
 
-**Step 5**: [Install SAM CLI]({filename}0016-deploy-serverless-apps-with-aws-sam.md#install-aws-sam-cli)
+**Step 5**: [Install SAM CLI]({filename}99999984-deploy-serverless-apps-with-aws-sam.md#install-aws-sam-cli)
 
 And finally, configure AWS CLI as per below
 
-**Step 6**: [Configure AWS & AWS CLI]({filename}0016-deploy-serverless-apps-with-aws-sam.md#configuring-aws-aws-cli)
+**Step 6**: [Configure AWS & AWS CLI]({filename}99999984-deploy-serverless-apps-with-aws-sam.md#configuring-aws-aws-cli)
 
 ## Running Chrome Extensions using Selenium in AWS Lambda
-Unlike a [previous guide]({filename}0017-run-lambda-on-container-sam.md#create-a-new-app) we'll use a manual SAM templates to create a new Lambda app. 
+Unlike a [previous guide]({filename}99999983-run-lambda-on-container-sam.md#create-a-new-app) we'll use a manual SAM templates to create a new Lambda app. 
 
 Your folder structure should look like below
 

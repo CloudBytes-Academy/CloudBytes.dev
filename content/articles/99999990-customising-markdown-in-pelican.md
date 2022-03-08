@@ -8,7 +8,7 @@ Keywords: pelican, python, markdown, toc
 
 
 
-I've spoken about how [Pelican documentation is incoherent]({filename}0002-fixing-pelican-sitemap-error-on-google-search-console.md). One of the key features that Pelican keeps hinting towards but never explains in detail is how to customise the Markdown output. 
+I've spoken about how [Pelican documentation is incoherent]({filename}99999998-fixing-pelican-sitemap-error-on-google-search-console.md). One of the key features that Pelican keeps hinting towards but never explains in detail is how to customise the Markdown output. 
 
 Pelican uses [Pygments](https://pygments.org/) as its code syntax highlighter, something that they mention several times. And Pelican uses [Python-Markdown](https://python-markdown.github.io/) to convert the Markdown to HTML, again something that is not explicitly mentioned just hinted at. 
 

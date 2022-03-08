@@ -9,7 +9,7 @@ Keywords: Python, Typer
 
 TL;DR - jump to the [solution](#setting-a-default-command).
 
-As I mentioned previously, [Typer is great]({filename}0025-disable-python-typer-cli-autocompletion.md), but it's documentation isn't. 
+As I mentioned previously, [Typer is great]({filename}99999977-disable-python-typer-cli-autocompletion.md), but it's documentation isn't. 
 
 While building a Typer app that has only one `@app.command()` decorated function that function is treated as the default command.
 

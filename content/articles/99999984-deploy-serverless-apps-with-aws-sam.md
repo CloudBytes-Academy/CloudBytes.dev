@@ -32,7 +32,7 @@ Download and install Python 3.9 for your OS from [Python Website](https://www.py
 
 > !!! tip "IMPORTANT: The latest supported Python version on AWS Lambda is 3.8, thus you need 3.9 to be able to build your Lambda application"
 
-You can refer to [this tutorial]({filename}0013-how-to-check-python-version.md#2-how-to-install-python) if you need help in installing python correctly. 
+You can refer to [this tutorial]({filename}99999987-how-to-check-python-version.md#2-how-to-install-python) if you need help in installing python correctly. 
 
 Check your Python version to confirm
 ```bash

@@ -69,7 +69,7 @@ Now finally, click on `Test` again to test the function, you should see a result
 
 ## [Part 2] Create a hello world app with SAM CLI
 
-You need SAM CLI to be installed for this to work. Read the [setting up dev environmnt section of this guide]({filename}0016-deploy-serverless-apps-with-aws-sam.md#setting-up-the-development-environment) to configure the development environment.
+You need SAM CLI to be installed for this to work. Read the [setting up dev environmnt section of this guide]({filename}99999984-deploy-serverless-apps-with-aws-sam.md#setting-up-the-development-environment) to configure the development environment.
 
 Create a new directory named `lambda-sam-tutorial` and move to the directory
 

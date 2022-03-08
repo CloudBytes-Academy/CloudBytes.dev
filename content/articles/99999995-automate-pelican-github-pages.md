@@ -16,7 +16,7 @@ There are good reasons why? From free public and private repositories, to free G
 If you haven't heard of GitHub Pages, it is a service from GitHub that allows you to host a website or documentation directly from your repository. 
 All you need to do is edit your changes, and push to the repository and your changes will be live in seconds.
 
-This becomes specially relevant with the increased adoption of [Jamstack]({filename}0004-what-is-jamstack.md) tools such as Pelican, Hugo, etc. 
+This becomes specially relevant with the increased adoption of [Jamstack]({filename}99999996-what-is-jamstack.md) tools such as Pelican, Hugo, etc. 
 
 But here's the problem. GitHub pages works only on three folders
 
@@ -38,7 +38,7 @@ This will ask if you want to clone a repository from GitHub, select the option, 
 
 After that you will be asked to choose a container configuration, select "Show all definitions", search for Python 3, and choose Python 3.9 from the dropdowns, when asked, choose to install NodeJS as well. 
 
-We now have a [devcontainer]({filename}0003-replace-python-venv-with-vscode-devcontainers.md).
+We now have a [devcontainer]({filename}99999997-replace-python-venv-with-vscode-devcontainers.md).
 
 ### Step 2: Install Pelican and dependencies
 

@@ -7,12 +7,12 @@ Summary: Configure redirects on Firebase Hosting using wildcards for groups of U
 Keywords: Python, firebase, hosting, redirect, pelican
 
 
-[Firebase Hosting](https://firebase.google.com/docs/hosting) is a popular choice for hosting [Jamstack]({filename}0004-what-is-jamstack.md) websites, mostly because it is free but also because it is [developer friendly]({filename}0008-automate-pelican-firebase-hosting.md) and has almost all features that you might want.
+[Firebase Hosting](https://firebase.google.com/docs/hosting) is a popular choice for hosting [Jamstack]({filename}99999996-what-is-jamstack.md) websites, mostly because it is free but also because it is [developer friendly]({filename}99999992-automate-pelican-firebase-hosting.md) and has almost all features that you might want.
 
 
 One of the most vital features Firebase Hosting has is the ability to do **URL Redirects** including 301 redirects. 
 
-If you have a firebase project, you can configure Firebase Hosting following [these steps]({filename}0008-automate-pelican-firebase-hosting.md#2-create-configure-the-firebase-project).
+If you have a firebase project, you can configure Firebase Hosting following [these steps]({filename}99999992-automate-pelican-firebase-hosting.md#2-create-configure-the-firebase-project).
 
 Then, if you want to redirect a URL `www.example.com/articles/my-brilliant-article` to `www.example.com/post/my-brilliant-post`  you just need to add a directive in `firebase.json` file that was created as part of the above configuration
 
