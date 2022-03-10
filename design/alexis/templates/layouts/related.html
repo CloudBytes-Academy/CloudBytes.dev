@@ -1,9 +1,9 @@
 {% if article.related_posts %}
-<div class="chapter-list">
-    <div class="chapter-wrap">
-        <span style="text-align: center;">
-            <h3>Related Posts</h3>
-        </span>
+<div>
+    <h3 style="margin: 10px 0;">Related Posts</h3>
+</div>
+<div class="chapters-list">
+    <div class="chapters-wrap">
         {% for related_post in article.related_posts %}
         <a href="/{{ related_post.url }}">
             <div class="box box-sm chapter-item">

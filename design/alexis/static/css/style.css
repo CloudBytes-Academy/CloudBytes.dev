@@ -1730,6 +1730,9 @@ menu-toggler {
     }
 }
 
+
+
+
 .chapter-nav {
     display: flex;
     padding: 1.5em 0
@@ -1750,6 +1753,7 @@ menu-toggler {
 }
 
 .chapter-item {
+    border: 2px var(--background);
     display: flex;
     align-items: center;
     transition: all .3s ease
@@ -1856,7 +1860,12 @@ menu-toggler {
 
 .chapters-list {
     max-width: 998px;
-    margin: 0 auto
+    margin: 10px auto;
+}
+
+.chapters-wrap {
+    background: var(--nav-bg);
+
 }
 
 .the-end {
