@@ -1,7 +1,7 @@
 Title: AWS CDK: Building a EventBridge scheduled Lambda that reads and writes to s3
 Date: 2021-08-12
 Category: Snippets
-Tags: python, aws
+Tags: aws, python, 
 Author: Rehan Haider
 Summary: A guide to building a serverless app using EventBridge, Lambda & s3 while introducing how to create, configure, test and deploy a CDK project using Python
 Keywords: Python, AWS, CloudFormation, lambda, serverless, docker, container, cdk

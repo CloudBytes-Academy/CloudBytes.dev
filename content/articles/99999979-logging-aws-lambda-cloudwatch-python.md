@@ -1,7 +1,7 @@
 Title: Configure logging in AWS Lambda to CloudWatch using Python
 Date: 2021-11-06
 Category: Snippets
-Tags: python, aws
+Tags: aws, python
 Author: Rehan Haider
 Summary: How to log events to CloudWatch during AWS Lambda execution using Python
 Keywords: AWS, Lambda, Python

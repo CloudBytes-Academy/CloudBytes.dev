@@ -1,7 +1,7 @@
 Title: Run Selenium in AWS Lambda for UI testing
 Date: 2021-08-12
 Category: Snippets
-Tags: python, aws, selenium
+Tags: aws, selenium, python
 Author: Rehan Haider
 Summary: A guide about how to run selenium using headless chrome & chromium webdriver to automate UI testing
 Keywords: Python, AWS, CloudFormation, lambda, serverless, docker, container, sam
