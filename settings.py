@@ -125,7 +125,7 @@ prod_plugins = [
     "pelican.plugins.related_posts",
     "plugins.fix_sitemap",
     "plugins.search",
-    # "plugins.minify",
+    "plugins.minify",
 ]
 
 PLUGINS = prod_plugins if PUBLISH else dev_plugins
