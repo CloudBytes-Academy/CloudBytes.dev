@@ -5,6 +5,7 @@ Tags: python
 Author: Rehan Haider
 Summary: A short introduction to the different Python implementations.
 Keywords: cpython, jython, 
+Course_Tag: python
 
 Python as you know it is not just a programming language. The Python that you download from the official [Python.org](https://www.python.org/) website is a **reference implementation**. What that means is it implements the Python language specifications, as defined by the [Python Software Foundation](https://www.python.org/dev/).
 
