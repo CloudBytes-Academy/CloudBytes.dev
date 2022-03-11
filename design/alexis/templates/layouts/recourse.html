@@ -1,6 +1,5 @@
 {% if article.course_tag %}
-{% set course = COURSES.get(article.course_tag) %}
-
+{% set course = COURSES.get(article.tags[0]) %}
 <div class="recourse" style="text-align:center">
 
     <div class="box chapter-item">
