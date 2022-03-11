@@ -140,5 +140,3 @@ with open("resources/courses.csv") as csvfile:
     courses = list(reader)
 
 COURSES = {course["tag"]: course for course in courses}
-
-print(COURSES)
