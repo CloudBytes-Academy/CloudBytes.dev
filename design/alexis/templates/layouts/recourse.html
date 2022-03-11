@@ -1,0 +1,34 @@
+{% if article.tags %}
+{% set course = COURSES.get(article.tags[0]) %}
+{% if course %}
+<div class="recourse" style="text-align:center">
+    <div class="box chapter-item">
+        <div class="box-content">
+            <a href="{{ course.link }}" style="text-decoration:none">
+                <div>
+                    <h3 style="border-bottom: 2px white;">📽️ Curated Tutorial</h3>
+                    <hr style="border-color:var(--text-color)">
+                    <hr style="border-color:var(--text-color)">
+                </div>
+                <div class=" banner">
+                    <IMG border=0 src="{{ course.img }}">
+                    <h4>
+                        {{ course.title }}
+                    </h4>
+                    <p style="font-size:.75em">
+                        {{ course.description }}!
+                    </p>
+                    <h4>
+                        Click Here for more info!
+                    </h4>
+                </div>
+            </a>
+            <IMG border=0 width=1 height=1 src="{{ course.pixel }}">
+        </div>
+    </div>
+</div>
+{% else %}
+{% include "layouts/ebook.html" %}
+{% endif %}
+{% else %}
+{% include "layouts/ebook.html" %} {% endif %}

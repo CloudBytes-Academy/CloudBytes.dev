@@ -3,6 +3,7 @@
 # Pelican configuration file
 """
 from datetime import date
+from importlib import resources
 import os
 
 # ENVIRONMENT
@@ -116,7 +117,7 @@ dev_plugins = [
     "pelican.plugins.tag_cloud",
     "pelican.plugins.related_posts",
     "plugins.fix_sitemap",
-    "plugins.minify",
+    # "plugins.minify",
 ]
 prod_plugins = [
     "pelican.plugins.sitemap",
@@ -128,3 +129,14 @@ prod_plugins = [
 ]
 
 PLUGINS = prod_plugins if PUBLISH else dev_plugins
+
+
+# Load courses
+# ------------
+import csv
+
+with open("resources/courses.csv") as csvfile:
+    reader = csv.DictReader(csvfile)
+    courses = list(reader)
+
+COURSES = {course["tag"]: course for course in courses}
