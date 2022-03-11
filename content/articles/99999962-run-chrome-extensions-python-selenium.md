@@ -364,16 +364,20 @@ fi
 echo "Downloading latest Chromedriver..."
 mkdir -p "/opt/chromedriver/stable/"
 
- curl 'https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2F954502%2Fchromedriver_linux64.zip?generation=1640815530134396&alt=media' \
+ curl "https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/\
+      o/Linux_x64%2F954502%2Fchromedriver_linux64.zip?generation=1640815530134396&alt=media" \
   -H 'authority: www.googleapis.com' \
   -H 'sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="96", "Google Chrome";v="96"' \
   -H 'sec-ch-ua-mobile: ?0' \
   -H 'sec-ch-ua-platform: "Windows"' \
   -H 'dnt: 1' \
   -H 'upgrade-insecure-requests: 1' \
-  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36' \
-  -H 'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9' \
-  -H 'x-client-data: CLO1yQEIhrbJAQiktskBCMG2yQEIqZ3KAQjRoMoBCMCXywEI6vLLAQie+csBCNf8ywEI5oTMAQi1hcwBCMuJzAEI0IvMAQisjswBCJqPzAEI0o/MAQjakMwBCMmSzAEIoZPMAQjHk8wBCIqUzAEY5KDLAQ==' \
+  -H "user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)\
+       Chrome/96.0.4664.110 Safari/537.36" \
+  -H "accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/\
+      apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9" \
+  -H "x-client-data: CLO1yQEIhrbJAQiktskBCMG2yQEIqZ3KAQjRoMoBCMCXywEI6vLLAQie+csBCNf8ywEI5oTMAQi1\
+      hcwBCMuJzAEI0IvMAQisjswBCJqPzAEI0o/MAQjakMwBCMmSzAEIoZPMAQjHk8wBCIqUzAEY5KDLAQ==" \
   -H 'sec-fetch-site: none' \
   -H 'sec-fetch-mode: navigate' \
   -H 'sec-fetch-user: ?1' \
