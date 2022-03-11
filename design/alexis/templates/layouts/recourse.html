@@ -1,5 +1,6 @@
-{% if article.course_tag %}
+{% if article.tags %}
 {% set course = COURSES.get(article.tags[0]) %}
+{% if course %}
 <div class="recourse" style="text-align:center">
 
     <div class="box chapter-item">
@@ -27,6 +28,7 @@
         </div>
     </div>
 </div>
+{% endif %}
+{% include "layouts/ebook.html" %}
 {% else %}
-
 {% include "layouts/ebook.html" %} {% endif %}
