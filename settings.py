@@ -5,6 +5,7 @@
 from datetime import date
 from importlib import resources
 import os
+import csv
 
 # ENVIRONMENT
 PUBLISH = os.environ.get("PUBLISH")
@@ -133,10 +134,13 @@ PLUGINS = prod_plugins if PUBLISH else dev_plugins
 
 # Load courses
 # ------------
-import csv
-
 with open("resources/courses.csv") as csvfile:
     reader = csv.DictReader(csvfile)
     courses = list(reader)
 
 COURSES = {course["tag"]: course for course in courses}
+
+UDEMY = {
+    "aid": "zOWbNCBDzko",  # Account ID
+    "pid": "1060092",  # Product ID (Udemy)
+}
