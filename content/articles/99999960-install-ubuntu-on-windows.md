@@ -12,19 +12,19 @@ You need to have Hyper-V enabled on your Windows 10/11, you can follow [this gui
 
 ## Download the Ubuntu ISO
 
-Download the Ubuntu 20.04 ISO from [here](https://ubuntu.com/download/desktop).
+Download the **Ubuntu 20.04** ISO from [here](https://ubuntu.com/download/desktop).
 
 ## Create a New VM
 
 ### Step 1: Open the Hyper-V Manager
 
-Open the start menu and search for "Hyper-V Manager". Click on "Open", to start the Hyper-V Manager.
+Open the start menu and search for "**Hyper-V Manager**". Click on "**Open**", to start the **Hyper-V Manager**.
 
 ![open-hyperv-manager]({static}/images/s0045/open-hyperv-manager.png)
 
 
 ### Step 2: Create a new VM
-Next, in the Hyper-V Manager, click on "**New**" in "**Actions**" panel on right, then select "**Virtual Machine**". This will start the "**New Virtual Machine Wizard**"
+Next, in the **Hyper-V Manager**, click on "**New**" in "**Actions**" panel on right, then select "**Virtual Machine**". This will start the "**New Virtual Machine Wizard**"
 
 ![hyperv-new]({static}/images/s0045/hyperv-new.png)
 
@@ -54,6 +54,7 @@ Now click on **Apply** and then on **OK** to close the settings menu.
 ### Start the VM
 
 Now, right click on the VM you want to start, then click on **Connect**. In the dialog that opens, click on **Start**.
+
 ![ubuntu-demo-conn]({static}/images/s0045/ubuntu-demo-conn.png)
 
 If you see a boot menu, don't do anything it will skip in a few seconds. 
@@ -65,7 +66,7 @@ On the first boot, the Installation Wizard will guide you. Follow the steps to c
 Follow the below steps, these are recommended by me personally, but you can choose as per your convinience.
 
 1. **Welcome** - Select the Language (English), then click on **Install Ubuntu**.
-2. **Keyboard layout** - Select your keyboard layout and language and press **Continue**. I chose defaults English (US as both language and keyboard layout).
+2. **Keyboard layout** - Select your keyboard layout and language and press **Continue**. I chose defaults (English US as both language and keyboard layout).
 3. **Updates and other software** - Leave the defaults, press **Continue**.
 4. **Installation type** - Leave the defaults, press **Install Now**. In the confirmation dialogue for **Write the changes to disks**, click on **Continue**.
 5. **Where are you** - You can choose your timezone, usually the default is correct. Press **Continue**.
@@ -73,7 +74,7 @@ Follow the below steps, these are recommended by me personally, but you can choo
 
 This will start the installation process, it will take a few minutes to complete. After the installation is complete, you will get a prompt to restart the VM. Click on **Restart**. 
 
-If restart process get stuck, go back to the Hyper-V Manager and right click on VM and click on **Turn off**. Then right click again, click on "**Connect**" and then click on "**Start**".
+If restart process is stuck, go back to the Hyper-V Manager and right click on VM and click on **Turn off**. Then right click again, click on "**Connect**" and then click on "**Start**".
 
 ### [Bonus] Configure your Ubuntu Profile
 
@@ -86,6 +87,7 @@ On the first login a configuration will guide you through profile settings.
 5. **You're ready to go** - Choose any additional software you want to install. Click on **Done**.
 
 This should complete the setup. 
+
 ![ubuntu-dektop-small]({static}/images/s0045/ubuntu-dektop-small.png)
 
 
