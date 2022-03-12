@@ -76,7 +76,7 @@ This will start the installation process, it will take a few minutes to complete
 
 If restart process is stuck, go back to the Hyper-V Manager and right click on VM and click on **Turn off**. Then right click again, click on "**Connect**" and then click on "**Start**".
 
-### [Bonus] Configure your Ubuntu Profile
+### Configure your Ubuntu Profile
 
 On the first login a configuration will guide you through profile settings. 
 
@@ -90,9 +90,8 @@ This should complete the setup.
 
 ![ubuntu-dektop-small]({static}/images/s0045/ubuntu-dektop-small.png)
 
-<!--
-### [Bonus] Configure you Ubuntu to be full screen
+### [Bonus] Configure your Ubuntu run in fullscreen mode with full resolution
 
-If you notice above, the resolution and aspect of the VM is not the same as the monitor. You will also not be able to change this in the display settings.
+If you notice above, the resolution and aspect of the VM is not the same as the monitor. You will also not be able to change this in the display settings. 
 
--->
+To run the VM in fullscreen mode with full resolution, follow the instructions in this guide: [Make Ubuntu Fullscreen on Windows Hyper-V]({filename}99999959-ubuntu-hyperv-fullscreen.md).
