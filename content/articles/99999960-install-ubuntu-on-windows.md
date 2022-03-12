@@ -61,7 +61,7 @@ If you see a boot menu, don't do anything it will skip in a few seconds.
 
 On the first boot, the Installation Wizard will guide you. Follow the steps to complete the Ubuntu Installation. 
 
-### [Bonus] Configure Ubuntu Installation
+## Configure Ubuntu Installation
 
 Follow the below steps, these are recommended by me personally, but you can choose as per your convinience.
 
@@ -89,7 +89,6 @@ On the first login a configuration will guide you through profile settings.
 This should complete the setup. 
 
 ![ubuntu-dektop-small]({static}/images/s0045/ubuntu-dektop-small.png)
-
 
 <!--
 ### [Bonus] Configure you Ubuntu to be full screen
