@@ -30,6 +30,6 @@ If you don't configure SITEURL correctly the website will work on your system bu
 
 Typically you may encounter the below error
 
-![Pelican sitemap error on Google Search Console]({static}/images/s0002/google-search-console-error.png)
+![Pelican sitemap error on Google Search Console]({static}/images/99999998-google-search-console-error.png)
 
 This is due to malformed URLs, and the typical reason is incorrect SITEURL configuration. 
