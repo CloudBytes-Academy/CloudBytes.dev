@@ -17,7 +17,7 @@ Devcontainers or remote containers, work by opening you project folder inside a 
 
 This allows developers to use these Docker containers as a full-featured development environment with workspace files mounted from the local file system. 
 
-![VSCode devcontainer architecture]({static}/images/s0003/architecture-containers.png)
+![VSCode devcontainer architecture]({static}/images/99999997-architecture-containers.png)
 
 Each such devcontainer also acts like a workspace and can have its own set of extensions, and preferences configured.
 
@@ -29,7 +29,7 @@ Once you have these setup, open VSCode and from Getting started page, click on "
 
 After that either click on the "Open Remote Window" button on bottom left (two overlapping arroheads) or press `Ctrl + Shift + P` to open the command palette and choose "Reopen in Container" 
 
-![VSCode remote container]({static}/images/s0003/remote-container.png)
+![VSCode remote container]({static}/images/99999997-remote-container.png)
 
 It will then ask you to choose one from ready-to-use configurations. Let's choose Python3 & PostgreSQL. This will trigger two actions
 
