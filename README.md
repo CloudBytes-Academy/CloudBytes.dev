@@ -23,9 +23,8 @@ Once the PR is merged, your article will be posted directly on the website using
 
 > *If you know what you're doing* 😉, *feel free to fork the repository and add the guest post in the folder mentioned above.* ☝🏽
 
-### 2. Add a new feature
 
-You can use this method to add any cool new feature you want. To do so, you will need to fork the repository and work on the project on our own computer. 
+## Running the site locally
 
 To begin, fork the repository by clicking on the `Fork` button on top right on this page.  Depending upon your preferences, you can use one of the two below 👇🏽options.
 
@@ -44,7 +43,6 @@ This will create a Docker Container with Python, NodeJS and Firebase CLI install
 
 No need for any virtual environment of conflicting packages. 
 
-## Running the site locally
 
 This repository comes packaged with Firebase Hosting Emulator tool that can be used to serve the website locally. 
 
