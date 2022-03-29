@@ -22,8 +22,7 @@ As demonstrated above, because your Chrome is running in headless mode, it will 
 
 So to be able to load extensions, you need to run Chrome in non-headless mode. Which is problematic considering AWS Lambda doesn't have a display so you cannot really run Chrome GUI. 
 
-**Or can you**?
-
+**Or can you?**\
 Yes you can, of course you can, I'll show you how.
 
 
