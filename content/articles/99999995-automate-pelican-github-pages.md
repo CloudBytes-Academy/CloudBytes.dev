@@ -106,7 +106,7 @@ This will build your blog in the `output` folder and start serving it on `localh
 
 Start your browser and open the URL `localhost:8000`, and congrats 🎉🙌🏽🎇🎊🎈 you blog is up and running.
 
-![Pelican blog default theme]({static}/images/s0005/pelican-blog.png)
+![Pelican blog default theme]({static}/images/99999995-pelican-blog.png)
 
 ## Configuring GitHub action for automated deployment
 
@@ -155,12 +155,12 @@ This will automatically create and run an action in GitHub > Actions tab of you 
 
 If everything went alright, you should see
 
-![Github action success]({static}/images/s0005/github-action-success.png)
+![Github action success]({static}/images/99999995-github-action-success.png)
 
 ## Publishing the website for the first and only time
 
 Go to your repository on GitHub, on the repository navigation go to "Settings", then scroll down and click on Pages, under Source, choose `gh-pages` branch, and click on save. Shown below
 
-![Github pages settings]({static}/images/s0005/github-pages-settings.png)
+![Github pages settings]({static}/images/99999995-github-pages-settings.png)
 
 If you go to the URL listed above source, your website is published. Hurray!! 👏🏽🥳

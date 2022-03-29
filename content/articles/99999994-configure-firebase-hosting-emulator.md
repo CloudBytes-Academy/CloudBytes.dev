@@ -10,7 +10,7 @@ If you're hosting your static website or  [Jamstack]({filename}99999996-what-is-
 
 Firebase offers local emulators for almost all of its services ranging from Auth, Hosting to even Realtime Database. You can use these emulators to develop features even before deploying them to Firebase. 
 
-![Firebase emulator]({static}/images/s0006/firebase_emulator.png)
+![Firebase emulator]({static}/images/99999994-firebase_emulator.png)
 
 Let's learn how to test your static website or a Jamstack website you have created using tools such as Pelican, Gatsby, etc. 
 
@@ -46,7 +46,7 @@ firebase login
 
 This will start the login process and open a link in your browser. After logging in using our firebase credentials you will be routed back and should see the below (redacted confidential data)
 
-![Firebase login successful message]({static}/images/s0006/firebase-cli-login.png)
+![Firebase login successful message]({static}/images/99999994-firebase-cli-login.png)
 
 ### Firebase CLI Initial Setup
 
@@ -58,7 +58,7 @@ firebase projects:list
 
 Assuming you already have some projects created you will see a list similar to below
 
-![Firebase list all projects]({static}/images/s0006/firebase_project_list.png)
+![Firebase list all projects]({static}/images/99999994-firebase_project_list.png)
 
 **Step 1**: Then let's setup your projects locally, to begin that run
 
@@ -80,7 +80,7 @@ firebase init
 
 Now your Firebase CLI is configured to use the Hosting Emulator. 
 
-![Firebase emulator setup]({static}/images/s0006/firebase_emulator_setup.png)
+![Firebase emulator setup]({static}/images/99999994-firebase_emulator_setup.png)
 
 ## Review the Firebase CLI configuration
 
@@ -136,6 +136,6 @@ firebase emulators:start --only hosting
 
 This will start your emulator using the "default" project select in `.firebaserc` and the "public" folder selected in `firebase.json` at port 8080. 
 
-![Firebae hosting emulator start]({static}/images/s0006/firebase_hosting_emulator_start.png)
+![Firebae hosting emulator start]({static}/images/99999994-firebase_hosting_emulator_start.png)
 
 To view the served website, open the URL `localhost:8080` in your browser. 

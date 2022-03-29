@@ -20,13 +20,13 @@ Download the **Ubuntu 20.04** ISO from [here](https://ubuntu.com/download/deskto
 
 Open the start menu and search for "**Hyper-V Manager**". Click on "**Open**", to start the **Hyper-V Manager**.
 
-![open-hyperv-manager]({static}/images/s0045/open-hyperv-manager.png)
+![open-hyperv-manager]({static}/images/99999960-open-hyperv-manager.png)
 
 
 ### Step 2: Create a new VM
 Next, in the **Hyper-V Manager**, click on "**New**" in "**Actions**" panel on right, then select "**Virtual Machine**". This will start the "**New Virtual Machine Wizard**"
 
-![hyperv-new]({static}/images/s0045/hyperv-new.png)
+![hyperv-new]({static}/images/99999960-hyperv-new.png)
 
 ### Step 3: Configure the VM
 1. **Before You Begin** - This is an informational panel, click on **Next** to continue.
@@ -41,7 +41,7 @@ Next, in the **Hyper-V Manager**, click on "**New**" in "**Actions**" panel on r
 
 Now you should see a new VM in the "Virtual Machines" list.
 
-![virtual-machines-list]({static}/images/s0045/virtual-machines-list.png)
+![virtual-machines-list]({static}/images/99999960-virtual-machines-list.png)
 
 ### Configure Boot Options
 
@@ -55,7 +55,7 @@ Now click on **Apply** and then on **OK** to close the settings menu.
 
 Now, right click on the VM you want to start, then click on **Connect**. In the dialog that opens, click on **Start**.
 
-![ubuntu-demo-conn]({static}/images/s0045/ubuntu-demo-conn.png)
+![ubuntu-demo-conn]({static}/images/99999960-ubuntu-demo-conn.png)
 
 If you see a boot menu, don't do anything it will skip in a few seconds. 
 
@@ -88,7 +88,7 @@ On the first login a configuration will guide you through profile settings.
 
 This should complete the setup. 
 
-![ubuntu-dektop-small]({static}/images/s0045/ubuntu-dektop-small.png)
+![ubuntu-dektop-small]({static}/images/99999960-ubuntu-dektop-small.png)
 
 ### [Bonus] Configure your Ubuntu run in fullscreen mode with full resolution
 

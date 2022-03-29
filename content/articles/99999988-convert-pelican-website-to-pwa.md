@@ -28,7 +28,7 @@ The concept of PWA has been around since the release of iPhone, but the current 
 
 PWAs are called "progressive" because they can take advantage of new features supported by modern browsers and attempts to solve one of the biggest challenges in modern app development, cross-platform apps with native features and performance. 
 
-![PWA Native Cross-platform]({static}/images/s0012/pwa-native.png)
+![PWA Native Cross-platform]({static}/images/99999988-pwa-native.png)
 
 Static Websites generated using SSGs such as Pelican, Hugo, Gatsby, etc. are perfect candidate for conversion to PWA simply because they are easiest to convert. 
 
@@ -92,7 +92,7 @@ By adding the below line (make sure to change the path as appropriate)
 ### Test your manifest
 Open your website in either Chrome or Edge browser, press F12 or go to Developer Tools, and then click on Application Tab. If you've configured the manifest correctly, you shold see something similar to the below
 
-![PWA Manifest]({static}/images/s0012/manifest-dev-tools.png)
+![PWA Manifest]({static}/images/99999988-manifest-dev-tools.png)
 
 
 ## Register the service worker

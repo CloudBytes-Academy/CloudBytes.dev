@@ -17,7 +17,7 @@ CI/CD pipeline is a sequence of steps that are executed to build, test, and depl
 
 Typically CI/CD pipelines are built by DevOps professionals using variety of tools such as GitHub Action, AWS CodePipeline, Jenkins, and others.
 
-![CI/CD pipeline]({static}/images/s0031/ci-cd-workflow.png)
+![CI/CD pipeline]({static}/images/99999971-ci-cd-workflow.png)
 
 The above figure shows a typical CI/CD pipeline but depending on use case there could be fewer or more steps. 
 
@@ -122,7 +122,7 @@ Then during the deployment step, we used `download-artifact@v2` action to downlo
 
 Once the above workflow is defined, any code that is pushed to the `main` branch will trigger a GitHub Action and the workflow will look something like this:
 
-![Github Action Output]({static}/images/s0031/github-action-output.png)
+![Github Action Output]({static}/images/99999971-github-action-output.png)
 
 
 ### Benefits of using GitHub Action artifacts

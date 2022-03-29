@@ -44,13 +44,13 @@ One key concept to keep in mind is that your system keeps a "*local*" copy of a 
 
 A typical Git workflow looks like below.
 
-![Git / GitHub workflow and branches]({static}/images/s0011/git-workflow-svg.svg)
+![Git / GitHub workflow and branches]({static}/images/99999989-git-workflow-svg.svg)
 
 Where the "*main*" branch is usually not changed directly and each node is a "*commit*". Developers create a branch, make their changes, and then create a "*pull request*" or *PR* to ask the owner of main branch to review their changes and merge the code. 
 
 ### Create a new repository
 You either create a new repository on GitHub directly by clicking on the ➕ sign on top right, and choosing new repository. 
-![Create a GitHub Repo]({static}/images/s0011/create-a-repo.png).
+![Create a GitHub Repo]({static}/images/99999989-create-a-repo.png).
 
 ### Fork a repository
 Most of the times, you don't want to start from scratch and instead build on top of already existing and opensource tools / software. E.g. if you want to build your own copy of [CloudBytes](https://cloudbytes.dev), you can do so by "forking" the publicly available [CloudBytes source code on GitHub](https://github.com/CloudBytesDotDev/CloudBytes.dev).
@@ -101,7 +101,7 @@ After the first time, you can just run `git push` to push your changes to GitHub
 ## Pull Requests
 Now your code is merged into your own branch, but not in the "upstream" branch that is the *main* branch. To do that you need to create a pull request with your changes. That can be done on GitHub by visiting your *forked repo*, clicking on the branches, find your branch in the list and click on New Pull request. 
 
-![Create a pull request]({static}/images/s0011/create-a-pull-request.png)
+![Create a pull request]({static}/images/99999989-create-a-pull-request.png)
 
 ### Merging the changes
 Now the owner of the repository will get a notification that there is an open *PR*. They can review the changes and decide to merge it into the *main* branch or send it back for further changes.

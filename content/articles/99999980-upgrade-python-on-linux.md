@@ -42,7 +42,7 @@ apt list | grep python3.10
 
 This will produce the below result, if you see python3.10 it means you can install it
 
-![apt list check if python is present]({static}/images/s0022/apt_list.png)
+![apt list check if python is present]({static}/images/99999980-apt_list.png)
 
 ### Step 2: Install Python 3.10
 Now you can install Python 3.10 by running
@@ -80,7 +80,7 @@ sudo update-alternatives --config python3
 ```
 
 Choose the selection corresponding to Python3.10 (if not selected by default). 
-![Python alternatives on linux]({static}/images/s0022/alternatives.png)
+![Python alternatives on linux]({static}/images/99999980-alternatives.png)
 
 Now run `python3 --version` again and you should see the latest Python as the output.
 

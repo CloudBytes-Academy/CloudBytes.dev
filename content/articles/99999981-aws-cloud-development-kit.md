@@ -18,7 +18,7 @@ Now, there are hundreds of simple guides that explains how to setup a simple Lam
 ## The CDK App that we will build
 We'll build a Lambda app that runs at a specified time (using EventBridge). The Lambda app will read a file from S3 bucket that contains latitude and longiture stored in a CSV format. Then the Lambda app will fetch the sunrise & sunset times for those coordinates and save it to another file in S3. 
 
-![CDK App architecure]({static}/images/s0020/suntimes.png)
+![CDK App architecure]({static}/images/99999981-suntimes.png)
 
 ### Components
 Before we get into the weeds, let's look at what are the components that we will need to configure

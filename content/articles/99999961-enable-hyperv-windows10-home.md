@@ -11,7 +11,7 @@ Windows 10/11 Home edition doesn't come with Hyper-V by default, if you try to e
 
 This is because Hyper-V is a Professional and Enterprise edition feature, but it is [possible to enable it from the command line](https://docs.microsoft.com/en-us/answers/questions/29175/installation-of-hyper-v-on-windows-10-home.html).
 
-![windows-features]({static}/images/s0044/windows-features.png)
+![windows-features]({static}/images/99999961-windows-features.png)
 
 ## Enable Hyper-V from command line
 
@@ -31,7 +31,7 @@ Get-ComputerInfo -property "HyperV*"
 ```
 You should get the below output
 
-![windows 10 virtualisation]({static}/images/s0044/virtualisation.png)
+![windows 10 virtualisation]({static}/images/99999961-virtualisation.png)
 
 This means that your PC supports hardware virtualisation.
 
@@ -48,26 +48,26 @@ Dism /online /enable-feature /featurename:Microsoft-Hyper-V -All /LimitAccess /A
 pause
 ```
 Now run the batch file as an administrator, as shown below.
-![enable-hyperv]({static}/images/s0044/enable-hyperv.png)
+![enable-hyperv]({static}/images/99999961-enable-hyperv.png)
 
 This will go through several steps and will take some time to complete. Though it might seem it's repeating the same steps, let it complete without interruption.
 
 Once the process is complete, you should see the following message asking for confirmation to reboot your PC. Press Y to reboot. 
 
-![enable-hyperv-complete]({static}/images/s0044/enable-hyperv-complete.png)
+![enable-hyperv-complete]({static}/images/99999961-enable-hyperv-complete.png)
 
 ### Step 3. Check if Hyper-V is enabled
 
 Open your teminal and run `optionalfeatures` to see the status of Windows features. You should be able to see a Hyper-V feature listed now. 
 
-![hyperv-enabled]({static}/images/s0044/hyperv-enabled.png)
+![hyperv-enabled]({static}/images/99999961-hyperv-enabled.png)
 
 
 ## Starting Hyper-V Manager
 
 Go to the start menu and search for Hyper-V, open the Hyper-V Manager. 
 
-![open-hyperv-manager]({static}/images/s0044/open-hyperv-manager.png)
+![open-hyperv-manager]({static}/images/99999961-open-hyperv-manager.png)
 
 From here you can start creating VMs, creating a new VM, or even creating a new VM template.
 

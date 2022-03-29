@@ -11,7 +11,7 @@ So you got yourself a Raspberry Pi and want to develop something on it.
 
 Raspberry Pi is of course lightweight, and consumes very little power but that also makes it quite unsuitable for developing anything small apps and running lightweight code editors such as Geany, Thonny etc. 
 
-![Raspberry Pi]({static}/images/s0028/raspberry-pi.png)
+![Raspberry Pi]({static}/images/99999974-raspberry-pi.png)
 
 You could use VIM, but then you need to login to your Raspberry Pi using either VNC Viewer, or SSH into Raspberry Pi using some form of terminal. But for a VSCode fan such as me, that's not an acceptable option specially because I don't want to reconfigure all of my preferences. 
 
@@ -25,7 +25,7 @@ Then open the command Palette by pressing `Ctrl + Shift + P`, search for `Remote
 
 Then in the prompt type `ssh pi@raspberrypi`, assuming you username is `pi` and the hostname of your Raspberry Pi is `raspberrypi`. Then press Enter.
 
-![SSH Raspberry Pi]({static}/images/s0028/ssh-command.png)
+![SSH Raspberry Pi]({static}/images/99999974-ssh-command.png)
 
 
 When prompted to select SSH configuration file to update, choose the one under `C:\Users\YourName\.ssh\config`.
@@ -35,7 +35,7 @@ When prompted to select SSH configuration file to update, choose the one under `
 Then, open the Command Palette again by typing `Ctrl + Shift + P`, and search for `Remote-SSH: Connect to a Host` again. 
 Choose `raspberrypi` from the dropdowns. 
 
-![SSH Raspberry Pi]({static}/images/s0028/ssh-connect.png)
+![SSH Raspberry Pi]({static}/images/99999974-ssh-connect.png)
 
 You will be prompted for password for your user on Raspberry Pi, enter the password. This will setup the VSCode Remote Server on the Raspberry PI. 
 
@@ -43,8 +43,8 @@ Once you're connected you should see the `SSH: raspberrypi` on bottom left part 
 
 ## Opening a particular folder
 Open the explorer on VSCode and you should see the following message. Click on *Open Folder*
-![SSH Raspberry Pi]({static}/images/s0028/ssh-explorer.png)
+![SSH Raspberry Pi]({static}/images/99999974-ssh-explorer.png)
 
 
 You will get a dropdown, navigate to the folder you want to open and then press OK. Youl will be prompted for password again. And you should now be connected to Raspberry Pi and able to develop on it remotely. 
-![SSH Raspberry Pi]({static}/images/s0028/ssh-vscode.png)
+![SSH Raspberry Pi]({static}/images/99999974-ssh-vscode.png)

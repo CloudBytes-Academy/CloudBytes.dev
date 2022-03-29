@@ -92,14 +92,14 @@ uvicorn app:app --reload
 
 This should start the app on `127.0.0.1/8000` as shown below
 
-![Uvicorn run]({static}/images/s0027/uvicorn_run.png)
+![Uvicorn run]({static}/images/99999975-uvicorn_run.png)
 
 Open the swaggerUI using any browser by openign the link `127.0.0.1/8000/docs`, then click on try it out, then choose a image from and press Execute. 
 
-![Swagger UI]({static}/images/s0027/swagger_ui.png)
+![Swagger UI]({static}/images/99999975-swagger_ui.png)
 After that if you scroll below you should see a blurred image. 
 
 An example of before and after is shown below, (but really this is just an excuse to show you a cat pic)
-![Blurred Cat]({static}/images/s0027/cat_pic.jpg)
+![Blurred Cat]({static}/images/99999975-cat_pic.jpg)
 
 

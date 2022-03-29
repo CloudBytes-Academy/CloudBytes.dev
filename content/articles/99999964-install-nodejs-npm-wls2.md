@@ -12,7 +12,7 @@ If you are using WSL2 / Ubuntu, you can try to install Node.js by running "sudo 
 ```bash
 apt list | grep nodejs
 ```
-![apt-list-nodejs]({static}/images/s0041/apt-list-nodejs.png)
+![apt-list-nodejs]({static}/images/99999964-apt-list-nodejs.png)
 
 This guide will walk you through the steps to install the latest version of Node.js on WSL2.
 
