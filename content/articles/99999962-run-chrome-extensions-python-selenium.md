@@ -22,7 +22,7 @@ As demonstrated above, because your Chrome is running in headless mode, it will 
 
 So to be able to load extensions, you need to run Chrome in non-headless mode. Which is problematic considering AWS Lambda doesn't have a display so you cannot really run Chrome GUI. 
 
-**Or can you** 
+**Or can you?**\
 Yes you can, of course you can, I'll show you how.
 
 
@@ -46,19 +46,19 @@ Now with that out of the way, let's get started.
 
 **Step 2**: Start the VScode editor
 
-a. Start the terminal and login to WSL2 by running `wsl`
-b. Make a new directory `mkdir selenium-aws` and cd into it `cd selenium-aws`
-c. Launch the VS Code editor by running `code .`
+1. Start the terminal and login to WSL2 by running `wsl`
+2. Make a new directory `mkdir selenium-aws` and cd into it `cd selenium-aws`
+3. Launch the VS Code editor by running `code .`
 
 ![start-vscode-wsl2]({static}/images/s0043/start-vscode-wsl2.gif)
 
 **Step 3**: Reopen the folder in a devcontainer
 
-a. While in VScode, press `Ctrl + Shift + P` to open command palette
-b. Choose `Reopen in Container` from the drop down menu
-c. Then click on `Show All Definitions`
-d. Choose `Docker in Docker` from the drop down menu (Do not select `Docker from Docker`)
-e. Leave the default selections and choose OK in the next two dialogues
+1. While in VScode, press `Ctrl + Shift + P` to open command palette
+2. Choose `Reopen in Container` from the drop down menu
+3. Then click on `Show All Definitions`
+4. Choose `Docker in Docker` from the drop down menu (Do not select `Docker from Docker`)
+5. Leave the default selections and choose OK in the next two dialogues
 
 ![create-devcontainer]({static}/images/s0043/create-devcontainer.gif)
 
