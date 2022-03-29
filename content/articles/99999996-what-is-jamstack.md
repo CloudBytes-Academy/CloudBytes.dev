@@ -10,7 +10,7 @@ Jamstack is a serverless web-app design concept which derives its JAM from JavaS
 
 This architectural pattern can be implemented by a combination of technologies for each one of JavaScript, API, and Markup. 
 
-<img src="{static}/images/s0004/JAM.png" alt="jamstack architecture" width="75%" caption="Fig. 1: Jamstack frameworks / tools combination">
+<img src="{static}/images/99999996-JAM.png" alt="jamstack architecture" width="75%" caption="Fig. 1: Jamstack frameworks / tools combination">
 
 ## So what makes a Jamstack?
 
@@ -36,7 +36,7 @@ Additionally, because of the lack of moving parts, testing becomes a lot easier 
 
 Finally, because you're using a bunch of static pages, you can use Content Delivery Network such as CloudFlare, AWS CloudFront, etc. to deliver your pages from close to where the users are resulting in sub-second page load times. 
 
-<img src="{static}/images/s0004/cdn.png" alt="jamstack content delivery network" width="75%" caption="Fig. 2: Jamstack frameworks content delivery network">
+<img src="{static}/images/99999996-cdn.png" alt="jamstack content delivery network" width="75%" caption="Fig. 2: Jamstack frameworks content delivery network">
 
 ## When to use Jamstack? 
 
@@ -44,7 +44,7 @@ Theoretically, you can build almost anything using Jamstack architecture by util
 
 E.g., you can replace a WordPress blog completely with Jamstack and still get 100 Rating on [Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) without breaking a sweat, since, the webpages are generated ahead of time, there is 0 lag due to server side rendering (SSR). 
 
-<img src="{static}/images/s0004/pagespeed.png" alt="UberPython pagespeed results" caption="Fig. 3: UberPython pagespeed results">
+<img src="{static}/images/99999996-pagespeed.png" alt="UberPython pagespeed results" caption="Fig. 3: UberPython pagespeed results">
 
 Static Site Generators (SSGs) Such as Hugo, [Pelican](https://docs.getpelican.com/en/latest/), [Gatsby](https://www.gatsbyjs.com/), [11ty](https://www.11ty.dev/), etc. provide a rich plugin and theme ecosystem which can get your started with less technical knowledge than what is required for implementing WordPress. 
 
