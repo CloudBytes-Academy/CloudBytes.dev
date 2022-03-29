@@ -23,10 +23,10 @@ print(f"Hello {username}")
 ```
 ### Output
 On Linux you see
-![python find username linux]({static}/images/s0024/username-linux.png)
+![python find username linux]({static}/images/99999978-username-linux.png)
 
 This will also work on Windows
-![python find username windows]({static}/images/s0024/username-windows.png)
+![python find username windows]({static}/images/99999978-username-windows.png)
 
 ## Get the path to home directory
 
@@ -39,10 +39,10 @@ print(homedir)
 
 ### Output
 On Linux
-![python find homedir linux]({static}/images/s0024/homedir-linux.png)
+![python find homedir linux]({static}/images/99999978-homedir-linux.png)
 
 And on Windows
-![python find homedir windows]({static}/images/s0024/homedir-windows.png)
+![python find homedir windows]({static}/images/99999978-homedir-windows.png)
 
 
 ## Get the hostname
@@ -54,7 +54,7 @@ print(hostname)
 ```
 ### Output
 On Linux
-![python find hostname linux]({static}/images/s0024/hostname-linux.png)
+![python find hostname linux]({static}/images/99999978-hostname-linux.png)
 
 And on Windows
-![python find hostname windows]({static}/images/s0024/hostname-windows.png)
+![python find hostname windows]({static}/images/99999978-hostname-windows.png)

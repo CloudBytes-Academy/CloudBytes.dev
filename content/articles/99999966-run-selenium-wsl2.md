@@ -30,7 +30,7 @@ This will take care of all the steps required, i.e.
 2. Update the Linux kernel to the latest version
 3. Install the default Linux distribution, i.e. latest Ubuntu (Currently Ubuntu 20.04)
 
-![Install WSL]({static}/images/s0036/install-wsl.gif)
+![Install WSL]({static}/images/99999966-install-wsl.gif)
 
 Then type `wsl` in your terminal and press enter to login to WSL2. 
 
@@ -74,7 +74,7 @@ google-chrome-stable --version
 ```
 In this case, it was `95.0.4638.69`.
 
-![chrome-version]({static}/images/s0038/chrome-version.png)
+![chrome-version]({static}/images/99999966-chrome-version.png)
 
 ## Step 3: Install compatible Chromedriver
 To be able to run Chrome programmatically, we need to install a compatible [Chromedriver](https://chromedriver.chromium.org/home). For every version of Chrome, e.g. `95.0.4638.69`, there is a corresponding version of Chromedriver with same version number. 
@@ -84,7 +84,7 @@ To be able to run Chrome programmatically, we need to install a compatible [Chro
 chrome_driver=$(curl "https://chromedriver.storage.googleapis.com/LATEST_RELEASE") && \
 echo "$chrome_driver"
 ```
-![get-chrome-driver-version]({static}/images/s0038/get-chrome-driver-version.png)
+![get-chrome-driver-version]({static}/images/99999966-get-chrome-driver-version.png)
 
 
 **b) Download the latest Chromedriver**
@@ -114,7 +114,7 @@ Selenium webdriver is available as a Python package, but before installation we 
 
 Run `python3 --version` and note the version, e.g. in my case I get the version Python 3.8
 
-![python-version]({static}/images/s0038/python-version.png)
+![python-version]({static}/images/99999966-python-version.png)
 
 
 Next, we need to install `venv`, choose the Python version based on what you have installed.
@@ -195,7 +195,7 @@ browser.quit()
 
 Go back to your terminal and type `python3 selenium/run_selenium.py`
 
-![run-selenium]({static}/images/s0038/run-selenium.png)
+![run-selenium]({static}/images/99999966-run-selenium.png)
 
 
 ## Creating a script to automate the process

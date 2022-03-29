@@ -11,7 +11,7 @@ I earlier wrote about how to [run Chrome AWS Lambda using Python and Selenium we
 
 Chrome, when started in headless mode will start without browser UI, it is just a webpage viewport sans anything else. 
 
-![chrome-comparison]({static}/images/s0043/chrome-comparison.png)
+![chrome-comparison]({static}/images/99999962-chrome-comparison.png)
 
 > You can take a screenshot by running the command `google-chrome --headless --disable-gpu --screenshot https://cloudbytes.dev`
 
@@ -50,7 +50,7 @@ Now with that out of the way, let's get started.
 2. Make a new directory `mkdir selenium-aws` and cd into it `cd selenium-aws`
 3. Launch the VS Code editor by running `code .`
 
-![start-vscode-wsl2]({static}/images/s0043/start-vscode-wsl2.gif)
+![start-vscode-wsl2]({static}/images/99999962-start-vscode-wsl2.gif)
 
 **Step 3**: Reopen the folder in a devcontainer
 
@@ -60,7 +60,7 @@ Now with that out of the way, let's get started.
 4. Choose `Docker in Docker` from the drop down menu (Do not select `Docker from Docker`)
 5. Leave the default selections and choose OK in the next two dialogues
 
-![create-devcontainer]({static}/images/s0043/create-devcontainer.gif)
+![create-devcontainer]({static}/images/99999962-create-devcontainer.gif)
 
 
 Next, install the following:
@@ -416,7 +416,7 @@ The app.py file needs model the following user behavior
 7. Close the browser
 8. Upload the screenshot(s) to S3
 
-![user-behaviour]({static}/images/s0043/user-behaviour.gif)
+![user-behaviour]({static}/images/99999962-user-behaviour.gif)
 
 We achive this by the following code. 
 
@@ -535,7 +535,7 @@ sam build
 
 This will result in a message similar to this (the build process typically takes a few minutes given your internet speed)
 
-![sam-build-output]({static}/images/s0043/sam-build-output.png)
+![sam-build-output]({static}/images/99999962-sam-build-output.png)
 
 Finally, to test the Lambda function, run the following command
 
@@ -545,7 +545,7 @@ sam local invoke
 
 This will run the Lambda function locally and display the following output
 
-![sam-invoke-output]({static}/images/s0043/sam-invoke-output.png)
+![sam-invoke-output]({static}/images/99999962-sam-invoke-output.png)
 
 
 ### Check the results
@@ -553,7 +553,7 @@ Go to your AWS console and navigate to the S3 bucket that you chose in the step 
 
 You should see the screenshot(s) that you uploaded to S3 for each test execution. 
 
-![aws-s3-screenshots]({static}/images/s0043/aws-s3-screenshots.png)
+![aws-s3-screenshots]({static}/images/99999962-aws-s3-screenshots.png)
 
 
 ## Deploying to AWS Lambda
@@ -597,7 +597,7 @@ curl https://<api-id>.execute-api.us-east-1.amazonaws.com/Prod/selenium/
 
 You can get the API ID from deployment output of `sam deploy` as shown below:
 
-![lambda-api-url]({static}/images/s0043/lambda-api-url.png)
+![lambda-api-url]({static}/images/99999962-lambda-api-url.png)
 
 
 ## Final Code

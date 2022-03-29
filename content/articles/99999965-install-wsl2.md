@@ -29,7 +29,7 @@ This will take care of all the steps required, i.e.
 2. Update the Linux kernel to the latest version
 3. Install the default Linux distribution, i.e. latest Ubuntu (Currently Ubuntu 20.04)
 
-![Install WSL]({static}/images/s0036/install-wsl.gif)
+![Install WSL]({static}/images/99999965-install-wsl.gif)
 
 Then type `wsl` in your terminal and press enter to login to WSL2. 
 

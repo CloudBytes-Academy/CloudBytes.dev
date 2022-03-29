@@ -30,7 +30,7 @@ This will take care of all the steps required, i.e.
 3. Update the Linux kernel to the latest version
 4. Install the default Linux distribution, i.e. latest Ubuntu
 
-![Install WSL]({static}/images/s0036/install-wsl.gif)
+![Install WSL]({static}/images/99999967-install-wsl.gif)
 
 Once installed, just run `wsl` to open the WSL2 shell, on the first login you will be asked to choose username and password. 
 
@@ -55,7 +55,7 @@ curl (("https://cloud-images.ubuntu.com",
 
 If prompted with a warning, press "Paste anyway" and then press enter to execute. This will download the Ubuntu WSL image tarball to you current directory. 
 
-![curl-wsl-ubuntu]({static}/images/s0036/curl-wsl-ubuntu.png)
+![curl-wsl-ubuntu]({static}/images/99999967-curl-wsl-ubuntu.png)
 
 ### Step 3: Install the second instance of Ubuntu in WSL2
 
@@ -69,7 +69,7 @@ Just the below command and
 wsl --import <Distribution Name> <Installation Folder> <Ubuntu WSL2 Image Tarball path>
 ```
 
-![wsl-install-2]({static}/images/s0036/wsl-install-2.png)
+![wsl-install-2]({static}/images/99999967-wsl-install-2.png)
 
 After that run, `wsl -l -v` to see the list of distributions installed.
 
@@ -81,7 +81,7 @@ To login you need to run:
 wsl -d <Distribution Name>
 ```
 
-![wsl2-login]({static}/images/s0036/wsl2-login.png)
+![wsl2-login]({static}/images/99999967-wsl2-login.png)
 
 
 ### Step 5: Setup user accounts
@@ -101,7 +101,7 @@ useradd -m -G sudo -s /bin/bash "$NEW_USER"
 passwd "$NEW_USER"
 ```
 
-![create-user-ubuntu]({static}/images/s0036/create-user-ubuntu.png)
+![create-user-ubuntu]({static}/images/99999967-create-user-ubuntu.png)
 
 ### Step 6: Configure default user
 
@@ -116,7 +116,7 @@ default=${NEW_USER}
 _EOF
 ```
 
-![set-default-user]({static}/images/s0036/set-default-user.png)
+![set-default-user]({static}/images/99999967-set-default-user.png)
 
 ### Step 7: Login as the new user
 
@@ -132,4 +132,4 @@ Finally, login to the second instance of Ubuntu again:
 wsl -d <Distribution Name>
 ```
 
-![login-wsl-new]({static}/images/s0036/login-wsl-new.png)
+![login-wsl-new]({static}/images/99999967-login-wsl-new.png)

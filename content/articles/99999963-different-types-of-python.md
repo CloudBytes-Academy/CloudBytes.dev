@@ -12,14 +12,14 @@ But Python.org's reference implementation is not the only Python implementation 
 
 
 ## CPython
-![python-logo]({static}/images/s0042/python-logo.png)
+![python-logo]({static}/images/99999963-python-logo.png)
 
 [CPython](https://www.python.org/downloads/)The officiis Python implementation that is used by the Python Software Foundation. Written in C and Python, it is the most popular Python implementation and is used by the vast majority of Python developers. CPython is considered the most mature and "production-quality" Python implementation.
 
 If you're starting out with Python, you should definitely start with CPython as you're least likely to encounter any issues with it.
 
 ## PyPy
-![pypy-logo]({static}/images/s0042/pypy-logo.png)
+![pypy-logo]({static}/images/99999963-pypy-logo.png)
 
 [PyPy](https://www.pypy.org/download.html) is a Python implementation written in Python (specifically RPython) and is a replacement for CPython. PyPy's main utility is that it is **really fast**, in fact, it claims to be [almost 5x faster than CPython](https://speed.pypy.org/).
 
@@ -28,14 +28,14 @@ However, PyPy can run most Python code except for when the code depends on CPyth
 PyPy is intended for advanced users who want to optimise their code for performance.
 
 ## Jython
-![jython-logo]({static}/images/s0042/jython-logo.png)
+![jython-logo]({static}/images/99999963-jython-logo.png)
 
 [Jython](https://www.jython.org/download/) is a Python implementation written in Python and Java and is designed to run on Java platforms. The key use case for Jython is its ability to import Java classes and that Jython compiles the Python code into Java bytecode which can be run on Java Virtual Machines (JVM).
 
 The typical use case of Jython is when Java classes are needed to be imported, e.g. you could build an Android app using a mix of Jython which can import Java Android packages and a toolkit like Kivy. 
 
 ## CircuitPython
-![circuitpython-logo]({static}/images/s0042/circuitpython-logo.png)
+![circuitpython-logo]({static}/images/99999963-circuitpython-logo.png)
 
 [CircuitPython](https://circuitpython.org/) is maintained by [Adafruit](https://www.adafruit.com/) and is designed to run on certain microcontroller hardware such as the [Adafruit Feather M0](https://www.adafruit.com/product/3317) and [Adafruit Feather M4](https://www.adafruit.com/product/3316). Is is written in C and is not exlusive to Adafruit Microcontrollers and can be used for other supported microcontroller hardware as well. 
 
