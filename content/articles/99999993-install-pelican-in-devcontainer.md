@@ -14,7 +14,7 @@ c. It uses Jinja2 as templating language, making it extremely easy to build your
 d. It is extremely stable, having been around for almost a decade and well documented<br>
 e. It is actively maintained by close to 400 contributors
 
-![Pelican active maintained github]({static}/images/s0007/pelican_github_activity.png)
+![Pelican active maintained github]({static}/images/99999993-pelican_github_activity.png)
 
 ## Getting Started
 
@@ -118,7 +118,7 @@ This will build your blog in the `output` folder and start serving it on `localh
 
 Start your browser and open the URL `localhost:8000`, and congrats 🎉🙌🏽🎇🎊🎈 you blog is up and running.
 
-![Pelican blog default theme]({static}/images/s0005/pelican-blog.png)
+![Pelican blog default theme]({static}/images/99999995-pelican-blog.png)
 
 
 

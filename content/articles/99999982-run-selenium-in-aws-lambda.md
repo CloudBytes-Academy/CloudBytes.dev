@@ -287,7 +287,7 @@ sam local invoke
 ### Output
 You should see something similar to below depending on the URL you scraped
 
-![sam local invoke success]({static}/images/s0021/sam_local_invoke_success.png)
+![sam local invoke success]({static}/images/99999982-sam_local_invoke_success.png)
 
 
 ## Deploy the app

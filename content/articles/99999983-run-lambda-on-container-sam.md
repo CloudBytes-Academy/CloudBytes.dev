@@ -152,7 +152,7 @@ sam build
 ```
 > You need Docker & Python3.8 to be installed for this to work
 
-![Sam build success]({static}/images/s0017/sam-build-success.png)
+![Sam build success]({static}/images/99999983-sam-build-success.png)
 
 ### Test the build
 To test if you application is working correctly, run

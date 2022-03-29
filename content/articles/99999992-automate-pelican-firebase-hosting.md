@@ -33,7 +33,7 @@ So in this tutorial, we will
 ## The workflow
 
 We will use the following setup & automation to automate the deployment process.
-![pelican ci cd]({static}/images/s0008/pelican-ci-cd.png)
+![pelican ci cd]({static}/images/99999992-pelican-ci-cd.png)
 
 ## 1. Setting up Pelican 
 Use the instructions in [this guide on how to install Pelican in a VSCode devcontainer]({filename}99999993-install-pelican-in-devcontainer.md) and create a small blog. 
@@ -47,7 +47,7 @@ pip freeze > requirements.txt
 ## 2. Create & configure the Firebase Project
 Visit the [Firebase Console Home](https://firebase.google.com/) page and register for an account, or sign-in if you already have an account. After that, click on "*Create a Project*". 
 
-![Create a firebase project]({static}/images/s0008/firebase-create-project.png)
+![Create a firebase project]({static}/images/99999992-firebase-create-project.png)
 
 Give your project a name and then follow the instructuions to complete the setup.
 
@@ -108,7 +108,7 @@ Open you GitHub repository and on the `Settings` tab, scroll down and click on `
 
 Then click on `New repository secret` button on the top right. Give it any memorable name, e.g. `FIREBASE_SERVICE_ACCOUNT` and paste the contents of the service account file that you download in previos section then click `Add secret` to save. 
 
-![Github Repository Secret]({static}/images/s0008/github_repository_secret.png)
+![Github Repository Secret]({static}/images/99999992-github_repository_secret.png)
 
 ## 4. Create the action to deploy automatically to Firebase Hosting
 
@@ -172,6 +172,6 @@ git push
 
 Now go to GitHub.com and browse to your repository page, click on `Actions` tab you will see the action being executed. Click on the action to see more details. 
 
-![Github action success results]({static}/images/s0008/github_action_results.png)
+![Github action success results]({static}/images/99999992-github_action_results.png)
 
 Now your Pelican Blog is setup for auto deployment to firebase, everytime you push your code.

@@ -24,7 +24,7 @@ In this tutorial, we will use AWS CLI and SAM-CLI to build a simple Lambda appli
 
 The application of our choice is a Lambda function behind API Gateway that will return `Hello World` message when invoked. 
 
-![AWS Lambda API Gateway Hello world]({static}/images/s0016/sam-getting-started-hello-world.png)
+![AWS Lambda API Gateway Hello world]({static}/images/99999984-sam-getting-started-hello-world.png)
 
 ## Setting up the development environment
 
@@ -104,7 +104,7 @@ Ideally, create a user with only programmatic access as shown below.
 3. Then Click on **Add users**
 4. Choose a username & select only *Programmatic access* under **Select AWS access type**, then click **Next: Permissions**
    
-![Create an AWS IAM user]({static}/images/s0016/aws-iam-type.png)
+![Create an AWS IAM user]({static}/images/99999984-aws-iam-type.png)
 
 Then click on **Attach existing policies directly** and choose **AdministratorAccess** then click on **Next: Tags**. 
 
@@ -114,7 +114,7 @@ Keep this window open for now, and notice the Access key ID & Secret access key.
 
 > !!! danger "WARNING: Never store this credentials anywhere or share them with anyone. An attacker can user your credentials to create AWS resources in your account. If you need to reconfigure, you can generate a new credentials from IAM screen. "
 
-![AWS New IAM User]({static}/images/s0016/aws-new-iam-user.png)
+![AWS New IAM User]({static}/images/99999984-aws-new-iam-user.png)
 
 ### Configure AWS CLI
 

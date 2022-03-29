@@ -21,7 +21,7 @@ An alternative approach is using Anaconda which has a GUI and its `conda` packag
 
 Additionally, Anaconda comes with multiple additional SDKs bundled together to make development easier such as Jupyter, SciPy, etc. 
 
-![Anaconda bundle]({static}/images/s0015/anaconda.png)
+![Anaconda bundle]({static}/images/99999985-anaconda.png)
 
 ## How to install Anaconda
 

@@ -10,7 +10,7 @@ Keywords: Python, Install, version, upgrade, opensource
 
 Python is one of the easiest languages to learn and has powerful extensibility which makes it the most popular programming loved by beginners, data-scientists, academics, and web-developers. 
 
-![Python popular programming language]({static}/images/s0013/top-languages.png)
+![Python popular programming language]({static}/images/99999987-top-languages.png)
 
 Part of the reason on Python's extensibility is the opensource nature of the language where community developes features, libraries, and packages. 
 
