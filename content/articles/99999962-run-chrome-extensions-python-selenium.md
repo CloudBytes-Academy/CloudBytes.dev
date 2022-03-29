@@ -7,6 +7,8 @@ Summary: A detailed guide to use Selenium and Chrome with extensions on AWS Lamb
 Keywords: aws, lambda, selenium, python, chrome, chromedriver
 
 
+!!! warning "UPDATE 29 March 2022: **As of this update, the instructions in this article may not work on AWS Lambda. Please refer to [this discussion on GitHub](https://github.com/CloudBytesDotDev/CloudBytes.dev/discussions/103) for more details and alternative options.**"
+
 I earlier wrote about how to [run Chrome AWS Lambda using Python and Selenium webdriver]({filename}99999982-run-selenium-in-aws-lambda.md), but running Chrome with extensions is a different ball game. So let's unpack the problem first, and then we'll get to the solution. 
 
 Chrome, when started in headless mode will start without browser UI, it is just a webpage viewport sans anything else. 
