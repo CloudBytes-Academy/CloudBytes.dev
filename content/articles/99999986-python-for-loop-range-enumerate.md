@@ -165,8 +165,8 @@ n = 9999
 inputs = [i for i in range(n)]
 outputs = []
 
-for i in range(len(inputs)):
-    outputs.append(f"{inputs[i]} is prime? {prime(inputs[i])}")
+for i, num in enumerate(inputs):
+    outputs.append(f"{i} is prime? {prime(num)}")
     
 end = time()
 
