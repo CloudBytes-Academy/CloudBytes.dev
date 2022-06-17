@@ -5,6 +5,7 @@ Tags: aws, linux
 Author: Rehan Haider
 Summary: How to mount Amazon Elastic File Storage (EFS) on Ubuntu Linux using NFS Utils and then use it to serve files from the EFS drive
 Keywords: AWS, Python
+Status: Draft
 
 [TOC]
 
