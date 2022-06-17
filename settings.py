@@ -6,7 +6,6 @@ from datetime import date
 from importlib import resources
 import os
 import csv
-import json
 
 # ENVIRONMENT
 PUBLISH = os.environ.get("PUBLISH")
