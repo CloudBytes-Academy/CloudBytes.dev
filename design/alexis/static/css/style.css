@@ -1587,6 +1587,7 @@ menu-toggler {
 
 .content-article ol, .content-article ul {
     font-weight: 300;
+    margin-top: -1rem; /*TODO: Remove this and instead target para to reduce margin if there is a subsequent list item*/
     /* color: var(--h-color);*/
     font-size: .9em;
 }
