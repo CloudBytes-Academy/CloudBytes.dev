@@ -1586,8 +1586,8 @@ menu-toggler {
 
 
 .content-article ol, .content-article ul {
-    /*font-weight: 300;
-    color: var(--h-color);*/
+    font-weight: 300;
+    /* color: var(--h-color);*/
     font-size: .9em;
 }
 
