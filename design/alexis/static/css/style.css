@@ -1584,14 +1584,15 @@ menu-toggler {
     color: var(--text-color)
 }
 
+
 .content-article ol, .content-article ul {
-    font-weight: 300;
-    /*color: var(--h-color);
-    font-size: 1.1em*/
+    /*font-weight: 300;
+    color: var(--h-color);*/
+    font-size: .9em;
 }
 
 .content-article p {
-    line-height: 1.8
+    line-height: 1.8;
 }
 
 .content-article em {
@@ -1600,8 +1601,8 @@ menu-toggler {
 
 .content-article strong {
     font-weight: 700;
-    font-size: .9em;
-    color: var(--h-color)
+    /*font-size: .9em;*/
+    color: var(--h-color);
 }
 
 .content-article p a {
