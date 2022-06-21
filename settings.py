@@ -76,7 +76,7 @@ MARKDOWN = {
         "markdown.extensions.meta": {},
         "markdown.extensions.admonition": {},
         # This is for enabling the TOC generation
-        "markdown.extensions.toc": {"title": "Table of Contents"},
+        "markdown.extensions.toc": {"title": "Table of Contents", "toc_depth": 3},
     },
     "output_format": "html5",
 }
