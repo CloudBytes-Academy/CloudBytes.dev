@@ -3,7 +3,7 @@ Date: 2022-06-13
 Category: AWS Academy
 Tags: aws, linux
 Author: Rehan Haider
-Summary: How to mount Amazon Elastic File Storage (EFS) on Ubuntu Linux using NFS Utils and then use it to serve files from the EFS drive
+Summary: A comprehensive guide to mount Amazon Elastic File Storage (EFS) on Ubuntu Linux using NFS Utils and then use it to serve files from the EFS drive. The guided includes instructions for both AWS Console & CLI
 Keywords: AWS, Python
 
 
@@ -221,20 +221,25 @@ A) We need to create two security groups as follows:
 1. **DMZ SG** - This SG is used to allow traffic from the internet to the EC2 instance, i.e. port 80 or 443.
 2. **NFS SG** - This SG is used to allow traffic from the members of the DMZ SG to the EFS drive over port 2049.
 
+
 ```bash
 DMZ_SG_ID=$(aws ec2 create-security-group --group-name "DMZ" \
   --description "Security group for DMZ" --query "GroupId" --output text) && \
   NFS_SG_ID=$(aws ec2 create-security-group --group-name "NFS" \
-  --description "Security group for NFS" --query "GroupId" --output text)
+  --description "Security group for NFS" --query "GroupId" --output text) && \
+  echo "Created security groups: DMZ: $DMZ_SG_ID and NFS: $NFS_SG_ID"
 ```
 
 This will create the security groups and assign the IDs to the variables.
 
-B) Next open port 80 access from anywhere (CIDR 0.0.0.0/0) for DMZ security group
+B) Next open port 80 & 22 access from anywhere (CIDR 0.0.0.0/0) for DMZ security group
+
 
 ```bash
 aws ec2 authorize-security-group-ingress --group-id $DMZ_SG_ID \
-    --protocol tcp --port 80 --cidr 0.0.0.0/0
+    --protocol tcp --port 80 --cidr 0.0.0.0/0 && \
+    aws ec2 authorize-security-group-ingress --group-id $DMZ_SG_ID \
+    --protocol tcp --port 22 --cidr 0.0.0.0/0
 ```
 
 Next allow access from DMZ SG to NFS SG over port 2049.
@@ -253,7 +258,8 @@ EFS_ID=$(aws efs create-file-system \
     --availability-zone-name "us-east-1a" \
     --encrypted \
     --tags "Key=Name,Value=myEFS" \
-    --query "FileSystemId" --output text)
+    --query "FileSystemId" --output text) && \
+    echo "Created EFS file system: $EFS_ID"
 ```
 B) By default, AWS CLI doesn't create a **Mount target**, assign **Security group**, configure **Subnet**, or configure **Lifecycle management**. while we don't need to configure the latter, we do need to create a **Mount target**.
 
@@ -262,7 +268,8 @@ Creating **Mount target** also requires assigning a **Security group** and choos
 ```bash
 SUBNET_ID=$(aws ec2 describe-subnets \
     --filters "Name=availability-zone,Values=us-east-1a" \
-    --query "Subnets[0].SubnetId" --output text)
+    --query "Subnets[0].SubnetId" --output text) && \
+    echo "Subnet ID for us-east-1a: $SUBNET_ID"
 ```
 
 C) Now create the **Mount target**.
@@ -286,4 +293,170 @@ This will output the following data, note down the `IpAddress`.
     "AvailabilityZoneName": "us-east-1a",
     "VpcId": "vpc-7918c403"
 }
+```
+#### Step 3: Create the EC2 Ubuntu instance
+
+First open the AWS console, go to **EC2 -> Instances -> Launch instances**. In the **Application and OS Images** section, select `Ubuntu` and then from the dropdown select `Ubuntu 20.04 LTS (HVM)`. Note the AMI ID at the bottom. 
+
+![25000000-ami-id]({static}/images/aws-academy/25000000-ami-id.png)
+
+A) Create a new EC2 instance named `myServer1` in `us-east-1a`. and store the IP address of the instance in a variable.
+
+```bash
+MYSERVER1_ID=$(aws ec2 run-instances \
+    --image-id ami-08d4ac5b634553e16 \
+    --count 1 \
+    --instance-type t2.micro \
+    --key-name myKeyPair \
+    --security-group-ids $DMZ_SG_ID \
+    --subnet-id $SUBNET_ID \
+    --associate-public-ip-address \
+    --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=myServer1}]" \
+    --query "Instances[0].InstanceId" --output text) && \
+    echo "Created EC2 instance myServer1: $MYSERVER1_ID"
+```
+B) Get the IP address from instance metadata.
+
+```bash
+MYSERVER1_IP=$(aws ec2 describe-instances \
+    --instance-ids $MYSERVER1_ID \
+    --query "Reservations[0].Instances[0].PublicIpAddress" --output text) && \
+    echo "EC2 instance myServer1 IP: $MYSERVER1_IP"
+```
+
+C) Check if the instance state is running and status checks are complete.
+
+```bash
+aws ec2 wait instance-status-ok --instance-ids $MYSERVER1_ID
+```
+
+#### Step 4: Login to the EC2 instance
+
+Make sure you have a keypair downloaded and parth is specified correctly below
+
+```bash
+ssh -i ~/.ssh/myKeyPair.pem ubuntu@$MYSERVER1_IP
+```
+> In case you get `SSH Permission are too open` error, change the file's permission to `600` by running `chmod 600 ~/.ssh/myKeyPair.pem`
+
+Install the NFS Utilities
+  
+```bash
+sudo apt install nfs-common -y && \
+    sudo systemctl status nfs-utils
+```
+
+#### Step 5: Mount the EFS File System
+
+Next, mount the EFS drive to the EC2 instance. Replace <EFS IP> with the IP address of the Mount target from step 2C above
+
+```bash
+mkdir efs
+sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport <EFS IP>:/ efs
+```
+
+Run the following command in the EC2 terminal to see the EFS drive mounted.
+
+```bash
+lsblk
+```
+
+![25000000-check-efs-mount-lsblk]({static}/images/aws-academy/25000000-check-efs-mount-lsblk.png)
+
+
+#### Step 6: Test the mounted EFS Drive
+
+A) Download a file and save them in EFS drive.
+
+```bash
+sudo curl -X GET https://cataas.com/cat -o efs/myFile.jpg
+```
+
+B) List the files
+
+```
+ls -al efs
+```
+
+![25000000-output-server1]({static}/images/aws-academy/25000000-output-server1.png)
+
+B) Logout from `myServer1`
+
+```bash
+exit
+```
+
+C) Now back in your AWS CLI, create a new instance named `myServer2` in `us-east-1a`.
+
+```bash
+MYSERVER2_ID=$(aws ec2 run-instances \
+    --image-id ami-08d4ac5b634553e16 \
+    --count 1 \
+    --instance-type t2.micro \
+    --key-name myKeyPair \
+    --security-group-ids $DMZ_SG_ID \
+    --subnet-id $SUBNET_ID \
+    --associate-public-ip-address \
+    --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=myServer2}]" \
+    --query "Instances[0].InstanceId" --output text) && \
+    echo "Created EC2 instance myServer2: $MYSERVER2_ID"
+```
+Get the IP address from instance metadata.
+
+```bash
+MYSERVER2_IP=$(aws ec2 describe-instances \
+    --instance-ids $MYSERVER2_ID \
+    --query "Reservations[0].Instances[0].PublicIpAddress" --output text) && \
+    echo "EC2 instance myServer2 IP: $MYSERVER2_IP"
+```
+
+D) Check if the instance state is running and status checks are complete.
+
+```bash
+aws ec2 wait instance-status-ok --instance-ids $MYSERVER2_ID
+```
+
+E) After the above command wait is complete, login to the EC2 instance `myServer2`
+
+```bash
+ssh -i ~/.ssh/myKeyPair.pem ubuntu@$MYSERVER2_IP
+```
+
+F) Follow the [mount instructions in Step 5](#step-5-mount-the-efs-file-system) above to mount the EFS drive.
+
+
+Finally, run `ls -al efs` to see the files in the EFS drive that was downloaded from `myServer1`.
+
+![25000000-efs-check-server2]({static}/images/aws-academy/25000000-efs-check-server2.png)
+
+Logout from EC2 instance `myServer2` before proceeding to next step by running `exit`
+
+#### Step 7: Clean up
+
+Clean up the EC2 instances and wait for them to terminate.
+
+```bash
+aws ec2 terminate-instances --instance-ids $MYSERVER1_ID $MYSERVER2_ID && \
+  aws ec2 wait instance-terminated --instance-ids $MYSERVER1_ID $MYSERVER2_ID
+```
+
+Next, we need to delete the **Mount target**. First, fetch ID of the Mount target. You can also manually get this from the output in step 2C.
+
+```bash
+MOUNT_TARGET_ID=$(aws efs describe-mount-targets \
+    --file-system-id $EFS_ID \
+    --query "MountTargets[0].MountTargetId" --output text) && \
+    echo "EFS Mount Target ID: $MOUNT_TARGET_ID"
+```
+
+Then, delete the Mount target.
+
+```bash
+aws efs delete-mount-target --mount-target-id $MOUNT_TARGET_ID
+```
+
+Finally, delete the EFS file system.
+
+```bash
+aws efs delete-file-system --file-system-id $EFS_ID
 ```
