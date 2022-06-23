@@ -5,3 +5,4 @@ Tags: aws
 Author: Rehan Haider
 Summary: Instructions on how to setup the optimial development environment for use with AWS and this course
 Keywords: AWS
+Status: draft
