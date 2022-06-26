@@ -1,10 +1,10 @@
-title: Running Jupyter Notebook from Terminal
+Title: Running Jupyter Notebook from Terminal
 Date: 2022-06-26
 Category: Snippets
-Tags: python
+Tags: python, jupyter, wsl2, linux
 Author: Rehan Haider
 Summary: How to install, and run Jupyter Notebook from Terminal
-Keywords: python, jupyter
+Keywords: python, jupyter, wsl2, linux, terminal
 
 In this specific scenario, we're going to run Jupyter Notebook from WSL2, however, the method can be used in any other Linux environment.
 
