@@ -16,9 +16,8 @@ To do so, we will need to
 1. [Update the packages to latest](#update-system-packages)
 2. [Ensure Python is installed](#check-if-python-is-installed)
 3. [Ensure pip is installed](#check-if-pip-is-installed)
-4. Install Jupyter Notebook & dependencies
-5. Run Jupyter Notebook
-6. Open the notebook in a browser window
+4. [Install Jupyter Notebook & dependencies](#install-jupyter-notebook-dependencies)
+5. [Run Jupyter Notebook](#run-jupyter-notebook)
 
 
 ### Update system packages
