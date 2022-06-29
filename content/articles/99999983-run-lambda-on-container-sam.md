@@ -1,5 +1,6 @@
 Title: Run AWS Lambda using custom docker container
 Date: 2021-08-08
+Modified: 2022-06-29
 Category: Snippets
 Tags: aws, python
 Author: Rehan Haider
@@ -7,6 +8,8 @@ Summary: Learn how to use a custom docker container to run Lambda functions on A
 Keywords: Python, AWS, CloudFormation, lambda, serverless, docker, container, sam
 
 [TOC]
+
+**[LAST UPDATED: 29-July-2022]**
 
 I wrote about [building and deploying a AWS Lambda using SAM CLI]({filename}99999984-deploy-serverless-apps-with-aws-sam.md) previously.
 
@@ -37,75 +40,68 @@ Then follow the following steps.
 
 Run the below in your terminal to create a new SAM application
 ```bash
-sam init
+sam init --package-type Image
 ```
 
 This will start the interactive session to create your app. Choose Option as per below
 
-```
+```bash
 Which template source would you like to use?
         1 - AWS Quick Start Templates
         2 - Custom Template Location
 Choice: 1
-What package type would you like to use?
-        1 - Zip (artifact is a zip uploaded to S3)
-        2 - Image (artifact is an image uploaded to an ECR image repository)
-Package type: 2
 
-Which base image would you like to use?
-        1 - amazon/nodejs14.x-base
-        2 - amazon/nodejs12.x-base
-        3 - amazon/nodejs10.x-base
-        4 - amazon/python3.9-base
-        5 - amazon/python3.8-base
-        6 - amazon/python3.7-base
-        7 - amazon/python3.6-base
-        8 - amazon/python2.7-base
-        9 - amazon/ruby2.7-base
-        10 - amazon/ruby2.5-base
-        11 - amazon/go1.x-base
-        12 - amazon/java11-base
-        13 - amazon/java8.al2-base
-        14 - amazon/java8-base
-        15 - amazon/dotnet5.0-base
-        16 - amazon/dotnetcore3.1-base
-        17 - amazon/dotnetcore2.1-base
-Base image: 4
+Choose an AWS Quick Start application template
+        1 - Hello World Example
+        2 - Machine Learning
+Template: 1
 
-Project name [sam-app]:
+Which runtime would you like to use?
+        1 - dotnet6
+        2 - dotnet5.0
+        3 - dotnetcore3.1
+        4 - go1.x
+        5 - java11
+        6 - java8.al2
+        7 - java8
+        8 - nodejs16.x
+        9 - nodejs14.x
+        10 - nodejs12.x
+        11 - python3.9
+        12 - python3.8
+        13 - python3.7
+        14 - python3.6
+        15 - ruby2.7
+Runtime: 11
 
-Cloning from https://github.com/aws/aws-sam-cli-app-templates
-```
+Based on your selections, the only dependency manager available is pip.
+We will proceed copying the template using pip.
 
-After that you will be prompted to choose application template, choose `1 - Hello World Lambda Image Example`.
+Would you like to enable X-Ray tracing on the function(s) in your application?  [y/N]:  
 
-```
-AWS quick start application templates:
-        1 - Hello World Lambda Image Example
-        2 - PyTorch Machine Learning Inference API
-        3 - Scikit-learn Machine Learning Inference API
-        4 - Tensorflow Machine Learning Inference API
-        5 - XGBoost Machine Learning Inference API
-Template selection: 1
+Project name [sam-app]: sam-docker
+
+Cloning from https://github.com/aws/aws-sam-cli-app-templates (process may take a moment)
 
     -----------------------
     Generating application:
     -----------------------
-    Name: sam-app
+    Name: sam-docker
     Base Image: amazon/python3.9-base
     Architectures: x86_64
     Dependency Manager: pip
     Output Directory: .
 
-    Next steps can be found in the README file at ./twitter/README.md
+    Next steps can be found in the README file at ./sam-docker/README.md
+
 ```
 
 ### Understanding the SAM generated application template
 
-First, go to the `sam-app` directory.
+First, go to the `sam-docker` directory.
 
 ```bash
-cd sam-app
+cd sam-docker
 ```
 
 You should see the following files
@@ -117,22 +113,26 @@ You should see the following files
 ├── events
 │   └── event.json
 ├── hello_world
+│   ├── Dockerfile
 │   ├── __init__.py
 │   ├── app.py
-│   ├── Dockerfile
 │   └── requirements.txt
 ├── template.yaml
 └── tests
+    ├── __init__.py
+    └── unit
+        ├── __init__.py
+        └── test_handler.py
 ```
 
 [Compared to the standard Lambda example]({filename}99999984-deploy-serverless-apps-with-aws-sam.md), this has an additional file, the `Dockerfile` that contains the instructions to build the container where the lambda will be executed. 
 
 ```Dockerfile
-FROM public.ecr.aws/lambda/python:3.8
+FROM public.ecr.aws/lambda/python:3.9
 
 COPY app.py requirements.txt ./
 
-RUN python3.8 -m pip install -r requirements.txt -t .
+RUN python3.9 -m pip install -r requirements.txt -t .
 
 # Command can be overwritten by providing a different command in the template directly.
 CMD ["app.lambda_handler"]
@@ -150,7 +150,7 @@ To build the app, run the following
 ```bash
 sam build
 ```
-> You need Docker & Python3.8 to be installed for this to work
+> You need Docker & Python3.9 to be installed for this to work
 
 ![Sam build success]({static}/images/99999983-sam-build-success.png)
 
@@ -159,7 +159,11 @@ To test if you application is working correctly, run
 ```text
 sam local invoke
 ```
-> Again, you need Docker & Python3.8 to be installed for this to work
+> Again, you need Docker & Python3.9 to be installed for this to work
+
+You should see the following output:
+
+![Sam local invoke success]({static}/images/99999983-sam-local-invoke-success.png)
 
 ## Deploy the project
 
@@ -198,4 +202,52 @@ Configuring SAM deploy
         SAM configuration file [samconfig.toml]: 
         SAM configuration environment [default]: 
 ```
-This will deploy your app to AWS. 
+
+After that, if will further ask for confirmation on creating ECR repository:
+
+```
+Create managed ECR repositories for all functions? [Y/n]: Y
+```
+
+This will deploy your app to AWS and you should see a final confirmation output similar to below. Note the URL of the API highlighted in the output.
+
+![sam deploy success]({static}/images/99999983-sam-deploy-success.png)
+
+## Test the deployed app
+
+Fetch the URL of the API from the output above and send a GET request to the API using the below command. 
+
+```bash
+curl -X GET https://lndcelxeyg.execute-api.us-east-1.amazonaws.com/Prod/hello
+```
+
+In response, you should see:
+
+```json
+{
+  "message": "hello world!"
+}
+```
+
+## Clean up and delete the app
+
+To delete the app, run the following
+
+```bash
+sam delete
+```
+You will be asked for below confirmations:
+
+```text
+Are you sure you want to delete the stack hello-world in the region us-east-1 ? [y/N]: y
+  Are you sure you want to delete the folder hello-world in S3 which contains the artifacts? [y/N]: y
+  Found ECR Companion Stack hello-world-20953121-CompanionStack
+  
+  Do you you want to delete the ECR companion stack hello-world-20953121-CompanionStack 
+  in the region us-east-1 ? [y/N]: y
+  
+  ECR repository helloworld20953121/helloworldfunction19d43fc4repo may not be empty. 
+  Do you want to delete the repository and all the images in it ? [y/N]: y
+```
+
+You app is deleted.
