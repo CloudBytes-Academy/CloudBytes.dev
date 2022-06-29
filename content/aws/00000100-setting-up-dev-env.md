@@ -1,4 +1,4 @@
-Title: Setup you dev environment for use with AWS
+Title: Setup your dev environment for use with AWS
 Date: 2022-06-26
 Category: AWS Academy
 Tags: aws
@@ -18,7 +18,14 @@ Follow the below instructions to setup your dev environment for use with AWS.
 2. Install **WSL2 (Windows Subsystem for Linux 2)** on you PC by following **[these instructions]({filename}/articles/99999965-install-wsl2.md)**
 3. Open ***Windows Terminal*** and run `wsl` to login to your **WSL2 environment**
 4. Follow **[these instructions]({filename}/aws/12500000-aws-cli-intro.md)** to install and configure **AWS CLI**
+6. Install VSCode from **[Microsoft VSCode Website](https://code.visualstudio.com/download)**
+5. Install **[Docker for Desktop](https://www.docker.com/products/docker-desktop/)**
 
+Then choose of the the below options as per your OS.
+
+1. **[Linux](#linux)**
+2. **[Mac](#macos)**
+3. **[Windows](#windows-1011)**
 
 ## Linux
 
