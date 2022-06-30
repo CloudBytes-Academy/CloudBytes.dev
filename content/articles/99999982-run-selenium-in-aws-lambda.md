@@ -66,6 +66,7 @@ Change the contents of the file to below.
 ```python
 ## Run selenium and chrome driver to scrape data from cloudbytes.dev
 import time
+import json
 import os.path
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -91,8 +92,15 @@ def handler(event=None, context=None):
     chrome = webdriver.Chrome("/opt/chromedriver/stable/chromedriver", options=chrome_options)
     chrome.get("https://cloudbytes.dev/")
     description = chrome.find_element(By.NAME, "description").get_attribute("content")
-    
-    return description
+    print(description)
+    return {
+        "statusCode": 200,
+        "body": json.dumps(
+            {
+                "message": description,
+            }
+        ),
+    }
 ```
 ### Dependencies: src/requirements.txt
 
@@ -270,6 +278,8 @@ Using the API URL from the output, you can test the app by running
 curl -X GET <API URL>
 ```
 
+## Cleanup
+To delete the app, run `sam delete`.
 
 ## Using the GitHub repository directly
 
