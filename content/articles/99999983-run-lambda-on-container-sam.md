@@ -79,29 +79,29 @@ We will proceed copying the template using pip.
 
 Would you like to enable X-Ray tracing on the function(s) in your application?  [y/N]:  
 
-Project name [sam-app]: sam-docker
+Project name [sam-app]: selenium
 
 Cloning from https://github.com/aws/aws-sam-cli-app-templates (process may take a moment)
 
     -----------------------
     Generating application:
     -----------------------
-    Name: sam-docker
+    Name: selenium
     Base Image: amazon/python3.9-base
     Architectures: x86_64
     Dependency Manager: pip
     Output Directory: .
 
-    Next steps can be found in the README file at ./sam-docker/README.md
+    Next steps can be found in the README file at ./selenium/README.md
 
 ```
 
 ### Understanding the SAM generated application template
 
-First, go to the `sam-docker` directory.
+First, go to the `selenium` directory.
 
 ```bash
-cd sam-docker
+cd selenium
 ```
 
 You should see the following files
