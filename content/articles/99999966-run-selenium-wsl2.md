@@ -119,7 +119,7 @@ Run `python3 --version` and note the version, e.g. in my case I get the version 
 
 Next, we need to install `venv`, choose the Python version based on what you have installed.
 ```
-sudo apt install python3.9-venv -y
+sudo apt install python3.8-venv -y
 ```
 
 Then create a virtual environment
