@@ -43,3 +43,18 @@ Autoscaling requires the following components to be configured
 
 ## How to create an autoscaling group?
 
+We will use two methods to create autoscaling groups
+
+1. [Using AWS Console](#create-autoscaling-groups-using-aws-console)
+2. [Using the AWS CLI](#create-authoscaling-groups-using-aws-cli)
+
+
+### Create Autoscaling groups using AWS Console
+
+#### Step 1: Create the base EC2 instance
+This instance will be replicated to create other instances in the autoscaling group.
+
+
+
+
+### Create Authoscaling groups using AWS CLI
