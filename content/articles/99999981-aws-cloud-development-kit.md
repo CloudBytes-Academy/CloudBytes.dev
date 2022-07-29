@@ -60,8 +60,9 @@ This will produce an output similar to below that will provide the AWS account n
 
 Then run the below command replacing account & userID
 ```bash
-cdk bootstrap aws://<Account>/<UserID>
+cdk bootstrap aws://<Account>/<Region>
 ```
+> You can get your default region by running `aws configure get region`
 
 ## Setting up the project
 Create a new folder for the project, CDK requires an empty folder to initialise

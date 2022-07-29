@@ -5,6 +5,7 @@ Tags: aws
 Author: Rehan Haider
 Summary: AWS Autoscaling - introduction, explanation and examples
 Keywords: AWS, Python, EC2, stress testing, autoscaling
+Status: Draft
 
 
 [TOC]
