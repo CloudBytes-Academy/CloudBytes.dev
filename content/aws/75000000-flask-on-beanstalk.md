@@ -28,16 +28,16 @@ In this guide we will look at how to deploy a sample [Flask](https://github.com/
 
 To deploy a Flask app to AWS Elastic Beanstalk, you need to do the following in order:
 
-1. **[Create your Flask app & provide Python dependencies](#create-the-flask-app)**: This will be your code that will be deployed to AWS Elastic Beanstalk along with `requirements.txt`
-2. **[Zip your app](#zip-the-files)**: Zip all of your source code and dependencies into a single file.
-3. **[Upload the zip to S3](#upload-the-files-to-s3)**: The zip file needs to be staged to S3 before deployment
-4. **[Create Elastic Beanstalk Application](#create-the-elastic-beanstalk-application)**: This will deploy your code and create an application, but you must create the environment for your application to work.
-5. **[Create Elastic Beanstalk Environment](#create-the-elastic-beanstalk-environment)**: Create the environment & start the application.
+1. **[Create your Flask app & provide Python dependencies](#1-create-the-flask-app)**: This will be your code that will be deployed to AWS Elastic Beanstalk along with `requirements.txt`
+2. **[Zip your app](#2-zip-the-files)**: Zip all of your source code and dependencies into a single file.
+3. **[Upload the zip to S3](#3-upload-the-files-to-s3)**: The zip file needs to be staged to S3 before deployment
+4. **[Create Elastic Beanstalk Application](#4-create-the-elastic-beanstalk-application)**: This will deploy your code and create an application, but you must create the environment for your application to work.
+5. **[Create Elastic Beanstalk Environment](#5-create-the-elastic-beanstalk-environment)**: Create the environment & start the application.
 
 
-### Create the Flask App
+### 1. Create the Flask App
 
-We will use the simple flask app below. Create a new file named `application.py` and paste the following code into it.
+a) We will use the simple flask app below. Create a new file named `application.py` and paste the following code into it.
 
 >> The name of the file containing your code must be `application.py` the `Flask` object too should be name `application`
 
@@ -61,28 +61,28 @@ if __name__ == "__main__":
     application.run(debug=True)
 ```
 
-You also need to capture the dependecies in a file named `requirements.txt` and paste the following code into it.
+b) You also need to capture the dependecies in a file named `requirements.txt` and paste the following code into it.
 
 ```text
 Flask
 ```
-### Zip the files
+### 2. Zip the files
 
-Install zip utility.
+a) Install zip utility.
 
 ```bash
 sudo apt-get install zip
 ```
 
-Then zip the files.
+b) Then zip the files.
 
 ```bash
 zip -r aws-flask-app.zip application.py requirements.txt
 ```
 
-### Upload the files to S3
+### 3. Upload the files to S3
 
-First you need to create an S3 bucket where these artefacts will be staged before deployment to Elastic Beanstalk.
+a) First you need to create an S3 bucket where these artefacts will be staged before deployment to Elastic Beanstalk.
 
 ```bash
 aws elasticbeanstalk create-storage-location
@@ -96,15 +96,15 @@ This will output something similar to the following:
 }
 ```
 
-Then upload the artefacts to the S3 bucket mentioned above by running:
+b) Then upload the artefacts to the S3 bucket mentioned above by running:
 
 ```bash
 aws s3 cp aws-flask-app.zip s3://<S3 Bucket>/aws-flask-app.zip
 ```
 
-### Create the Elastic Beanstalk Application
+### 4. Create the Elastic Beanstalk Application
 
-To create an application run the following command.
+a) To create an application run the following command.
 
 ```bash
 aws elasticbeanstalk create-application-version \
@@ -124,9 +124,9 @@ This command has now created an app, that you can see in AWS Management Console.
 
 ![75000000-01-beanstalk-app-created]({static}/images/aws-academy/75000000-01-beanstalk-app-created.png)
 
-### Create the Elastic Beanstalk Environment
+### 5. Create the Elastic Beanstalk Environment
 
-First you need to create an options file. Create a new file named `options.txt` and paste the following code into it.
+a) First you need to create an options file. Create a new file named `options.txt` and paste the following code into it.
 
 ```text
 [
@@ -140,8 +140,7 @@ First you need to create an options file. Create a new file named `options.txt` 
 
 This defines the IAM role that will be used to launch the instance.
 
-
-Then create the environment by running.
+b) Then create the environment by running.
 
 ```bash
 aws elasticbeanstalk create-environment \
@@ -174,9 +173,9 @@ After a while you will see the following that confirms your app has been deploye
 On the left hand panel, under `flask-app-env`, you will see an option `Go to environment`. Click on it. 
 This will open a URL in your browser which displays the Flask app you created. 
 
-### Getting the Beanstalk Endpoint URL using CLI
+### 1. Getting the Beanstalk Endpoint URL using CLI
 
-To fetch the URL of the Beanstalk endpoint, you can use the following command.
+a) To fetch the URL of the Beanstalk endpoint, you can use the following command.
 
 ```bash
 aws elasticbeanstalk describe-environments \
@@ -192,9 +191,9 @@ This will display the URL of the Beanstalk endpoint.
 
 To updated you need to follow the same steps as above, except you need to update the version label. Follow steps 1, 2, and 3 to upload your new code to S3. 
 
-### Update the application
+### 1. Update the application
 
-We create `v2` version of the application by running.
+a) We create `v2` version of the application by running.
 
 ```bash
 aws elasticbeanstalk create-application-version \
@@ -206,7 +205,9 @@ aws elasticbeanstalk create-application-version \
 
 Note the `--version-label` is `v2` now.
 
-### Update the environment
+### 2. Update the environment
+
+a) We update the environment by running.
 
 ```bash
 aws elasticbeanstalk update-environment \
