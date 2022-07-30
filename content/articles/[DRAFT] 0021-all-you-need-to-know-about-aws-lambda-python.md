@@ -48,7 +48,7 @@ Then click on `Create function`, choose `Author from scratch`.
 Under basic information, give the `Function name` as `hello_world`, select the `Runtime` as Python 3.9 (Latest). 
 
 Leave everything else per defaults, then click on `Create Function` at the bottom.
-![AWS Lambda Function create python 3.9 function]({static}/images/s0021/aws_console_lambda.png)
+![AWS Lambda Function create python 3.9 function]()
 
 You should now see Lambda Function. Scroll down below and click on Code tab to see the code
 
@@ -65,7 +65,7 @@ def lambda_handler(event, context):
 To test this Lambda app, click on `Test` to bring up the test event configuration, give the `Event name` as `test_event` then scroll down to bottom and click on `Create`. 
 
 Now finally, click on `Test` again to test the function, you should see a result such as below. 
-![AWS Hello test]({static}/images/s0021/lambda_hello_test.png)
+![AWS Hello test]()
 
 ## [Part 2] Create a hello world app with SAM CLI
 
@@ -84,7 +84,7 @@ sam init
 ```
 
 When prompted choose as per below
-![initialise aws sam cli lambda applicaiotn]({static}/images/s0021/sam_init.png)
+![initialise aws sam cli lambda applicaiotn]()
 
 On successfull completion you should see a success message similar to below
 ```text
@@ -112,14 +112,14 @@ sam build
 ```
 
 You will a message similar to below on successfult completion
-![SAM CLI Build success message]({static}/images/s0021/sam_build.png)
+![SAM CLI Build success message]()
 
 To test this app locally, run
 ```text
 sam local invoke
 ```
 
-![SAM CLI local invoke success]({static}/images/s0021/sam_local_invoke_success.png)
+![SAM CLI local invoke success]()
 
 
 Now finally deploy it to AWS by running
@@ -131,10 +131,10 @@ sam deploy --guided
 
 You can leave all answers as default, except when prompted for *"HelloWorldFunction may not have authorization defined, Is this okay?"* select *Y* as show below
 
-![sam deploy guided]({static}/images/s0021/sam_deploy_guided.png)
+![sam deploy guided]()
 
 After that it will go through several automated steps but end with a summary similar to below
-![sam deploy to aws cloud]({static}/images/s0021/sam_deploy.png)
+![sam deploy to aws cloud]()
 
 Now you can go back to console and test the Lambda Functions using the instructions from earlier.
 
