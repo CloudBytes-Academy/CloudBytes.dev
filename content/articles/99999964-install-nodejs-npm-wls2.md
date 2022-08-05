@@ -20,7 +20,7 @@ This guide will walk you through the steps to install the latest version of Node
 
 Install the latest version of NVM by running the following command:
 ```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 ```
 
 >!!! note "NOTE: You can get the latest versionof the above command by vising the [NVM GitHub Repository](https://github.com/nvm-sh/nvm#installing-and-updating)"
