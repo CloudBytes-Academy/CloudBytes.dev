@@ -50,11 +50,6 @@ Open the terminal in VSCode and run the below to continously regenerate the outp
 ```
 make dev
 ```
-
-Open another terminal in VSCode and runt he below to serve on localhost:8080
-```
-make firebase
-```
 Open the URL `localhost:8080` in your browser. 
 ## Repository Structure
 

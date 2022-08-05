@@ -19,7 +19,7 @@ def get_sitemap_links():
 
     sitemap_url = LOCALHOST + "/sitemap.xml"
     sitemap_response = requests.get(sitemap_url)
-    sitemap_soup = BeautifulSoup(sitemap_response.text, "lxml")
+    sitemap_soup = BeautifulSoup(sitemap_response.text, features="xml")
     sitemap_links = sitemap_soup.find_all("loc")
 
     sitemap_urls = []
