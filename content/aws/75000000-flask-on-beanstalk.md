@@ -39,7 +39,7 @@ To deploy a Flask app to AWS Elastic Beanstalk, you need to do the following in 
 
 a) We will use the simple flask app below. Create a new file named `application.py` and paste the following code into it.
 
->> The name of the file containing your code must be `application.py` the `Flask` object too should be name `application`
+> The name of the file containing your code must be `application.py` the `Flask` object too should be name `application`
 
 ```python
 # filename: application.py
