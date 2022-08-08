@@ -162,5 +162,6 @@ If you have [oh-my-zsh](https://ohmyz.sh/) installed, you can avoid typing out `
 echo "alias py=/usr/bin/python3" >> ~/.zshrc
 echo "alias python=/usr/bin/python3" >> ~/.zshrc
 ```
-Now you can run your files with `py` or `python`.
-To help you skip the hassle in virtual environment setup and package management, consider using [PDM](https://pdm.fming.dev/latest/).
+Now you can run your files with `py` or `python`. To help you skip the hassle in virtual environment setup and package management, consider using [PDM](https://pdm.fming.dev/latest/). 
+
+You can also learn how to [set up a WSL terminal](https://github.com/hdadhich01/wsl-terminal) to have a full-fledged Python development environment.
