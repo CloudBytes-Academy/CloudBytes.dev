@@ -76,7 +76,9 @@ jobs:
     name: Deploy
     needs: [test]
     runs-on: ubuntu-latest
-    environment: cloudbytes.dev
+    environment:
+      name: cloudbytes.dev
+      url: https://cloudbytes.dev
     steps:
       - name: Download the Build
         uses: actions/download-artifact@v2
