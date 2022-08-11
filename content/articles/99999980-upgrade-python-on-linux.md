@@ -7,7 +7,7 @@ Summary: A complete guide on how to upgrade Python to the latest version (Python
 Keywords: Linux, Python, Ubuntu, Python 3.10, 
 Slug: upgrade-python-to-latest-version-on-ubuntu-linux
 
-**Last Updated:** 2022-08-24
+**Last Updated:** 2022-08-11
 
 Linux systems come with Python install by default, but, they are usually not the latest. Python also cannot be updated by a typical `apt upgrade` command as well. 
 
@@ -163,4 +163,3 @@ echo "alias py=/usr/bin/python3" >> ~/.zshrc
 echo "alias python=/usr/bin/python3" >> ~/.zshrc
 ```
 Now you can run your files with `py` or `python`.
-To help you skip the hassle in virtual environment setup and package management, consider using [PDM](https://pdm.fming.dev/latest/).
