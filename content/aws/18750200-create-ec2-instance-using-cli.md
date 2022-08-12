@@ -14,11 +14,11 @@ EC2 allows you to create an manage a virtual machine (VM) in cloud without havin
 
 ## How to create an EC2 instance?
 
-We will create an EC2 instance in this tutorial using the [AWS CLI]({filename}/aws/12500000-aws-cli-intro.md).
+We will create an EC2 instance in this tutorial using the [AWS CLI](#create-an-ec2-instance-using-aws-cli).
 
 If you're looking for a tutorial on how to create EC2 instance using the AWS Console, please see below
 
-1. [Create an EC2 instance using the AWS CLI]({filename}/aws/18750000-create-ec2-instance-using-cli.md)
+1. [Create an EC2 instance using the AWS CLI]({filename}/aws/18750100-create-ec2-instance-console.md)
 
 ### Create an EC2 instance using AWS CLI
 
@@ -51,9 +51,9 @@ Hence to create an EC2 instance, we need the following:
 
 #### 1. Choose AMI ID
 
-We want to find the details of the AMI ID of Amazon Linux 2 AMI in us-east-1 region. While you can try to look it up using the CLI and `describe-images` command, it's way simpler just looking it up in the AWS console. E.g. you can see in the below image the AMI ID (`ami-090fa75af13c156b4`) of Amazon Linux 2 AMI in us-east-1 region at the bottom.
+We want to find the details of the AMI ID of **Amazon Linux 2 AMI** in `us-east-1` region. While you can try to look it up using the CLI and `describe-images` command, it's way simpler just looking it up in the AWS console. E.g. you can see the AMI ID at the bottom in the below image the AMI ID
 
-![18750000-05-choose-ec2-ami]({static}/images/aws-academy/18750000-05-choose-ec2-ami.png)
+![18750000-05-choose-ec2-ami]({static}/images/aws-academy/18750200-05-choose-ec2-ami.png)
 
 
 We will use this AMI ID to create an EC2 instance. Run the below to store it in a variable.

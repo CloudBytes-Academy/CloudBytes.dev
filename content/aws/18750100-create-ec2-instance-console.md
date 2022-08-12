@@ -18,7 +18,7 @@ We will create an EC2 instance in this tutorial using the [AWS Management Consol
 
 If you're looking for a tutorial on how to create EC2 instance using the AWS Console, please see below
 
-1. [Create an EC2 instance using the AWS CLI]({filename}/aws/18750000-create-ec2-instance-using-cli.md)
+1. [Create an EC2 instance using the AWS CLI]({filename}/aws/18750200-create-ec2-instance-using-cli.md)
 
 ### Create an EC2 instance using AWS Management Console
 
@@ -41,13 +41,13 @@ To create an EC2 instance using AWS Management Console, we need to do the follow
 
 a) Login to the [AWS Management Console](https://console.aws.amazon.com) and search for EC2 and then go to the EC2 console.
 
-![18750000-01-open-aws-console]({static}/images/aws-academy/18750000-01-open-aws-console.gif)
+![18750000-01-open-aws-console]({static}/images/aws-academy/18750100-01-open-aws-console.gif)
 
 #### 2. Choose a region
 
 a) From the dropdown in top right corner, select the region you want to use.
 
-![18750000-02-select-region]({static}/images/aws-academy/18750000-02-select-region.gif)
+![18750000-02-select-region]({static}/images/aws-academy/18750100-02-select-region.gif)
 
 #### 3. Launch the instance
 
@@ -55,7 +55,7 @@ a) Click on the **Instances** on the left navigation panel
 b) Click on the 🔽 icon to the left of **Launch instances** button to expand the Instances section  
 c) Click on the **Launch Instances** button  
 
-![18750000-03-launch-instances]({static}/images/aws-academy/18750000-03-launch-instances.png)
+![18750000-03-launch-instances]({static}/images/aws-academy/18750100-03-launch-instances.png)
 
 This will launch the interactive launch wizard.
 
@@ -63,7 +63,7 @@ This will launch the interactive launch wizard.
 
 a) Under "**Name and tags**" enter a name for the instance. E.g., I chose the name `my-ec2-instance`
 
-![18750000-04-name-instance]({static}/images/aws-academy/18750000-04-name-instance.png)
+![18750000-04-name-instance]({static}/images/aws-academy/18750100-04-name-instance.png)
 
 
 #### 5. Choose the AMI
@@ -71,13 +71,13 @@ a) Under "**Name and tags**" enter a name for the instance. E.g., I chose the na
 a) Under "**Application and OS Images (Amazon Machine Image)**" choose "**Amazon Linux**" by click on it  
 b) This will automatically select the latset version of the AMI & platform Architecture
 
-![18750000-05-choose-ec2-ami]({static}/images/aws-academy/18750000-05-choose-ec2-ami.png)
+![18750000-05-choose-ec2-ami]({static}/images/aws-academy/18750100-05-choose-ec2-ami.png)
 
 #### 6. Choose the instance type
 
 a) Under "**Instance type**" choose "**t2.micro**"
 
-![18750000-06-choose-instance-type]({static}/images/aws-academy/18750000-06-choose-instance-type.png)
+![18750000-06-choose-instance-type]({static}/images/aws-academy/18750100-06-choose-instance-type.png)
 
 #### 7. Choose the key pair
 
@@ -93,7 +93,7 @@ b) If you dont, click on **Create a new key pair**
 a) In the **Network settings**, click on **Edit** button  
 b) Under Subnet, select the subnet you want to use. E.g., I chose the one that mapped to `us-east-1a`  
 
-![18750000-07-subnets]({static}/images/aws-academy/18750000-07-subnets.png)
+![18750000-07-subnets]({static}/images/aws-academy/18750100-07-subnets.png)
 
 c) Under, **Firewall (security groups)**, click on **Create security Group** radio button  
 d) Enter a name for the security group. E.g., I chose the name `my-web-sg` the change the description to `Web security group`  
@@ -115,13 +115,13 @@ g) f) Click on **Add security group rule** again,
 - Change the type to `https`
 - Change the source to `Anywhere`
 
-![18750000-08-sg-inbound]({static}/images/aws-academy/18750000-08-sg-inbound.png)
+![18750000-08-sg-inbound]({static}/images/aws-academy/18750100-08-sg-inbound.png)
 
 #### 10. Choose Storage
 
 a) Under Configure storage, change the size to `20GB` and the type to `gp2`
 
-![18750000-09-storage]({static}/images/aws-academy/18750000-09-storage.png)
+![18750000-09-storage]({static}/images/aws-academy/18750100-09-storage.png)
 
 
 #### 11. Launch the instance
@@ -130,11 +130,11 @@ a) Scroll down to the bottom of the page and click on **Launch instance** button
 b) Wait for the instance to be created, after success, scroll down to the bottom and click on **View all instances** button 
 c) If you don't see anything, hit the refresh icon at the top  
 
-![18750000-11-launch-instance]({static}/images/aws-academy/18750000-11-launch-instance.png)
+![18750000-11-launch-instance]({static}/images/aws-academy/18750100-11-launch-instance.png)
 
 Now your EC2 instance is created. Select the instance, at the bottom you should see the public IPv4 address. You can use this address to access the instance.
 
-![18750000-12-public-ip]({static}/images/aws-academy/18750000-12-public-ip.png)
+![18750000-12-public-ip]({static}/images/aws-academy/18750100-12-public-ip.png)
 
 ## Logging into the EC2 instance
 
