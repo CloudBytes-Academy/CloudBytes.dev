@@ -3,7 +3,6 @@
 # Pelican configuration file
 """
 from datetime import date
-from importlib import resources
 import os
 import csv
 
