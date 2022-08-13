@@ -457,7 +457,7 @@ Press `Ctrl+X` and `Y` followed by `Enter` to save and exit.
 
 To start WordPress you will need to open the `<ip-address>/wp-admin/install.php` in your browser. You should see the following:
 
-![Start WordPress]({static}/images/aws-academy/22575000-08-start-wordpress.png)
+![Start WordPress]({static}/images/aws-academy/22575000-07-start-wordpress.png)
 
 a) On `Information Needed` tab, provide the requested information and click `Install WordPress`. This should complete the installation process. Now you should be able to access the `<ip-address>/wp-admin/` in your browser and login using the username and password you set. 
 

@@ -122,7 +122,7 @@ The `--auto-create-application` flag will create the application if it does not 
 
 This command has now created an app, that you can see in AWS Management Console.
 
-![75000000-01-beanstalk-app-created]({static}/images/aws-academy/75000000-01-beanstalk-app-created.png)
+![Beanstalk app created]({static}/images/aws-academy/50000000-01-beanstalk-app-created.png)
 
 ### 5. Create the Elastic Beanstalk Environment
 
@@ -158,15 +158,15 @@ And the version label should match the version of the app that you want to deplo
 
 This command has now created an environment and begun to launch it.
 
-![75000000-01-beanstalk-env-created.png]({static}/images/aws-academy/75000000-02-beanstalk-env-created.png)
+![beanstalk env created]({static}/images/aws-academy/50000000-02-beanstalk-env-created.png)
 
 If you click on the environment in the AWS Management Console, you will see the following:
 
-![75000000-03-beanstalk-env-starting]({static}/images/aws-academy/75000000-03-beanstalk-env-starting.png)
+![beanstalk env starting]({static}/images/aws-academy/50000000-03-beanstalk-env-starting.png)
 
 After a while you will see the following that confirms your app has been deployed and launched successfully
 
-![75000000-04-beanstalk-success]({static}/images/aws-academy/75000000-04-beanstalk-success.png)
+![beanstalk success]({static}/images/aws-academy/50000000-04-beanstalk-success.png)
 
 ## Testing the App
 
