@@ -32,7 +32,7 @@ We will do the following steps to install WordPress on an EC2 instance:
 
 We will use the instructions in this [previous guide]({filename}/aws/18750200-create-ec2-instance-using-cli.md) to create an EC2 instance using AWS CLI. 
 
-If you wish to use AWS Management Console instead, follow the steps in [this guide]({filename/aws/18750100-create-ec2-instance-console.md}).
+If you wish to use AWS Management Console instead, follow the steps in [this guide]({filename}/aws/18750100-create-ec2-instance-console.md).
 
 
 We will use `Amazon Linux 2` AMI and `t2.micro` instance for this tutorial.
@@ -218,7 +218,7 @@ a) Check the versions of PHP available in the repository:
 sudo amazon-linux-extras list | grep php
 ```
 
-![Check php versions]({static}/images/aws-academy/22575000-04-php-versions)
+![Check php versions]({static}/images/aws-academy/22575000-04-php-versions.png)
 
 b) Enable the PHP package for installation:
 
@@ -457,7 +457,7 @@ Press `Ctrl+X` and `Y` followed by `Enter` to save and exit.
 
 To start WordPress you will need to open the `<ip-address>/wp-admin/install.php` in your browser. You should see the following:
 
-![Start WordPress]({static}/images/aws-academy/22575000-08-start-wordpress)
+![Start WordPress]({static}/images/aws-academy/22575000-08-start-wordpress.png)
 
 a) On `Information Needed` tab, provide the requested information and click `Install WordPress`. This should complete the installation process. Now you should be able to access the `<ip-address>/wp-admin/` in your browser and login using the username and password you set. 
 
