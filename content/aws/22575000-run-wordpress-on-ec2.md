@@ -1,10 +1,10 @@
 Title: How to Install and Run WordPress on an EC2 Instance
 Date: 2022-08-12
 Category: AWS Academy
-Tags: aws
+Tags: aws, linux, wordpress
 Author: Rehan Haider
-Summary: A detailed guide on how to configure, install, and run WordPress on an EC2 instance. This guide will cover installation of NGINX, PHP, MySQL, and WordPress.
-Keywords: AWS, EC2, wordpress, nginx, php, mysql
+Summary: A detailed guide on how to configure, install, and run WordPress on an EC2 instance. This guide will cover installation of NGINX, PHP, MySQL, and WordPress (LEMP stack) on Amazon Linux 2
+Keywords: AWS, EC2, wordpress, nginx, php, mysql, lemp
 
 
 There are few technologies that divides the Web Developers as sharply as [WordPress](https://wordpress.org/). Launched in 2003, WordPress is a content management system (CMS) for creating and managing web sites that is **estimated to power more than 42% of websites** in the world.
