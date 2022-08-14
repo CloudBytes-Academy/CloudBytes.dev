@@ -26,7 +26,6 @@ We will do the following steps to install WordPress on an EC2 instance:
 7. [Create the database](#create-the-database)
 8. [Configure WordPress](#configure-wordpress)
 9. [Start WordPress](#start-wordpress)
-7. Configure HTTPS/SSL
 
 ### Create an EC2 instance
 

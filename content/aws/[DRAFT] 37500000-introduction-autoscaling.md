@@ -37,7 +37,6 @@ Autoscaling requires the following components to be configured
 3. **Scaling policy**: This is the resource that defines the scaling behavior.
 5. **Target Group**: Typically autoscaling works with a load balancer that requires a target group to be defined
 
-
 **Autoscaling group** configuration helps define the minimum, maximum, and desired capacity of the EC2 instances that are needed for application and then the scaling policy scales out or in as needed.
 
 ![37500000-02-autoscaling-terms]({static}/images/aws-academy/37500000-02-autoscaling-terms.png)
