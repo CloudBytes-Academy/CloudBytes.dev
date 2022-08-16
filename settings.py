@@ -25,8 +25,17 @@ THEME = "design/alexis"
 ## Path to blog content
 PATH = "content"
 ## Path to static folders
-STATIC_PATHS = ["images", "extra/SW.js", "extra/robots.txt"]
-EXTRA_PATH_METADATA = {"extra/SW.js": {"path": "SW.js"}, "extra/robots.txt": {"path": "robots.txt"}}
+STATIC_PATHS = [
+    "images",
+    "extra/SW.js",
+    "extra/robots.txt",
+    "extra/ads.txt",
+]
+EXTRA_PATH_METADATA = {
+    "extra/SW.js": {"path": "SW.js"},
+    "extra/robots.txt": {"path": "robots.txt"},
+    "extra/ads.txt": {"path": "ads.txt"},
+}
 
 # Page naming convention
 ARTICLE_URL = "{category}/{slug}"
