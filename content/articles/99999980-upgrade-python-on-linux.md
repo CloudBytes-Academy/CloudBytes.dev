@@ -53,113 +53,43 @@ sudo apt install python3.10
 
 Now though Python 3.10 is installed, if you check the version of your python by running `python3 --version` you will still see an older version. This is because you have two versions of Python installed and you need to choose Python 3.10 as the default. 
 
-### Step 3: Set Python 3.10 as default
+### Set an alias for pip3.10
 
-> !!! warning "Steps beyond here are tested on Ubuntu 20.04 in VM & WSL2, but are experimental , proceed at your own risk."
-
-Changing the default alternatives for Python will break your Gnome terminal. To avoid this, you need to edit the `gnome-terminal` configuration file.
-
-Open the terminal and run:
+Running this commands will use python3.10 to run python3 and pip commands:
 ```bash
-sudo nano /usr/bin/gnome-terminal
-```
-In first line, change `#!/usr/bin/python3` to `#!/usr/bin/python3.8`. Press `Ctrl +X` followed by `enter` to save and exit.
+echo 'alias pip="python3.10 -m pip"' >> ~/.bashrc
+echo 'alias python3="python3.10"' >> ~/.bashrc
 
-Then save and close the file.
+source ~/.bashrc
 
-
-Next, update the default Python by adding both versions to an alternatives by running the below
-```bash
-sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.9 1
-sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 2
-```
-
-Now run 
-```bash
-sudo update-alternatives --config python3
-```
-
-Choose the selection corresponding to Python3.10 (if not selected by default). 
-![Python alternatives on linux]({static}/images/99999980-alternatives.png)
-
-Now run `python3 --version` again and you should see the latest Python as the output.
-
-## Fix pip and disutils errors
-
-Installing the new version of Python will break `pip` as the `distutils` for Python3.10 is not installed yet.
-
-### Fix Python3-apt 
-Running `pip` in terminal will not work, as the current pip is not compatible with Python3.10 and python3-apt will be broken, that will generate an error like
-```text
-Traceback (most recent call last):   
-    File "/usr/lib/command-not-found", line 28, in <module>     
-        from CommandNotFound import CommandNotFound   
-    File "/usr/lib/python3/dist-packages/CommandNotFound/CommandNotFound.py", line 19, in <module>     
-        from CommandNotFound.db.db import SqliteDatabase   
-    File "/usr/lib/python3/dist-packages/CommandNotFound/db/db.py", line 5, in <module>     
-        import apt_pkg ModuleNotFoundError: No module named 'apt_pkg'
-```
-
-To fix this first remove the current version of python3-apt by running
-```bash
-sudo apt remove --purge python3-apt
-```
-
-Then do some cleanup
-```bash
-sudo apt autoclean
-```
-
-!!! danger "DO NOT RUN `sudo apt autoremove` as it will remove several packages that are required. This may break your system if you're using GUI, if you're on WSL2 you can proceed."
-
-Finally, reinstall `python3-apt` by running
-
-```bash
-sudo apt install python3-apt
-```
 
 ###  Install pip & distutils
-
-Running `pip`  will still throw an error `pip: command not found`. We need to install the latest version of pip compatible with Python 3.10. 
-
-Also, if try to manually install the latest version of pip, it will throw an error like
-```text
-ImportError: cannot import name 'sysconfig' from 'distutils' 
-(/usr/lib/python3.10/distutils/__init__.py)
-```
-Or you might also see an error stating `No module named 'distutils.util'`. This is because the `distutils` module is not installed yet, to install run the below command
 
 ```bash
 sudo apt install python3.10-distutils
 ```
 
-Now you can install `pip` by running
-
-```bash
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-sudo python3.10 get-pip.py
-```
-> If you get an error like `bash: curl: command not found` then you need to install curl first by running `sudo apt install curl`
-
-Now you can run `pip` and you should see the output of `pip --version`
-
 ### Fix pip-env errors when using venv
-When you try to create a new virtual environment using `python -m venv env`, you may into the following error. 
+
+Now, since we made an alias to execute `python3.10` when typing into the shell `python3`, when you try to create a new virtual environment using `python3 -m venv venv`, you may into the following error. 
 ```bash
 Error: Command '['/path/to/env/bin/python3', '-Im', 'ensurepip', '--upgrade', '--default-pip']' returned non-zero exit status 1
 ```
 
-You can fix this by reinstalling venv by running
+You can fix this by installing venv for `python3.10` by running
+
 ```bash
 sudo apt install python3.10-venv
 ```
 
-All should be done now. It is complicated, but this is how you update Python to latest version.
+All should be done now. It is not that hard to follow previous commands.
+
+You can now enjoy a safe Python3.10 experience.
 
 ### Extra
 If you have [oh-my-zsh](https://ohmyz.sh/) installed, you can avoid typing out `python3` by running
 ```bash
-echo "alias py=/usr/bin/python3" >> ~/.zshrc
-echo "alias python=/usr/bin/python3" >> ~/.zshrc
+echo "alias py=/usr/bin/python3.10" >> ~/.zshrc
+echo "alias python=/usr/bin/python3.10" >> ~/.zshrc
 ```
 Now you can run your files with `py` or `python`.
