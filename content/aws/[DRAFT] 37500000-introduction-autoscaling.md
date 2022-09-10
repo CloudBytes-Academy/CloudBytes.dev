@@ -54,7 +54,8 @@ We will use two methods to create autoscaling groups
 #### Step 1: Create the base EC2 instance
 This instance will be replicated to create other instances in the autoscaling group.
 
-
-
-
 ### Create Authoscaling groups using AWS CLI
+
+Attach volume ec2 instance amazon linux
+
+sdfssdf
