@@ -2563,6 +2563,11 @@ div.hint p.admonition-title:before, div.tip p.admonition-title:before {
     background: #232f3e;
 }
 
+.tag-cdk {
+    color: #fff;
+    background-color: #0066b8;
+}
+
 .tag-css {
     color: #313244;
     background: #f954be
