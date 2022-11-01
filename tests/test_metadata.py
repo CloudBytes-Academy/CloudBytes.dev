@@ -94,4 +94,4 @@ def test_canonical(URL):
     if os.environ.get("PUBLISH"):
         # In test environments, the base url served by firebase is localhost:8080
         URL = URL.replace(LOCALHOST, SITE_URL)
-    assert canonical["href"] == URL
+    assert canonical["href"].strip("\n") == URL

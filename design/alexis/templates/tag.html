@@ -5,15 +5,12 @@
 {% endblock %}
 
 {% block canonical_url %}
-
 {% if articles_page.number == 1 %}
-{{ SITEURL }}/{{ tag.url }}
+{{SITEURL}}/{{tag.url}}
 {% else %}
-{{ SITEURL }}/{{ tag.url }}/{{ articles_page.number }}
+{{SITEURL}}/{{tag.url}}/{{articles_page.number}}
 {% endif %}
 {% endblock %}
-
-
 
 {% block description %} all articles on {{tag}} {% endblock %}
 

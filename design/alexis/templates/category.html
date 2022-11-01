@@ -4,12 +4,11 @@
 <meta name="keywords" content="{{ category }}">
 {% endblock %}
 
-
 {% block canonical_url %}
 {% if articles_page.number == 1 %}
-{{ SITEURL }}/{{ category.url }}
+{{SITEURL}}/{{category.url}}
 {% else %}
-{{ SITEURL }}/{{ category.url }}/{{ articles_page.number }}
+{{SITEURL}}/{{category.url}}/{{articles_page.number}}
 {% endif %}
 {% endblock %}
 
