@@ -123,7 +123,7 @@ _EOF
 First, exit the WSL by running `logout`, then shutfown the second Ubuntu by running
 
 ```powershell
-wsl --shutdown <Distribution Name>
+wsl --terminate <Distribution Name>
 ```
 
 Finally, login to the second instance of Ubuntu again:
