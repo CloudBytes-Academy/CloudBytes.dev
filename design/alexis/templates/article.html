@@ -21,6 +21,9 @@ endblock %}
             </article>
             <h5>Need Help? <a href="https://github.com/CloudBytesDotDev/CloudBytes.dev/discussions">Open a discussion
                     thread on GitHub</a>.</h5>
+            {% if article.series %}
+            {% include "layouts/partial/series_navigation.html" %}
+            {% endif %}
             {% include "layouts/partial/tags.html"%}
             <hr>
             {% include "layouts/related.html" %}

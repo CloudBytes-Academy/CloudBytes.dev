@@ -1,6 +1,7 @@
 Title: CDK API Gateway with Custom Domain
 Date: 2022-10-24
 Category: AWS Academy
+Series: AWS CDK
 Tags: aws, cdk, python
 Author: Rehan Haider
 Summary: Create API Gateway and connect it with a custom domain / subdomain using Route53

@@ -22,9 +22,9 @@ SITEURL = "https://cloudbytes.dev" if PUBLISH else "http://localhost:8080"
 # Paths
 THEME_STATIC_DIR = "assets"
 THEME = "design/alexis"
-## Path to blog content
+# Path to blog content
 PATH = "content"
-## Path to static folders
+# Path to static folders
 STATIC_PATHS = [
     "images",
     "extra/SW.js",
@@ -67,13 +67,14 @@ PAGINATION_PATTERNS = (
     (1, "{url}", "{save_as}"),
     (2, "{base_name}/{number}/", "{base_name}/{number}/index.html"),
 )
-PAGINATED_TEMPLATES = {"index": None, "tag": None, "category": None, "author": None}
+PAGINATED_TEMPLATES = {"index": None,
+                       "tag": None, "category": None, "author": None}
 
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True
 
 
-## Python-Markdown extension configuration
+# Python-Markdown extension configuration
 MARKDOWN = {
     "extension_configs": {
         # Needed for code syntax highlighting
@@ -93,13 +94,13 @@ MARKDOWN = {
 # Plugin Settings
 # ----------------
 
-## Tag Cloud settings
+# Tag Cloud settings
 TAG_CLOUD_STEPS = 4
 TAG_CLOUD_MAX_ITEMS = 100
 TAG_CLOUD_SORTING = "size"
 TAG_CLOUD_BADGE = True
 
-## Sitemap configuration
+# Sitemap configuration
 SITEMAP = {
     "format": "xml",
     "priorities": {"articles": 1, "indexes": 1, "pages": 0.25},
@@ -126,6 +127,7 @@ dev_plugins = [
     "pelican.plugins.tag_cloud",
     "pelican.plugins.related_posts",
     "plugins.fix_sitemap",
+    "pelican.plugins.series",
     # "plugins.minify",
 ]
 prod_plugins = [
@@ -134,6 +136,7 @@ prod_plugins = [
     "pelican.plugins.related_posts",
     "plugins.fix_sitemap",
     "plugins.search",
+    "pelican.plugins.series",
     "plugins.minify",
 ]
 
