@@ -2,29 +2,30 @@
 # -*- coding: utf-8 -*- #
 # Pelican configuration file
 """
+
+# --- Imports ---
 from datetime import date
 import os
 import csv
 
-# ENVIRONMENT
+# --- Environmental Variables ---
 PUBLISH = os.environ.get("PUBLISH")
 print(f"PUBLISH: {PUBLISH}")
 CURRENTYEAR = date.today().year
 
-# General settings
+# --- Basic Settings ---
 TIMEZONE = "UTC"
 DEFAULT_LANG = "en"
 AUTHOR = "CloudBytes"
 SITENAME = "CloudBytes/dev>"
 SITEURL = "https://cloudbytes.dev" if PUBLISH else "http://localhost:8080"
+# Delete output directory before build
+DELETE_OUTPUT_DIRECTORY = True
 
-
-# Paths
+# --- Paths & Directories ---
 THEME_STATIC_DIR = "assets"
 THEME = "design/alexis"
-# Path to blog content
-PATH = "content"
-# Path to static folders
+PATH = "content"  # Path to blog content
 STATIC_PATHS = [
     "images",
     "extra/SW.js",
@@ -37,7 +38,7 @@ EXTRA_PATH_METADATA = {
     "extra/ads.txt": {"path": "ads.txt"},
 }
 
-# Page naming convention
+# --- URL & Save Patterns ---
 ARTICLE_URL = "{category}/{slug}"
 ARTICLE_SAVE_AS = "{category}/{slug}/index.html"
 AUTHOR_URL = "authors/{slug}"
@@ -49,8 +50,7 @@ TAG_SAVE_AS = "tags/{slug}/index.html"
 PAGE_URL = "{slug}.html"
 PAGE_SAVE_AS = "{slug}.html"
 
-
-# Feed generation is usually not desired when developing
+# --- Feed Settings ---
 FEED_ALL_ATOM = "feeds/all.atom.xml"
 CATEGORY_FEED_ATOM = "feeds/{slug}.atom.xml"
 TRANSLATION_FEED_ATOM = None
@@ -58,10 +58,8 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 HOME_HIDE_TAGS = True
 
-# Delete output directory before build
-DELETE_OUTPUT_DIRECTORY = True
 
-# Pagination settings
+# --- Pagination Settings ---
 DEFAULT_PAGINATION = 6
 PAGINATION_PATTERNS = (
     (1, "{url}", "{save_as}"),
@@ -74,7 +72,7 @@ PAGINATED_TEMPLATES = {"index": None,
 # RELATIVE_URLS = True
 
 
-# Python-Markdown extension configuration
+# --- Markdown Extensions ---
 MARKDOWN = {
     "extension_configs": {
         # Needed for code syntax highlighting
@@ -91,16 +89,16 @@ MARKDOWN = {
 }
 
 
-# Plugin Settings
-# ----------------
+# --- Plugin Settings ---
+# ---------------------------------------------
 
-# Tag Cloud settings
+# --- Tag Cloud Settings ---
 TAG_CLOUD_STEPS = 4
 TAG_CLOUD_MAX_ITEMS = 100
 TAG_CLOUD_SORTING = "size"
 TAG_CLOUD_BADGE = True
 
-# Sitemap configuration
+# --- Sitemap Settings ---
 SITEMAP = {
     "format": "xml",
     "priorities": {"articles": 1, "indexes": 1, "pages": 0.25},
@@ -108,43 +106,46 @@ SITEMAP = {
 }
 
 
-# Algolia Publish Data
+# --- Algolia Settings ---
 ALGOLIA_APP_ID = "XE8PCLJHAE"
 ALGOLIA_SEARCH_API_KEY = "ec75de1d8ce87dee234a2fd47cec2d76"
 ALGOLIA_INDEX_NAME = "cloudbytes_dev"
 ALGOLIA_ADMIN_API_KEY = os.environ.get("ALGOLIA_ADMIN_API_KEY")
 
-# Related Post Settings
+# --- Related Posts Settings ---
 RELATED_POSTS_MAX = 5
+# ---------------------------------------------
 
+# --- Google Analytics Settings ---
 # Following items are often useful when publishing
-
 GTAG = "G-9VKX48YDBH" if PUBLISH else None
 
-# Active Plugins
-dev_plugins = [
+
+# --- Active Plugins ---
+# Plugin configuration
+# ---------------------------------------------
+common_plugins = [
     "pelican.plugins.sitemap",
     "pelican.plugins.tag_cloud",
     "pelican.plugins.related_posts",
-    "plugins.fix_sitemap",
     "pelican.plugins.series",
-    # "plugins.minify",
+    "plugins.fix_sitemap",
 ]
-prod_plugins = [
-    "pelican.plugins.sitemap",
-    "pelican.plugins.tag_cloud",
-    "pelican.plugins.related_posts",
-    "plugins.fix_sitemap",
+
+dev_plugins = common_plugins.copy()
+
+prod_extra_plugins = [
     "plugins.search",
-    "pelican.plugins.series",
     "plugins.minify",
 ]
+
+prod_plugins = common_plugins + prod_extra_plugins
 
 PLUGINS = prod_plugins if PUBLISH else dev_plugins
 
 
-# Load courses
-# ------------
+# --- Udemy Affiliate Settings ---
+# ---------------------------------------------
 with open("resources/courses.csv") as csvfile:
     reader = csv.DictReader(csvfile)
     courses = list(reader)
