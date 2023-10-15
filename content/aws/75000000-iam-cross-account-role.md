@@ -1,7 +1,6 @@
 Title: Cross Account Access to AWS Services using IAM Roles
 Date: 2022-08-13
 Category: AWS Academy
-Series: AWS CDK
 Tags: aws
 Author: Rehan Haider
 Summary: Access another AWS account temporarily using an IAM role and STS

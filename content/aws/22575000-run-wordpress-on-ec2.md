@@ -17,15 +17,17 @@ Nevertheless, WordPress is going nowhere hence in this guide we will cover how t
 
 We will do the following steps to install WordPress on an EC2 instance:
 
-1. [Create an EC2 instance](#create-an-ec2-instance)
-2. [Install NGINX](#install-nginx)
-3. [Install PHP](#install-php)
-4. [Configure NGINX to serve PHP](#configure-nginx-to-serve-php)
-5. [Install MySQL/MariaDB](#install-mysqlmariadb)
-6. [Configure & Secure MySQL/MariaDB](#configure-secure-mysqlmariadb)
-7. [Create the database](#create-the-database)
-8. [Configure WordPress](#configure-wordpress)
-9. [Start WordPress](#start-wordpress)
+- [How to install WordPress on an EC2 instance?](#how-to-install-wordpress-on-an-ec2-instance)
+  - [Create an EC2 instance](#create-an-ec2-instance)
+  - [Install NGINX](#install-nginx)
+  - [Install PHP](#install-php)
+  - [Configure NGINX to serve PHP](#configure-nginx-to-serve-php)
+  - [Install MySQL/MariaDB](#install-mysqlmariadb)
+  - [Configure \& Secure MySQL/MariaDB](#configure--secure-mysqlmariadb)
+  - [Create the database](#create-the-database)
+  - [Install WordPress](#install-wordpress)
+  - [Configure WordPress](#configure-wordpress)
+  - [Start WordPress](#start-wordpress)
 
 ### Create an EC2 instance
 
