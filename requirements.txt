@@ -21,12 +21,14 @@ packaging==21.3
 pelican==4.8.0
 pelican-algolia==2.2.0
 pelican-related-posts==1.0.0
+pelican-series==2.1.0
 pelican-sitemap==1.0.2
 pelican-tag-cloud==1.0.1
 pelican-webassets==2.0.0
 pluggy==1.0.0
 py==1.11.0
 Pygments==2.12.0
+pyHtmlProofer==0.7.3a0
 pyparsing==3.0.9
 pytest==7.1.2
 python-dateutil==2.8.2
@@ -41,4 +43,3 @@ Unidecode==1.3.4
 urllib3==1.26.11
 webassets==2.0
 webencodings==0.5.1
-pyhtmlproofer
