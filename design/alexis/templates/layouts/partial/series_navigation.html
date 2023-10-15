@@ -1,0 +1,53 @@
+<!-- FILEPATH: /workspaces/cloudbytes/design/alexis/templates/layouts/partial/series_navigation.html -->
+
+<div class="series_navigation">
+    <ul class="pagination">
+
+        {% if article.series.previous == None %}
+        <li class="page-item">
+            <a class="page-link" aria-label="Previous"><span>
+                    << Prev: {{article.series.previous.title}}</span></a>
+        </li>
+        {% else %}
+        <li class="page-item">
+            <a href="/{{article.series.previous.url}}" class="page-link" aria-label="Previous"><span>
+                    << Prev: {{article.series.previous.title}}</span></a>
+        </li>
+        {% endif %}
+
+        <li class="page-item">
+            <a class="series-title" aria-label="Series"><span>
+                    Series: {{article.series.name}}</span></a>
+        </li>
+
+        {% if article.series.next == None %}
+        <li class="page-item">
+            <a class="page-link active" aria-label="Next"><span>Next:
+                    {{article.series.next.title}}
+                    >></span></a>
+        </li>
+        {% else %}
+        <li class="page-item">
+            <a href="/{{article.series.next.url}}" class="page-link" aria-label="Next"><span>Next:
+                    {{article.series.next.title}}
+                    >></span></a>
+        </li>
+        {% endif %}
+    </ul>
+</div>
+
+<style>
+    .series_navigation {
+        text-align: center;
+    }
+
+    .pagination {
+        display: flex;
+        list-style-type: none;
+        padding: 0;
+        width: 100%;
+        /* Make sure the list takes up the full width of its parent */
+        justify-content: space-between;
+        /* Pushes the items to the extreme left and right */
+    }
+</style>

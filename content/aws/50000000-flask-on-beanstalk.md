@@ -1,6 +1,7 @@
 Title: Run Flask Apps on Elastic Beanstalk
 Date: 2022-07-30
 Category: AWS Academy
+Series: AWS CDK
 Tags: aws, python
 Author: Rehan Haider
 Summary: Create a simple Flask app and run on AWS Elastic Beanstalk

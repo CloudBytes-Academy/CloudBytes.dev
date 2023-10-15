@@ -1,6 +1,7 @@
 Title: Mount Amazon EFS Drive on EC2 Ubuntu Linux using NFS Utils
 Date: 2022-06-13
 Category: AWS Academy
+Series: AWS CDK
 Tags: aws, linux
 Author: Rehan Haider
 Summary: A comprehensive guide to mount Amazon Elastic File Storage (EFS) on Ubuntu Linux using NFS Utils and then use it to serve files from the EFS drive. The guided includes instructions for both AWS Console & CLI
