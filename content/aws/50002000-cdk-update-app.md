@@ -6,7 +6,7 @@ series_index: 5
 Tags: aws, cdk, python
 Author: Rehan Haider
 Summary: How to update an existing CDK app 
-Keywords: AWS
+Keywords: AWS, bootstrap, cdk, python
 
 
 In this post, we'll update an existing CDK app that uses Python as the programming language.
@@ -34,7 +34,7 @@ from constructs import Construct
 
 class CdkAppStack(Stack):
 
-    BUCKET_NAME = "MyFirstBucket"
+    BUCKET_ID = "MyFirstBucket"
 
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
