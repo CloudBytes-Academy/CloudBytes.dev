@@ -10,6 +10,7 @@ on:
       - ".devcontainer/**"
       - ".vscode/**"
       - "resources/**"
+      - "content/**"
 
 jobs:
   build:
