@@ -6,7 +6,7 @@ series_index: 4
 Tags: aws, cdk, python
 Author: Rehan Haider
 Summary: How to create a new CDK app that uses Python as the programming language
-Keywords: AWS
+Keywords: AWS, bootstrap, cdk, python
 
 
 In this post, we'll create a new CDK app that uses Python as the programming language. 
@@ -106,13 +106,13 @@ from constructs import Construct
 
 class CdkAppStack(Stack):
 
-    BUCKET_NAME = "MyFirstBucket"
+    BUCKET_ID = "MyFirstBucket"
 
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
         # The code that defines your stack goes here
-        s3.Bucket(self, id=self.BUCKET_NAME)
+        s3.Bucket(self, id=self.BUCKET_ID)
 
 ```
 Change the `BUCKET_NAME` variable to a name of your choice. This is not the name of the S3 bucket but the ID by which the S3 bucket will be referenced in the CDK app.

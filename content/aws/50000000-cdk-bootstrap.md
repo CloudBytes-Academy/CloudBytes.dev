@@ -6,7 +6,7 @@ series_index: 3
 Tags: aws, cdk
 Author: Rehan Haider
 Summary: This article explains what is CDK Bootstrap and how to setup your AWS account for use with CDK
-Keywords: AWS
+Keywords: AWS, bootstrap, cdk, python
 
 Before you can start using CDK, you need to configure your AWS account for use with CDK. This initial setup of AWS environment is done by `cdk bootstrap`` command. In this post, we'll delve into what CDK bootstrap does, why it's necessary, and how to use it effectively.
 
