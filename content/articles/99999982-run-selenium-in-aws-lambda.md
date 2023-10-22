@@ -20,7 +20,7 @@ In this tutorial I will provide a guide on how to do exactly that.
 
 ## Prerequisites
 
-Follow [these instructions to setup your development environment]({filename}/aws/00000100-setting-up-dev-env.md).
+Follow [these instructions to setup your development environment]({filename}/aws/00000000-setting-up-dev-env.md).
 
 It will guide you to install and configure AWS CLI & SAM CLI.
 

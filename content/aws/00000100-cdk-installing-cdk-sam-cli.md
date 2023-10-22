@@ -2,7 +2,7 @@ Title: Install and configure AWS Cloud Development Kit (AWS CDK)
 Date: 2023-10-15
 Category: AWS Academy
 Series: AWS CDK
-series_index: 1
+series_index: 2
 Tags: aws, cdk
 Author: Rehan Haider
 Summary: A guide to how to install and configure AWS CDK on Windows 10/11, MacOS, and WSL2/Linux.
@@ -21,7 +21,7 @@ The actual CDK project will be written in Python but we will use the CDK CLI to 
 
 ## Prerequisites
 
-1. **AWS CLI**: Follow the guide [here](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) to install and configure AWS CLI for your operating system.
+1. **AWS CLI**: Follow the guide [here]({filename}/aws/12500000-aws-cli-intro.md) to install and configure AWS CLI for your operating system.
 2. **AWS SAM CLI**: Follow the guide [here](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html) to install and configure AWS SAM CLI for your operating system.
 
 
