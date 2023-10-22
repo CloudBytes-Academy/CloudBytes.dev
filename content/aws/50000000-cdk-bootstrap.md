@@ -32,6 +32,8 @@ When you run the cdk bootstrap command, several resources are created:
 2. **Ephemeral CloudFormation Stack**: Named CDKToolkit, this stack manages the resources required by the CDK, including the aforementioned S3 bucket and the IAM roles.
 3. **IAM Roles**: The bootstrap process sets up roles that allow the CDK and CloudFormation to create and manage resources on your behalf.
 
+![CDK Bootstrap cloudformation stack]({static}/images/aws-academy/50000000-cdk-bootstrap-stack.gif)
+
 
 ## How to Bootstrap Your AWS Account
 
