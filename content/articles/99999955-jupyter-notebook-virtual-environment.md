@@ -1,10 +1,10 @@
-title: Run Jupyter Notebooks with Python Virtual Environments
+Title: Run Jupyter Notebooks with Python Virtual Environments
 Date: 2022-10-10
 Category: Snippets
 Tags: python, jupyter
 Author: Rehan Haider
 Summary: Create an isolated Python virtual environment and use it with Jupyter Notebooks
-Keywords: jupyter, noteboo, virtual environment, python, venv, conda, ipykernel
+Keywords: jupyter, notebook, virtual environment, python, venv, conda, ipykernel
 
 
 
