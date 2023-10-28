@@ -64,12 +64,10 @@ The repository has the following structure:
 
 Additionally, the following files are of importance
 
-1. `app/pelicanconf.py`: The Pelican 🦢 configuration being used by the website used for local development
+1. `app/settings.py`: The Pelican 🦢 configuration being used by the website used for local development & deployment
 2. `Makefile`: An alternate method to generate website without the need for installation of other tools
-3. `app/publishconf.py`: Configuration for publishing the website used for final website generation
-4. `requirements.txt`: All the python dependencies used
-5. `tasks.py`: Pre-configured build tasks that can be customised as per need
-6. `addons.py`: Hook to run any post-build actions not covered by Pelican plugins
+3. `requirements.txt`: All the python dependencies used
+
 
 
 
