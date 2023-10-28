@@ -1,6 +1,8 @@
 Title: How to install and configure AWS CLI on Linux with Autocompletion
-Date: 2022-06-12
+Date: 2023-10-28
 Category: AWS Academy
+Series: AWS CLI
+Series_index: 1
 Tags: aws, linux
 Author: Rehan Haider
 Summary: A guide to how to install and configure AWS CLI on Ubuntu Linux with Autocompletion turned on
@@ -101,9 +103,9 @@ AWS CLI relies on a module named `aws_completer` for autocompletion. This module
 1. `aws_completer` to be on the `PATH`
 2. Enable command completion in the shell
 
-### Add aws_completer to the PATH
+### Ensure `aws_completer` is added to the PATH
 
-**Step 1**: First, check if the `aws_completer` is already on path by running the following command:
+First, check if the `aws_completer` is already on path by running the following command:
 
 ```bash
 which aws_completer
@@ -112,9 +114,14 @@ which aws_completer
 This should result in the following output:
 ![Which AWS Completer]({static}/images/aws-academy/12500000-which-aws-completer.png)
 
-If you don't see any output, it means that the `aws_completer` is not on the `PATH`.
 
-**Step 2**: Find `aws_completer` executable file by running the following command:
+If you get the above output, it means that the `aws_completer` is already on the `PATH`. So you can skip to [Enable command completion in the shell](#enable-command-completion-in-the-shell) section.
+
+Otherwise if you don't see any output, it means that the `aws_completer` is not on the `PATH`, follow the steps below to add it to the `PATH`.
+
+### Add `aws_completer` to the PATH
+
+**Step 1**: Find `aws_completer` executable file by running the following command:
 
 ```bash
 find / -name aws_completer
@@ -124,7 +131,7 @@ This will search for the `aws_completer` executable file in your filesystem. E.g
 
 ![Find AWS Completer]({static}/images/aws-academy/12500000-aws-completer-path.png)
 
-**Step 3**: Identify your shell and add the `aws_completer` to the `PATH`. 
+**Step 2**: Identify your shell and add the `aws_completer` to the `PATH`. 
 
 Run `echo $SHELL` to see what shell you are using. 
 
@@ -132,7 +139,7 @@ Run `echo $SHELL` to see what shell you are using.
 
 If you are using some other shell, you will get a different output.
 
-**Step 4**: Find the shell configuration file for your shell.
+**Step 3**: Find the shell configuration file for your shell.
 
 Depending on the shell you're using, your shell's profile file will be one of the following:
 
@@ -152,7 +159,7 @@ E.g. in my case, I am using `bash` and my profile file is `.profile` thus runnin
 
 ![Find Shell Profile]({static}/images/aws-academy/12500000-bash-profile.png)
 
-**Step 5**: Add the `aws_completer` to the `PATH`
+**Step 4**: Add the `aws_completer` to the `PATH`
 
 Now open the shell profile using any text editor, e.g. `vi` or `nano` and add the following line to the end of the file and replace `<path to aws_completer directory>` with the path to the `aws_completer` executable file discovered in step 2:
 
@@ -161,7 +168,7 @@ Now open the shell profile using any text editor, e.g. `vi` or `nano` and add th
 export PATH=<path to aws_completer directory>:$PATH
 ```
 
-**Step 6**: Restart your shell
+**Step 5**: Restart your shell
 
 Depending upon the shell, restart your shell by running the following command by replacing `<your profile file>` with the name of your shell profile file as per step 4:
 
@@ -204,10 +211,10 @@ complete aws 'p/*/`aws_completer`/'
 
 ### Verify that the command completion is working
 
-Reload your shell again as per step 6.
+Reload your shell configuration file, replace `<your profile file>` with the appropriate shell configure file
 
 ```text
-source ~/<your profile file>
+source ~/<your shell config file>
 ```
 
 Then type `aws s3` and press `TAB` to see the list of available commands.
