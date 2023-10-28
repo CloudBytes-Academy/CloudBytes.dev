@@ -853,7 +853,7 @@ li code, p code {
 }
 
 .highlight, pre.highlight {
-    padding: 0 1em;
+    padding: 0 0 0 1em;
     line-height: 1.5;
     color: var(--text-color);
     margin-bottom: 1rem;
@@ -2682,3 +2682,37 @@ div.hint p.admonition-title:before, div.tip p.admonition-title:before {
     color: #fff;
     background: #0078d7
 }
+
+.codecopy {
+    position: relative;
+    overflow: auto;
+  
+    & button.codecopy-btn {
+
+      box-shadow: none;
+      min-height: initial;
+  
+      position: absolute;
+      z-index: 1;
+  
+      right: 0;
+      top: 0;
+      background-color: var(--gray4);
+      color: var(--gray1);
+      border: none;
+      border-bottom-left-radius: 5px;
+      padding: 0.5rem;
+      &:hover,
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+  
+  /* Remove radus when inside liquid_tags.include_code */
+  figure.code
+    > div.highlight:not(:first-child)
+    > div.codecopy
+    > button.codecopy-btn {
+    border-top-right-radius: 0;
+  }
