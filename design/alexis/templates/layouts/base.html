@@ -16,6 +16,7 @@
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="prefetch" as="script" href="/{{ THEME_STATIC_DIR }}/js/app.js" />
+    <link rel="prefetch" as="script" href="/{{ THEME_STATIC_DIR }}/js/copy.js" />
 
     <!-- Title -->
     <title>{% block title%}{% endblock %}</title>
@@ -52,6 +53,7 @@
 
     <!-- App -->
     <script defer src="/{{ THEME_STATIC_DIR }}/js/app.js"></script>
+    <script defer src="/{{ THEME_STATIC_DIR }}/js/copy.js"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0503340532690886"
         crossorigin="anonymous"></script>
 </head>
@@ -133,6 +135,8 @@
         {% include "layouts/footer.html" %}
     </footer>
 </body>
+<!-- Code Copy JS-->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
 <!-- Include AlgoliaSearch JS Client and autocomplete.js library -->
 <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
 <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
