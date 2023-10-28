@@ -2688,7 +2688,7 @@ div.hint p.admonition-title:before, div.tip p.admonition-title:before {
     overflow: auto;
   
     & button.codecopy-btn {
-      font-size: rfs(0.9rem);
+
       box-shadow: none;
       min-height: initial;
   
@@ -2697,11 +2697,11 @@ div.hint p.admonition-title:before, div.tip p.admonition-title:before {
   
       right: 0;
       top: 0;
-      background-color: #fe8019;
-      padding: rfs(0.2rem);
+      background-color: var(--gray4);
+      color: var(--gray1);
       border: none;
       border-bottom-left-radius: 5px;
-  
+      padding: 0.5rem;
       &:hover,
       &:focus {
         box-shadow: none;
