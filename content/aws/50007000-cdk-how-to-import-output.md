@@ -24,9 +24,7 @@ We need to use the `Fn.import_value` function to import the value of an Output. 
 Let's first create the S3 bucket stack from the previous article. Create a new file called `cdk_app/s3_stack.py` and add the following code to it:
 
 ```python
-# cdk_app/s3_stack.py
-
-# cdk_app/s3_stack.py
+# filename: cdk_app/s3_stack.py
 
 from aws_cdk import (
     Stack,
@@ -87,7 +85,6 @@ class LambdaStack(Stack):
             code=_lambda.Code.from_asset("./"), # 👈🏽 Use the current directory as the source
             handler="index.main", # 👈🏽 Filename is index.py and the function is called main
         )
-
 ```
 
 In the above example, we imported the S3 bucket ARN using the `Fn.import_value` method. We then used the `from_bucket_arn` method to create a reference to the S3 bucket.
