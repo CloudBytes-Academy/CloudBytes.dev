@@ -2,7 +2,7 @@ Title: Creating a new CDK app with Python
 Date: 2023-10-22
 Category: AWS Academy
 Series: AWS CDK
-series_index: 4
+series_index: 20
 Tags: aws, cdk, python
 Author: Rehan Haider
 Summary: How to create a new CDK app that uses Python as the programming language

@@ -2,7 +2,7 @@ Title: Managing dependency between stacks in CDK
 Date: 2023-10-28
 Category: AWS Academy
 Series: AWS CDK
-series_index: 10
+series_index: 90
 Tags: aws, cdk, python
 Author: Rehan Haider
 Summary: How to specify dependency between stacks in CDK

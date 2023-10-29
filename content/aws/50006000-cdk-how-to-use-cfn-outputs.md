@@ -2,7 +2,7 @@ Title: CDK Output: How to Output data from a stack
 Date: 2023-10-27
 Category: AWS Academy
 Series: AWS CDK
-series_index: 9
+series_index: 70
 Tags: aws, cdk, python
 Author: Rehan Haider
 Summary: Explanation of concept of Outputs, how to use them to share data to other stacks

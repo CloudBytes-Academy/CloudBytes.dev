@@ -2,7 +2,7 @@ Title: How to Import Stack Output from another stack
 Date: 2023-10-27
 Category: AWS Academy
 Series: AWS CDK
-series_index: 9
+series_index: 80
 Tags: aws, cdk, python
 Author: Rehan Haider
 Summary: A guide to importing Stack Outputs and using them as Cross Stack references

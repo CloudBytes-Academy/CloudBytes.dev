@@ -2,7 +2,7 @@ Title: Creating multiple stacks in AWS CDK
 Date: 2023-10-24
 Category: AWS Academy
 Series: AWS CDK
-series_index: 7
+series_index: 50
 Tags: aws, cdk, python
 Author: Rehan Haider
 Summary: Guide to the process of creating and managing multiple stacks in a single AWS CDK application

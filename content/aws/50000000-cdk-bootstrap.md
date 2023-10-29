@@ -2,7 +2,7 @@ Title: CDK Bootstrap: Setting up your AWS account for CDK
 Date: 2023-10-22
 Category: AWS Academy
 Series: AWS CDK
-series_index: 3
+series_index: 10
 Tags: aws, cdk
 Author: Rehan Haider
 Summary: This article explains what is CDK Bootstrap and how to setup your AWS account for use with CDK

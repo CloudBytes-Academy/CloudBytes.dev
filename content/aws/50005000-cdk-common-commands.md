@@ -2,7 +2,7 @@ Title: Basic AWS CDK Commands - list, diff, deploy, destroy
 Date: 2023-10-25
 Category: AWS Academy
 Series: AWS CDK
-series_index: 8
+series_index: 60
 Tags: aws, cdk, python
 Author: Rehan Haider
 Summary: An introduction to some of the basic AWS CDK commands such as list, diff, deploy, and destroy

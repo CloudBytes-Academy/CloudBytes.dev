@@ -2,7 +2,7 @@ Title: Update an existing CDK app
 Date: 2023-10-22
 Category: AWS Academy
 Series: AWS CDK
-series_index: 5
+series_index: 30
 Tags: aws, cdk, python
 Author: Rehan Haider
 Summary: How to update an existing CDK app 

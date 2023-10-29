@@ -2,7 +2,7 @@ Title: Understanding Constructs in the AWS CDK
 Date: 2023-10-22
 Category: AWS Academy
 Series: AWS CDK
-series_index: 6
+series_index: 40
 Tags: aws, cdk, python
 Author: Rehan Haider
 Summary: Dive deep into the fundamental building blocks of the AWS Cloud Development Kit: Constructs
