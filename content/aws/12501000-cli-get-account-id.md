@@ -1,5 +1,5 @@
 Title: Get your AWS Account ID using AWS CLI
-Date: 2023-12-28
+Date: 2023-10-28
 Category: AWS Academy
 Series: AWS CLI
 Series_index: 2
@@ -22,7 +22,7 @@ aws sts get-caller-identity --query Account --output text
 
 This command uses the Security Token Service (STS) get-caller-identity function, which returns details about the IAM user or role making the call. The --query Account fetches only the Account ID, and --output text ensures the result is displayed as plain text.
 
-![STS caller identify]({static}/images/aws-academy/12501000-01-cli-id-output-text.png)
+![STS caller identify]({static}/images/aws/12501000-01-cli-id-output-text.png)
 
 
 ### Understanding the output
@@ -46,4 +46,4 @@ aws sts get-caller-identity --query Account --output text > account-id.txt
 
 This will save the output to a file called `account-id.txt` in the current directory.
 
-![STS caller identify]({static}/images/aws-academy/12501000-02-cli-id-to-file.png)
+![STS caller identify]({static}/images/aws/12501000-02-cli-id-to-file.png)

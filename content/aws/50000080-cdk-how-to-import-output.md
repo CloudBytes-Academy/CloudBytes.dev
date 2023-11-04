@@ -143,4 +143,4 @@ Now, run `cdk deploy --all` to deploy the stacks.
 ### Testing the stacks
 Go to the AWS Console and run the Lambda function. You will see the following output:
 
-![Lambda function output]({static}/images/aws-academy/50007000-01-lambda-read-output.png)
+![Lambda function output]({static}/images/aws/50000080-01-lambda-read-output.png)

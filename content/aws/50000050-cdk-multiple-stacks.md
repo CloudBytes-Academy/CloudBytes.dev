@@ -50,7 +50,7 @@ class FirstStack(Stack):
         s3.Bucket(self, "MyFirstBucket", removal_policy=RemovalPolicy.DESTROY)
 ```
 
-This is the same code that we used in the [previous post]({filename}50002000-cdk-update-app.md) to create a bucket with a destroy policy.
+This is the same code that we used in the [previous post]({filename}50000030-cdk-update-app.md) to create a bucket with a destroy policy.
 
 
 ### 2. Create the second stack
@@ -134,7 +134,7 @@ To get the list of stacks that are available in the app, run the following comma
 ```bash
 cdk ls
 ```
-![cdk ls output]({static}/images/aws-academy/50004000-01-cdk-ls-output.png)
+![cdk ls output]({static}/images/aws/50000050-01-cdk-ls-output.png)
 
 
 While deploying, we can either deploy only one stack, or all stacks together. To deploy a single stack, we have to specify the stack name:

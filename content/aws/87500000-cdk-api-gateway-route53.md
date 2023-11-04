@@ -17,7 +17,7 @@ API Gateway is a serverless service from AWS that helps you create API Endpoints
 
 API Gateway forms the foundation of serverless design that allows developers to create APIs that are infinitely scalable and easily connectable to other AWS services that are used to build serverless applications. 
 
-![API Gateway Architecture]({static}/images/aws-academy/87500000-01-api-gateway-architecture.png)
+![API Gateway Architecture]({static}/images/aws/87500000-01-api-gateway-architecture.png)
 
 Users and consumers from around the globe can be given an app or a website that calls these APIs to authenticate users, and fetch data from the backend which can also be serverless giving massive cost savings and scalability.
 

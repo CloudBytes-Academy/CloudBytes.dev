@@ -11,7 +11,7 @@ Keywords: AWS, bootstrap, cdk, python
 
 In this post, we'll update an existing CDK app that uses Python as the programming language.
 
-If you haven't created a new CDK app yet, follow the steps in [Creating a new CDK app with Python]({filename}50001000-cdk-new-app.md).
+If you haven't created a new CDK app yet, follow the steps in [Creating a new CDK app with Python]({filename}50000020-cdk-new-app.md).
 
 !!! note
     Ensure that [AWS CDK is installed & configured]({filename}00000100-cdk-installing-cdk-sam-cli.md) before proceeding.
@@ -45,7 +45,7 @@ class CdkAppStack(Stack):
 
 Check the changes by running `cdk diff`. As you can see below, there is a change in Bucket policy being implemented.
 
-![CDK diff]({static}/images/aws-academy/50002000-cdk-cdk-diff-changes.png)
+![CDK diff]({static}/images/aws/50000030-01-cdk-cdk-diff-changes.png)
 
 
 Now run `cdk deploy` to deploy the changes. When you destroy the stack by running `cdk destroy`, you'll notice that the bucket is deleted as well.
