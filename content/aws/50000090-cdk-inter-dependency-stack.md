@@ -93,7 +93,7 @@ class DynamoDBStack(Stack):
 
         myTable = ddb.Table(
             self,
-            self.TABLE_ID,
+            id=self.TABLE_ID,
             partition_key={"name": "id", "type": ddb.AttributeType.STRING},
             removal_policy=RemovalPolicy.DESTROY,
         )

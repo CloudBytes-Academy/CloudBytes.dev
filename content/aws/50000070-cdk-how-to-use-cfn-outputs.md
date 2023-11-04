@@ -48,10 +48,10 @@ class S3Stack(Stack):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
-        myBucket = s3.Bucket(self, self.BUCKET_ID, removal_policy=RemovalPolicy.DESTROY)
+        myBucket = s3.Bucket(self, id=self.BUCKET_ID, removal_policy=RemovalPolicy.DESTROY)
 
         # 👇🏽 Output the bucket ARN
-        CfnOutput(self, "S3BucketARN", value=myBucket.bucket_arn, export_name="MyS3BucketARN")
+        CfnOutput(self, id="S3BucketARN", value=myBucket.bucket_arn, export_name="MyS3BucketARN")
 ```
 
 In the above example, we are creating an S3 bucket and then exporting its ARN as an Output. 
@@ -112,13 +112,13 @@ class S3Stack(Stack):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
-        myBucket = s3.Bucket(self, self.BUCKET_ID, removal_policy=RemovalPolicy.DESTROY)
+        myBucket = s3.Bucket(self, id=self.BUCKET_ID, removal_policy=RemovalPolicy.DESTROY)
 
         # 👇🏽 Print the bucket ARN
         print(myBucket.bucket_arn)
 
         # 👇🏽 Output the bucket ARN
-        CfnOutput(self, "S3BucketARN", value=myBucket.bucket_arn, export_name="MyS3BucketARN")
+        CfnOutput(self, id="S3BucketARN", value=myBucket.bucket_arn, export_name="MyS3BucketARN")
 ```
 
 Now run `cdk synth`, we get the following:

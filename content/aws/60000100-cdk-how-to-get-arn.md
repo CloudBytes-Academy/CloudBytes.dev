@@ -59,7 +59,7 @@ class S3Stack(Stack):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
-        myBucket = s3.Bucket(self, self.BUCKET_ID, removal_policy=RemovalPolicy.DESTROY)
+        myBucket = s3.Bucket(self, id=self.BUCKET_ID, removal_policy=RemovalPolicy.DESTROY)
         bucket_arn = myBucket.bucket_arn  # 👈🏽 Get the ARN of the bucket
 
         # 👇🏽 Print the bucket ARN to console
@@ -90,7 +90,7 @@ class DynamoDBStack(Stack):
 
         myTable = ddb.Table(
             self,
-            self.TABLE_ID,
+            id=self.TABLE_ID,
             partition_key={"name": "id", "type": ddb.AttributeType.STRING},
             removal_policy=RemovalPolicy.DESTROY,
         )
@@ -123,7 +123,7 @@ class S3Stack(Stack):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
-        myBucket = s3.Bucket(self, self.BUCKET_ID, removal_policy=RemovalPolicy.DESTROY)
+        myBucket = s3.Bucket(self, id=self.BUCKET_ID, removal_policy=RemovalPolicy.DESTROY)
 
         # 👇🏽 Get the CFN Bucket resource. 
         cfn_bucket: s3.CfnBucket = myBucket.node.default_child
@@ -131,7 +131,7 @@ class S3Stack(Stack):
         bucket_arn = cfn_bucket.attr_arn # 👈🏽 Get the ARN of the bucket
         
         # 👇🏽 Output the bucket ARN
-        CfnOutput(self, "S3BucketARN", value=bucket_arn, export_name="MyS3BucketARN")
+        CfnOutput(self, id="S3BucketARN", value=bucket_arn, export_name="MyS3BucketARN")
 ```
 
 In the above code, we are using the `node.default_child` property to get the CFN resource for the S3 bucket. Then we are using the `attr_arn` method to get the ARN of the bucket.
@@ -163,7 +163,7 @@ class S3Stack(Stack):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
-        myBucket = s3.Bucket(self, self.BUCKET_ID, removal_policy=RemovalPolicy.DESTROY)
+        myBucket = s3.Bucket(self, id=self.BUCKET_ID, removal_policy=RemovalPolicy.DESTROY)
 
         # 👇🏽 Get the CFN Bucket resource
         cfn_bucket: s3.CfnBucket = myBucket.node.default_child
@@ -171,7 +171,7 @@ class S3Stack(Stack):
         bucket_arn = Fn.get_att(cfn_bucket.logical_id, "Arn").to_string()
 
         # 👇🏽 Output the bucket ARN
-        CfnOutput(self, "S3BucketARN", value=bucket_arn, export_name="MyS3BucketARN")
+        CfnOutput(self, id="S3BucketARN", value=bucket_arn, export_name="MyS3BucketARN")
 ```
 
 To use the `Fn.get_att` method, you need to pass the logical ID of the resource and the attribute name as arguments. We also need to convert the output of the `Fn.get_att` method to a string using the `to_string` method.
@@ -182,6 +182,6 @@ To use the `Fn.get_att` method, you need to pass the logical ID of the resource 
 The above methods are common ways of getting the ARN of a resource using AWS CDK. Using the `<resource>_arn` property is the easiest way to get the ARN of a resource. However, if you need to get the ARN of a resource that doesn't have a L2 construct yet and is not supported by AWS CDK, you can use the `attr_arn` method from the CFN resource or the `Fn.get_att` method from the Fn class.
 
 ```python
-        myBucket = s3.Bucket(self, self.BUCKET_ID, removal_policy=RemovalPolicy.DESTROY)
+        myBucket = s3.Bucket(self, id=self.BUCKET_ID, removal_policy=RemovalPolicy.DESTROY)
         bucket_arn = myBucket.bucket_arn  # 👈🏽 Get the ARN of the bucket
 ```

@@ -45,7 +45,7 @@ class S3Stack(Stack):
 
         my_bucket = s3.Bucket(
             self,
-            self.BUCKET_ID,
+            id=self.BUCKET_ID,
             # 👇🏽 Block all public access
             block_public_access=s3.BlockPublicAccess.BLOCK_ALL,
             removal_policy=RemovalPolicy.DESTROY,

@@ -38,7 +38,7 @@ class S3Stack(Stack):
 
         my_bucket = s3.Bucket(
             self,
-            self.BUCKET_ID,
+            id=self.BUCKET_ID,
             versioned=True,  # 👈🏽 Enable versioning
             removal_policy=RemovalPolicy.DESTROY,
         )
@@ -89,7 +89,7 @@ class S3Stack(Stack):
 
         my_bucket = s3.Bucket(
             self,
-            self.BUCKET_ID,
+            id=self.BUCKET_ID,
             versioned=False,  # 👈🏽 Suspend versioning
             removal_policy=RemovalPolicy.DESTROY,
         )

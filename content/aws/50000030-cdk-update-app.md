@@ -40,7 +40,7 @@ class CdkAppStack(Stack):
         super().__init__(scope, construct_id, **kwargs)
 
         # Updated code. This will delete the bucket when the stack is deleted
-        s3.Bucket(self, "MyFirstBucket", removal_policy=RemovalPolicy.DESTROY)
+        s3.Bucket(self, id="MyFirstBucket", removal_policy=RemovalPolicy.DESTROY)
 ```
 
 Check the changes by running `cdk diff`. As you can see below, there is a change in Bucket policy being implemented.
