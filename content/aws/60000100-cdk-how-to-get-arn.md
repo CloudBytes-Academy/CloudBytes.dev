@@ -101,7 +101,7 @@ class DynamoDBStack(Stack):
 
 ### Using `attr_arn` method fromm CFN resource
 
-You can also use the `attr_arn` method from the [L1 CFN]({filename}50003000-cdk-constructs.md) resource to get the ARN of a resource. For example, let's modify our `s3_stack.py` to use the `attr_arn` method as shown below:
+You can also use the `attr_arn` method from the [L1 CFN]({filename}50000040-cdk-constructs.md) resource to get the ARN of a resource. For example, let's modify our `s3_stack.py` to use the `attr_arn` method as shown below:
 
 
 ```python

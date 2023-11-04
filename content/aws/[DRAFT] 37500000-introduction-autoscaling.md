@@ -16,7 +16,7 @@ Amazon EC2 Autoscaling is a service that allows you to automatically scale your 
 
 E.g. consider Uber's cab service. As shown in the image below, the demand for cab services is fluctuating and peaks between 5-8 PM. Compare that to the trough between 1-4 AM. From 10,000 bookings to 70,000 bookings, that represents a 7-fold increase in demand.
 
-![3750000-01-uber-hour-of-day]({static}/images/aws-academy/37500000-01-uber-hour-of-day.png)
+![3750000-01-uber-hour-of-day]({static}/images/aws/37500000-01-uber-hour-of-day.png)
 
 From a technical standpoint, it means Uber needs to have 7x more compute power in evening compared to night. So Uber could choose to:
 
@@ -26,7 +26,7 @@ From a technical standpoint, it means Uber needs to have 7x more compute power i
 
 So what if Uber had the ability to somehow magically have more compute power in the evening than night without having to pay for it during off-peak hours? This is made possible by the AWS Autoscaling service.
 
-![37500000-autoscaling-process.gif]({static}/images/aws-academy/37500000-autoscaling-process.gif)
+![37500000-autoscaling-process.gif]({static}/images/aws/37500000-autoscaling-process.gif)
 
 ## How does AWS Autoscaling work?
 
@@ -39,7 +39,7 @@ Autoscaling requires the following components to be configured
 
 **Autoscaling group** configuration helps define the minimum, maximum, and desired capacity of the EC2 instances that are needed for application and then the scaling policy scales out or in as needed.
 
-![37500000-02-autoscaling-terms]({static}/images/aws-academy/37500000-02-autoscaling-terms.png)
+![37500000-02-autoscaling-terms]({static}/images/aws/37500000-02-autoscaling-terms.png)
 
 ## How to create an autoscaling group?
 

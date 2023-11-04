@@ -22,7 +22,7 @@ Amazon Elastic File Storage (EFS) is a network mountable elastic shared drive. W
 
 The below architecture diagram explains a typical use case of how EFS is used with EC2.
 
-![EFS EC2 Architecure diagram]({static}/images/aws-academy/25000000-architecture-diagram.png)
+![EFS EC2 Architecure diagram]({static}/images/aws/25000000-architecture-diagram.png)
 
 1. The VM(s) that will mount the drive  are typically in their own subnets and security groups. In the example above, a webserver is connected to internet using port 80 or 443 and kept in a publicly accessible subnet.
 2. The EFS drive could should ideally be kept in a separate subnet and security group.
@@ -73,7 +73,7 @@ B) In the **Create Security Group** dialog:
 - CLick on **Add Rule** again, and under type search for `SSH` and under **Source** select `Anywhere-IPv4`.
 - Then scroll to bottom and click on **Create security group**.
 
-![Create Security Group AWS Console]({static}/images/aws-academy/25000000-create-dmz-security-console.png)
+![Create Security Group AWS Console]({static}/images/aws/25000000-create-dmz-security-console.png)
 
 C) Next, Go back to **Security Groups** page and click on **Create security group** again. In the **Create Security Group** dialog:
 
@@ -81,14 +81,14 @@ C) Next, Go back to **Security Groups** page and click on **Create security grou
 - In the **inbound rules** section, under **Type** select `NFS` and under **Source** click on the textbox to bring up a list of CIDR & Security Group options. 
 - Select `DMZ|sg-xxxxxxx`, i.e. the security group we created earlier, under security groups. Then scroll to bottom and click on **Create security group**.
 
-![Create Security Group AWS Console]({static}/images/aws-academy/25000000-create-nfs-security-console.png)
+![Create Security Group AWS Console]({static}/images/aws/25000000-create-nfs-security-console.png)
 
 
 #### Step 2) Create the EFS Drive
 
 Log on to [AWS Console](https://console.aws.amazon.com/), search for EFS and then click on EFS.
 
-![AWS Console EFS]({static}/images/aws-academy/25000000-efs-console.png)
+![AWS Console EFS]({static}/images/aws/25000000-efs-console.png)
 
 Click on "**Create file system**", in the **Create File System** dialog:
 
@@ -98,7 +98,7 @@ Click on "**Create file system**", in the **Create File System** dialog:
 
 Now you should see a File system created named **myEFS** under **File systems** section.
 
-![EFS File system created]({static}/images/aws-academy/25000000-efs-filesystem-created.png)
+![EFS File system created]({static}/images/aws/25000000-efs-filesystem-created.png)
 
 
 #### Step 3) Customise EFS & Configure Security Groups
@@ -120,7 +120,7 @@ A) In the left hand panel,
 - At the bottom, select the **Network** tab. 
 - Then click on **Manage** button after **Mount target state** becomes **Available**.
 
-![EFS Network Settings]({static}/images/aws-academy/25000000-network-settings.png)
+![EFS Network Settings]({static}/images/aws/25000000-network-settings.png)
 
 B) In the **Network access** page, under **Mount targets**, 
 
@@ -128,7 +128,7 @@ B) In the **Network access** page, under **Mount targets**,
 - Click on the dropdown under **Security Groups** and select `NFS|sg-xxxxxxx`
 - Then save the changes
 
-![change-efs-security-group]({static}/images/aws-academy/25000000-change-efs-security-group.gif)
+![change-efs-security-group]({static}/images/aws/25000000-change-efs-security-group.gif)
 
 
 #### Step 4) Create the EC2 Ubuntu Linux instance
@@ -171,7 +171,7 @@ sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,ret
 
 Alternatively, then click on *Attach**. In the subsequent dialog, select on **Mount via IP**. Copy the command provided and run it in the EC2 Ubuntu terminal from previous step.
 
-![EFS mount command]({static}/images/aws-academy/25000000-mount-command.png)
+![EFS mount command]({static}/images/aws/25000000-mount-command.png)
 
 
 Next, run the below command in the EC2 terminal.
@@ -182,7 +182,7 @@ lsblk
 
 You should now see the EFS drive mounted as a new partition.
 
-![25000000-check-efs-mount-lsblk]({static}/images/aws-academy/25000000-check-efs-mount-lsblk.png)
+![25000000-check-efs-mount-lsblk]({static}/images/aws/25000000-check-efs-mount-lsblk.png)
 
 #### Step 7) Test the mounted EFS Drive
 
@@ -198,7 +198,7 @@ B) List the files
 ls -al efs
 ```
 
-![25000000-output-server1]({static}/images/aws-academy/25000000-output-server1.png)
+![25000000-output-server1]({static}/images/aws/25000000-output-server1.png)
 
 C) Now follow steps 4, 5 and 6 again to create another EC2 instance. 
 
@@ -208,7 +208,7 @@ C) Now follow steps 4, 5 and 6 again to create another EC2 instance.
 
 D) Now run `ls -al efs` to check the contents of the mounted directory. This should be the same as that of **myServer1** above.
 
-![25000000-efs-check-server2]({static}/images/aws-academy/25000000-efs-check-server2.png)
+![25000000-efs-check-server2]({static}/images/aws/25000000-efs-check-server2.png)
 
 
 
@@ -298,7 +298,7 @@ This will output the following data, note down the `IpAddress`.
 
 First open the AWS console, go to **EC2 -> Instances -> Launch instances**. In the **Application and OS Images** section, select `Ubuntu` and then from the dropdown select `Ubuntu 20.04 LTS (HVM)`. Note the AMI ID at the bottom. 
 
-![25000000-ami-id]({static}/images/aws-academy/25000000-ami-id.png)
+![25000000-ami-id]({static}/images/aws/25000000-ami-id.png)
 
 A) Create a new EC2 instance named `myServer1` in `us-east-1a`. and store the IP address of the instance in a variable.
 
@@ -361,7 +361,7 @@ Run the following command in the EC2 terminal to see the EFS drive mounted.
 lsblk
 ```
 
-![25000000-check-efs-mount-lsblk]({static}/images/aws-academy/25000000-check-efs-mount-lsblk.png)
+![25000000-check-efs-mount-lsblk]({static}/images/aws/25000000-check-efs-mount-lsblk.png)
 
 
 #### Step 6: Test the mounted EFS Drive
@@ -378,7 +378,7 @@ B) List the files
 ls -al efs
 ```
 
-![25000000-output-server1]({static}/images/aws-academy/25000000-output-server1.png)
+![25000000-output-server1]({static}/images/aws/25000000-output-server1.png)
 
 B) Logout from `myServer1`
 
@@ -427,7 +427,7 @@ F) Follow the [mount instructions in Step 5](#step-5-mount-the-efs-file-system) 
 
 Finally, run `ls -al efs` to see the files in the EFS drive that was downloaded from `myServer1`.
 
-![25000000-efs-check-server2]({static}/images/aws-academy/25000000-efs-check-server2.png)
+![25000000-efs-check-server2]({static}/images/aws/25000000-efs-check-server2.png)
 
 Logout from EC2 instance `myServer2` before proceeding to next step by running `exit`
 

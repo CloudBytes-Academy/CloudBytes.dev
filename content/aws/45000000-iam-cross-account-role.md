@@ -11,7 +11,7 @@ Think of a situation where you want to give someone access to your AWS account t
 
 Just like other AWS services, you can create an IAM role with the permissions and have someone assume the role from their own account. 
 
-![Cross account access using role]({static}/images/aws-academy/75000000-01-cross-account-access.png)
+![Cross account access using role]({static}/images/aws/45000000-01-cross-account-access.png)
 
 As described above, we will create an IAM role in the trusting account (the account that will give access) and then use the role to assume a role in the trusted account (the account that will be granted access).
 
@@ -22,7 +22,7 @@ a) Go to the **IAM console** then navigate to the **Roles** section. Click on th
 
 b) Select `AWS account` in **Trusted entity type**, select `Another AWS account` in **An AWS account** section and then enter the `Account ID` in **Account ID** section as shown below. 
 
-![Select trusted entity aws iam]({static}/images/aws-academy/75000000-02-select-trusted-entity.png)
+![Select trusted entity aws iam]({static}/images/aws/45000000-02-select-trusted-entity.png)
 
 Click on **Next** button at the bottom right corner.
 
@@ -59,7 +59,7 @@ d) In **Tags** section, you can add some tags to the policy. Then click on **Nex
 
 e) Choose a name for the policy, e.g. `my-s3-x-account-policy` and then click on **Create policy** button at the bottom right corner. You should see the permissions we granted above. Click on **Create** once done.
 
-![Trusted account policy]({static}/images/aws-academy/75000000-03-trusted-account-policy.png)
+![Trusted account policy]({static}/images/aws/45000000-03-trusted-account-policy.png)
 
 ## Attach the policy to a user
 
@@ -71,7 +71,7 @@ c) Under **Permissions** tab, click on **Add permissions** button.
 
 d) In **Grant permissions**, click on **Attach existing policies directly** and then select the policy you created above.
 
-![Attach policy to user]({static}/images/aws-academy/75000000-04-attach-permission.png)
+![Attach policy to user]({static}/images/aws/45000000-04-attach-permission.png)
 
 e) Click on **Next: Review**, then click on **Add permissions** button.
 
@@ -89,4 +89,4 @@ c) In the ensuring dialogue,
 
 d) Now you should see the new role in the **Account** dropdown.
 
-![Assume role in trusted account]({static}/images/aws-academy/75000000-05-switch-role-success.png)
+![Assume role in trusted account]({static}/images/aws/45000000-05-switch-role-success.png)

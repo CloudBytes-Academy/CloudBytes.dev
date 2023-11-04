@@ -2,7 +2,7 @@ Title: How to Import Stack Output from another stack
 Date: 2023-10-27
 Category: AWS Academy
 Series: AWS CDK
-series_index: 9
+series_index: 80
 Tags: aws, cdk, python
 Author: Rehan Haider
 Summary: A guide to importing Stack Outputs and using them as Cross Stack references
@@ -143,4 +143,4 @@ Now, run `cdk deploy --all` to deploy the stacks.
 ### Testing the stacks
 Go to the AWS Console and run the Lambda function. You will see the following output:
 
-![Lambda function output]({static}/images/aws-academy/50007000-01-lambda-read-output.png)
+![Lambda function output]({static}/images/aws/50000080-01-lambda-read-output.png)

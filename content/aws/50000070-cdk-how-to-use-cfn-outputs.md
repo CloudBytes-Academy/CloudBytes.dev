@@ -2,7 +2,7 @@ Title: CDK Output: How to Output data from a stack
 Date: 2023-10-27
 Category: AWS Academy
 Series: AWS CDK
-series_index: 9
+series_index: 70
 Tags: aws, cdk, python
 Author: Rehan Haider
 Summary: Explanation of concept of Outputs, how to use them to share data to other stacks
@@ -11,7 +11,7 @@ Keywords: AWS, cdk, python, outputs
 
 [TOC]
 
-Previously, we learnt how to [create multiple stacks]({filename}50004000-cdk-multiple-stacks.md). For most applications that you would build using CDK, you would need to share data between the stacks. For example, you might want to create an S3 bucket in one stack and then a Lambda function in another stack that uses that S3 bucket. 
+Previously, we learnt how to [create multiple stacks]({filename}50000050-cdk-multiple-stacks.md). For most applications that you would build using CDK, you would need to share data between the stacks. For example, you might want to create an S3 bucket in one stack and then a Lambda function in another stack that uses that S3 bucket. 
 
 In this case, you would need to share the name of the S3 bucket between the stacks. This is where Outputs come in.
 
@@ -83,11 +83,11 @@ app.synth()
 
 Now, run `cdk deploy` to deploy the stack. Once the stack is deployed, you will see the following output:
 
-![CDK deploy CfnOutput]({static}/images/aws-academy/50006000-01-cdk-deploy-output.png)
+![CDK deploy CfnOutput]({static}/images/aws/50000070-01-cdk-deploy-output.png)
 
 You can also view the outputs of a stack using the AWS Console. Go to the CloudFormation service and select your stack. Then, click on the Outputs tab. You will see the following:
 
-![CDK CloudFormation Outputs]({static}/images/aws-academy/50006000-02-cdk-console-output.png)
+![CDK CloudFormation Outputs]({static}/images/aws/50000070-02-cdk-console-output.png)
 
 ### What happens during to Output during `cdk synth`?
 
@@ -123,7 +123,7 @@ class S3Stack(Stack):
 
 Now run `cdk synth`, we get the following:
 
-![CDK synth CfnOutput]({static}/images/aws-academy/50006000-03-cdk-synth-output.png)
+![CDK synth CfnOutput]({static}/images/aws/50000070-03-cdk-synth-output.png)
 
 So what is this `Token` that is being printed? Token is a placeholder value that is replaced with the actual value by CloudFormation during deployment.
 
@@ -141,6 +141,6 @@ cdk deploy <stack-name> --outputs-file ./output.json
 
 This will print the values of the Outputs to a file called `output.json` in the current directory.
 
-![CDK Output to file]({static}/images/aws-academy/50006000-04-cdk-output-file.png)
+![CDK Output to file]({static}/images/aws/50000070-04-cdk-output-file.png)
 
 

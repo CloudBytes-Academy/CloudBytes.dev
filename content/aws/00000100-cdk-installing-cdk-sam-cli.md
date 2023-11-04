@@ -55,7 +55,7 @@ d) Now, install Node.js using the following command. I prefeer installing the LT
 nvm install --lts
 ```
 
-![Install Node.js using NVM]({static}/images/aws-academy/00000000-01-wsl2-nvm-nodejs.png)
+![Install Node.js using NVM]({static}/images/aws/00000000-01-wsl2-nvm-nodejs.png)
 
 After this, jump to the [Install AWS CDK CLI](#install-aws-cdk-cli) section.
 
@@ -64,7 +64,7 @@ After this, jump to the [Install AWS CDK CLI](#install-aws-cdk-cli) section.
 If WSL2 is not available, you can install Node.js on Windows 10/11 directly.
 
 a) First, install `nvm-windows` by downloading the installer from [here](https://github.com/coreybutler/nvm-windows/releases/download/1.1.11/nvm-setup.exe).
-![Install nvm-windows]({static}/images/aws-academy/00000000-02-nvm-windows-installer.png)
+![Install nvm-windows]({static}/images/aws/00000000-02-nvm-windows-installer.png)
 
 
 b) Confirm the installation by running the following command in PowerShell.
@@ -77,7 +77,7 @@ c) Finally, install Node.js using the following command.
 nvm install lts
 ```
 
-![Install Node.js using nvm-windows]({static}/images/aws-academy/00000000-03-windows-nvm-nodejs.png)
+![Install Node.js using nvm-windows]({static}/images/aws/00000000-03-windows-nvm-nodejs.png)
 
 After this, jump to the [Install AWS CDK CLI](#install-aws-cdk-cli) section.
 
@@ -133,4 +133,4 @@ Run the following command to install AWS CDK CLI.
 npm install -g aws-cdk
 ```
 
-![Install AWS CDK CLI]({static}/images/aws-academy/00000000-04-aws-cdk-install.png)
+![Install AWS CDK CLI]({static}/images/aws/00000000-04-aws-cdk-install.png)

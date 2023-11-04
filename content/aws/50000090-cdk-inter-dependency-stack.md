@@ -2,7 +2,7 @@ Title: Managing dependency between stacks in CDK
 Date: 2023-10-28
 Category: AWS Academy
 Series: AWS CDK
-series_index: 10
+series_index: 90
 Tags: aws, cdk, python
 Author: Rehan Haider
 Summary: How to specify dependency between stacks in CDK
@@ -24,7 +24,7 @@ There are two ways to specify dependencies in CDK. The first way is to use the `
 
 ### 1. Using the `add_dependency` Method
 
-Taking the code example in previous post that talks about [how to import stack outputs]({filename}50007000-cdk-how-to-import-output.md), let's create a stack that creates an S3 bucket and exports its ARN as an Output.
+Taking the code example in previous post that talks about [how to import stack outputs]({filename}50000080-cdk-how-to-import-output.md), let's create a stack that creates an S3 bucket and exports its ARN as an Output.
 
 You can use the `add_dependency` method to specify this dependency.
 

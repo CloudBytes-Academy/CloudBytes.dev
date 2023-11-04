@@ -2,7 +2,7 @@ Title: Understanding Constructs in the AWS CDK
 Date: 2023-10-22
 Category: AWS Academy
 Series: AWS CDK
-series_index: 6
+series_index: 40
 Tags: aws, cdk, python
 Author: Rehan Haider
 Summary: Dive deep into the fundamental building blocks of the AWS Cloud Development Kit: Constructs
@@ -15,7 +15,7 @@ Constructs are fundamental building blocks of the AWS Cloud Development Kit. The
 
 Constructs are essentially classes that can be reused to create cloud resources. The stack that you define in your CDK app is a collection of initialised Constructs.
 
-In previous posts, [we created a new CDK App]({filename}50001000-cdk-new-app.md) which used the `Bucket` Construct to create an S3 bucket.
+In previous posts, [we created a new CDK App]({filename}50000020-cdk-new-app.md) which used the `Bucket` Construct to create an S3 bucket.
 
 ```python
 from aws_cdk import (
@@ -39,7 +39,7 @@ class CdkAppStack(Stack):
 
 ## What are the different types of Constructs?
 
-![Types of constructs]({static}/images/aws-academy/50003000-01-cdk-constructs-types.png)
+![Types of constructs]({static}/images/aws/50000040-01-cdk-constructs-types.png)
 
 As shown in the diagram above, there are three types of Constructs:
 

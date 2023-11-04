@@ -2,7 +2,7 @@ Title: Basic AWS CDK Commands - list, diff, deploy, destroy
 Date: 2023-10-25
 Category: AWS Academy
 Series: AWS CDK
-series_index: 8
+series_index: 60
 Tags: aws, cdk, python
 Author: Rehan Haider
 Summary: An introduction to some of the basic AWS CDK commands such as list, diff, deploy, and destroy
@@ -26,7 +26,7 @@ This needs to be run in an empty directory. This command will create a new direc
 3. **Python Virtual Environment**: Create a Python virtual environment for the app in the .venv folder. It also creates a `requirements.txt` file that includes the Python dependencies for the app
 4. **Git**: Create a git repository for the app including a `.gitignore` file
 
-You can read more about this in the [Creating a new CDK app with Python]({filename}50001000-cdk-new-app.md) post.
+You can read more about this in the [Creating a new CDK app with Python]({filename}50000020-cdk-new-app.md) post.
 
 ## List the stacks
 
@@ -52,7 +52,7 @@ This will synthesize the CloudFormation templates for all the stacks in your CDK
 cdk synth <stack_name>
 ```
 
-Read more about working with multiple stacks in the [Working with multiple stacks]({filename}50004000-cdk-multiple-stacks.md) post.
+Read more about working with multiple stacks in the [Working with multiple stacks]({filename}50000050-cdk-multiple-stacks.md) post.
 
 ## Compare between the current and the deployed stacks
 

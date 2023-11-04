@@ -65,7 +65,7 @@ Ideally, you should create an IAM User Account with only programmatic access to 
 3. CLick on **Add users**
 4. Choose a username & select only **Programmatic access** under **Select AWS access type**, then click **Next: Permissions**
 
-![Add AWS User]({static}/images/aws-academy/12500000-aws-iam-type.png)
+![Add AWS User]({static}/images/aws/12500000-aws-iam-type.png)
 
 5. Then click on **Attach existing policies** and select **AdministratorAccess** from the list of available policies. Then click **Next: Tags**
 6. You can leave the **Tags** empty and click **Next: Review**
@@ -75,7 +75,7 @@ Keep this window open for now, and notice the **Access key ID** & **Secret acces
 
 > !!! danger "WARNING: Never store this credentials anywhere or share them with anyone. An attacker can user your credentials to create AWS resources in your account. If you need to reconfigure, you can generate a new credentials from IAM screen."
 
-![Add AWS User]({static}/images/aws-academy/12500000-aws-new-iam-user.png)
+![Add AWS User]({static}/images/aws/12500000-aws-new-iam-user.png)
 
 
 
@@ -112,7 +112,7 @@ which aws_completer
 ```
 
 This should result in the following output:
-![Which AWS Completer]({static}/images/aws-academy/12500000-which-aws-completer.png)
+![Which AWS Completer]({static}/images/aws/12500000-which-aws-completer.png)
 
 
 If you get the above output, it means that the `aws_completer` is already on the `PATH`. So you can skip to [Enable command completion in the shell](#enable-command-completion-in-the-shell) section.
@@ -129,13 +129,13 @@ find / -name aws_completer
 
 This will search for the `aws_completer` executable file in your filesystem. E.g. if you scroll through the results, you should see something similar to the following output:
 
-![Find AWS Completer]({static}/images/aws-academy/12500000-aws-completer-path.png)
+![Find AWS Completer]({static}/images/aws/12500000-aws-completer-path.png)
 
 **Step 2**: Identify your shell and add the `aws_completer` to the `PATH`. 
 
 Run `echo $SHELL` to see what shell you are using. 
 
-![Echo Shell]({static}/images/aws-academy/12500000-shell-type.png)
+![Echo Shell]({static}/images/aws/12500000-shell-type.png)
 
 If you are using some other shell, you will get a different output.
 
@@ -157,7 +157,7 @@ You will get a bunch of "*No such file or directory*" errors except for the shel
 
 E.g. in my case, I am using `bash` and my profile file is `.profile` thus running the above command will result in the following output:
 
-![Find Shell Profile]({static}/images/aws-academy/12500000-bash-profile.png)
+![Find Shell Profile]({static}/images/aws/12500000-bash-profile.png)
 
 **Step 4**: Add the `aws_completer` to the `PATH`
 
