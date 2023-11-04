@@ -49,7 +49,7 @@ class S3Stack(Stack):
 
         my_bucket = s3.CfnBucket(
             self,
-            self.BUCKET_ID,
+            id=self.BUCKET_ID,
         )
 ```
 
@@ -102,7 +102,7 @@ class S3Stack(Stack):
         # 👇🏽 Use Bucket instead of CfnBucket
         my_bucket = s3.Bucket(
             self,
-            self.BUCKET_ID,
+            id=self.BUCKET_ID,
         )
 ```
 
@@ -134,7 +134,7 @@ class S3Stack(Stack):
 
         my_bucket = s3.Bucket(
             self,
-            self.BUCKET_ID,
+            id=self.BUCKET_ID,
             # 👇🏽 Set the removal policy to destroy
             removal_policy=RemovalPolicy.DESTROY,
         )
@@ -167,7 +167,7 @@ class S3Stack(Stack):
 
         my_bucket = s3.Bucket(
             self,
-            self.BUCKET_ID,
+            id=self.BUCKET_ID,
             removal_policy=RemovalPolicy.DESTROY,
             # 👇🏽 Set the bucket name
             bucket_name="my-custom-bucket-name",
@@ -181,7 +181,7 @@ The `bucket_name` value must be globally unique. If you try to deploy the app wi
 
 You also also read how to configure the following for S3 buckets:
 
-1. [Import an existing S3 bucket]({filename}50000105-cdk-import-existing-bucket.md)
+1. [Import an existing S3 bucket]({filename}50000105-cdk-s3-import-existing-bucket.md)
 2. [Versioning]({filename}50000110-cdk-s3-configure-versioning.md)
 3. [Encryption]({filename}50000120-cdk-s3-configure-encryption.md)
 4. [Access Control]({filename}50000130-cdk-s3-access-control.md)

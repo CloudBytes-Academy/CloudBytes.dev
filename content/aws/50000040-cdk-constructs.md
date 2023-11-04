@@ -34,7 +34,7 @@ class CdkAppStack(Stack):
         super().__init__(scope, construct_id, **kwargs)
 
         # Create an S3 bucket
-        s3.Bucket(self, self.BUCKET_ID) # This is a Construct
+        s3.Bucket(self, id=self.BUCKET_ID) # This is a Construct
 ```
 
 ## What are the different types of Constructs?
@@ -85,7 +85,7 @@ class CustomBucket(Construct):
         super().__init__(scope, construct_id, **kwargs)
 
         # Create an S3 bucket
-        bucket = s3.Bucket(self, "MyBucket", removal_policy=RemovalPolicy.DESTROY)
+        bucket = s3.Bucket(self, id="MyBucket", removal_policy=RemovalPolicy.DESTROY)
 
         # Add lifecycle policy to delete objects after 30 days
         bucket.add_lifecycle_rule(expiration=Duration.days(30))
@@ -110,7 +110,7 @@ class CdkAppStack(Stack):
         super().__init__(scope, construct_id, **kwargs)
 
         # Create an S3 bucket
-        CustomBucket(self, self.BUCKET_ID)
+        CustomBucket(self, id=self.BUCKET_ID)
 ```
 
 You can deploy this app by running `cdk deploy`. When you destroy the stack by running `cdk destroy`.

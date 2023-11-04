@@ -45,7 +45,7 @@ class S3Stack(Stack):
 
         my_bucket = s3.Bucket(
             self,
-            self.BUCKET_ID,
+            id=self.BUCKET_ID,
             # 👇🏽 Bucket encryption will use S3 managed keys
             encryption=s3.BucketEncryption.S3_MANAGED,
             removal_policy=RemovalPolicy.DESTROY,
@@ -77,7 +77,7 @@ class S3Stack(Stack):
 
         my_bucket = s3.Bucket(
             self,
-            self.BUCKET_ID,
+            id=self.BUCKET_ID,
             # 👇🏽 Bucket encryption will use KMS managed keys
             encryption=s3.BucketEncryption.KMS_MANAGED,
             # 👇🏽 Specify the KMS key to use for encryption

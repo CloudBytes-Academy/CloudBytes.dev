@@ -61,7 +61,7 @@ class S3Stack(Stack):
         # 👇🏽 Create the S3 bucket
         my_bucket = s3.Bucket(
             self,
-            self.BUCKET_ID,
+            id=self.BUCKET_ID,
             removal_policy=RemovalPolicy.DESTROY,
             event_bridge_enabled=True,  # 👈🏽 Enable EventBridge notifications
         )
@@ -73,7 +73,8 @@ We will create a simple Lambda function that prints "File uploaded" when invoked
 
 ```python
         # 👇🏽 Create the Lambda function
-        _lambda.Function(self, "MyFirstLambda",
+        _lambda.Function(self, 
+            id="MyFirstLambda",
             runtime=_lambda.Runtime.PYTHON_3_7,
             code=_lambda.Code.from_inline("def main(event, context):\n\tprint('File Uploaded')"),
             handler="index.main",
@@ -88,7 +89,7 @@ We will create an EventBridge rule that listens for events from the S3 bucket an
         # 👇🏽 Create an EventBridge rule
         event_rule = events.Rule(
             self,
-            self.EVENT_RULE_ID,
+            id=self.EVENT_RULE_ID,
             event_pattern=events.EventPattern(
                 source=["aws.s3"], # 👈🏽 Listen for events from S3
                 detail_type=["Object Created"], # 👈🏽 List of event types to listen for
@@ -132,14 +133,14 @@ class S3Stack(Stack):
 
         my_bucket = s3.Bucket(
             self,
-            self.BUCKET_ID,
+            id=self.BUCKET_ID,
             removal_policy=RemovalPolicy.DESTROY,
         )
 
         # 👇🏽 Create the Lambda function
         my_lambda_fn = _lambda.Function(
             self,
-            "MyLambdaFn",
+            id="MyLambdaFn",
             runtime=_lambda.Runtime.PYTHON_3_7,
             code=_lambda.Code.from_inline("def main(event, context):\n\tprint('File uploaded!')"),
             handler="index.main",
@@ -148,7 +149,7 @@ class S3Stack(Stack):
         # 👇🏽 Create an EventBridge rule
         event_rule = events.Rule(
             self,
-            self.EVENT_RULE_ID,
+            id=self.EVENT_RULE_ID,
             event_pattern=events.EventPattern(
                 source=["aws.s3"],
                 detail_type=["Object Created"],

@@ -47,7 +47,7 @@ class FirstStack(Stack):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
-        s3.Bucket(self, "MyFirstBucket", removal_policy=RemovalPolicy.DESTROY)
+        s3.Bucket(self, id="MyFirstBucket", removal_policy=RemovalPolicy.DESTROY)
 ```
 
 This is the same code that we used in the [previous post]({filename}50000030-cdk-update-app.md) to create a bucket with a destroy policy.
@@ -70,7 +70,8 @@ class SecondStack(Stack):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
-        _lambda.Function(self, "MyFirstLambda",
+        _lambda.Function(self, 
+            id="MyFirstLambda",
             runtime=_lambda.Runtime.PYTHON_3_7,
             code=_lambda.Code.from_inline("def main(event, context):\n\tprint('Hello World')"),
             handler="index.main",

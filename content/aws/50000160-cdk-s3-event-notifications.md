@@ -47,7 +47,7 @@ class S3Stack(Stack):
 
         my_bucket = s3.Bucket(
             self,
-            self.BUCKET_ID,
+            id=self.BUCKET_ID,
             # 👇🏽 Block all public access
             removal_policy=RemovalPolicy.DESTROY,
         )
@@ -61,7 +61,7 @@ We will create a simple Lambda function that will be triggered when an object is
         # 👇🏽 Create a lambda function
         my_lambda_fn = _lambda.Function(
             self,
-            "MyLambda",
+            id="MyLambda",
             runtime=_lambda.Runtime.PYTHON_3_7,
             code=_lambda.Code.from_inline("def main(event, context):\n\tprint('File Uploaded')"),
             handler="index.main",
@@ -111,7 +111,7 @@ class S3Stack(Stack):
 
         my_bucket = s3.Bucket(
             self,
-            self.BUCKET_ID,
+            id=self.BUCKET_ID,
             # 👇🏽 Block all public access
             removal_policy=RemovalPolicy.DESTROY,
         )
@@ -119,7 +119,7 @@ class S3Stack(Stack):
         # 👇🏽 Create a lambda function
         my_lambda_fn = _lambda.Function(
             self,
-            "MyLambda",
+            id="MyLambda",
             runtime=_lambda.Runtime.PYTHON_3_7,
             code=_lambda.Code.from_inline("def main(event, context):\n\tprint('File Uploaded')"),
             handler="index.main",

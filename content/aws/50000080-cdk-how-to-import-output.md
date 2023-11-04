@@ -41,10 +41,10 @@ class S3Stack(Stack):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
-        myBucket = s3.Bucket(self, self.BUCKET_ID, removal_policy=RemovalPolicy.DESTROY)
+        myBucket = s3.Bucket(self, id=self.BUCKET_ID, removal_policy=RemovalPolicy.DESTROY)
 
         # 👇🏽 Output the bucket ARN
-        CfnOutput(self, "S3BucketARN", value=myBucket.bucket_arn, export_name="MyS3BucketARN")
+        CfnOutput(self, id="S3BucketARN", value=myBucket.bucket_arn, export_name="MyS3BucketARN")
 ```
 
 In the above example, we are creating an S3 bucket and then exporting its ARN as an Output.
@@ -74,11 +74,11 @@ class LambdaStack(Stack):
 
         bucket_arn = Fn.import_value("MyS3BucketARN")
 
-        myBucket = s3.Bucket.from_bucket_arn(self, "MyImportedBucket", bucket_arn)
+        myBucket = s3.Bucket.from_bucket_arn(self, id="MyImportedBucket", bucket_arn)
 
         _lambda.Function(
             self,
-            "MyLambdaFn",
+            id="MyLambdaFn",
             # 👇🏽 Pass the bucket name as an environment variable
             environment={"BUCKET_NAME": myBucket.bucket_name}, 
             runtime=_lambda.Runtime.PYTHON_3_10,

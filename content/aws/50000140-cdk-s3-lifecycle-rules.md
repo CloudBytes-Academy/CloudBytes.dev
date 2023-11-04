@@ -37,7 +37,7 @@ class S3Stack(Stack):
 
         my_bucket = s3.Bucket(
             self,
-            self.BUCKET_ID,
+            id=self.BUCKET_ID,
             # 👇🏽 Set the lifecycle rules
             lifecycle_rules=[
                 s3.LifecycleRule(

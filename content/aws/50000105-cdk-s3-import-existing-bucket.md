@@ -9,7 +9,7 @@ Summary: How to import an existing S3 bucket using different methods in CDK usin
 Keywords: AWS, cdk, python, s3
 
 
-We learnt how to [create an S3 bucket using CDK]({filename}50000100-cdk-create-s3-bucket.md) in the previous guide. In this guide, we will learn how to import an existing S3 bucket in CDK using Python.
+We learnt how to [create an S3 bucket using CDK]({filename}50000100-cdk-s3-create-s3-bucket.md) in the previous guide. In this guide, we will learn how to import an existing S3 bucket in CDK using Python.
 
 ## Import an existing S3 bucket
 
