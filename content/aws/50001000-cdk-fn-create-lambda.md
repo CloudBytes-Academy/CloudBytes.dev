@@ -207,7 +207,7 @@ Or learn some advanced methods on how to create lambda functions:
 1. [Import an existing lambda function]({filename}50001010-cdk-fn-import-lambda.md)
 2. [Using lambda layers]({filename}50001020-cdk-fn-lambda_layers.md)
 3. [Using Lambda PythonFunction to create lambda functions]({filename}50001030-cdk-fn-lambda-python-deps.md)
-4. [Running Lambda using AWS provided Docker image]({filename}50001030-cdk-fn-lambda-aws-docker.md)
+
 
 
 
