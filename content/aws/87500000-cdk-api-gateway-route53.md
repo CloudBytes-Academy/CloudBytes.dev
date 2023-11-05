@@ -185,13 +185,13 @@ B) Now back in the file `api_route53/api_route53_stack.py` we can create a lambd
         handler = _lambda.Function(
             self,
             "ApiHandler",
-            runtime=_lambda.Runtime.PYTHON_3_8,
+            runtime=_lambda.Runtime.PYTHON_3_10,
             handler="lambda_function.lambda_handler",
             code=_lambda.Code.from_asset("api_route53"),
         )
 ```
 
-Here we chose Python 3.8 as our runtime, and the handler is the function in the lambda file that will be called when the API Gateway is invoked. The code is loaded from the `api_route53` directory.
+Here we chose Python 3.10 as our runtime, and the handler is the function in the lambda file that will be called when the API Gateway is invoked. The code is loaded from the `api_route53` directory.
 
 # Create the API Gateway
 
@@ -315,7 +315,7 @@ class ApiRoute53Stack(Stack):
         handler = _lambda.Function(
             self,
             "ApiHandler",
-            runtime=_lambda.Runtime.PYTHON_3_8,
+            runtime=_lambda.Runtime.PYTHON_3_10,
             handler="lambda_function.lambda_handler",
             code=_lambda.Code.from_asset("api_route53"),
         )
