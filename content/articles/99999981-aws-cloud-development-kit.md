@@ -144,13 +144,13 @@ class CdkTutorialStack(cdk.Stack):
             "cdk-tutorial",
             code=aws_lambda.Code.from_asset("lambda"),
             handler="index.main",
-            runtime=aws_lambda.Runtime.PYTHON_3_8,
+            runtime=aws_lambda.Runtime.PYTHON_3_10,
             layers=[self.create_dependencies_layer(self.stack_name, "lambda/index")],
         )
 ```
 Here we use `code` variable to import our code from `lambda` folder, then define Lambda handler to be `main()` method under `index.py` file by using `handler="index.main"`.
 
-We also define the runtime to be Python 3.8 and a layer that is explained later. 
+We also define the runtime to be Python 3.10 and a layer that is explained later. 
 
 ## Define EventBridge Schedules and Lambda access permission
 Add the below code under where we defined lambda function
