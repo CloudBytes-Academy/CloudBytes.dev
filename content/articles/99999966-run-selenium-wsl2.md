@@ -1,9 +1,9 @@
 Title: Run Selenium and Chrome on WSL2 using Python and Selenium webdriver
-Date: 2021-11-11
+Date: 2023-12-05
 Category: Snippets
 Tags: ubuntu,selenium, wsl2, python
 Author: Rehan Haider
-Summary: A guide to installating, configuring and running Selenium and Chrome/Chromiums on Windows Subsystem for Linux (WSL2) and run tests using Python and Selenium webdriver.
+Summary: A guide to installating, configuring and running Selenium and Chrome for Testing on Windows Subsystem for Linux (WSL2) and run tests using Python and Selenium webdriver.
 Keywords: linux, chrome, chromium, selenium, webdriver, wsl2, ubuntu, ubuntu 20.04
 slug: run-selenium-and-chrome-on-wsl2
 
@@ -11,11 +11,14 @@ slug: run-selenium-and-chrome-on-wsl2
 [TOC]
 
 
-[Selenium](https://www.selenium.dev/) combined with Headless [Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome) is a great tool for creating automated UI tests for web applications. 
-With Selenium libraries, Python can be used to create and run automated browser-based tests & tasks. 
+[Selenium](https://www.selenium.dev/) combined with Headless [Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome) used to be great tool for creating automated UI tests for web applications. 
 
+Google recently launched [Chrome for Testing](https://developer.chrome.com/blog/chrome-for-testing/), a version of Chrome specifically designed for automated testing. It is available for Windows, Linux and Mac.
+
+This solves a major issue that developers had with finding a compatible versions of Chrome and Chromedriver.
+
+With Selenium libraries, Python can be used to create and run automated browser-based tests & tasks. 
 This guide will show you how to install, configure and run Selenium and Chrome on WSL2 using Python and Selenium webdriver.
-<a href="https://click.linksynergy.com/link?id=zOWbNCBDzko&offerid=1060092.1394254&type=2&murl=https%3A%2F%2Fwww.udemy.com%2Fcourse%2Fubuntu-server-fundamentals-manage-linux-server-with-ubuntu%2F"><IMG border=0 src="https://img-c.udemycdn.com/course/480x270/1394254_2eb5_6.jpg" ></a><IMG border=0 width=1 height=1 src="https://ad.linksynergy.com/fs-bin/show?id=zOWbNCBDzko&bids=1060092.1394254&type=2&subid=0" >
 
 ## Step 1: Install WSL2
 
@@ -34,7 +37,7 @@ This will take care of all the steps required, i.e.
 
 Then type `wsl` in your terminal and press enter to login to WSL2. 
 
-!!! warning " NOTE: All codeblocks below are formatted as multi-line commands so the entire block needs to be copy pasted and not line by line."
+> !!! warning " NOTE: All codeblocks below are formatted as multi-line commands so the entire block needs to be copy pasted and not line by line."
 
 Ensure you go to your home directory, update the repository and any packages
 
@@ -48,63 +51,58 @@ cd "$HOME"
 sudo apt update && sudo apt upgrade -y
 ```
 
-## Step 2: Install latest Chrome for Linux
+## Step 2: Install latest Chrome for Testing (for Linux)
 
-Chrome is not available in Ubuntu's official APT repository, so we will download the .deb directly from Google and install it. 
+This version of Chrome is not available in Ubuntu's official APT repository, so we will download the zipped files directly from Google and install it. 
 
-**a) Download the latest chrome .deb file**
+**a) Download the latest Chrome file**
 ```bash
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+meta_data=$(curl 'https://googlechromelabs.github.io/chrome-for-testing/\
+last-known-good-versions-with-downloads.json') /
+wget $(echo "$meta_data" | jq -r '.channels.Stable.downloads.chrome[0].url')
 ```
 
-**b) Install the .deb file**
+**b) Install Chrome dependencies**
 ```bash
-sudo dpkg -i google-chrome-stable_current_amd64.deb
+sudo apt install ca-certificates fonts-liberation \
+    libappindicator3-1 libasound2 libatk-bridge2.0-0 libatk1.0-0 libc6 \
+    libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgbm1 \
+    libgcc1 libglib2.0-0 libgtk-3-0 libnspr4 libnss3 libpango-1.0-0 \
+    libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 \
+    libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 \
+    libxrandr2 libxrender1 libxss1 libxtst6 lsb-release wget xdg-utils -y
 ```
 
-**c) And finally, force install all the dependencies by running**
-```bash
-sudo apt --fix-broken install
-```
-> This feels a hackish way of installing the latest version of Chrome, but if someone figures out a better way, do let me know please. 
+**c) Install/Unzip Chrome**
+The downloaded zip file contains unpackaged Chrome binary files. We just need to unpack them.
 
-**d) Get the latest version of Chrome**
 ```bash
-google-chrome-stable --version
+unzip chrome-linux64.zip
 ```
-In this case, it was `95.0.4638.69`.
 
-![chrome-version]({static}/images/99999966-chrome-version.png)
+**c) Check if you Chrome is working**
+```bash
+./chrome-linux64/chrom --version
+```
+![chrome-version]({static}/images/99999966-03-chrome-version.png)
+
+
 
 ## Step 3: Install compatible Chromedriver
-To be able to run Chrome programmatically, we need to install a compatible [Chromedriver](https://chromedriver.chromium.org/home). For every version of Chrome, e.g. `95.0.4638.69`, there is a corresponding version of Chromedriver with same version number. 
-
-**a) You can confirm the Chromedriver version**
-```bash
-chrome_driver=$(curl "https://chromedriver.storage.googleapis.com/LATEST_RELEASE") && \
-echo "$chrome_driver"
-```
-![get-chrome-driver-version]({static}/images/99999966-get-chrome-driver-version.png)
-
+Thankfully, the process of downloading and installing Chrome driver has become much simpler. We can use the same JSON API to get the compatible version of Chromedriver.
 
 **b) Download the latest Chromedriver**
 ```bash
-curl -Lo chromedriver_linux64.zip "https://chromedriver.storage.googleapis.com/\
-${chrome_driver}/chromedriver_linux64.zip"
+meta_data=$(curl 'https://googlechromelabs.github.io/chrome-for-testing/\
+last-known-good-versions-with-downloads.json') /
+wget $(echo "$meta_data" | jq -r '.channels.Stable.downloads.chromedriver[0].url')
 ```
 
-**c) Install unzip**
+
+**d) Unzip the binary file**
 ```bash
-sudo apt install unzip
+unzip chromedriver-linux64.zip
 ```
-
-**d) Unzip the binary file and make it executable**
-```bash
-mkdir -p "chromedriver/stable" && \
-unzip -q "chromedriver_linux64.zip" -d "chromedriver/stable" && \
-chmod +x "chromedriver/stable/chromedriver"
-```
-
 
 ## Step 4: Configure Python and Install Selenium
 
@@ -112,14 +110,9 @@ Selenium webdriver is available as a Python package, but before installation we 
 
 ### Configure a Python virtual environment
 
-Run `python3 --version` and note the version, e.g. in my case I get the version Python 3.8
-
-![python-version]({static}/images/99999966-python-version.png)
-
-
 Next, we need to install `venv`, choose the Python version based on what you have installed.
 ```
-sudo apt install python3.8-venv -y
+sudo apt install python3-venv -y
 ```
 
 Then create a virtual environment
@@ -174,8 +167,9 @@ chrome_options = Options()
 chrome_options.add_argument("--headless") # Ensure GUI is off
 chrome_options.add_argument("--no-sandbox")
 
-# Set path to chromedriver as per your configuration
+# Set path to chrome/chromedriver as per your configuration
 homedir = os.path.expanduser("~")
+chrome_options.binary_location = f"{homedir}/chrome-linux64/chrome"
 webdriver_service = Service(f"{homedir}/chromedriver/stable/chromedriver")
 
 # Choose Chrome Browser
@@ -214,42 +208,42 @@ pushd "$HOME"
 echo "Update the repository and any packages..."
 sudo apt update && sudo apt upgrade -y
 
-echo "Install prerequisite packages..."
-sudo apt install wget curl unzip -y
+echo "Install prerequisite system packages..."
+sudo apt install wget curl unzip jq -y
 
-echo "Download the latest Chrome .deb file..."
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+# Set metadata for Google Chrome repository...
+meta_data=$(curl 'https://googlechromelabs.github.io/chrome-for-testing/'\
+'last-known-good-versions-with-downloads.json')
 
-echo "Install Google Chrome..."
-sudo dpkg -i google-chrome-stable_current_amd64.deb
 
-echo "Fix dependencies..."
-sudo apt --fix-broken install -y
+echo "Download the latest Chrome binary..."
+wget $(echo "$meta_data" | jq -r '.channels.Stable.downloads.chrome[0].url')
 
-chrome_version=($(google-chrome-stable --version))
-echo "Chrome version: ${chrome_version[2]}"
+echo "Install Chrome dependencies..."
+sudo apt install ca-certificates fonts-liberation \
+    libappindicator3-1 libasound2 libatk-bridge2.0-0 libatk1.0-0 libc6 \
+    libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgbm1 \
+    libgcc1 libglib2.0-0 libgtk-3-0 libnspr4 libnss3 libpango-1.0-0 \
+    libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 \
+    libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 \
+    libxrandr2 libxrender1 libxss1 libxtst6 lsb-release wget xdg-utils -y
 
-chromedriver_version=$(curl "https://chromedriver.storage.googleapis.com/LATEST_RELEASE")
-echo "Chromedriver version: ${chromedriver_version}"
 
-if [ "${chrome_version[2]}" == "$chromedriver_version" ]; then
-    echo "Compatible Chromedriver is available..."
-    echo "Proceeding with installation..."
-else
-    echo "Compabible Chromedriver not available...exiting"
-    exit 1
-fi
+echo "Unzip the binary file..."
+unzip chrome-linux64.zip
+
 
 echo "Downloading latest Chromedriver..."
-curl -Lo chromedriver_linux64.zip "https://chromedriver.storage.googleapis.com/${chromedriver_version}/chromedriver_linux64.zip"
+wget $(echo "$meta_data" | jq -r '.channels.Stable.downloads.chromedriver[0].url')
 
 echo "Unzip the binary file and make it executable..."
-mkdir -p "chromedriver/stable"
-unzip -q "chromedriver_linux64.zip" -d "chromedriver/stable"
-chmod +x "chromedriver/stable/chromedriver"
+unzip chromedriver-linux64.zip
 
 echo "Install Selenium..."
 python3 -m pip install selenium
+
+echo "Removing archive files"
+rm chrome-linux64.zip  chromedriver-linux64.zip
 
 popd
 ```
