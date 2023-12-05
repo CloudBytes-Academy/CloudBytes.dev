@@ -48,14 +48,17 @@ Then, run the following command to download the Ubuntu WSL tarball. Copy paste t
 
 ```powershell
 curl (("https://cloud-images.ubuntu.com",
-"releases/hirsute/release",
-"ubuntu-21.04-server-cloudimg-amd64-wsl.rootfs.tar.gz") -join "/") `
---output ubuntu-21.04-wsl-rootfs-tar.gz
+"releases/22.04/release-20231130",
+"ubuntu-22.04-server-cloudimg-amd64-root.tar.xz") -join "/") `
+--output ubuntu-22.04-wsl-root-tar.xz
 ```
+
 
 If prompted with a warning, press "Paste anyway" and then press enter to execute. This will download the Ubuntu WSL image tarball to you current directory. 
 
 ![curl-wsl-ubuntu]({static}/images/99999967-curl-wsl-ubuntu.png)
+
+!!! If you need a specific version of Ubuntu, you can find the list of available versions [here](https://cloud-images.ubuntu.com/releases/). Just replace the version number in the above command with the version you want to download.
 
 ### Step 3: Install the second instance of Ubuntu in WSL2
 
