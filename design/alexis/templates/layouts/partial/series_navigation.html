@@ -1,8 +1,9 @@
 <!-- FILEPATH: /workspaces/cloudbytes/design/alexis/templates/layouts/partial/series_navigation.html -->
 
+
 <div class="series_navigation">
     <ul class="pagination">
-
+    {% if article.series is not string %}
         {% if article.series.previous == None %}
         <li class="page-item">
             <a class="page-link" aria-label="Previous"><span>
@@ -33,6 +34,7 @@
                     >></span></a>
         </li>
         {% endif %}
+    {% endif %}
     </ul>
 </div>
 
