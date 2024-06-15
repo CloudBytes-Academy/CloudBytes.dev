@@ -11,7 +11,6 @@ on:
       - ".gitignore"
       - ".devcontainer/**"
       - ".vscode/**"
-      - "resources/**"
 
 jobs:
   build:
