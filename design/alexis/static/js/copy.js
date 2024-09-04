@@ -7,9 +7,9 @@ const copyToClipboardSuccessText = {
     ariaLabel: "Copied to clipboard",
 };
 
-// Get all pre. But ignore line numbers section
+// Get all pre elements but ignore line numbers section
 document.querySelectorAll("div.highlight pre").forEach((snippet) => {
-    // create div.codecopy
+    // Create div.codecopy
     const wrapper = document.createElement("div");
     wrapper.classList.add("codecopy");
 
@@ -19,23 +19,21 @@ document.querySelectorAll("div.highlight pre").forEach((snippet) => {
     wrapper.appendChild(snippet);
 
     // Create button
-    const button = `
-              <button
-                  class="codecopy-btn"
-                  title=${copyToClipboardDefaultText.ariaLabel}
-                  aria-label=${copyToClipboardDefaultText.ariaLabel}
-              >${copyToClipboardDefaultText.innerText}
-              </button>`;
+    const button = document.createElement("button");
+    button.classList.add("codecopy-btn");
+    button.innerText = copyToClipboardDefaultText.innerText;
+    button.setAttribute("aria-label", copyToClipboardDefaultText.ariaLabel);
 
-    // Add button to div.codecopy
-    wrapper.insertAdjacentHTML("afterbegin", button);
+    // Add button to div.codecopy, before the snippet
+    wrapper.insertBefore(button, snippet);
 });
 
-// Add copy to clipboard functionality
+// Add copy to clipboard functionality with trimmed content
 const clipboard = new ClipboardJS(".codecopy-btn", {
-    target: (trigger) => {
-        return trigger.parentNode;
-    },
+    text: (trigger) => {
+        const codeSnippet = trigger.nextElementSibling.innerText;
+        return codeSnippet.trim(); // Trim leading and trailing newlines
+    }
 });
 
 // Show message on success

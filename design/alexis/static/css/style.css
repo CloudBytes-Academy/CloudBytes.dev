@@ -440,6 +440,34 @@ blockquote {
     margin-left: 0;
 }
 
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    color: #ecf0f1;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #34495e;
+  }
+  
+  th {
+    background-color: #34495e;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  tr:hover {
+    background-color: #3a516e;
+  }
+
+
+
+
 .red {
     color: #ff3860;
 }
