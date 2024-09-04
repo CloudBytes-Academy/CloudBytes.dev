@@ -1,5 +1,5 @@
 Title: Mount Amazon EFS Drive on EC2 Ubuntu Linux using NFS Utils
-Date: 2022-06-13
+Date: 2024-06-13
 Category: AWS Academy
 Tags: aws, linux
 Author: Rehan Haider
@@ -48,8 +48,8 @@ You need an AWS Account and AWS CLI installed on your system. You can find the i
 
 We will mount the EFS drive on EC2 using two methods:
 
-- Using AWS Management Console
-- Using AWS CLI
+- [Using AWS Management Console](#mount-amazon-efs-to-ec2-ubuntu-linux-using-aws-console)
+- [Using AWS CLI](#mount-amazon-efs-to-ec2-ubuntu-linux-using-aws-cli)
 
 ### Mount Amazon EFS to EC2 Ubuntu Linux using AWS Console
 
