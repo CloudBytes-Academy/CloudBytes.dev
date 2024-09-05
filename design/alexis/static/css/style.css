@@ -2716,13 +2716,10 @@ div.hint p.admonition-title:before, div.tip p.admonition-title:before {
     overflow: auto;
   
     & button.codecopy-btn {
-
       box-shadow: none;
       min-height: initial;
-  
       position: absolute;
       z-index: 1;
-  
       right: 0;
       top: 0;
       background-color: var(--gray4);
