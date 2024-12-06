@@ -3,10 +3,10 @@ Date: 2024-12-06
 Category: AWS Academy
 Series: AWS CDK
 series_index: 1040
-Tags: aws, cdk, python, lambda, docker
+Tags: aws, cdk, python
 Author: Rehan Haider
 Summary: This article provides a walkthrough on how to deploy an AWS Lambda function using a AWS provided ECR Docker image with AWS CDK in Python
-Keywords: lambda, cdk, docker, python, aws
+Keywords: lambda, cdk, docker, python, aws, ecr
 
 
 
