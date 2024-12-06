@@ -264,7 +264,7 @@ FSX_ID=$(aws fsx create-file-system \
 
 First, we need to get the latest Amazon Linux 2023 AMI ID. You can go the the AWS Console, go to **EC2 -> Instances -> Launch instances**. In the **Application and OS Images** section, select `Amazon Linux 2023 AMI`. Note the AMI ID at the bottom.
 
-![Amazon Linux 2023 AMI ID]({static}/images/aws/27500000-08-amazon-linux-ami-id)
+![Amazon Linux 2023 AMI ID]({static}/images/aws/27500000-08-amazon-linux-ami-id.png)
 
 Alternatively, you can use the below command to get the latest Amazon Linux 2023 AMI ID:
 
