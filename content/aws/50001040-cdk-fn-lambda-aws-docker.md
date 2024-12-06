@@ -24,7 +24,7 @@ In this post, we'll look at how to create a Lambda function using a AWS provided
 ## Prerequisites
 
 1. Ensure that you have [AWS CDK and SAM CLI installed]({filename}00000100-cdk-installing-cdk-sam-cli.md). 
-2. If needed [create a new CDK application]({filename}50000020-cdk-create-new-app.md).
+2. If needed [create a new CDK application]({filename}50000020-cdk-new-app.md).
 
 
 ## Create a Lambda function using a ECR Docker image
