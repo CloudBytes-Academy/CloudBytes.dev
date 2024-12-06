@@ -37,6 +37,7 @@ jobs:
             .firebaserc
             firebase.json
           retention-days: 1
+          include-hidden-files: true
       - name: Upload the Test Files
         uses: actions/upload-artifact@v4
         with:
@@ -47,6 +48,7 @@ jobs:
             .github/scripts/prepare-test-env.sh
             pytest.ini
           retention-days: 1
+          include-hidden-files: true
   test:
     name: Test
     needs: [build]
