@@ -1,12 +1,12 @@
-Title: How to create a Lambda function in a ECR Docker image using AWS CDK in Python
+Title: How to create a Lambda function in a Custom Docker image using AWS CDK in Python
 Date: 2024-12-06
 Category: AWS Academy
 Series: AWS CDK
 series_index: 1040
-Tags: aws, cdk, python
+Tags: aws, cdk, python, linux
 Author: Rehan Haider
-Summary: This article provides a walkthrough on how to deploy an AWS Lambda function using a AWS provided ECR Docker image with AWS CDK in Python
-Keywords: lambda, cdk, docker, python, aws, ecr
+Summary: This article provides a walkthrough on how to deploy an AWS Lambda function using a Custom Ubuntu Docker image with AWS CDK in Python
+Keywords: lambda, cdk, docker, python, aws, ubuntu
 
 
 
