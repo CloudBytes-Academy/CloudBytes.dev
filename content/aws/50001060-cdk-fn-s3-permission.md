@@ -211,3 +211,34 @@ def handler(event, context):
 ```
 
 In the above code, we use the `boto3` library to interact with the S3 bucket. We first write the response from the API to a file in the bucket and then read the file and send the contents as a response. This method can be modified based on your exact use case.
+
+## Testing the Lambda function
+
+To test the Lambda function, we can use the `cdk` command to deploy the stack and then invoke the Lambda function.
+
+```bash
+cdk deploy
+```
+
+This will deploy the stack and create the Lambda function. We can get the name of the Lambda function using AWS CLI's `list-functions` command:
+
+```bash
+function_name=$(aws lambda list-functions --query "Functions[?contains(FunctionName, 'MyS3Function')].[FunctionName]" --output text)
+```
+
+Finally, invoke the Lambda function using the AWS CLI:
+
+```bash
+aws lambda invoke \
+    --function-name $function_name \
+    --cli-binary-format raw-in-base64-out \
+    --payload '{ "key": "value" }' \
+    /dev/stdout | jq
+```
+
+![invoke-lambda-function]({static}/images/aws/50001060-01-lambda-response.png)
+
+
+!!! note
+    The `jq` command is used to format the JSON output. If you don't have it installed, you can install it by running `brew install jq` on macOS or `apt-get install jq` on Linux.
+
