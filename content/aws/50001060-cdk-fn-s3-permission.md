@@ -69,10 +69,12 @@ pip install aws-cdk.aws-lambda-python-alpha
 
 ```python
 #filename: cdk_app/lambda_stack.py
+# filename: cdk_app/my_stack.py
 from aws_cdk import (
     Stack,
     aws_s3 as s3,
-    aws_lambda_python_alpha as lambda_,  # 👈🏽 import the PythonFunction module
+    aws_lambda_python_alpha as python_lambda,
+    aws_lambda as lambda_,
     RemovalPolicy,
 )
 from constructs import Construct
@@ -86,24 +88,24 @@ class MyStack(Stack):
             self,
             "MyBucket",
             removal_policy=RemovalPolicy.DESTROY,
-            auto_delete_objects=True,
         )
 
-        # 👇🏽 create a lambda function
-        fn = lambda_.PythonFunction(
+
+        # 👇🏽 Create a Lambda function
+        fn = python_lambda.PythonFunction(
             self,
-            id="MyFunction",
+            "MyS3Function",
             entry="cdk_app/fn",
+            runtime=lambda_.Runtime.PYTHON_3_12,
             index="index.py",
             handler="handler",
-            runtime=lambda_.Runtime.PYTHON_3_12,
-            # 👇🏽 pass the bucket name to the lambda function
-            environment={"BUCKET_NAME": bucket.bucket_name},  
+            environment={"BUCKET_NAME": bucket.bucket_name},
         )
+
 
 ```
 
-**Step 3**: Now we the Lambda function code:
+**Step 3**: Now we write the Lambda function code:
 
 ```python
 # filename: cdk_app/fn/index.py
@@ -130,10 +132,12 @@ boto3
 Finally, we need to grant the Lambda function permissions to access the S3 bucket.
 
 ```python
+# filename: cdk_app/my_stack.py
 from aws_cdk import (
     Stack,
     aws_s3 as s3,
-    aws_lambda_python_alpha as lambda_, 
+    aws_lambda_python_alpha as python_lambda,
+    aws_lambda as lambda_,
     RemovalPolicy,
 )
 from constructs import Construct
@@ -147,22 +151,21 @@ class MyStack(Stack):
             self,
             "MyBucket",
             removal_policy=RemovalPolicy.DESTROY,
-            auto_delete_objects=True,
         )
 
-        # 👇🏽 create a lambda function
-        fn = lambda_.PythonFunction(
+        fn = python_lambda.PythonFunction(
             self,
-            id="MyFunction",
+            "MyS3Function",
             entry="cdk_app/fn",
+            runtime=lambda_.Runtime.PYTHON_3_12,
             index="index.py",
             handler="handler",
-            runtime=lambda_.Runtime.PYTHON_3_12,
             environment={"BUCKET_NAME": bucket.bucket_name},
         )
 
-        # 👇🏽 grant the lambda function access to the bucket
+        # 👇🏽 Grant the Lambda function access to the S3 bucket
         bucket.grant_read_write_data(fn)
+
 ```
 
 In the above code, we use the `grant_read_write_data` method to grant the Lambda function read and write access to the S3 bucket.
@@ -178,28 +181,33 @@ Now that we have granted the Lambda function permissions to access the S3 bucket
 ```python
 # filename: cdk_app/fn/index.py
 
+import os
 import boto3
 import requests
+import json
 
 s3 = boto3.client("s3")
 
+
 def handler(event, context):
     # 👇🏽 get the bucket name from the environment variables
-    bucket_name = event["BUCKET_NAME"]
+    bucket_name = os.environ["BUCKET_NAME"]
 
     response = requests.get("https://jsonplaceholder.typicode.com/todos/1")
 
     # 👇🏽 write the response to a file in the bucket
-    s3.put_object(Bucket=bucket_name, Key="todos-1.json", Body=response.json())
+    # Convert the JSON response to a string before storing
+    json_string = json.dumps(response.json())
+    s3.put_object(Bucket=bucket_name, Key="todos-1.json", Body=json_string)
 
     # 👇🏽 list all the objects in the bucket
     response = s3.list_objects_v2(Bucket=bucket_name)
 
-    # 👇🏽 read the file and send the contexts as response
+    # 👇🏽 read the file and parse the contents as JSON
     stored_response = s3.get_object(Bucket=bucket_name, Key="todos-1.json")
+    stored_data = json.loads(stored_response["Body"].read().decode("utf-8"))
 
-
-    return {"statusCode": 200, "body": stored_response}
+    return {"statusCode": 200, "body": json.dumps(stored_data)}
 ```
 
 In the above code, we use the `boto3` library to interact with the S3 bucket. We first write the response from the API to a file in the bucket and then read the file and send the contents as a response. This method can be modified based on your exact use case.

@@ -27,7 +27,7 @@ from aws_cdk import (
     Stack,
 )
 # 👇🏽 import the python_alpha module
-from aws_cdk import aws_lambda_python_alpha as _lambda
+from aws_cdk import aws_lambda_python_alpha as python
 
 from constructs import Construct
 
