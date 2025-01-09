@@ -61,21 +61,22 @@ pip install -r requirements.txt -r requirements-dev.txt
 a) Open the `app.py` file. This file includes the basic CDK app that includes a single stack called `CdkAppStack`. 
 
 ```python
-import os
 import aws_cdk as cdk
 
-from cdk_app.cdk_app_stack import CdkAppStack
-
+from cdk_app.my_stack import MyStack
 
 app = cdk.App()
-CdkAppStack(app, "CdkAppStack",)
+my_stack = MyStack(
+    app,
+    "MyStack",
+)
 
 app.synth()
 ```
 
-In the above code, we are importing the `CdkAppStack` class from the `cdk_app_stack.py` file. This file is located in the `cdk_app` folder.
+In the above code, we are importing the `MyStack` class from the `cdk_app/my_stack.py` file.
 
-b) Open the `cdk_app_stack.py` file. This file includes the `CdkAppStack` class that extends the `cdk.Stack` class. 
+b) Open the `MyStack.py` file. This file includes the `MyStack` class that extends the `cdk.Stack` class. 
 
 ```python
 from aws_cdk import (
@@ -83,7 +84,7 @@ from aws_cdk import (
 )
 from constructs import Construct
 
-class CdkAppStack(Stack):
+class MyStack(Stack):
 
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
@@ -92,9 +93,9 @@ class CdkAppStack(Stack):
 
 ```
 
-Currently, the `CdkAppStack` class does not include any resources. Let's add a S3 bucket to the stack.
+Currently, the `MyStack` class does not include any resources. Let's add a S3 bucket to the stack.
 
-c) Modify the `cdk_app_stack.py` file as follows:
+c) Modify the `my_stack.py` file as follows:
 
 ```python
 from aws_cdk import (
@@ -104,7 +105,7 @@ from aws_cdk import (
 
 from constructs import Construct
 
-class CdkAppStack(Stack):
+class MyStack(Stack):
 
     BUCKET_ID = "MyFirstBucket"
 
