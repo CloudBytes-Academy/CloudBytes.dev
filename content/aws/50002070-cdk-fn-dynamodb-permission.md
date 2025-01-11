@@ -2,7 +2,7 @@ Title: Granting Lambda function permission to access DynamoDB using AWS CDK in P
 Date: 2025-01-03
 Category: AWS Academy
 Series: AWS CDK
-series_index: 1070
+series_index: 2070
 Tags: aws, cdk, python
 Author: Rehan Haider
 Summary: Learn how to grant Lambda permissions to access DynamoDB using AWS CDK in Python

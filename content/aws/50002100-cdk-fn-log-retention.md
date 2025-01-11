@@ -2,7 +2,7 @@ Title: Configure log retention and removal policy for Lambda function using AWS 
 Date: 2025-01-09
 Category: AWS Academy
 Series: AWS CDK
-series_index: 1100
+series_index: 2100
 Tags: aws, cdk, python
 Author: Rehan Haider
 Summary: Learn how to configure CloudWatch logs retention and removal/deletion policy for a Lambda function using AWS CDK in Python

@@ -2,7 +2,7 @@ Title: Using Lambda Layers with AWS CDK in Python
 Date: 2023-11-05
 Category: AWS Academy
 Series: AWS CDK
-series_index: 1020
+series_index: 2020
 Tags: aws, cdk, python
 Author: Rehan Haider
 Summary: Using Lambda layers with AWS CDK in Python to handle dependencies and share code between lambda functions

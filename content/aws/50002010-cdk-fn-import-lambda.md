@@ -2,7 +2,7 @@ Title: How to import an existing lambda function using AWS CDK in Python
 Date: 2023-11-05
 Category: AWS Academy
 Series: AWS CDK
-series_index: 1010
+series_index: 2010
 Tags: aws, cdk, python
 Author: Rehan Haider
 Summary: A guide to importing an existing lambda function using AWS CDK in Python and applying changes to it

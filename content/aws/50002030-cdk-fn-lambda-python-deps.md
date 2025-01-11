@@ -2,7 +2,7 @@ Title: Manage Python dependencies in AWS Lambda using AWS CDK
 Date: 2023-11-05
 Category: AWS Academy
 Series: AWS CDK
-series_index: 1030
+series_index: 2030
 Tags: aws, cdk, python
 Author: Rehan Haider
 Summary: We look at how to package, install and manage Python dependencies in AWS Lambda using AWS CDK
