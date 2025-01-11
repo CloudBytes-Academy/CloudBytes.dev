@@ -102,4 +102,4 @@ cdk deploy
 
 Once the stack is deployed, you can check the log group in the CloudWatch console. You will see that the log group has a retention policy of one week.
 
-![cloudwatch log group retention policy]({static}/images/aws/50001100-01-cloudwatch-retention.png)
+![cloudwatch log group retention policy]({static}/images/aws/50002100-01-cloudwatch-retention.png)

@@ -12,9 +12,9 @@ Keywords: lambda, cdk, docker, python, aws, ecr
 
 In previous posts we looked at how to create using AWS CDK:
 
-1. [Default Lambda function]({filename}50001000-cdk-fn-create-lambda.md), 
-2. [Lambda function with Python dependencies using a Lambda layer]({filename}50001020-cdk-fn-lambda_layers.md)
-3. [Lambda function with Python dependencies that uses AWS provided Docker image]({filename}50001030-cdk-fn-lambda-python-deps.md)
+1. [Default Lambda function]({filename}50002000-cdk-fn-create-lambda.md), 
+2. [Lambda function with Python dependencies using a Lambda layer]({filename}50002020-cdk-fn-lambda_layers.md)
+3. [Lambda function with Python dependencies that uses AWS provided Docker image]({filename}50002030-cdk-fn-lambda-python-deps.md)
 
 But in some cases, you may need to modify the Docker image that AWS Lambda uses. E.g. you may need to install additional dependencies or modify the runtime.
 
@@ -145,4 +145,4 @@ To deploy the stack, run `cdk deploy`.
 
 When the lambda function is deployed, you can go to the console and test the function. It should show the below output.
 
-![Lambda function output]({static}/images/aws/50001040-01-aws-lambda-output.png)
+![Lambda function output]({static}/images/aws/50002040-01-aws-lambda-output.png)

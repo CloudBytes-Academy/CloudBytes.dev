@@ -9,7 +9,7 @@ Summary: A guide to importing an existing lambda function using AWS CDK in Pytho
 Keywords: lambda, cdk
 
 
-We learnt [how to create a new lambda function using AWS CDK in Python]({filename}50001000-cdk-fn-create-lambda.md) in the previous post. 
+We learnt [how to create a new lambda function using AWS CDK in Python]({filename}50002000-cdk-fn-create-lambda.md) in the previous post. 
 
 But in a lot of cases, you might already have a lambda function that was created elsewhere and you want to import into your CDK app and apply changes to it. In this post, we will see how to do that.
 

@@ -8,7 +8,7 @@ Author: Rehan Haider
 Summary: Using Lambda layers with AWS CDK in Python to handle dependencies and share code between lambda functions
 Keywords: lambda, cdk, layers
 
-While we created some simple lambda functions in a [previous post]({filename}50001000-cdk-fn-create-lambda.md), but in most cases, you will need to use some external libraries or dependencies in your lambda functions.
+While we created some simple lambda functions in a [previous post]({filename}50002000-cdk-fn-create-lambda.md), but in most cases, you will need to use some external libraries or dependencies in your lambda functions.
 
 E.g., let's modify our `cdk_app/lambda/index.file` to use the `requests` library:
 
@@ -59,7 +59,7 @@ class LambdaStack(Stack):
 
 After deploying the stack if you try to invoke the lambda function, you will get an error:
 
-![lambda requirement import error]({static}/images/aws/50001020-01-fn-lambda-import-error.png)
+![lambda requirement import error]({static}/images/aws/50002020-01-fn-lambda-import-error.png)
 
 
 This is because by default, the lambda function does not have the `requests` library installed. To fix this, we need to create a lambda layer that contains the `requests` library and then add that layer to our lambda function.
@@ -179,7 +179,7 @@ Here, we are creating the `create_dependencies_layer` function. This functions r
 
 Now if you run `cdk deploy`, you will see that the lambda function is created successfully and you can invoke it successfully as well.
 
-[Succes lambda layer]({static}/images/aws/50001020-02-fn-layer-success-dependency.png)
+![Succes lambda layer]({static}/images/aws/50002020-02-fn-layer-success-dependency.png)
 
 
 ## Reuse code between lambda functions

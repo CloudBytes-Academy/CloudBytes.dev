@@ -9,7 +9,7 @@ Summary: We look at how to package, install and manage Python dependencies in AW
 Keywords: lambda, cdk, docker, dependencies
 
 
-We looked at how we can [install Python packages beyond the ones available by default in AWS Lambda]({filename}50001020-cdk-fn-lambda_layers.md#create-a-lambda-layer-in-aws-cdk-using-python-to-handle-dependencies). 
+We looked at how we can [install Python packages beyond the ones available by default in AWS Lambda]({filename}50002020-cdk-fn-lambda_layers.md#create-a-lambda-layer-in-aws-cdk-using-python-to-handle-dependencies). 
 
 But I have always found it a bit cumbersome and unelegant to use Lambda layers to handle dependencies. Intead, I will show you an alternative way to handle Python dependencies in AWS Lambda using AWS CDK using an L2 construct called `PythonFunction`.
 
