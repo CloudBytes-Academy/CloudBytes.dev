@@ -2,7 +2,7 @@ Title: Configure lifecycle rules for S3 buckets using CDK
 Date: 2023-11-04
 Category: AWS Academy
 Series: AWS CDK
-series_index: 140
+series_index: 1040
 Tags: aws, cdk, python
 Author: Rehan Haider
 Summary: How to configure S3 lifecycle rules like expiration and transition
