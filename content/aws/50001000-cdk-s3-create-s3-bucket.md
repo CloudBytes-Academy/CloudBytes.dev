@@ -2,7 +2,7 @@ Title: Create S3 bucket using CDK
 Date: 2023-11-04
 Category: AWS Academy
 Series: AWS CDK
-series_index: 100
+series_index: 1000
 Tags: aws, cdk, python
 Author: Rehan Haider
 Summary: How to create an S3 bucket in CDK using Python
@@ -181,10 +181,10 @@ The `bucket_name` value must be globally unique. If you try to deploy the app wi
 
 You also also read how to configure the following for S3 buckets:
 
-1. [Import an existing S3 bucket]({filename}50000105-cdk-s3-import-existing-bucket.md)
-2. [Versioning]({filename}50000110-cdk-s3-configure-versioning.md)
-3. [Encryption]({filename}50000120-cdk-s3-configure-encryption.md)
-4. [Access Control]({filename}50000130-cdk-s3-access-control.md)
-5. [Lifecycle Rules]({filename}50000140-cdk-s3-lifecycle-rules.md)
-6. [Event Notifications using EventBridge]({filename}50000150-cdk-s3-eventbridge-notifications.md)
-7. [Event Notificationsusing Bucket Notifications]({filename}50000160-cdk-s3-event-notifications.md) 
+1. [Import an existing S3 bucket]({filename}50001005-cdk-s3-import-existing-bucket.md)
+2. [Versioning]({filename}50001010-cdk-s3-configure-versioning.md)
+3. [Encryption]({filename}50001020-cdk-s3-configure-encryption.md)
+4. [Access Control]({filename}50001030-cdk-s3-access-control.md)
+5. [Lifecycle Rules]({filename}50001040-cdk-s3-lifecycle-rules.md)
+6. [Event Notifications using EventBridge]({filename}50001050-cdk-s3-eventbridge-notifications.md)
+7. [Event Notificationsusing Bucket Notifications]({filename}50001060-cdk-s3-event-notifications.md) 

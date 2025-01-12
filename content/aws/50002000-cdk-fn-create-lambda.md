@@ -2,7 +2,7 @@ Title: How to create a lambda function using AWS CDK in Python
 Date: 2023-11-05
 Category: AWS Academy
 Series: AWS CDK
-series_index: 1000
+series_index: 2000
 Tags: aws, cdk, python
 Author: Rehan Haider
 Summary: A complete guide to creating a lambda function using AWS CDK
@@ -66,7 +66,7 @@ To deploy, run `cdk deploy`.
 
 Once deployed, you can go to the AWS Console and check the lambda function. You should see the following:
 
-![Lambda inline function]({static}/images/aws/50001000-01-fn-inline-code.gif)
+![Lambda inline function]({static}/images/aws/50002000-01-fn-inline-code.gif)
 
 ### What's happening here?
 
@@ -204,10 +204,10 @@ class LambdaStack(Stack):
 
 Or learn some advanced methods on how to create lambda functions:
 
-1. [Import an existing lambda function]({filename}50001010-cdk-fn-import-lambda.md)
-2. [Using lambda layers]({filename}50001020-cdk-fn-lambda_layers.md)
-3. [Using Lambda PythonFunction to create lambda functions]({filename}50001030-cdk-fn-lambda-python-deps.md)
-4. [Running Lambda using custom Docker container]({filename}50001040-cdk-fn-lambda-aws-docker.md)
+1. [Import an existing lambda function]({filename}50002010-cdk-fn-import-lambda.md)
+2. [Using lambda layers]({filename}50002020-cdk-fn-lambda_layers.md)
+3. [Using Lambda PythonFunction to create lambda functions]({filename}50002030-cdk-fn-lambda-python-deps.md)
+4. [Running Lambda using custom Docker container]({filename}50002040-cdk-fn-lambda-aws-docker.md)
 
 
 

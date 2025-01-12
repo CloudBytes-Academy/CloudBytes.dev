@@ -2,7 +2,7 @@ Title: Add CORS configuration to a S3 bucket using AWS CDK
 Date: 2023-11-05
 Category: AWS Academy
 Series: AWS CDK
-series_index: 170
+series_index: 1070
 Tags: aws, cdk, python
 Author: Rehan Haider
 Summary: Learn how to setup and configure CORS for S3 buckets using CDK

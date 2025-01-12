@@ -2,7 +2,7 @@ Title: Configure S3 encryption using CDK
 Date: 2023-11-04
 Category: AWS Academy
 Series: AWS CDK
-series_index: 120
+series_index: 1020
 Tags: aws, cdk, python
 Author: Rehan Haider
 Summary: How to configure S3 encryption for objects using CDK including SSE-S3, SSE-KMS, and SSE-C

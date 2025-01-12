@@ -2,7 +2,7 @@ Title: Configure public access control for S3 buckets using CDK
 Date: 2023-11-04
 Category: AWS Academy
 Series: AWS CDK
-series_index: 130
+series_index: 1030
 Tags: aws, cdk, python
 Author: Rehan Haider
 Summary: How to configure S3 public access control 

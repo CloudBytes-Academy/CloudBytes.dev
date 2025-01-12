@@ -2,7 +2,7 @@ Title: Configure event notifications using EventBridge for S3 buckets using CDK
 Date: 2023-11-04
 Category: AWS Academy
 Series: AWS CDK
-series_index: 150
+series_index: 1050
 Tags: aws, cdk, python
 Author: Rehan Haider
 Summary: Guide to configure event notifications using EventBridge for S3 buckets using CDK
@@ -13,7 +13,7 @@ Keywords: s3, notifications, event
 There are two ways to configure event notifications on the S3 bucket:
 
 1. Using EventBridge notifications. This is covered in this guide
-2. Using the `add_event_notification` method of the `Bucket` construct. This is covered in the [next guide]({filename}50000160-cdk-s3-event-notifications.md)
+2. Using the `add_event_notification` method of the `Bucket` construct. This is covered in the [next guide]({filename}50001060-cdk-s3-event-notifications.md)
 
 ![S3 event notifications]({static}/images/aws/50000150-02-event-notification-options.png)
 

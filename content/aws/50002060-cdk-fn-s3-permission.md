@@ -2,7 +2,7 @@ Title: Granting S3 permissions to a Lambda function using AWS CDK in Python
 Date: 2025-01-03
 Category: AWS Academy
 Series: AWS CDK
-series_index: 1060
+series_index: 2060
 Tags: aws, cdk, python
 Author: Rehan Haider
 Summary: Learn how to grant S3 permissions to a Lambda function and accessing files from an S3 bucket using AWS CDK in Python
@@ -57,7 +57,7 @@ class MyStack(Stack):
 
 ### 2. Create a Lambda function
 
-We can create a simple Lambda function using any of the methods we have discussed in the previous posts. For this example we will use the CDK provided `PythonFunction` feature [that allows us to specify the python dependencies in AWS Lambda with ease]({filename}50001030-cdk-fn-lambda-python-deps.md).
+We can create a simple Lambda function using any of the methods we have discussed in the previous posts. For this example we will use the CDK provided `PythonFunction` feature [that allows us to specify the python dependencies in AWS Lambda with ease]({filename}50002030-cdk-fn-lambda-python-deps.md).
 
 **Step 1**: First we install the `aws-cdk.aws-lambda-python-alpha` module:
 
@@ -236,7 +236,7 @@ aws lambda invoke \
     /dev/stdout | jq
 ```
 
-![invoke-lambda-function]({static}/images/aws/50001060-01-lambda-response.png)
+![invoke-lambda-function]({static}/images/aws/50002060-01-lambda-response.png)
 
 
 !!! note

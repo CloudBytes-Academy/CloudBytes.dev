@@ -2,7 +2,7 @@ Title: How to create a Lambda function in a Custom Docker image using AWS CDK in
 Date: 2024-12-06
 Category: AWS Academy
 Series: AWS CDK
-series_index: 1040
+series_index: 2040
 Tags: aws, cdk, python, linux
 Author: Rehan Haider
 Summary: This article provides a walkthrough on how to deploy an AWS Lambda function using a Custom Ubuntu Docker image with AWS CDK in Python
@@ -12,10 +12,10 @@ Keywords: lambda, cdk, docker, python, aws, ubuntu
 
 In previous posts we looked at how to create using AWS CDK:
 
-1. [Default Lambda function]({filename}50001000-cdk-fn-create-lambda.md), 
-2. [Lambda function with Python dependencies using a Lambda layer]({filename}50001020-cdk-fn-lambda_layers.md)
-3. [Lambda function with Python dependencies that uses AWS provided Docker image]({filename}50001030-cdk-fn-lambda-python-deps.md)
-4. [Lambda function using a AWS ECR Docker image]({filename}50001040-cdk-fn-lambda-aws-docker.md)
+1. [Default Lambda function]({filename}50002000-cdk-fn-create-lambda.md), 
+2. [Lambda function with Python dependencies using a Lambda layer]({filename}50002020-cdk-fn-lambda_layers.md)
+3. [Lambda function with Python dependencies that uses AWS provided Docker image]({filename}50002030-cdk-fn-lambda-python-deps.md)
+4. [Lambda function using a AWS ECR Docker image]({filename}50002040-cdk-fn-lambda-aws-docker.md)
 
 But what if you need something more custom? We can use a similar approach to the previous post, but it requires a bit more work.
 
@@ -169,4 +169,4 @@ To deploy the stack, run `cdk deploy`.
 
 When the lambda function is deployed, you can go to the console and test the function. It should show the below output.
 
-![Lambda function output]({static}/images/aws/50001050-01-aws-lambda-output.png)
+![Lambda function output]({static}/images/aws/50002050-01-aws-lambda-output.png)

@@ -2,7 +2,7 @@ Title: Granting Lambda function permission to access DynamoDB using AWS CDK in P
 Date: 2025-01-03
 Category: AWS Academy
 Series: AWS CDK
-series_index: 1070
+series_index: 2070
 Tags: aws, cdk, python
 Author: Rehan Haider
 Summary: Learn how to grant Lambda permissions to access DynamoDB using AWS CDK in Python
@@ -56,7 +56,7 @@ class MyStack(Stack):
 
 ### 2. Create a Lambda function
 
-We can create a simple Lambda function using any of the methods we have discussed in the previous posts. For this example we will use the CDK provided `PythonFunction` feature [that allows us to specify the python dependencies in AWS Lambda with ease]({filename}50001030-cdk-fn-lambda-python-deps.md).
+We can create a simple Lambda function using any of the methods we have discussed in the previous posts. For this example we will use the CDK provided `PythonFunction` feature [that allows us to specify the python dependencies in AWS Lambda with ease]({filename}50002030-cdk-fn-lambda-python-deps.md).
 
 **Step 1**: First we install the `aws-cdk.aws-lambda-python-alpha` module:
 
@@ -229,4 +229,4 @@ aws lambda invoke \
 
 This will invoke the Lambda function and print the response in the terminal.
 
-![invoke-lambda-function]({static}/images/aws/50001070-01-lambda-response.png)
+![invoke-lambda-function]({static}/images/aws/50002070-01-lambda-response.png)
