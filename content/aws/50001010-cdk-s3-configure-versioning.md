@@ -63,7 +63,7 @@ To deploy the stack run `cdk deploy`.
 
 If you go to the AWS console and check the S3 bucket, you will see that versioning is enabled.
 
-![S3 versioning enabled]({static}/images/aws/50000110-01-s3-versioning-enabled.png)
+![S3 versioning enabled]({static}/images/aws/50001010-01-s3-versioning-enabled.png)
 
 ## Suspending versioning
 
@@ -95,7 +95,7 @@ class S3Stack(Stack):
         )
 ```
 
-![S3 versioning suspended]({static}/images/aws/50000110-02-s3-versioning-suspended.png)
+![S3 versioning suspended]({static}/images/aws/50001010-02-s3-versioning-suspended.png)
 
 
 ## Conclusion

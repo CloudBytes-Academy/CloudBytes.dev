@@ -15,7 +15,7 @@ There are two ways to configure event notifications on the S3 bucket:
 1. Using EventBridge notifications. This is covered in this guide
 2. Using the `add_event_notification` method of the `Bucket` construct. This is covered in the [next guide]({filename}50001060-cdk-s3-event-notifications.md)
 
-![S3 event notifications]({static}/images/aws/50000150-02-event-notification-options.png)
+![S3 event notifications]({static}/images/aws/50001050-02-event-notification-options.png)
 
 
 ## Configure EventBridge notifications
@@ -168,14 +168,14 @@ class S3Stack(Stack):
 
 Now you can deploy the app by running `cdk deploy`. This will create the S3 bucket, the Lambda function and the EventBridge rule.
 
-![S3 event bridge notification]({static}/images/aws/50000150-01-event-bridge-s3-notification.png)
+![S3 event bridge notification]({static}/images/aws/50001050-01-event-bridge-s3-notification.png)
 
 
 ### Test the app
 Let's upload a file to the S3 bucket and see if the Lambda function is invoked.
 
-![S3 upload file]({static}/images/aws/50000150-03-upload-to-s3.gif)
+![S3 upload file]({static}/images/aws/50001050-03-upload-to-s3.gif)
 
 If you check your CloudWatch logs, you will see that the Lambda function was invoked and it printed "File uploaded!".
 
-![S3 upload event bridge notification]({static}/images/aws/50000150-04-event-bridge-success.png)
+![S3 upload event bridge notification]({static}/images/aws/50001050-04-event-bridge-success.png)
