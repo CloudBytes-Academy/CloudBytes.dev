@@ -24,13 +24,13 @@ This article will show you how to create a lambda function that is running in a 
 
 1. Ensure that you have [AWS CDK and SAM CLI installed]({filename}00000100-cdk-installing-cdk-sam-cli.md). 
 2. If needed [create a new CDK application]({filename}50000020-cdk-new-app.md).
-3. We need a VPC with private subnet. You can follow this [article]({filename}50002070-cdk-vpc-private-subnet.md) to create a VPC with private subnet.
+3. We need a VPC with private subnet. You can follow this [article]({filename}50003000-cdk-vpc-3-tier.md) to create a VPC with private subnet.
 
 
 
 ## Creating a Lambda function in a VPC
 
-Before we create a Lambda function, we need appropriate VPC and subnets. If you need to create a VPC, you can follow this [article]({filename}50002070-cdk-vpc-private-subnet.md) to create a VPC with private subnet.
+Before we create a Lambda function, we need appropriate VPC and subnets. If you need to create a VPC, you can follow this [article]({filename}50003000-cdk-vpc-3-tier.md) to create a VPC with private subnet.
 
 We will create the lambda function in the private subnet of the VPC. The following code creates a Lambda function in a VPC. 
 
