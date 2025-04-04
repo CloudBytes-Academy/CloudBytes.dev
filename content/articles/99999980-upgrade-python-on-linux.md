@@ -71,6 +71,7 @@ python3.13 --version
 E.g. you can create a new virtual environment by running
 
 ```bash
+sudo python3.13 -m venv venv
 python3.13 -m venv env
 ```
 
@@ -96,6 +97,7 @@ Or, if you have [oh-my-zsh](https://ohmyz.sh/) installed, you can avoid typing o
 ```bash
 echo "alias py=/usr/bin/python3" >> ~/.zshrc
 echo "alias python=/usr/bin/python3" >> ~/.zshrc
+omz reload
 ```
 After restarting your terminal, you can run your Python apps with `py` or `python`.
 
