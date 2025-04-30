@@ -11,7 +11,7 @@ How do you deal with situations such as when you need to provide somebody else w
 
 ## Pre-requisites
 
-You need an EC2 instance running with SSH access. You can create a new EC2 instance through the [AWS Console]({filename}18750100-create-ec2-instance-console.md) or the [AWS CLI]({filename}aws/18750200-create-ec2-instance-using-cli.md).
+You need an EC2 instance running with SSH access. You can create a new EC2 instance through the [AWS Console]({filename}18750100-create-ec2-instance-console.md) or the [AWS CLI]({filename}18750200-create-ec2-instance-using-cli.md).
 
 
 ## Login to the EC2 instance
