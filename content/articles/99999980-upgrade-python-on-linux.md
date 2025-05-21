@@ -1,5 +1,5 @@
 Title: Upgrade Python to latest version (3.13) on Ubuntu Linux or WSL2
-Date: 2024-06-06
+Date: 2025-01-06
 Category: Snippets
 Tags: python, ubuntu, wsl
 Author: Rehan Haider
