@@ -6,7 +6,7 @@ series_index: 3100
 Tags: aws, cdk, python
 Author: Rehan Haider
 Summary: Guide to running a Web Server in a Private Subnet with AWS CDK in Python.
-Keywords: vpc, public, private, subnet, network
+Keywords: vpc, public, private, subnet, network, secure, security, aws, cdk, python
 
 
 The traditional way to run applications in Data Centres were to create a 3-tier architecture with:
