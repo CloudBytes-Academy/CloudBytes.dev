@@ -4,7 +4,7 @@ Category: Snippets
 Tags: python, ubuntu, wsl
 Author: Rehan Haider
 Summary: A complete guide on how to upgrade Python to the latest version (Python 3.13) on Ubuntu Linux and solve associated issues. Also works on WSL2.
-Keywords: Linux, Python, Ubuntu, Python 3.10, 
+Keywords: Linux, Python, Ubuntu, Python 3.10, 3.13, upgrade python, upgrade python 3.13, upgrade python on linux, upgrade python on ubuntu, upgrade python on wsl2, upgrade python on ubuntu wsl2
 Slug: upgrade-python-to-latest-version-on-ubuntu-linux
 
 **Last Updated:** 2025-01-06
