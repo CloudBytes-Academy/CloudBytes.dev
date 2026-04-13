@@ -4,10 +4,12 @@ Category: Snippets
 Tags: wsl, ubuntu, windows
 Author: Rehan Haider
 Summary: A guide to installing multiple fresh instances of Ubuntu in WSL2
-Keywords: ubuntu, WSL, WSL2, linux, windows
+Keywords: ubuntu, WSL, WSL2, linux, windows, install multiple ubuntu in wsl2
 
 
 [TOC]
+
+**Last Updated:** 2026-04-13
 
 Windows Subsystem for Linux 2 ([WSL2](https://docs.microsoft.com/en-us/windows/wsl/install)) is in its second iteration that uses an actual Linux Kernel, an upgrade of the previous kernel emulator which was called Windows Subsystem for Linux (WSL).
 
@@ -30,13 +32,13 @@ This will take care of all the steps required, i.e.
 3. Update the Linux kernel to the latest version
 4. Install the default Linux distribution, i.e. latest Ubuntu
 
-![Install WSL]({static}/images/99999967-install-wsl.gif)
+![Install WSL]({static}/images/99999967-01-install-wsl.gif)
 
 Once installed, just run `wsl` to open the WSL2 shell, on the first login you will be asked to choose username and password. 
 
 ### Step 2: Download the Ubuntu WSL tarball
 
-You can download the Ubuntu WSL tarball from the [Ubuntu WSL2 Image](https://cloud-images.ubuntu.com/releases/hirsute/release/ubuntu-21.04-server-cloudimg-amd64-wsl.rootfs.tar.gz) and save it to your local machine. 
+You can download the Ubuntu WSL tarball from the [Ubuntu WSL2 Image for 24.04](https://cloud-images.ubuntu.com/wsl/releases/noble/current/ubuntu-noble-wsl-amd64-wsl.rootfs.tar.gz) and save it to your local machine. 
 
 You can use your Windows Terminal / Powershell to do so, first run the following command to remove `curl` alias which the mighty intelligent 🤡 Powershell developers have built in
 
@@ -48,17 +50,17 @@ Then, run the following command to download the Ubuntu WSL tarball. Copy paste t
 
 ```powershell
 curl (("https://cloud-images.ubuntu.com",
-"releases/22.04/release-20231130",
-"ubuntu-22.04-server-cloudimg-amd64-root.tar.xz") -join "/") `
---output ubuntu-22.04-wsl-root-tar.xz
+"wsl/releases/noble/current",
+"ubuntu-noble-wsl-amd64-wsl.rootfs.tar.gz") -join "/") `
+--output ubuntu-24.04-wsl-root-tar.gz
 ```
 
 
 If prompted with a warning, press "Paste anyway" and then press enter to execute. This will download the Ubuntu WSL image tarball to you current directory. 
 
-![curl-wsl-ubuntu]({static}/images/99999967-curl-wsl-ubuntu.png)
+![curl-wsl-ubuntu]({static}/images/99999967-02-curl-wsl-ubuntu.png)
 
-!!! If you need a specific version of Ubuntu, you can find the list of available versions [here](https://cloud-images.ubuntu.com/releases/). Just replace the version number in the above command with the version you want to download.
+!!! If you need a specific version of Ubuntu, you can find the list of available versions [here](https://cloud-images.ubuntu.com/wsl/releases/). Just replace the version number in the above command with the version you want to download.
 
 ### Step 3: Install the second instance of Ubuntu in WSL2
 
@@ -72,7 +74,7 @@ Just the below command and
 wsl --import <Distribution Name> <Installation Folder> <Ubuntu WSL2 Image Tarball path>
 ```
 
-![wsl-install-2]({static}/images/99999967-wsl-install-2.png)
+![wsl-install-2]({static}/images/99999967-03-wsl-install-2.png)
 
 After that run, `wsl -l -v` to see the list of distributions installed.
 
@@ -84,7 +86,9 @@ To login you need to run:
 wsl -d <Distribution Name>
 ```
 
-![wsl2-login]({static}/images/99999967-wsl2-login.png)
+You might see an error, ignore it and continue.
+
+![wsl2-login]({static}/images/99999967-04-wsl2-login.png)
 
 
 ### Step 5: Setup user accounts
@@ -104,7 +108,7 @@ useradd -m -G sudo -s /bin/bash "$NEW_USER"
 passwd "$NEW_USER"
 ```
 
-![create-user-ubuntu]({static}/images/99999967-create-user-ubuntu.png)
+![create-user-ubuntu]({static}/images/99999967-05-create-user-ubuntu.png)
 
 ### Step 6: Configure default user
 
@@ -119,7 +123,7 @@ default=${NEW_USER}
 _EOF
 ```
 
-![set-default-user]({static}/images/99999967-set-default-user.png)
+![set-default-user]({static}/images/99999967-06-set-default-user.png)
 
 ### Step 7: Login as the new user
 
@@ -135,4 +139,6 @@ Finally, login to the second instance of Ubuntu again:
 wsl -d <Distribution Name>
 ```
 
-![login-wsl-new]({static}/images/99999967-login-wsl-new.png)
+![login-wsl-new]({static}/images/99999967-07-login-wsl-new.png)
+
+You should now be logged in as the new user.
