@@ -1,10 +1,11 @@
 Title: How to install multiple instances of Ubuntu in WSL2
-Date: 2021-11-11
+Date: 2026-04-13
 Category: Snippets
 Tags: wsl, ubuntu, windows
 Author: Rehan Haider
 Summary: A guide to installing multiple fresh instances of Ubuntu in WSL2
 Keywords: ubuntu, WSL, WSL2, linux, windows, install multiple ubuntu in wsl2
+youtube_id: okkO1xD4LRU
 
 
 [TOC]
