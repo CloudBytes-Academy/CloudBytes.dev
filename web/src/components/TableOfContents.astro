@@ -1,0 +1,31 @@
+---
+interface Heading {
+    depth: number;
+    slug: string;
+    text: string;
+}
+
+interface Props {
+    headings: Heading[];
+    minDepth?: number;
+    maxDepth?: number;
+    class?: string;
+}
+
+const { headings, minDepth = 2, maxDepth = 3, class: className } = Astro.props;
+
+const items = (headings ?? []).filter((h) => h.slug && h.depth >= minDepth && h.depth <= maxDepth);
+---
+
+<nav aria-label="Table of contents">
+    <ul class:list={["space-y-1 text-sm", className]}>
+        {items.map((h) => (
+            <li class:list={[h.depth === minDepth ? "" : "ml-4"]}>
+                <a class="toc-link" href={`#${h.slug}`}>
+                    {h.text}
+                </a>
+            </li>
+        ))}
+    </ul>
+</nav>
+

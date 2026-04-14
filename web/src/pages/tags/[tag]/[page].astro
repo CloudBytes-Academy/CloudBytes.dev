@@ -1,0 +1,52 @@
+---
+import ArticleCard from "../../../components/ArticleCard.astro";
+import Pagination from "../../../components/Pagination.astro";
+import Page from "../../../layouts/Page.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../../../consts";
+import { slugify } from "../../../utils/slugify";
+import { getAllPosts, getPostHref, getUniqueTags, paginate, PAGE_SIZE } from "../../../utils/posts";
+
+export async function getStaticPaths() {
+    const allPosts = await getAllPosts();
+    const tags = getUniqueTags(allPosts);
+    const paths = [];
+
+    for (const tag of tags) {
+        const tagged = allPosts.filter((post) => (post.data.tags ?? []).some((t) => slugify(t) === tag.slug));
+        const totalPages = Math.max(1, Math.ceil(tagged.length / PAGE_SIZE));
+        for (let page = 2; page <= totalPages; page++) {
+            paths.push({ params: { tag: tag.slug, page: String(page) }, props: { tag, page } });
+        }
+    }
+
+    return paths;
+}
+
+const { tag, page } = Astro.props;
+const pageNumber = Number(page);
+
+const posts = (await getAllPosts()).filter((post) => (post.data.tags ?? []).some((t) => slugify(t) === tag.slug));
+const { items, totalPages } = paginate(posts, pageNumber);
+---
+
+<Page
+    title={`${SITE_TITLE} · #${tag.name} · Page ${pageNumber}`}
+    description={SITE_DESCRIPTION}
+    heading={`#${tag.name}`}
+    subheading={`Page ${pageNumber} of posts tagged “${tag.name}”.`}
+    label="Tag"
+>
+    {items.map((post) => (
+        <ArticleCard
+            href={getPostHref(post)}
+            title={post.data.title}
+            description={post.data.description}
+            tags={post.data.tags}
+        />
+    ))}
+
+    <div slot="pagination">
+        <Pagination basePath={`/tags/${tag.slug}`} currentPage={pageNumber} totalPages={totalPages} />
+    </div>
+</Page>
+

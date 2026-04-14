@@ -1,0 +1,93 @@
+---
+import { SITE_TITLE } from "@/consts";
+import CategoriesDropdown from "./CategoriesDropdown.astro";
+import SearchBar from "./SearchBar.astro";
+import ThemeToggle from "./ThemeToggle.astro";
+
+const GITHUB_URL = "https://github.com/CloudBytesDotDev/CloudBytes.dev";
+const YOUTUBE_URL = "https://www.youtube.com/@CloudBytesDotDev";
+---
+
+<header class="sticky top-0 z-50 border-b border-base-300 bg-base-200/80 backdrop-blur">
+    <div class="cb-container">
+        <div class="flex min-h-16 items-center gap-1 py-2 md:gap-2">
+            <div class="flex shrink-0 items-center gap-2">
+                <a href="/" class="btn btn-ghost px-2 text-base font-extrabold tracking-tight">
+                        <span class="mr-2 inline-flex h-8 w-8 items-center justify-center rounded-box border border-base-300 bg-base-100">
+                            <img
+                                src="/img/icons/favicon.svg"
+                                alt=""
+                                width="24"
+                                height="24"
+                                class="h-6 w-6"
+                                loading="eager"
+                                decoding="async"
+                                aria-hidden="true"
+                            />
+                        </span>
+                        <span class="text-primary">{SITE_TITLE}</span>
+                </a>
+                <div class="hidden md:block">
+                    <CategoriesDropdown />
+                </div>
+                <a class="btn btn-ghost hidden md:inline-flex" href="/books/">
+                    Books
+                </a>
+            </div>
+
+            <div class="min-w-0 flex-1 px-1 sm:px-2">
+                <SearchBar />
+            </div>
+
+            <div class="flex shrink-0 items-center gap-1 md:gap-2">
+                <a
+                    class="btn btn-ghost btn-circle hidden md:inline-flex"
+                    href={GITHUB_URL}
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="GitHub"
+                    title="GitHub"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="h-5 w-5"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                        />
+                    </svg>
+                </a>
+
+                <a
+                    class="btn btn-ghost btn-circle hidden md:inline-flex"
+                    href={YOUTUBE_URL}
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="YouTube"
+                    title="YouTube"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-5 w-5" aria-hidden="true">
+                        <path
+                            fill="currentColor"
+                            d="M23.498 6.186a2.99 2.99 0 0 0-2.104-2.116C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.394.57A2.99 2.99 0 0 0 .502 6.186C0 8.098 0 12 0 12s0 3.902.502 5.814a2.99 2.99 0 0 0 2.104 2.116c1.889.57 9.394.57 9.394.57s7.505 0 9.394-.57a2.99 2.99 0 0 0 2.104-2.116C24 15.902 24 12 24 12s0-3.902-.502-5.814ZM9.75 15.5v-7l6.5 3.5-6.5 3.5Z"
+                        />
+                    </svg>
+                </a>
+
+                <ThemeToggle />
+
+                <div class="md:hidden">
+                    <CategoriesDropdown variant="compact" />
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+

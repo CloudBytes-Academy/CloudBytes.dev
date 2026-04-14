@@ -1,0 +1,150 @@
+---
+interface Props {
+    placeholder?: string;
+}
+
+const { placeholder = "Search for bytes..." } = Astro.props;
+---
+
+<div class="w-full" data-cb-search data-placeholder={placeholder}>
+    <!-- Desktop: full-width input + dropdown results -->
+    <div class="relative hidden w-full md:block">
+        <div class="relative w-full">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-base-content/60"
+                aria-hidden="true"
+            >
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.3-4.3" />
+            </svg>
+            <input
+                class="input input-bordered w-full bg-base-100 pl-9 pr-10 text-sm text-base-content placeholder:text-base-content/40"
+                type="search"
+                placeholder={placeholder}
+                aria-label={placeholder}
+                autocomplete="off"
+                data-cb-search-desktop-input
+            />
+            <span class="pointer-events-none absolute right-3 top-1/2 hidden -translate-y-1/2 text-xs font-semibold text-base-content/40 sm:inline">
+                /
+            </span>
+        </div>
+
+        <div class="absolute left-0 right-0 top-full z-50 mt-2 hidden" data-cb-search-desktop-panel>
+            <div class="box overflow-hidden">
+                <div
+                    class="border-b border-base-300 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-base-content/60"
+                    data-cb-search-desktop-status
+                >
+                    Type to search
+                </div>
+                <div class="max-h-96 overflow-y-auto" data-cb-search-desktop-results></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile: icon button opens header search -->
+    <div class="flex justify-end md:hidden">
+        <button
+            type="button"
+            class="btn btn-ghost btn-circle"
+            data-cb-search-mobile-open
+            aria-label="Search"
+            title="Search"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-5 w-5"
+                aria-hidden="true"
+            >
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.3-4.3" />
+            </svg>
+        </button>
+    </div>
+
+    <div class="fixed inset-0 z-[60] hidden bg-base-100/40 backdrop-blur-sm" data-cb-search-mobile-backdrop></div>
+    <div
+        class="fixed inset-x-0 top-0 z-[70] hidden border-b border-base-300 bg-base-200/95 backdrop-blur"
+        data-cb-search-mobile-bar
+        role="dialog"
+        aria-modal="true"
+        aria-label="Search"
+    >
+        <div class="cb-container">
+            <div class="flex items-center gap-2 py-3">
+                <div class="relative w-full">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-base-content/60"
+                        aria-hidden="true"
+                    >
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="m21 21-4.3-4.3" />
+                    </svg>
+                    <input
+                        class="input input-bordered w-full bg-base-100 pl-9 pr-3 text-sm text-base-content placeholder:text-base-content/40"
+                        type="search"
+                        placeholder={placeholder}
+                        aria-label={placeholder}
+                        autocomplete="off"
+                        data-cb-search-mobile-input
+                    />
+                </div>
+
+                <button
+                    type="button"
+                    class="btn btn-ghost btn-circle"
+                    data-cb-search-mobile-close
+                    aria-label="Close search"
+                    title="Close"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-5 w-5" aria-hidden="true">
+                        <path
+                            fill="currentColor"
+                            d="M18.3 5.71a1 1 0 0 0-1.41 0L12 10.59 7.11 5.7A1 1 0 0 0 5.7 7.11L10.59 12l-4.9 4.89a1 1 0 1 0 1.41 1.41L12 13.41l4.89 4.9a1 1 0 0 0 1.41-1.41L13.41 12l4.9-4.89a1 1 0 0 0-.01-1.4Z"
+                        />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="pb-4">
+                <div class="box overflow-hidden">
+                    <div
+                        class="border-b border-base-300 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-base-content/60"
+                        data-cb-search-mobile-status
+                    >
+                        Type to search
+                    </div>
+                    <div class="max-h-[60vh] overflow-y-auto" data-cb-search-mobile-results></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    import { initSearchBar } from "../scripts/searchBar";
+
+    initSearchBar();
+</script>
+

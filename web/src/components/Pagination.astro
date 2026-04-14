@@ -1,0 +1,99 @@
+---
+interface Props {
+    basePath: string;
+    currentPage: number;
+    totalPages: number;
+    firstPagePath?: string;
+}
+
+const { basePath, currentPage, totalPages, firstPagePath } = Astro.props;
+
+const normalizedBase = basePath.replace(/\/+$/, "");
+const firstUrl = firstPagePath ?? `${normalizedBase}/`;
+const pageUrl = (n: number) => (n === 1 ? firstUrl : `${normalizedBase}/${n}/`);
+
+const prevUrl = currentPage > 1 ? pageUrl(currentPage - 1) : null;
+const nextUrl = currentPage < totalPages ? pageUrl(currentPage + 1) : null;
+
+type PageItem = number | "ellipsis";
+
+const clamp = (n: number, min: number, max: number) => Math.min(max, Math.max(min, n));
+const range = (start: number, end: number) =>
+    Array.from({ length: Math.max(0, end - start + 1) }, (_, i) => start + i);
+
+const first = range(1, Math.min(4, totalPages));
+
+const middleStart = totalPages >= 2 ? clamp(currentPage - 1, 1, totalPages - 1) : 1;
+const middle = totalPages >= 2 ? range(middleStart, Math.min(totalPages, middleStart + 1)) : range(1, totalPages);
+
+const lastStart = Math.max(1, totalPages - 3);
+const last = range(lastStart, totalPages);
+
+const wantedPages = Array.from(new Set([...first, ...middle, ...last])).sort((a, b) => a - b);
+
+const items: PageItem[] = [];
+for (const n of wantedPages) {
+    const prev = items[items.length - 1];
+    if (typeof prev === "number" && n - prev > 1) items.push("ellipsis");
+    items.push(n);
+}
+---
+
+{totalPages > 1 && (
+    <ul class="pagination pagination-nowrap" aria-label="Pagination">
+        <li class="page-item">
+            <a class="page-link" href={pageUrl(1)} aria-label="First">
+                ««
+            </a>
+        </li>
+
+        <li class="page-item">
+            {prevUrl ? (
+                <a class="page-link" href={prevUrl} aria-label="Previous">
+                    «
+                </a>
+            ) : (
+                <span class="page-link active" aria-label="Previous">
+                    «
+                </span>
+            )}
+        </li>
+
+        {items.map((item) => (
+            <li class="page-item">
+                {item === "ellipsis" ? (
+                    <span class="page-link active" aria-hidden="true">
+                        …
+                    </span>
+                ) : item === currentPage ? (
+                    <span class="page-link active" aria-current="page">
+                        {item}
+                    </span>
+                ) : (
+                    <a class="page-link" href={pageUrl(item)}>
+                        {item}
+                    </a>
+                )}
+            </li>
+        ))}
+
+        <li class="page-item">
+            {nextUrl ? (
+                <a class="page-link" href={nextUrl} aria-label="Next">
+                    »
+                </a>
+            ) : (
+                <span class="page-link active" aria-label="Next">
+                    »
+                </span>
+            )}
+        </li>
+
+        <li class="page-item">
+            <a class="page-link" href={pageUrl(totalPages)} aria-label="Last">
+                »»
+            </a>
+        </li>
+    </ul>
+)}
+

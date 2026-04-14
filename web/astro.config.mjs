@@ -2,26 +2,32 @@
 
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-import { defineConfig, fontProviders } from "astro/config";
+import { defineConfig } from "astro/config";
+import { fileURLToPath } from "node:url";
+import { remarkCodeBlockMeta } from "./src/utils/remark/codeBlockMeta.mjs";
+import { remarkStripPelicanToc } from "./src/utils/remark/stripPelicanToc.mjs";
+import { rehypePelicanAdmonitions } from "./src/utils/rehype/pelicanAdmonitions.mjs";
 
 import tailwindcss from "@tailwindcss/vite";
 import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-    site: "https://example.com",
+    site: "https://cloudbytes.dev",
     integrations: [mdx(), sitemap(), react()],
-    fonts: [
-        {
-            provider: fontProviders.google(),
-            name: "Montserrat",
-            weights: [400, 700],
-            cssVariable: "--font-montserrat",
-        },
-    ],
+
+    markdown: {
+        remarkPlugins: [remarkStripPelicanToc, remarkCodeBlockMeta],
+        rehypePlugins: [rehypePelicanAdmonitions],
+    },
 
     vite: {
         plugins: [tailwindcss()],
+        resolve: {
+            alias: {
+                "@": fileURLToPath(new URL("./src", import.meta.url)),
+            },
+        },
     },
     prefetch: {
         prefetchAll: true,

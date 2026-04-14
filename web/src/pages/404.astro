@@ -1,0 +1,29 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import { SITE_TITLE } from "../consts";
+
+const pages = await getCollection("pages");
+const page = pages.find((p) => p.data.slug === "404");
+const rendered = page ? await render(page) : null;
+const Content = rendered?.Content;
+---
+
+<Layout title={`404 · ${SITE_TITLE}`} description="Page not found.">
+    <article class="content-article">
+        <h1 class="article-title">404</h1>
+        <p class="text-lg text-base-content/75">That page doesn’t exist.</p>
+
+        {Content ? (
+            <div class="prose max-w-none">
+                <Content />
+            </div>
+        ) : null}
+
+        <div class="mt-8 flex flex-wrap gap-3">
+            <a class="btn btn-primary" href="/">Go home</a>
+            <a class="btn btn-ghost border border-base-300" href="/tags/">Browse tags</a>
+        </div>
+    </article>
+</Layout>
+

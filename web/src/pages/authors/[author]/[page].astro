@@ -1,0 +1,51 @@
+---
+import ArticleCard from "../../../components/ArticleCard.astro";
+import Pagination from "../../../components/Pagination.astro";
+import Page from "../../../layouts/Page.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../../../consts";
+import { getAllPosts, getPostHref, getUniqueAuthors, paginate, PAGE_SIZE } from "../../../utils/posts";
+
+export async function getStaticPaths() {
+    const allPosts = await getAllPosts();
+    const authors = getUniqueAuthors(allPosts);
+    const paths = [];
+
+    for (const author of authors) {
+        const authored = allPosts.filter((post) => post.data.authorSlug === author.slug);
+        const totalPages = Math.max(1, Math.ceil(authored.length / PAGE_SIZE));
+        for (let page = 2; page <= totalPages; page++) {
+            paths.push({ params: { author: author.slug, page: String(page) }, props: { author, page } });
+        }
+    }
+
+    return paths;
+}
+
+const { author, page } = Astro.props;
+const pageNumber = Number(page);
+
+const posts = (await getAllPosts()).filter((post) => post.data.authorSlug === author.slug);
+const { items, totalPages } = paginate(posts, pageNumber);
+---
+
+<Page
+    title={`${SITE_TITLE} · ${author.name} · Page ${pageNumber}`}
+    description={SITE_DESCRIPTION}
+    heading={author.name}
+    subheading={`Page ${pageNumber} of posts by ${author.name}.`}
+    label="Author"
+>
+    {items.map((post) => (
+        <ArticleCard
+            href={getPostHref(post)}
+            title={post.data.title}
+            description={post.data.description}
+            tags={post.data.tags}
+        />
+    ))}
+
+    <div slot="pagination">
+        <Pagination basePath={`/authors/${author.slug}`} currentPage={pageNumber} totalPages={totalPages} />
+    </div>
+</Page>
+

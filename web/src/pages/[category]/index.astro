@@ -1,0 +1,40 @@
+---
+import ArticleCard from "../../components/ArticleCard.astro";
+import Pagination from "../../components/Pagination.astro";
+import Page from "../../layouts/Page.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
+import { getAllPosts, getPostHref, getUniqueCategories, paginate } from "../../utils/posts";
+
+export async function getStaticPaths() {
+    const posts = await getAllPosts();
+    const categories = getUniqueCategories(posts);
+    return categories.map((category) => ({ params: { category: category.slug }, props: { category } }));
+}
+
+const { category } = Astro.props;
+
+const posts = (await getAllPosts()).filter((post) => post.data.categorySlug === category.slug);
+const { items, totalPages } = paginate(posts, 1);
+---
+
+<Page
+    title={`${SITE_TITLE} · ${category.name}`}
+    description={SITE_DESCRIPTION}
+    heading={category.name}
+    subheading={`All posts in ${category.name}.`}
+    label="Category"
+>
+    {items.map((post) => (
+        <ArticleCard
+            href={getPostHref(post)}
+            title={post.data.title}
+            description={post.data.description}
+            tags={post.data.tags}
+        />
+    ))}
+
+    <div slot="pagination">
+        <Pagination basePath={`/${category.slug}`} currentPage={1} totalPages={totalPages} />
+    </div>
+</Page>
+

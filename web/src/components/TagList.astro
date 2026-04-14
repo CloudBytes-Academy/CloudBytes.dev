@@ -1,0 +1,19 @@
+---
+import { slugify } from "../utils/slugify";
+
+interface Props {
+    tags: string[];
+    class?: string;
+}
+
+const { tags, class: className } = Astro.props;
+---
+
+<div class:list={["article-tags", className]}>
+    {tags.map((tag) => (
+        <a href={`/tags/${slugify(tag)}/`} class="no-underline">
+            <span class:list={["tag tag-sm", `tag-${slugify(tag)}`]}>#{tag}</span>
+        </a>
+    ))}
+</div>
+

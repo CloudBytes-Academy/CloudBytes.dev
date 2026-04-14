@@ -1,0 +1,19 @@
+---
+import Page from "../../layouts/Page.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
+import { getAllPosts, getUniqueTags } from "../../utils/posts";
+
+const posts = await getAllPosts();
+const tags = getUniqueTags(posts);
+---
+
+<Page title={`${SITE_TITLE} · Tags`} description={SITE_DESCRIPTION} heading="Tags" subheading="Browse by topic." label="Tag cloud">
+    <div class="flex flex-wrap gap-2">
+        {tags.map((tag) => (
+            <a class="no-underline" href={`/tags/${tag.slug}/`}>
+                <span class:list={["tag tag-lg", `tag-${tag.slug}`]}>#{tag.name}</span>
+            </a>
+        ))}
+    </div>
+</Page>
+

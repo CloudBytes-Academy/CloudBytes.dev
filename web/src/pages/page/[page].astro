@@ -1,0 +1,46 @@
+---
+import ArticleCard from "../../components/ArticleCard.astro";
+import Pagination from "../../components/Pagination.astro";
+import PageLayout from "../../layouts/Page.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
+import { getAllPosts, getPostHref, paginate, PAGE_SIZE } from "../../utils/posts";
+
+export async function getStaticPaths() {
+    const posts = await getAllPosts();
+    const totalPages = Math.max(1, Math.ceil(posts.length / PAGE_SIZE));
+    const paths = [];
+
+    for (let page = 2; page <= totalPages; page++) {
+        paths.push({ params: { page: String(page) }, props: { page } });
+    }
+
+    return paths;
+}
+
+const { page } = Astro.props;
+const pageNumber = Number(page);
+
+const posts = await getAllPosts();
+const { items, totalPages } = paginate(posts, pageNumber);
+---
+
+<PageLayout
+    title={`${SITE_TITLE} · Latest · Page ${pageNumber}`}
+    description={SITE_DESCRIPTION}
+    heading="Latest"
+    subheading={`Page ${pageNumber} of latest posts.`}
+>
+    {items.map((post) => (
+        <ArticleCard
+            href={getPostHref(post)}
+            title={post.data.title}
+            description={post.data.description}
+            tags={post.data.tags}
+        />
+    ))}
+
+    <div slot="pagination">
+        <Pagination basePath="/page" firstPagePath="/" currentPage={pageNumber} totalPages={totalPages} />
+    </div>
+</PageLayout>
+

@@ -1,0 +1,148 @@
+@layer utilities {
+    /* Alexis tag colours (ported from design/alexis/static/css/style.css) */
+    .tag-algolia {
+        color: #fff;
+        background-color: #5468ff;
+    }
+
+    .tag-aws {
+        color: #ec912d;
+        background: #232f3e;
+    }
+
+    .tag-cdk {
+        color: #fff;
+        background-color: #0066b8;
+    }
+
+    .tag-css {
+        color: #313244;
+        background: #f954be;
+    }
+
+    .tag-docker {
+        color: #fff;
+        background: #2496ed;
+    }
+
+    .tag-fastapi {
+        color: #fff;
+        background: #009485;
+    }
+
+    .tag-firebase {
+        background: #ffcb2b;
+        color: #12181a;
+    }
+
+    .tag-flask {
+        color: #000;
+        background: #fff;
+    }
+
+    .tag-github {
+        color: #fff;
+        background: #24292e;
+    }
+
+    .tag-heroku {
+        color: #fff;
+        background: #430098;
+    }
+
+    .tag-jupyter {
+        color: #fff;
+        background: #e46e2e;
+    }
+
+    .tag-javascript,
+    .tag-pwa {
+        background: #f0db4f;
+        color: #000;
+    }
+
+    .tag-linux {
+        color: #fff;
+        background: #f57d00;
+    }
+
+    .tag-markdown {
+        color: #000;
+        background: #f8f8f8;
+    }
+
+    .tag-netlify {
+        color: #000;
+        background: #40a6bc;
+    }
+
+    .tag-node {
+        background: #90c53f;
+        color: #46483d;
+    }
+
+    .tag-pelican {
+        color: #fff;
+        background: #0ea0c4;
+    }
+
+    .tag-python {
+        color: #ffda5d;
+        background: #3879ab;
+    }
+
+    .tag-raspberrypi,
+    .tag-rpi {
+        color: #fff;
+        background: #bc1142;
+    }
+
+    .tag-selenium {
+        color: #fff;
+        background: #43b02a;
+    }
+
+    .tag-typer {
+        color: #fff;
+        background: #000;
+    }
+
+    .tag-typescript {
+        background: #2775c3;
+        color: #fff;
+    }
+
+    .tag-ubuntu {
+        color: #fff;
+        background: #f50;
+    }
+
+    .tag-vscode {
+        color: #fff;
+        background: #0066b8;
+    }
+
+    .tag-windows {
+        color: #fff;
+        background: #0078d7;
+    }
+
+    .tag-wsl,
+    .tag-wsl2 {
+        color: #fff;
+        background: #0078d7;
+    }
+
+    .tag-green,
+    .tag-pro,
+    .tag-snippets {
+        background: #09c372;
+        color: #fff;
+    }
+
+    .tag-purple {
+        background: #9166cc;
+        color: #fff;
+    }
+}
+
