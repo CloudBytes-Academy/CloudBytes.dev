@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+:root {
+    --font-sans: var(--font-montserrat);
+}
+
+@plugin "daisyui" {
+    themes:
+        royal --default,
+        royal-dark;
+}
+
+@plugin "daisyui/theme" {
+    name: "royal-dark";
+    prefersdark: true;
+    color-scheme: "dark";
+    --color-base-100: oklch(20% 0.02 250);
+    --color-base-200: oklch(25% 0.025 250);
+    --color-base-300: oklch(32% 0.03 250);
+    --color-base-content: oklch(92% 0.01 250);
+    --color-primary: oklch(60% 0.12 210); /* lighter teal-blue for dark-mode contrast */
+    --color-primary-content: oklch(98% 0.008 250);
+    --color-secondary: oklch(65% 0.18 300);
+    --color-secondary-content: oklch(98% 0.01 300);
+    --color-accent: oklch(68% 0.14 180);
+    --color-accent-content: oklch(98% 0.01 180);
+    --color-neutral: oklch(80% 0.01 250);
+    --color-neutral-content: oklch(20% 0.02 250);
+    --color-info: oklch(65% 0.16 235);
+    --color-info-content: oklch(98% 0.01 235);
+    --color-success: oklch(68% 0.15 155);
+    --color-success-content: oklch(98% 0.012 155);
+    --color-warning: oklch(78% 0.16 70);
+    --color-warning-content: oklch(25% 0.02 70);
+    --color-error: oklch(65% 0.2 25);
+    --color-error-content: oklch(98% 0.01 25);
+    --radius-selector: 1rem;
+    --radius-field: 0.5rem;
+    --radius-box: 0.25rem;
+    --size-selector: 0.25rem;
+    --size-field: 0.25rem;
+    --border: 1px;
+    --depth: 1;
+    --noise: 0;
+}
+
+
+
+@plugin "daisyui/theme" {
+    name: "royal";
+    prefersdark: true;
+    color-scheme: "light";
+    /* Calming healthcare palette with warm accent suitable for Bahrain + India */
+    --color-base-100: oklch(98% 0.01 95); /* warm off-white */
+    --color-base-200: oklch(95% 0.015 95);
+    --color-base-300: oklch(90% 0.02 95);
+    --color-base-content: #081e32; /* primary text (navy) */
+    --color-primary: #00476b; /* oklch(65% 0.11 210); teal-blue (trust) */
+    --color-primary-content: oklch(98% 0.008 210);
+    --color-secondary: oklch(74% 0.18 85); /* saffron/gold (friendly accent) */
+    --color-secondary-content: oklch(24% 0.025 85);
+    --color-accent: oklch(62% 0.12 150); /* fresh green (health) */
+    --color-accent-content: oklch(98% 0.01 150);
+    --color-neutral: oklch(36% 0.02 95); /* neutral grey */
+    --color-neutral-content: oklch(98% 0.008 95);
+    --color-info: oklch(60% 0.16 235);
+    --color-info-content: oklch(98% 0.01 235);
+    --color-success: oklch(64% 0.15 155);
+    --color-success-content: oklch(98% 0.012 155);
+    --color-warning: oklch(75% 0.16 70);
+    --color-warning-content: oklch(25% 0.02 70);
+    --color-error: oklch(60% 0.2 25);
+    --color-error-content: oklch(98% 0.01 25);
+    --radius-selector: 1rem;
+    --radius-field: 0.5rem;
+    --radius-box: 0.25rem;
+    --size-selector: 0.25rem;
+    --size-field: 0.25rem;
+    --border: 1px;
+    --depth: 1;
+    --noise: 0;
+}
+
