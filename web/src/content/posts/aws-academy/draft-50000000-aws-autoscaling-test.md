@@ -4,7 +4,7 @@ description: "AWS Autoscaling explained by using Python to stress test EC2 insta
 pubDate: "2022-06-26"
 category: "AWS Academy"
 categorySlug: "aws-academy"
-slug: "draft-50000000-aws-autoscaling-test"
+slug: "aws-autoscaling-explained-by-stress-testing-ec2-using-python"
 tags:
     - "aws"
     - "python"
@@ -18,4 +18,3 @@ author: "Rehan Haider"
 authorSlug: "rehan-haider"
 draft: true
 ---
-

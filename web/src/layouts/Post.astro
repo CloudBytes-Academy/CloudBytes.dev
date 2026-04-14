@@ -122,7 +122,7 @@ if (breadcrumbs.length) breadcrumbs[breadcrumbs.length - 1] = { label: title };
                 <span class="text-xs font-semibold uppercase tracking-wide text-base-content/60">Category</span>
                 <a
                     href={`/${categorySlug}/`}
-                    class:list={["tag tag-sm tag-contrast no-underline", `tag-${categorySlug}`]}
+                    class:list={["tag tag-sm no-underline", `tag-${category.trim().toLowerCase()}`]}
                 >
                     {category}
                 </a>

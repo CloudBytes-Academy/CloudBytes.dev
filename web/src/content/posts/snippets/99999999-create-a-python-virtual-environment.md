@@ -1,0 +1,85 @@
+---
+title: "Create a Python virtual environment using venv"
+description: "A quick guide to why you need a virtual environment, how to create, activate and manage"
+pubDate: "2021-07-04"
+category: "Snippets"
+categorySlug: "snippets"
+slug: "create-a-python-virtual-environment-using-venv"
+tags:
+    - "python"
+keywords:
+    - "Python"
+    - "venv"
+    - "virtual environment"
+    - "pip"
+    - "virtualenv"
+author: "Rehan Haider"
+authorSlug: "rehan-haider"
+---
+Python is the most popular programming language in the world. It Developers love it due to its versatility and the flexibility of using it in diverse ways. This is possible due to a plethora of Python packages published on [PyPi](https://pypi.org/) and many others. There are so many Python packages that you almost can find a package to do something, as illustrated by my favourite web-comic, [xkcd](https://xkcd.com/353/).
+
+![XKCD - Python](https://imgs.xkcd.com/comics/python.png)
+
+These packages or libraries can also depend on other packages, e.g. a very popular library used by data science professionals, [Pandas](https://pandas.pydata.org/), uses and builds on top of 3 other packages, Numpy, python-dateutil, and pytz. 
+
+## The problem
+
+But this diversity could also create problems for developers due to conflicts in the dependencies of multiple libraries, e.g. installing Pandas ends up installing 10+ other packages due. This could also cause conflicts between versions of dependencies. 
+
+## Python Virtual Environment
+
+This is where virtual environments can help. You can create different instances of Python specific for the application you're building without them conflicting with each other. 
+
+![Python virtual environments](/images/99999999-python-virtual-environment.webp) 
+
+### Create a virtual environment
+
+Navigate to the folder that you want to place the virtual environment in and run `venv` module as shown below 👇🏽
+
+```bash
+python3 -m venv new-env
+```
+
+> `venv` is the recommended module for managing virtual environments now and `virtualenv` has been deprecated by Python 
+
+This will create folder named `new-env` and place the virtual environment inside it including the Python interpreter, the standard library along with other supporting files. 
+
+### Activate the virtual environment
+
+After creating the virtual environment, you will need to activate it to be able to use it
+
+On Windows, run:
+
+```powershell
+new-env\Scripts\activate
+```
+
+On Unix or MacOS, run:
+
+```bash
+source new-env/bin/activate
+```
+
+### Use the virtual environment
+
+After creating the virtual environment, you will notice `(new-env)` in the terminal prompt you are using. 
+
+You can install any package using
+
+```bash
+python3 -m pip install <package-name>
+```
+
+If you have added the Python directory to path, you also use the below 
+
+```bash
+pip install <package-name>
+```
+
+### Deactivate the virtual environment
+
+To deactivate, simply run
+
+```bash
+deactivate
+```

@@ -1,10 +1,13 @@
 import crypto from "node:crypto";
 import fs from "node:fs/promises";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-import algoliasearch from "algoliasearch";
+import { algoliasearch } from "algoliasearch";
 
-const WEB_ROOT = process.cwd();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const WEB_ROOT = path.resolve(__dirname, "..");
 
 function sha256(value) {
     return crypto.createHash("sha256").update(String(value), "utf8").digest("hex");
@@ -119,12 +122,6 @@ function stripMarkdown(md) {
 }
 
 async function main() {
-    if (path.basename(WEB_ROOT) !== "web") {
-        console.error(`Expected to run from /web, but cwd is: ${WEB_ROOT}`);
-        process.exitCode = 1;
-        return;
-    }
-
     // Load local env for convenience (CI should set env explicitly)
     await loadDotEnv(path.join(WEB_ROOT, ".env"));
 
@@ -155,7 +152,9 @@ async function main() {
 
         if (!title || !slug || !category || !categorySlug) continue;
 
-        const url = `${categorySlug}/${slug}`;
+        const cat = String(categorySlug).replace(/^\/+/, "").replace(/\/+$/, "");
+        const s = String(slug).replace(/^\/+/, "").replace(/\/+$/, "");
+        const url = `/${cat}/${s}/`;
         const content = stripMarkdown(body).slice(0, 20000);
 
         records.push({
@@ -171,9 +170,20 @@ async function main() {
 
     console.log(`Indexing ${records.length} records to Algolia index "${indexName}"...`);
     const client = algoliasearch(appId, adminKey);
-    const index = client.initIndex(indexName);
 
-    await index.saveObjects(records);
+    // Ensure deleted/renamed slugs don't linger and cause 404s.
+    // algoliasearch v5 removed initIndex; indexing ops are on the client.
+    if (typeof client.replaceAllObjects === "function") {
+        await client.replaceAllObjects({
+            indexName,
+            objects: records,
+            scopes: ["settings", "synonyms", "rules"],
+        });
+    } else {
+        // Fallback for older clients (v4-style).
+        await client.clearObjects({ indexName });
+        await client.saveObjects({ indexName, objects: records });
+    }
     console.log("Done.");
 }
 

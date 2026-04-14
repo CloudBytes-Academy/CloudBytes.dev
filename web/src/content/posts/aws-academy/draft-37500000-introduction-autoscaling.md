@@ -4,7 +4,7 @@ description: "AWS Autoscaling - introduction, explanation and examples"
 pubDate: "2022-06-28"
 category: "AWS Academy"
 categorySlug: "aws-academy"
-slug: "draft-37500000-introduction-autoscaling"
+slug: "a-brief-introduction-to-aws-autoscaling"
 tags:
     - "aws"
 keywords:

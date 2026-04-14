@@ -4,7 +4,7 @@ description: "A detailed tutorial on how to create complex AWS Lambda functions 
 pubDate: "2021-08-12"
 category: "Snippets"
 categorySlug: "snippets"
-slug: "draft-0021-all-you-need-to-know-about-aws-lambda-python"
+slug: "all-you-need-to-know-about-creating-aws-lambda-functions-using-python"
 tags:
     - "python"
     - "aws"

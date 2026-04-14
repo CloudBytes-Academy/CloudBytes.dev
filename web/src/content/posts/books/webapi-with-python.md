@@ -4,7 +4,7 @@ description: "Beginner's guide to building and interacting with APIs using Pytho
 pubDate: "2021-07-15"
 category: "Books"
 categorySlug: "books"
-slug: "webapi-with-python"
+slug: "build-webapis-with-python-using-flask-fastapi"
 tags:
     - "python"
     - "fastapi"
