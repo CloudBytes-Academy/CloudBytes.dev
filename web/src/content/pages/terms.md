@@ -8,8 +8,8 @@ keywords:
 ---
 By accessing this website, and any services provided by CloudBytes, you consent to all the terms under following schedules.
 
-1. [Terms and Conditions](/terms.html)
-2. [Privacy Policy](/privacy.html)
+1. [Terms and Conditions](/terms/)
+2. [Privacy Policy](/privacy/)
 
 # Acceptable Use Policy
 

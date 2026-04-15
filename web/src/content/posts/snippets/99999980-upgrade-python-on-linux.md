@@ -24,7 +24,6 @@ keywords:
 author: "Rehan Haider"
 authorSlug: "rehan-haider"
 ---
-[TOC]
 
 **Last Updated:** 2026-04-13
 

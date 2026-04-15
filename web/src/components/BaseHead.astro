@@ -7,6 +7,19 @@ import FallbackImage from '../assets/blog-placeholder-1.jpg';
 import { SITE_TITLE } from '../consts';
 
 const TWITTER_SITE = '@cloudbytes_dev';
+const DEFAULT_KEYWORDS = [
+	'cloudbytes',
+	'cloudbytes.dev',
+	'cloudbytes/dev',
+	'code snippets',
+	'tutorials',
+	'programming',
+	'aws',
+	'python',
+	'javascript',
+];
+
+const ADSENSE_CLIENT = 'ca-pub-0503340532690886';
 
 interface Props {
 	title: string;
@@ -35,8 +48,44 @@ const {
 } = Astro.props;
 
 const imageUrl = new URL(image.src, Astro.site);
-const metaKeywords = keywords?.length ? keywords.join(', ') : undefined;
+const metaKeywords = (keywords?.length ? keywords : DEFAULT_KEYWORDS).join(', ');
 const robots = noindex ? 'noindex,nofollow' : 'index,follow';
+const modifiedOrPublished = modifiedTime ?? publishedTime;
+
+const gtagId = String(import.meta.env.PUBLIC_GOOGLE_ANALYTICS_ID ?? '').trim();
+const enableAnalytics = import.meta.env.PROD && Boolean(gtagId);
+const enableAdsense = import.meta.env.PROD;
+
+const gtagInit = enableAnalytics
+	? `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', ${JSON.stringify(gtagId)});`
+	: '';
+
+const schema =
+	type === 'article'
+		? {
+				'@context': 'https://schema.org',
+				'@type': 'BlogPosting',
+				headline: title,
+				description,
+				url: canonicalURL.toString(),
+				mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalURL.toString() },
+				image: [imageUrl.toString()],
+				datePublished: publishedTime ? publishedTime.toISOString() : undefined,
+				dateModified: modifiedOrPublished ? modifiedOrPublished.toISOString() : undefined,
+				author: author ? { '@type': 'Person', name: author } : { '@type': 'Organization', name: 'CloudBytes' },
+			}
+		: {
+				'@context': 'https://schema.org',
+				'@type': 'WebSite',
+				name: SITE_TITLE,
+				description,
+				url: new URL('/', Astro.site).toString(),
+			};
+
+const jsonLd = JSON.stringify(schema);
 ---
 
 <!-- Global Metadata -->
@@ -53,6 +102,10 @@ const robots = noindex ? 'noindex,nofollow' : 'index,follow';
 <meta name="msapplication-config" content="/browserconfig.xml" />
 <meta name="theme-color" content="#ffffff" />
 <link rel="sitemap" href="/sitemap-index.xml" />
+
+{enableAdsense && <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />}
+{enableAnalytics && <link rel="dns-prefetch" href="https://www.googletagmanager.com" />}
+
 <link
 	rel="alternate"
 	type="application/rss+xml"
@@ -70,7 +123,7 @@ const robots = noindex ? 'noindex,nofollow' : 'index,follow';
 <meta name="description" content={description} />
 <meta name="robots" content={robots} />
 {author && <meta name="author" content={author} />}
-{metaKeywords && <meta name="keywords" content={metaKeywords} />}
+<meta name="keywords" content={metaKeywords} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={type} />
@@ -91,30 +144,19 @@ const robots = noindex ? 'noindex,nofollow' : 'index,follow';
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={imageUrl} />
 
-<script type="application/ld+json" is:inline>
-	{
-		JSON.stringify(
-			type === 'article'
-				? {
-						'@context': 'https://schema.org',
-						'@type': 'BlogPosting',
-						headline: title,
-						description,
-						url: canonicalURL.toString(),
-						mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalURL.toString() },
-						image: [imageUrl.toString()],
-						datePublished: publishedTime ? publishedTime.toISOString() : undefined,
-						dateModified: (modifiedTime ?? publishedTime) ? (modifiedTime ?? publishedTime).toISOString() : undefined,
-						author: author
-							? { '@type': 'Person', name: author }
-							: { '@type': 'Organization', name: 'CloudBytes' },
-				  }
-				: {
-						'@context': 'https://schema.org',
-						'@type': 'WebSite',
-						name: SITE_TITLE,
-						url: new URL('/', Astro.site).toString(),
-				  },
-		)
-	}
-</script>
+{enableAdsense && (
+	<script
+		async
+		src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
+		crossorigin="anonymous"
+	></script>
+)}
+
+{enableAnalytics && (
+	<>
+		<script async src={`https://www.googletagmanager.com/gtag/js?id=${gtagId}`}></script>
+		<script is:inline set:html={gtagInit} />
+	</>
+)}
+
+<script type="application/ld+json" set:html={jsonLd} />
