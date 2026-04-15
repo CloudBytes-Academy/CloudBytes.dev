@@ -16,7 +16,16 @@ import partytown from "@astrojs/partytown";
 // https://astro.build/config
 export default defineConfig({
     site: "https://cloudbytes.dev",
-    integrations: [mdx(), sitemap(), react(), partytown()],
+    integrations: [
+        mdx(),
+        sitemap(),
+        react(),
+        partytown({
+            config: {
+                forward: ["dataLayer.push"],
+            },
+        }),
+    ],
 
     markdown: {
         remarkPlugins: [remarkStripPelicanToc, remarkCodeBlockMeta, remarkRewritePelicanFilenameLinks],
