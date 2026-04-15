@@ -4,7 +4,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
-SOURCE_DIR="${SKILLS_SOURCE_DIR:-$HOME/skills/skills}"
+SOURCE_DIR="${SKILLS_SOURCE_DIR:-$HOME/skills/}"
 TARGET_DIR="${SKILLS_TARGET_DIR:-$REPO_ROOT/.agents/skills}"
 
 usage() {
@@ -21,7 +21,7 @@ load_sorted_skills() {
         exit 1
     fi
 
-    mapfile -t SORTED_SKILLS < <(find "$SOURCE_DIR" -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | LC_ALL=C sort)
+    mapfile -t SORTED_SKILLS < <(find "$SOURCE_DIR" -mindepth 1 -maxdepth 1 -type d -not -name '.*' -printf '%f\n' | LC_ALL=C sort)
 }
 
 list_skills() {
