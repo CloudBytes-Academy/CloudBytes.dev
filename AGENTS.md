@@ -57,3 +57,31 @@ Prefer:
 - Run: `npx prettier --write web/src`
 - Prettier config lives in `web/.prettierrc` (4-space indentation, Astro + Tailwind plugins).
 
+## Local development
+Preferred local workflow is:
+
+- **`make dev` (recommended for coding)**: runs Astro dev server directly (`cd web && npm run dev`) at `http://localhost:4321`.
+- **`make emulate` (hosting behavior check)**: runs Firebase Hosting emulator against the built `web/dist/` output at `http://localhost:8080`.
+- **`make build`**: compiles static output to `web/dist/`.
+
+## Content + images
+- **Content (Astro collections)**:
+  - Posts: `web/src/content/posts/**`
+  - Pages: `web/src/content/pages/**`
+- **Public images**: `web/public/images/**` (reference as `/images/...`)
+- **Optional root symlinks** (convenience for a Pelican-like layout):
+  - Run: `make link-content`
+  - Creates:
+    - `./content` → `web/src/content`
+    - `./images` → `web/public/images`
+
+## Testing
+- **Framework**: Vitest
+- **Location**: `web/tests/**`
+- **Run**: `make test` (builds then runs tests)
+- **Note**: tests validate built HTML and assets from `web/dist/` (run a build first).
+
+## Algolia indexing
+- **Script**: `web/scripts/algolia-index.mjs`
+- **CI**: runs after build/tests and pushes updates using `ALGOLIA_ADMIN_API_KEY` (GitHub secret).
+

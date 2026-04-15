@@ -36,7 +36,7 @@ FSx for Lustre is built on the [Lustre](https://www.lustre.org) file system, an 
 
 The below architecture diagram shows how Amazon FSx for Lustre can be mounted on an Amazon EC2 instance:
 
-![Aws fsx lustre architecture diagram](/images/aws/27500000-01-architecture-diagram.png)
+![Aws fsx lustre architecture diagram](/images/27500000-01-architecture-diagram.png)
 
 1. The VM(s) that will mount the FSx for Lustre filesystem are typically in their own subnets and security groups. In the example above, a webserver is connected to internet using port 80 or 443 and kept in a publicly accessible subnet.
 2. The EFS drive could should ideally be kept in a separate subnet and security group.
@@ -86,7 +86,7 @@ B) In the **Create security group** page:
 * Click on **Add rule** again, and under type search for `SSH` and under **Source** select `Anywhere-IPv4`.
 * Then scroll to the bottom and click on **Create security group**.
 
-![Create DMZ security group](/images/aws/27500000-02-dmz-security-group.png)
+![Create DMZ security group](/images/27500000-02-dmz-security-group.png)
 
 C) Next, go back to the **Security Groups** page and click on **Create security group** again. In the **Create security group** page:
 
@@ -105,7 +105,7 @@ For the FSX security, we need to create a rule that allows traffic on port 998, 
 
 * Click on  **Save rules**.
 
-![Create FSX security group](/images/aws/27500000-03-create-fsx-security-group.png)
+![Create FSX security group](/images/27500000-03-create-fsx-security-group.png)
 
 
 #### Step 2: Create the FSx for Lustre filesystem
@@ -181,7 +181,7 @@ You can find both in the FSx console, as shown below:
 
 
 
-![FSx DNS name](/images/aws/27500000-04-fsx-dns-name.png)
+![FSx DNS name](/images/27500000-04-fsx-dns-name.png)
 
 
 This should mount the FSx for Lustre filesystem on the EC2 instance. You can now access the filesystem by going to the `/mnt/fsx` directory. 
@@ -192,7 +192,7 @@ Verify the mount by running the `df -h` command:
 df -h
 ```
 
-![FSx mounted on EC2](/images/aws/27500000-05-verify-fsx-mount.png)
+![FSx mounted on EC2](/images/27500000-05-verify-fsx-mount.png)
 
 #### Step 5: Test the FSx for Lustre filesystem
 
@@ -202,7 +202,7 @@ A) Let's donwload a few files and save them on the FSx for Lustre filesystem:
 sudo curl -X GET https://cataas.com/cat -o /mnt/fsx/myFile.jpg && ls -al /mnt/fsx
 ```
 
-![Download files to FSx](/images/aws/27500000-06-download-file-to-fsx.png)
+![Download files to FSx](/images/27500000-06-download-file-to-fsx.png)
 
 
 B) Now, let's create another EC2 instance and mount the FSx for Lustre filesystem on it:
@@ -212,7 +212,7 @@ B) Now, let's create another EC2 instance and mount the FSx for Lustre filesyste
 
 C) Now run `ls -al /mnt/fsx` on the new EC2 instance to see the files downloaded on the FSx for Lustre filesystem.
 
-![Access files from another EC2](/images/aws/27500000-07-access-files-from-another-ec2.png)
+![Access files from another EC2](/images/27500000-07-access-files-from-another-ec2.png)
 
 ### Mount Amazon FSx for Lustre to EC2 using AWS CLI
 
@@ -274,7 +274,7 @@ FSX_ID=$(aws fsx create-file-system \
 
 First, we need to get the latest Amazon Linux 2023 AMI ID. You can go the the AWS Console, go to **EC2 -> Instances -> Launch instances**. In the **Application and OS Images** section, select `Amazon Linux 2023 AMI`. Note the AMI ID at the bottom.
 
-![Amazon Linux 2023 AMI ID](/images/aws/27500000-08-amazon-linux-ami-id.png)
+![Amazon Linux 2023 AMI ID](/images/27500000-08-amazon-linux-ami-id.png)
 
 Alternatively, you can use the below command to get the latest Amazon Linux 2023 AMI ID:
 
@@ -352,7 +352,7 @@ FSX_DNS_NAME=$(aws fsx describe-file-systems --file-system-ids $FSX_ID --query "
 
 Verify the mount by running the `df -h` command.
 
-![FSx mounted on EC2](/images/aws/27500000-05-verify-fsx-mount.png)
+![FSx mounted on EC2](/images/27500000-05-verify-fsx-mount.png)
 
 #### Step 5: Test the FSx for Lustre filesystem
 
@@ -401,7 +401,7 @@ E) Follow the mount instructions in [step 4](#step-4-mount-the-fsx-for-lustre-fi
 
 F) Run `ls -al /mnt/fsx` on the new EC2 instance to see the files downloaded on the FSx for Lustre filesystem.
 
-![Access files from another EC2](/images/aws/27500000-07-access-files-from-another-ec2.png)
+![Access files from another EC2](/images/27500000-07-access-files-from-another-ec2.png)
 
 Log out from the EC2 instance by running `exit`.
 

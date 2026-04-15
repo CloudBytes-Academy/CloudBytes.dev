@@ -48,25 +48,25 @@ The EC2 instance will be in us-east-2 (Ohio) region with Ubuntu 22.04 and the My
 To begin, go to the EC2 dashboard and click on "Launch Instance".
 
 **Step 1**: Set the "Name and tags" as "MySQL-Source-DB".
-![Set the "Name and tags" as "MySQL-Source-DB"](/images/aws/47500000-01-create-ec2-name.png)
+![Set the "Name and tags" as "MySQL-Source-DB"](/images/47500000-01-create-ec2-name.png)
 
 **Step 2**: Choose an Amazon Machine Image (AMI). We will choose Ubuntu Server 22.04 LTS (HVM), SSD Volume Type. Ensure that "Architecture" is "64-bit (x86)".
-![Choose an Amazon Machine Image (AMI)](/images/aws/47500000-02-create-ec2-os.png)
+![Choose an Amazon Machine Image (AMI)](/images/47500000-02-create-ec2-os.png)
 
 **Step 3**: Choose an Instance Type. We will choose "t2.micro".
-![Choose an Instance Type](/images/aws/47500000-03-create-ec2-instance-type.png)
+![Choose an Instance Type](/images/47500000-03-create-ec2-instance-type.png)
 
 **Step 4**: Create or reuse a Key Pair to login.
-![Create or reuse a Key Pair to login](/images/aws/47500000-04-create-ec2-key-pair.png)
+![Create or reuse a Key Pair to login](/images/47500000-04-create-ec2-key-pair.png)
 
 **Step 5**: In the "Network settings", click on "Edit" button and select the default VPC. Leave the subnet as default and select "Auto-assign Public IP" as "Enable".
-![In the "Network settings", click on "Edit" button and select the default VPC](/images/aws/47500000-05-create-ec2-network-settings.png)
+![In the "Network settings", click on "Edit" button and select the default VPC](/images/47500000-05-create-ec2-network-settings.png)
 
 **Step 6**: Select "Create security group" and set the "Security group name" as "source-db-sg". Add two rules: one for SSH and one for MySQL/Aurora. You can leave the source as "Anywhere" for this tutorial.
-![Select "Create security group" and set the "Security group name" as "source-db-sg"](/images/aws/47500000-06-create-ec2-security-group.png)
+![Select "Create security group" and set the "Security group name" as "source-db-sg"](/images/47500000-06-create-ec2-security-group.png)
 
 **Step 7**: In the "Configure storage" section, leave the default settings and click "Next".
-![In the "Configure storage" section, leave the default settings and click "Next"](/images/aws/47500000-07-create-ec2-storage.png)
+![In the "Configure storage" section, leave the default settings and click "Next"](/images/47500000-07-create-ec2-storage.png)
 
 **Step 8**: Click on the "Launch instance" button to launch the EC2 instance.
 
@@ -160,7 +160,7 @@ When asked for a password, enter the password you set for the "source_user".
 ```sql
 SHOW DATABASES;
 ```
-![Check if the "source_db" database exists](/images/aws/47500000-08-create-ec2-mysql-show-databases.png)
+![Check if the "source_db" database exists](/images/47500000-08-create-ec2-mysql-show-databases.png)
 
 **Step 3**: Use the "source_db" database using the following command:
 ```sql
@@ -198,7 +198,7 @@ INSERT INTO pets VALUES ('Snowball','Diane','cat','f','1999-03-30', '2015-04-30'
 SELECT * FROM pets;
 ```
 
-![Check if the data is inserted into the "pets" table](/images/aws/47500000-09-create-ec2-mysql-show-pets.png)
+![Check if the data is inserted into the "pets" table](/images/47500000-09-create-ec2-mysql-show-pets.png)
 
 The source database is now setup and ready for migration.
 
@@ -237,10 +237,10 @@ To begin, navigate to DMS and on the left panel click on "Replication instances"
 **Step 2**: Click on "Create replication instance".
 
 **Step 3**: In the "Settings" section, set the "Name" to "mysql-replication-instance". Leave the others as blank.
-![In the "Settings" section, set the "Name" to "mysql-replication-instance"](/images/aws/47500000-10-create-replication-instance.png)
+![In the "Settings" section, set the "Name" to "mysql-replication-instance"](/images/47500000-10-create-replication-instance.png)
 
 **Step 4**: In the "Instance configuration", leave "Instance class" and "Engine version" unchanged. And set the "High availability" as "Dev or test workload (Single-AZ)".
-![In the "Instance configuration", leave "Instance class" and "Engine version" unchanged](/images/aws/47500000-11-create-replication-instance-config.png)
+![In the "Instance configuration", leave "Instance class" and "Engine version" unchanged](/images/47500000-11-create-replication-instance-config.png)
 
 **Step 5**: Leave "Storage" and "Connectivity" settings unchanged and click "Create replication instance".
 
@@ -258,18 +258,18 @@ We will create source and target endpoints which are the source and target datab
 **Step 4**: In Endpoint identifier, set the "Endpoint identifier" as "mysql-source-endpoint". Choose "Source engine" as "MySQL".
 
 **Step 5**: Now you should see a "Access to endpoint" subsection. Select "Provide access information manually". Set the "Server name" as the public IP of the EC2 instance where the source database is running. Set the "Port" as "3306". Set the "Username" as "source_user" and "Password" as the password you set for the "source_user".
-![Set the "Server name" as the public IP of the EC2 instance where the source database is running](/images/aws/47500000-12-create-source-endpoint.png)
+![Set the "Server name" as the public IP of the EC2 instance where the source database is running](/images/47500000-12-create-source-endpoint.png)
 
 
 **Step 6**: Click on the "Endpoint settings" and check "Use endpoint connection attributes". In "Extra connection attributes" enter `initstms=SET FOREIGN_KEY_CHECKS=0;`, then scroll to bottom and click "Create endpoint".
-![Click on the "Endpoint settings" and check "Use endpoint connection attributes"](/images/aws/47500000-13-create-source-endpoint-config.png)
+![Click on the "Endpoint settings" and check "Use endpoint connection attributes"](/images/47500000-13-create-source-endpoint-config.png)
 
 !!! note 
     The `initstms=SET FOREIGN_KEY_CHECKS=0;` is used to disable foreign key checks during the migration. This is required as the DMS service will migrate the data in a specific order and foreign key checks can cause issues during the migration.
 
 **Step 7**: Once the source endpoint is created, you should see the status as "Active". Click on the "mysql-source-endpoint" to see the details. Move to the "Connections" tab and click on "Test connections". In the subsequent page, click on "Run test" to test if the Replication instance can access the source database.
 
-![Click on the "mysql-source-endpoint" to see the details](/images/aws/47500000-14-create-source-endpoint-test-connection.png)
+![Click on the "mysql-source-endpoint" to see the details](/images/47500000-14-create-source-endpoint-test-connection.png)
 
 
 ### Create a target endpoint
@@ -278,15 +278,15 @@ We will create source and target endpoints which are the source and target datab
 
 **Step 2**: In "Endpoint type", select "Target". Since we are migrating to an RDS instance, select "RDS" as the target engine. Then choose the RDS instance that we created earlier as the target endpoint.
 
-![Choose the RDS instance that we created earlier as the target endpoint](/images/aws/47500000-15-create-target-endpoint.png)
+![Choose the RDS instance that we created earlier as the target endpoint](/images/47500000-15-create-target-endpoint.png)
 
 **Step 3**: In "Endpoint configuration", set the "Endpoint identifier" as "mysql-target-endpoint". Choose the Target engine as "MySQL".
-![In "Endpoint configuration", set the "Endpoint identifier" as "mysql-target-endpoint"](/images/aws/47500000-16-create-target-endpoint-config.png)
+![In "Endpoint configuration", set the "Endpoint identifier" as "mysql-target-endpoint"](/images/47500000-16-create-target-endpoint-config.png)
 
 **Step 4**: Change the "Access to endpoint" settings as "Provide access information manually". The "Server name" and port should populate automatically. Set the "Username" as "admin" and "Password" as the password you set for the RDS instance.
 
 **Step 5**: Leave the "SSL mode" as "None" and click "Create endpoint".
-![Change the "Access to endpoint" settings as "Provide access information manually"](/images/aws/47500000-17-create-target-endpoint-config.png)
+![Change the "Access to endpoint" settings as "Provide access information manually"](/images/47500000-17-create-target-endpoint-config.png)
 
 !!! note
     If the full load migration fails then try setting the "Extra connection attributes" as `initstms=SET FOREIGN_KEY_CHECKS=0;` as we did for the source endpoint.
@@ -294,7 +294,7 @@ We will create source and target endpoints which are the source and target datab
 
 **Step 6**: Once the target endpoint is created, you should see the status as "Active". Click on the "mysql-target-endpoint" to see the details. Move to the "Connections" tab and click on "Test connections". In the subsequent page, click on "Run test" to test if the Replication instance can access the source database.
 
-![Click on the "mysql-target-endpoint" to see the details](/images/aws/47500000-18-create-target-endpoint-test-connection.png)
+![Click on the "mysql-target-endpoint" to see the details](/images/47500000-18-create-target-endpoint-test-connection.png)
 
 
 ## E: Create a migration task
@@ -313,7 +313,7 @@ We will create a migration task to migrate the data from the source to the targe
 - Choose the "Target endpoint" as "mysql-target-endpoint".
 - Choose the "Migration type" as "Migrate existing data".
 
-![In the "Task configuration" section, set the "Task identifier" as "mysql-migration-task"](/images/aws/47500000-19-create-migration-task.png)
+![In the "Task configuration" section, set the "Task identifier" as "mysql-migration-task"](/images/47500000-19-create-migration-task.png)
 
 
 **Step 4**: Leave the "Task settings" as default.
@@ -328,7 +328,7 @@ We will create a migration task to migrate the data from the source to the targe
 
 If you had selected "Migration task startup configuration" as "Automatically start on create", the task will execute automatically. Based on the amount of data, the migration task can take some time to complete. Once the task is started, you should see the status as "Load complete".
 
-![Based on the amount of data, the migration task can take some time to start](/images/aws/47500000-20-create-migration-task-status.png)
+![Based on the amount of data, the migration task can take some time to start](/images/47500000-20-create-migration-task-status.png)
 
 ## G: Testing the migration
 
@@ -346,7 +346,7 @@ Replace `<rds-endpoint>` with the endpoint of the RDS instance. Enter the passwo
 ```sql
 SHOW DATABASES;
 ```
-![Check if the "source_db" database exists](/images/aws/47500000-21-create-rds-mysql-show-databases.png)
+![Check if the "source_db" database exists](/images/47500000-21-create-rds-mysql-show-databases.png)
 
 **Step 3**: Use the "source_db" database using the following command:
 ```sql
@@ -357,7 +357,7 @@ USE source_db;
 ```sql
 SELECT * FROM pets;
 ```
-![Check if the data is inserted into the "pets" table](/images/aws/47500000-22-create-rds-mysql-show-pets.png)
+![Check if the data is inserted into the "pets" table](/images/47500000-22-create-rds-mysql-show-pets.png)
 
 The data is successfully migrated from the source database to the target database.
 
@@ -380,7 +380,7 @@ Replace `<rds-endpoint>` with the endpoint of the RDS instance. Enter the passwo
 ```sql
 SHOW DATABASES;
 ```
-![See the databases that are present in the RDS instance](/images/aws/47500000-23-create-rds-mysql-show-databases.png)
+![See the databases that are present in the RDS instance](/images/47500000-23-create-rds-mysql-show-databases.png)
 
 **Step 3**: Delete the `awsdms_control` and `source_db` databases using the following commands:
 ```sql
@@ -433,6 +433,6 @@ INSERT INTO pets VALUES ('Scooby','Shaggy','dog','m','2000-03-30', NULL);
 USE source_db;
 SELECT * FROM pets;
 ```
-![Check if the new record is replicated to the target database](/images/aws/47500000-24-create-rds-mysql-show-pets-cdc.png)
+![Check if the new record is replicated to the target database](/images/47500000-24-create-rds-mysql-show-pets-cdc.png)
 
 The new record is successfully replicated from the source database to the target database using CDC.

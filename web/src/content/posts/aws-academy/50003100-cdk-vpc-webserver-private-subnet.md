@@ -30,7 +30,7 @@ The traditional way to run applications in Data Centres were to create a 3-tier 
 1. **Web Tier**: That would typically be placed in a DMZ (Demilitarized Zone) that allowed the server to be exposed to internet
 2. **Application Tier & Database Tier**: That would typically be placed behind firewalls that was not exposed to internet and required authentication
 
-![Traditional 3-Tier Architecture](/images/aws/50003100-01-traditional-dc-3-tier.png)
+![Traditional 3-Tier Architecture](/images/50003100-01-traditional-dc-3-tier.png)
 
 This was one of the weakest links in security posture of any organisation. However, with the advent of cloud, it did not need to be that way.
 
@@ -47,7 +47,7 @@ We overcome the traditional limitation by creating a 4-tier architecture with al
 In the below diagram, we have a VPC with 3 private subnets and a public subnet. The public subnet is fronted by a external facing load balancer. The private subnet is where the web server is running. The web server is not exposed to the internet, it doesn't even have a public IP address.
 
 
-![Modern 3-Tier Architecture](/images/aws/50003100-02-modern-3-tier-archtiecture.png)
+![Modern 3-Tier Architecture](/images/50003100-02-modern-3-tier-archtiecture.png)
 
 ### Accessing the Web Server
 
@@ -63,7 +63,7 @@ The easiest of these is to use the bastion host in the public subnet to allow SS
 
 To simplify the demonstration, we will limit ourselves to the web-tier only. So if we are able to access the webserver from internet while the server is in a private subnet with no public IP address, we have achieved our goal.
 
-![Project Scenario](/images/aws/50003100-03-project-scenario.png)
+![Project Scenario](/images/50003100-03-project-scenario.png)
 
 ## Running the Web Server in a Private Subnet
 
@@ -125,7 +125,7 @@ class MyStack(Stack):
 
 This will create the items in below resource map:
 
-![Resource Map](/images/aws/50003100-04-vpc-resource-map.png)
+![Resource Map](/images/50003100-04-vpc-resource-map.png)
 
 
 ## 3. Create the Web Servers

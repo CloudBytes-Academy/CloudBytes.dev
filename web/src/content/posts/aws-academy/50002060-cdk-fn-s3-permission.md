@@ -247,7 +247,7 @@ aws lambda invoke \
     /dev/stdout | jq
 ```
 
-![invoke-lambda-function](/images/aws/50002060-01-lambda-response.png)
+![invoke-lambda-function](/images/50002060-01-lambda-response.png)
 
 
 !!! note

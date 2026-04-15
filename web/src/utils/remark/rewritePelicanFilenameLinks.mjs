@@ -5,9 +5,34 @@ import { fileURLToPath } from "node:url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const WEB_ROOT = path.resolve(__dirname, "../../..");
+function resolveWebRoot() {
+    const candidates = [
+        process.cwd(),
+        path.resolve(__dirname, "../../.."),
+        path.resolve(__dirname, "../../../.."),
+        path.resolve(__dirname, "../../../../.."),
+    ];
+
+    for (const candidate of candidates) {
+        if (!candidate) continue;
+        try {
+            const hasAstroConfig = fs.existsSync(path.join(candidate, "astro.config.mjs"));
+            const hasSrc = fs.existsSync(path.join(candidate, "src"));
+            const hasPublic = fs.existsSync(path.join(candidate, "public"));
+            if (hasAstroConfig && hasSrc && hasPublic) return candidate;
+        } catch {
+            // ignore
+        }
+    }
+
+    return path.resolve(__dirname, "../../..");
+}
+
+const WEB_ROOT = resolveWebRoot();
 const POSTS_ROOT = path.join(WEB_ROOT, "src", "content", "posts");
 const PAGES_ROOT = path.join(WEB_ROOT, "src", "content", "pages");
+const IMAGES_ROOT = path.join(WEB_ROOT, "public", "images");
+const CONTENT_POST_ROOTS = [POSTS_ROOT, path.join(WEB_ROOT, "content", "posts")];
 
 function walkMarkdownFilesSync(dir) {
     const out = [];
@@ -27,6 +52,34 @@ function walkMarkdownFilesSync(dir) {
 
     walk(dir);
     return out;
+}
+
+function walkImageFiles(dir) {
+    const out = [];
+    if (!fs.existsSync(dir)) return out;
+
+    const walk = (current) => {
+        const entries = fs.readdirSync(current, { withFileTypes: true });
+        for (const entry of entries) {
+            const full = path.join(current, entry.name);
+            const relative = path.relative(IMAGES_ROOT, full).replace(/\\/g, "/");
+            if (entry.isDirectory()) {
+                walk(full);
+                continue;
+            }
+            out.push(relative);
+        }
+    };
+
+    walk(dir);
+    return out;
+}
+
+function normalizeImagePath(value) {
+    return String(value ?? "")
+        .replace(/\\/g, "/")
+        .replace(/^\/+/, "")
+        .replace(/\/+/g, "/");
 }
 
 function parseScalar(raw) {
@@ -115,6 +168,7 @@ function buildFilenameToUrlIndex() {
 }
 
 const FILENAME_TO_URL = buildFilenameToUrlIndex();
+const IMAGE_PATHS = new Set(walkImageFiles(IMAGES_ROOT).map(normalizeImagePath));
 
 function rewritePelicanFilenameUrl(url) {
     const raw = String(url ?? "");
@@ -124,7 +178,6 @@ function rewritePelicanFilenameUrl(url) {
     else if (raw.toLowerCase().startsWith("%7bfilename%7d")) rest = raw.slice("%7Bfilename%7D".length);
     else return null;
 
-    // Supports {filename}/path/to/file.md and {filename}file.md patterns
     rest = rest.replace(/^\/+/, "");
 
     const hashIdx = rest.indexOf("#");
@@ -135,11 +188,88 @@ function rewritePelicanFilenameUrl(url) {
     const mapped = FILENAME_TO_URL.get(targetFile);
     if (!mapped) return null;
 
-    // Normalize weird "##anchor" fragments seen in some legacy content.
     let fragment = rawFragment;
     if (fragment.startsWith("##")) fragment = `#${fragment.replace(/^#+/, "")}`;
 
     return `${mapped}${fragment}`;
+}
+
+function splitUrlAndSuffix(raw) {
+    const queryIdx = raw.indexOf("?");
+    const hashIdx = raw.indexOf("#");
+    const sentinel = Number.MAX_SAFE_INTEGER;
+    const cutIdx = Math.min(queryIdx >= 0 ? queryIdx : sentinel, hashIdx >= 0 ? hashIdx : sentinel);
+    if (cutIdx === sentinel) return { path: raw, suffix: "" };
+    return { path: raw.slice(0, cutIdx), suffix: raw.slice(cutIdx) };
+}
+
+function safeDecode(value) {
+    try {
+        return decodeURIComponent(value);
+    } catch {
+        return value;
+    }
+}
+
+function getCategoryFromFilePath(filePath = "") {
+    const normalized = path.resolve(filePath);
+    for (const root of CONTENT_POST_ROOTS) {
+        const rel = path.relative(root, normalized);
+        if (!rel || rel.startsWith("..") || path.isAbsolute(rel)) continue;
+        const segments = rel.split(path.sep).filter(Boolean);
+        if (segments.length >= 2) return segments[0];
+    }
+    return "";
+}
+
+function hasImage(relativePath) {
+    return IMAGE_PATHS.has(normalizeImagePath(relativePath));
+}
+
+function rewriteImageAssetUrl(url, filePath) {
+    const raw = String(url ?? "");
+    if (!raw || !(raw.startsWith("/images/") || raw.startsWith("images/"))) return null;
+
+    const normalizedRaw = raw.startsWith("/") ? raw : `/${raw}`;
+    const { path: imagePath, suffix } = splitUrlAndSuffix(normalizedRaw);
+    const remainder = imagePath.slice("/images/".length);
+    if (!remainder) return null;
+
+    const segments = remainder
+        .split("/")
+        .map((segment) => safeDecode(segment))
+        .filter(Boolean);
+
+    if (!segments.length) return null;
+
+    const fileName = segments.at(-1);
+
+    // /images/foo.png -> if root asset exists keep as-is
+    if (segments.length === 1) {
+        if (hasImage(fileName)) return null;
+
+        // If the asset only exists under the post's category folder, rewrite to that.
+        const category = getCategoryFromFilePath(filePath);
+        if (category && hasImage(path.posix.join(category, fileName))) {
+            return `/images/${category}/${fileName}${suffix}`;
+        }
+        return null;
+    }
+
+    // /images/<folder>/<file> style
+    const asGiven = normalizeImagePath(segments.join("/"));
+    if (hasImage(asGiven)) return null;
+
+    // If the asset exists at root, normalize to root url.
+    if (hasImage(fileName)) return `/images/${fileName}${suffix}`;
+
+    // If the asset exists under the post category folder (but the URL used a different folder), rewrite to category.
+    const category = getCategoryFromFilePath(filePath);
+    if (category && category !== segments[0] && hasImage(path.posix.join(category, fileName))) {
+        return `/images/${category}/${fileName}${suffix}`;
+    }
+
+    return null;
 }
 
 function walkTree(node, visit) {
@@ -152,7 +282,8 @@ function walkTree(node, visit) {
 }
 
 export function remarkRewritePelicanFilenameLinks() {
-    return (tree) => {
+    return (tree, file) => {
+        const filePath = String(file?.history?.[0] ?? file?.path ?? "");
         walkTree(tree, (node) => {
             if (!node || typeof node !== "object") return;
             const type = node.type;
@@ -160,7 +291,15 @@ export function remarkRewritePelicanFilenameLinks() {
             if (typeof node.url !== "string") return;
 
             const next = rewritePelicanFilenameUrl(node.url);
-            if (next) node.url = next;
+            if (next) {
+                node.url = next;
+                return;
+            }
+
+            const imageMapped = rewriteImageAssetUrl(node.url, filePath);
+            if (imageMapped) {
+                node.url = imageMapped;
+            }
         });
     };
 }

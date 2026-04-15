@@ -93,11 +93,11 @@ app.synth()
 
 Now, run `cdk deploy` to deploy the stack. Once the stack is deployed, you will see the following output:
 
-![CDK deploy CfnOutput](/images/aws/50000070-01-cdk-deploy-output.png)
+![CDK deploy CfnOutput](/images/50000070-01-cdk-deploy-output.png)
 
 You can also view the outputs of a stack using the AWS Console. Go to the CloudFormation service and select your stack. Then, click on the Outputs tab. You will see the following:
 
-![CDK CloudFormation Outputs](/images/aws/50000070-02-cdk-console-output.png)
+![CDK CloudFormation Outputs](/images/50000070-02-cdk-console-output.png)
 
 ### What happens during to Output during `cdk synth`?
 
@@ -133,7 +133,7 @@ class S3Stack(Stack):
 
 Now run `cdk synth`, we get the following:
 
-![CDK synth CfnOutput](/images/aws/50000070-03-cdk-synth-output.png)
+![CDK synth CfnOutput](/images/50000070-03-cdk-synth-output.png)
 
 So what is this `Token` that is being printed? Token is a placeholder value that is replaced with the actual value by CloudFormation during deployment.
 
@@ -151,4 +151,4 @@ cdk deploy <stack-name> --outputs-file ./output.json
 
 This will print the values of the Outputs to a file called `output.json` in the current directory.
 
-![CDK Output to file](/images/aws/50000070-04-cdk-output-file.png)
+![CDK Output to file](/images/50000070-04-cdk-output-file.png)

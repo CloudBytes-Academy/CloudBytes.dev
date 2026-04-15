@@ -55,7 +55,7 @@ class CdkAppStack(Stack):
 
 Check the changes by running `cdk diff`. As you can see below, there is a change in Bucket policy being implemented.
 
-![CDK diff](/images/aws/50000030-01-cdk-cdk-diff-changes.png)
+![CDK diff](/images/50000030-01-cdk-cdk-diff-changes.png)
 
 
 Now run `cdk deploy` to deploy the changes. When you destroy the stack by running `cdk destroy`, you'll notice that the bucket is deleted as well.

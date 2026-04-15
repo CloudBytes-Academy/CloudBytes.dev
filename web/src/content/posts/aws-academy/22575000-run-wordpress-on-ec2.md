@@ -149,7 +149,7 @@ Type `yes` to accept the RSA fingerprint and login to the server.
 
 You should see the welcome message similar to below:
 
-![Login to EC2 Instance](/images/aws/22575000-01-login-to-ec2-instance.png)
+![Login to EC2 Instance](/images/22575000-01-login-to-ec2-instance.png)
 
 
 e) Update the packages by running the following command:
@@ -186,7 +186,7 @@ sudo amazon-linux-extras list | grep nginx
 ```
 This will list the latest version of NGINX available in the repository and its installation name.
 
-![Check nginx amazon linux extras](/images/aws/22575000-02-check-nginx-amazon-extras.png)
+![Check nginx amazon linux extras](/images/22575000-02-check-nginx-amazon-extras.png)
 
 b) Enable the NGINX package for installation:
 
@@ -216,7 +216,7 @@ sudo systemctl start nginx
 
 Now if you open the IP address of the instance in your browser, you should see the following message:
 
-![NGINX is running](/images/aws/22575000-03-nginx-is-running.png)
+![NGINX is running](/images/22575000-03-nginx-is-running.png)
 
 f) Configure NGINX to start on boot:
 
@@ -232,7 +232,7 @@ a) Check the versions of PHP available in the repository:
 sudo amazon-linux-extras list | grep php
 ```
 
-![Check php versions](/images/aws/22575000-04-php-versions.png)
+![Check php versions](/images/22575000-04-php-versions.png)
 
 b) Enable the PHP package for installation:
 
@@ -313,7 +313,7 @@ echo "<?php phpinfo(); ?>" > /usr/share/nginx/html/phpinfo.php
 
 g) Now open the `<ip-address>/phpinfo.php` in your browser and you should see the following message:
 
-![PHP Info](/images/aws/22575000-05-php-info.png)
+![PHP Info](/images/22575000-05-php-info.png)
 
 
 h) Delete the `phpinfo.php` file. It contains sensitive information about your system that you should not share.
@@ -471,10 +471,10 @@ Press `Ctrl+X` and `Y` followed by `Enter` to save and exit.
 
 To start WordPress you will need to open the `<ip-address>/wp-admin/install.php` in your browser. You should see the following:
 
-![Start WordPress](/images/aws/22575000-07-start-wordpress.png)
+![Start WordPress](/images/22575000-07-start-wordpress.png)
 
 a) On `Information Needed` tab, provide the requested information and click `Install WordPress`. This should complete the installation process. Now you should be able to access the `<ip-address>/wp-admin/` in your browser and login using the username and password you set. 
 
 b) Open the `<ip-address>` in your browser to see the newly created site.
 
-![New Site](/images/aws/22575000-09-new-site.png)
+![New Site](/images/22575000-09-new-site.png)

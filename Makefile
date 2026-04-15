@@ -1,85 +1,80 @@
-PY?=python3
-PELICAN?=pelican
-PELICANOPTS=
+ROOT := $(CURDIR)
+WEB_DIR := $(ROOT)/web
+WEB_DIST := $(WEB_DIR)/dist
 
-BASEDIR=$(CURDIR)
-INPUTDIR=$(BASEDIR)/content
-OUTPUTDIR=$(CURDIR)/output
-CONFFILE=$(BASEDIR)/settings.py
-PUBLISHCONF=$(BASEDIR)/settings.py
+NODE ?= node
+NPM ?= npm
+FIREBASE ?= firebase
 
-
-DEBUG ?= 0
-ifeq ($(DEBUG), 1)
-	PELICANOPTS += -D
-endif
-
-RELATIVE ?= 0
-ifeq ($(RELATIVE), 1)
-	PELICANOPTS += --relative-urls
-endif
-
-SERVER ?= "0.0.0.0"
-
-PORT ?= 0
-ifneq ($(PORT), 0)
-	PELICANOPTS += -p $(PORT)
-endif
-
+.DEFAULT_GOAL := help
 
 help:
-	@echo 'Makefile for a pelican Web site																'
-	@echo '																								'
-	@echo 'Usage:																						'
-	@echo '   make html								(re)generate the web site							'
-	@echo '   make clean							remove the generated files							'
-	@echo '   make regenerate						regenerate files upon modification					'
-	@echo '   make publish							generate using production settings					'
-	@echo '   make serve [PORT=8000]				serve site at http://localhost:8000					'
-	@echo '   make serve-global [SERVER=0.0.0.0]	serve (as root) to $(SERVER):80    					'
-	@echo '   make dev [PORT=8000]					serve and regenerate together      					'
-	@echo '   make devserver-global					regenerate and serve on 0.0.0.0    					'
-	@echo '   make firebase							serve firebase emulator on http://localhost:8080	'
-	@echo '																								'
-	@echo 'Set the DEBUG variable to 1 to enable debugging, e.g. make DEBUG=1 html						'
-	@echo 'Set the RELATIVE variable to 1 to enable relative urls										'
-	@echo '																								'
-	@echo '   make skills								list or install external skills						'
-	@echo '   make skills INSTALL=<sorted number>		install one external skill							'
+	@echo ''
+	@echo 'CloudBytes.dev (Astro) — Make targets'
+	@echo ''
+	@echo 'Local dev'
+	@echo '  make dev            Run Astro dev server (direct, usually http://localhost:4321)'
+	@echo '  make emulate         Serve built assets via Firebase emulator (http://localhost:8080)'
+	@echo ''
+	@echo 'Build / test'
+	@echo '  make install         Install web/ dependencies (npm ci)'
+	@echo '  make build           Build Astro site into web/dist'
+	@echo '  make test            Build then run Vitest (tests assume web/dist exists)'
+	@echo '  make algolia-index    Push records to Algolia (requires ALGOLIA_ADMIN_API_KEY)'
+	@echo ''
+	@echo 'Utilities'
+	@echo '  make clean           Remove web/dist'
+	@echo '  make format          Run Prettier on web/src'
+	@echo '  make link-content    Create root symlinks: ./content -> web/src/content, ./images -> web/public/images'
+	@echo ''
+	@echo 'Cursor skills'
+	@echo '  make skills          List external skills or install one with INSTALL=<sorted number>'
+	@echo ''
 
-html:
-	"$(PELICAN)" "$(INPUTDIR)" -o "$(OUTPUTDIR)" -s "$(CONFFILE)" $(PELICANOPTS)
+.PHONY: install
+install:
+	cd "$(WEB_DIR)" && $(NPM) ci
 
+.PHONY: build
+build:
+	cd "$(WEB_DIR)" && $(NPM) run build
+
+.PHONY: test
+test:
+	cd "$(WEB_DIR)" && $(NPM) run build && $(NPM) test
+
+.PHONY: algolia-index
+algolia-index:
+	cd "$(WEB_DIR)" && $(NODE) scripts/algolia-index.mjs
+
+.PHONY: clean
 clean:
-	[ ! -d "$(OUTPUTDIR)" ] || rm -rf "$(OUTPUTDIR)"
+	rm -rf "$(WEB_DIST)"
 
-regenerate:
-	"$(PELICAN)" -r "$(INPUTDIR)" -o "$(OUTPUTDIR)" -s "$(CONFFILE)" $(PELICANOPTS)
+.PHONY: format
+format:
+	cd "$(WEB_DIR)" && npx prettier --write src
 
-serve:
-	"$(PELICAN)" -l "$(INPUTDIR)" -o "$(OUTPUTDIR)" -s "$(CONFFILE)" $(PELICANOPTS)
+.PHONY: emulate firebase
+emulate:
+	$(FIREBASE) emulators:start --only hosting
 
-serve-global:
-	"$(PELICAN)" -l "$(INPUTDIR)" -o "$(OUTPUTDIR)" -s "$(CONFFILE)" $(PELICANOPTS) -b $(SERVER)
+firebase: emulate
 
-devserver:
-	"$(PELICAN)" -lr "$(INPUTDIR)" -o "$(OUTPUTDIR)" -s "$(CONFFILE)" $(PELICANOPTS)
-
-devserver-global:
-	$(PELICAN) -lr $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS) -b 0.0.0.0
-
-debug:
-	$(PELICAN) -vD "$(INPUTDIR)" -o "$(OUTPUTDIR)" -s "$(CONFFILE)" $(PELICANOPTS)
-
-publish:
-	"$(PELICAN)" "$(INPUTDIR)" -o "$(OUTPUTDIR)" -s "$(PUBLISHCONF)" $(PELICANOPTS)
-
-firebase:
-	firebase emulators:start --only hosting
-
+.PHONY: dev
 dev:
-	make -j 2 devserver firebase
+	cd "$(WEB_DIR)" && $(NPM) run dev
 
+.PHONY: link-content
+link-content:
+	@set -e; \
+	if [ -e "content" ] && [ ! -L "content" ]; then echo "Refusing: ./content exists and is not a symlink"; exit 1; fi; \
+	if [ -e "images" ] && [ ! -L "images" ]; then echo "Refusing: ./images exists and is not a symlink"; exit 1; fi; \
+	mkdir -p "web/public/images"; \
+	ln -sfn "web/src/content" "content"; \
+	ln -sfn "web/public/images" "images"; \
+	echo "Linked ./content -> web/src/content"; \
+	echo "Linked ./images  -> web/public/images"
 
 .PHONY: skills
 skills: ## List external skills or install one with INSTALL=<sorted number>
@@ -90,6 +85,3 @@ skills: ## List external skills or install one with INSTALL=<sorted number>
 		ln -sf "$(abspath AGENTS.md)" CLAUDE.md; \
 		echo "Skills installed"; \
 	fi
-
-
-.PHONY: html help clean regenerate serve serve-global devserver publish debug

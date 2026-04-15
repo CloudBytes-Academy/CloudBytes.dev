@@ -103,4 +103,4 @@ cdk deploy
 ```
 This will create a Lambda function in the specified VPC and subnet. You can check the AWS Management Console to verify that the lambda function is created correctly and is running in the specified VPC and subnet in the VPC section of Configuration.
 
-![Lambda in VPC](/images/aws/50002080-01-cdk-lambda-in-vpc.png)
+![Lambda in VPC](/images/50002080-01-cdk-lambda-in-vpc.png)

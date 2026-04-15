@@ -156,4 +156,4 @@ To deploy the stack, run `cdk deploy`.
 
 When the lambda function is deployed, you can go to the console and test the function. It should show the below output.
 
-![Lambda function output](/images/aws/50002040-01-aws-lambda-output.png)
+![Lambda function output](/images/50002040-01-aws-lambda-output.png)

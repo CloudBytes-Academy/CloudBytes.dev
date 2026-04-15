@@ -134,7 +134,7 @@ a) Run `cdk synth` to synthesize the CDK app. Synth will generate a CloudFormati
 
 b) Run `cdk deploy` to deploy the CDK app. CDK will deploy the S3 bucket to your AWS account. You can see the deployed S3 bucket in the AWS Console.
 
-![Deployed S3 bucket](/images/aws/50000020-01-cdk-deploy-cloudformation.png)
+![Deployed S3 bucket](/images/50000020-01-cdk-deploy-cloudformation.png)
 
 You can see the deployed S3 bucket in the AWS Console.
 

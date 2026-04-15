@@ -50,7 +50,7 @@ class CdkAppStack(Stack):
 
 ## What are the different types of Constructs?
 
-![Types of constructs](/images/aws/50000040-01-cdk-constructs-types.png)
+![Types of constructs](/images/50000040-01-cdk-constructs-types.png)
 
 As shown in the diagram above, there are three types of Constructs:
 

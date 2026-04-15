@@ -240,4 +240,4 @@ aws lambda invoke \
 
 This will invoke the Lambda function and print the response in the terminal.
 
-![invoke-lambda-function](/images/aws/50002070-01-lambda-response.png)
+![invoke-lambda-function](/images/50002070-01-lambda-response.png)

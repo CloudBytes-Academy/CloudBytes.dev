@@ -74,7 +74,7 @@ To deploy, run `cdk deploy`.
 
 Once deployed, you can go to the AWS Console and check the lambda function. You should see the following:
 
-![Lambda inline function](/images/aws/50002000-01-fn-inline-code.gif)
+![Lambda inline function](/images/50002000-01-fn-inline-code.gif)
 
 ### What's happening here?
 

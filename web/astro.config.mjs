@@ -22,6 +22,9 @@ export default defineConfig({
         react(),
         partytown({
             config: {
+                // Avoid dev-only requests to `/~partytown/debug/*` which can be
+                // mis-routed into dynamic pages (e.g. `[category]/[...rest]`).
+                debug: false,
                 forward: ["dataLayer.push"],
             },
         }),
@@ -38,5 +41,8 @@ export default defineConfig({
     prefetch: {
         prefetchAll: true,
         defaultStrategy: "viewport",
+    },
+    server: {
+        port: 8080,
     },
 });

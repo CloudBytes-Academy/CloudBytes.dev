@@ -147,7 +147,7 @@ To get the list of stacks that are available in the app, run the following comma
 ```bash
 cdk ls
 ```
-![cdk ls output](/images/aws/50000050-01-cdk-ls-output.png)
+![cdk ls output](/images/50000050-01-cdk-ls-output.png)
 
 
 While deploying, we can either deploy only one stack, or all stacks together. To deploy a single stack, we have to specify the stack name:

@@ -27,7 +27,7 @@ seriesIndex: 2080
 2. **Application Layer (Business Logic Tier)**: This layer contains the core functionality of the application. It processes user requests, performs calculations, and interacts with the database layer.
 3. **Data Layer (Database Tier)**: This layer is responsible for data storage and management.
 
-![3-tier-architecture](/images/aws/50003000-01-cdk-vpc-3-tier.png)
+![3-tier-architecture](/images/50003000-01-cdk-vpc-3-tier.png)
 
 
 From infrastructure perspective, this architecture is replicated for better management and security. In AWS, this is typically done using a VPC with three subnets:
@@ -42,7 +42,7 @@ In this article, we will create a 3-tier VPC architecture using AWS CDK in Pytho
 ## 3 Tier VPC Architecture
 On AWS, the 3-tier VPC architecture looks like this:
 
-![3-tier-architecture](/images/aws/50003000-02-cdk-3-tier-vpc.png)
+![3-tier-architecture](/images/50003000-02-cdk-3-tier-vpc.png)
 
 
 ## Creating a 3-Tier VPC with AWS CDK in Python
@@ -114,7 +114,7 @@ This command will deploy the stack to your AWS account. You can view the resourc
 ## Conclusion
 When you navigate to the VPC section in the AWS Management Console, you can see details of all the resources that have been created and configured in the VPC Resource Map.
 
-![VPC resource map](/images/aws/50003000-03-cdk-vpc-resource-map.png)
+![VPC resource map](/images/50003000-03-cdk-vpc-resource-map.png)
 
 
 However, this is a pre-configured way to create a VPC, if you want to customise the VPC further e.g.  CIDR ranges of your own choice, lower level constructs can be used for that purpose.
