@@ -44,6 +44,8 @@ help:
 	@echo 'Set the DEBUG variable to 1 to enable debugging, e.g. make DEBUG=1 html						'
 	@echo 'Set the RELATIVE variable to 1 to enable relative urls										'
 	@echo '																								'
+	@echo '   make skills								list or install external skills						'
+	@echo '   make skills INSTALL=<sorted number>		install one external skill							'
 
 html:
 	"$(PELICAN)" "$(INPUTDIR)" -o "$(OUTPUTDIR)" -s "$(CONFFILE)" $(PELICANOPTS)
@@ -77,6 +79,17 @@ firebase:
 
 dev:
 	make -j 2 devserver firebase
+
+
+.PHONY: skills
+skills: ## List external skills or install one with INSTALL=<sorted number>
+	@./.scripts/manage-skills.sh $(if $(INSTALL),install "$(INSTALL)",list)
+	@if [ -n "$(INSTALL)" ]; then \
+		mkdir -p .claude; \
+		ln -sfn "$(abspath .agents/skills)" .claude/skills; \
+		ln -sf "$(abspath AGENTS.md)" CLAUDE.md; \
+		echo "Skills installed"; \
+	fi
 
 
 .PHONY: html help clean regenerate serve serve-global devserver publish debug

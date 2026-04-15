@@ -1,0 +1,40 @@
+---
+import ArticleCard from "../../../components/ArticleCard.astro";
+import Pagination from "../../../components/Pagination.astro";
+import Page from "../../../layouts/Page.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../../../consts";
+import { getAllPosts, getPostHref, getUniqueAuthors, paginate } from "../../../utils/posts";
+
+export async function getStaticPaths() {
+    const posts = await getAllPosts();
+    const authors = getUniqueAuthors(posts);
+    return authors.map((author) => ({ params: { author: author.slug }, props: { author } }));
+}
+
+const { author } = Astro.props;
+
+const posts = (await getAllPosts()).filter((post) => post.data.authorSlug === author.slug);
+const { items, totalPages } = paginate(posts, 1);
+---
+
+<Page
+    title={`${SITE_TITLE} · ${author.name}`}
+    description={SITE_DESCRIPTION}
+    heading={author.name}
+    subheading={`All posts by ${author.name}.`}
+    label="Author"
+>
+    {items.map((post) => (
+        <ArticleCard
+            href={getPostHref(post)}
+            title={post.data.title}
+            description={post.data.description}
+            tags={post.data.tags}
+        />
+    ))}
+
+    <div slot="pagination">
+        <Pagination basePath={`/authors/${author.slug}`} currentPage={1} totalPages={totalPages} />
+    </div>
+</Page>
+

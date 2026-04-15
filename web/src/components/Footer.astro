@@ -1,0 +1,35 @@
+---
+const year = new Date().getFullYear();
+
+const links = [
+    { href: "/snippets/", label: "Snippets" },
+    { href: "/books/", label: "Books" },
+    { href: "/tags/", label: "Tags" },
+    { href: "/terms/", label: "Terms" },
+    { href: "/privacy/", label: "Privacy" },
+];
+
+const GITHUB_URL = "https://github.com/CloudBytesDotDev/CloudBytes.dev";
+---
+
+<footer class="border-t border-base-300 bg-base-200">
+    <div class="cb-container py-10">
+        <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <div>
+                <p class="text-sm text-base-content/70">&copy; {year} CloudBytes. All rights reserved.</p>
+                <p class="mt-2 text-xs text-base-content/60">CloudBytes/dev&gt;: Programming on Steroids</p>
+            </div>
+
+            <nav class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
+                {links.map((item) => (
+                    <a class="link link-hover text-base-content/70" href={item.href}>
+                        {item.label}
+                    </a>
+                ))}
+                <a class="link link-hover text-base-content/70" href={GITHUB_URL} target="_blank" rel="noopener">
+                    GitHub
+                </a>
+            </nav>
+        </div>
+    </div>
+</footer>

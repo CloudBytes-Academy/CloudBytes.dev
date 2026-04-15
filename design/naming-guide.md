@@ -1,1 +1,0 @@
-Follows the hurricane naming convention cycling throu A - Z

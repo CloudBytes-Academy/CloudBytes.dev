@@ -1,0 +1,35 @@
+---
+import Page from "../../layouts/Page.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
+import { getAllPosts, getUniqueAuthors } from "../../utils/posts";
+
+const posts = await getAllPosts();
+const authors = getUniqueAuthors(posts);
+---
+
+<Page
+    title={`${SITE_TITLE} · Authors`}
+    description={SITE_DESCRIPTION}
+    heading="Authors"
+    subheading="All authors with published posts."
+    label="Authors"
+>
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+        {authors.map((author) => (
+            <a
+                href={`/authors/${author.slug}/`}
+                class="box block no-underline transition hover:border-primary/60 hover:bg-base-200"
+                aria-label={`View posts by ${author.name}`}
+            >
+                <div class="box-content flex items-center justify-between gap-4">
+                    <div>
+                        <p class="text-lg font-semibold text-base-content">{author.name}</p>
+                        <p class="subtext mt-1">{author.count} post{author.count === 1 ? "" : "s"}</p>
+                    </div>
+                    <span class="text-base-content/40" aria-hidden="true">→</span>
+                </div>
+            </a>
+        ))}
+    </div>
+</Page>
+

@@ -12,70 +12,56 @@ on:
       - ".devcontainer/**"
       - ".vscode/**"
 
+env:
+  PUBLIC_ALGOLIA_APP_ID: XE8PCLJHAE
+  PUBLIC_ALGOLIA_SEARCH_API_KEY: ec75de1d8ce87dee234a2fd47cec2d76
+  PUBLIC_ALGOLIA_INDEX_NAME: cloudbytes_dev
+  PUBLIC_GOOGLE_ANALYTICS_ID: G-9VKX48YDBH
+
 jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+
+      - uses: actions/setup-node@v4
         with:
-          python-version: "3.10"
-          architecture: "x64"
-      - name: Install Python dependencies
-        run: python -m pip install -r "${{ github.workspace }}/requirements.txt"
-      - name: Build Pelican Website
+          node-version: "22"
+          cache: "npm"
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install dependencies
+        working-directory: web
+        run: npm ci
+
+      - name: Build Astro site
+        working-directory: web
+        run: npm run build
+
+      - name: Run tests (Vitest)
+        working-directory: web
+        run: npm test
+
+      - name: Update Algolia index
+        working-directory: web
         env:
           ALGOLIA_ADMIN_API_KEY: "${{ secrets.ALGOLIA_ADMIN_API_KEY }}"
-          PUBLISH: True
-        run: pelican "${{ github.workspace }}/content" -o "${{ github.workspace }}/output" -s "${{ github.workspace }}/settings.py"
+        run: node scripts/algolia-index.mjs
+
       - name: Upload the Build Files
         uses: actions/upload-artifact@v4
         with:
           name: build-output
           path: |
-            output/
+            web/dist/
             .firebaserc
             firebase.json
           retention-days: 1
           include-hidden-files: true
-      - name: Upload the Test Files
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-input
-          path: |
-            tests/
-            requirements.txt
-            .github/scripts/prepare-test-env.sh
-            pytest.ini
-          retention-days: 1
-          include-hidden-files: true
-  test:
-    name: Test
-    needs: [build]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.10"
-          architecture: "x64"
-      - name: Download the Build Output
-        uses: actions/download-artifact@v4
-        with:
-          name: build-output
-      - name: Download the test input
-        uses: actions/download-artifact@v4
-        with:
-          name: test-input
-      - name: Prepare Test Environment
-        run: sh "${{ github.workspace }}/.github/scripts/prepare-test-env.sh"
-      - name: Run Tests
-        env:
-          PUBLISH: True # This indicates that the test environment is being used
-        run: pytest
   deploy:
     name: Deploy
-    needs: [test]
+    needs: [build]
     runs-on: ubuntu-latest
     environment:
       name: cloudbytes.dev

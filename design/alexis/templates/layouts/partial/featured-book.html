@@ -1,4 +1,0 @@
-<div class="row">
-    {% set article = (articles_page.object_list|selectattr('category','eq', 'Books')|first) %}
-    {% include "layouts/partial/article-card.html" %}
-</div>

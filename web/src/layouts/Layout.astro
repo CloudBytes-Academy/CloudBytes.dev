@@ -1,0 +1,171 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Navbar from "../components/Navbar.astro";
+
+interface Props {
+    title: string;
+    description: string;
+    type?: "website" | "article";
+    author?: string;
+    keywords?: string[];
+    publishedTime?: Date;
+    modifiedTime?: Date;
+    noindex?: boolean;
+}
+
+const { title, description, type, author, keywords, publishedTime, modifiedTime, noindex } = Astro.props;
+const hasSidebar = Astro.slots.has("sidebar");
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <BaseHead
+            title={title}
+            description={description}
+            type={type}
+            author={author}
+            keywords={keywords}
+            publishedTime={publishedTime}
+            modifiedTime={modifiedTime}
+            noindex={noindex}
+        />
+        <script is:inline>
+            // Apply the saved theme immediately to prevent flash of unstyled content
+            const savedTheme = localStorage.getItem("theme") || "bethany";
+            document.documentElement.setAttribute("data-theme", savedTheme);
+        </script>
+    </head>
+    <body class="min-h-screen bg-base-100 text-base-content flex flex-col">
+        <Navbar />
+
+        <main class="content-pad flex-1">
+            <div
+                class:list={[
+                    "cb-container grid grid-cols-1 gap-8",
+                    hasSidebar && "lg:grid-cols-[minmax(0,1fr)_22rem]",
+                ]}
+            >
+                <div class="min-w-0">
+                    <slot />
+                </div>
+                {hasSidebar && (
+                    <aside class="hidden lg:block">
+                        <div class="sticky top-24">
+                            <slot name="sidebar" />
+                        </div>
+                    </aside>
+                )}
+            </div>
+        </main>
+
+        <Footer />
+
+        <script is:inline>
+            (() => {
+                const fallbackCopy = (text) => {
+                    const textarea = document.createElement("textarea");
+                    textarea.value = text;
+                    textarea.setAttribute("readonly", "true");
+                    textarea.style.position = "fixed";
+                    textarea.style.opacity = "0";
+                    textarea.style.left = "-9999px";
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    document.execCommand("copy");
+                    document.body.removeChild(textarea);
+                };
+
+                const enhance = () => {
+                    const pres = document.querySelectorAll("pre");
+                    for (const pre of pres) {
+                        if (!(pre instanceof HTMLElement)) continue;
+                        if (pre.dataset.cbCopy === "true") continue;
+                        const code = pre.querySelector("code");
+                        if (!(code instanceof HTMLElement)) continue;
+
+                        // Mark the original element so we don't double-wrap on navigation/HMR
+                        pre.dataset.cbCopy = "true";
+
+                        if (pre.closest(".cb-codecopy")) continue;
+
+                        const parent = pre.parentNode;
+                        if (!parent) continue;
+
+                        const wrapper = document.createElement("div");
+                        wrapper.className = "cb-codecopy";
+                        parent.replaceChild(wrapper, pre);
+                        wrapper.appendChild(pre);
+
+                        const rawLang =
+                            pre.getAttribute("data-language") ||
+                            code.className.match(/\blanguage-([\w-]+)\b/)?.[1] ||
+                            "";
+                        const lang = rawLang ? rawLang : "text";
+                        const filename = pre.getAttribute("data-filename") || code.getAttribute("data-filename") || "";
+
+                        const head = document.createElement("div");
+                        head.className = "cb-codecopy-head";
+
+                        const meta = document.createElement("div");
+                        meta.className = "cb-codecopy-meta";
+
+                        const langEl = document.createElement("span");
+                        langEl.className = "cb-codecopy-lang";
+                        langEl.textContent = lang;
+                        meta.appendChild(langEl);
+
+                        if (filename) {
+                            const sep = document.createElement("span");
+                            sep.className = "cb-codecopy-sep";
+                            sep.textContent = "•";
+                            meta.appendChild(sep);
+
+                            const fileEl = document.createElement("span");
+                            fileEl.className = "cb-codecopy-file";
+                            fileEl.textContent = filename;
+                            meta.appendChild(fileEl);
+                        }
+
+                        const btn = document.createElement("button");
+                        btn.type = "button";
+                        btn.className = "btn btn-ghost btn-xs cb-copy-btn";
+                        btn.textContent = "Copy";
+                        btn.setAttribute("aria-label", "Copy to clipboard");
+                        btn.addEventListener("click", async () => {
+                            const text = (code.innerText || "").trim();
+                            if (!text) return;
+
+                            const prev = btn.textContent;
+                            btn.textContent = "Copied!";
+                            btn.setAttribute("aria-label", "Copied to clipboard");
+
+                            try {
+                                await navigator.clipboard.writeText(text);
+                            } catch {
+                                fallbackCopy(text);
+                            }
+
+                            window.setTimeout(() => {
+                                btn.textContent = prev || "Copy";
+                                btn.setAttribute("aria-label", "Copy to clipboard");
+                            }, 400);
+                        });
+
+                        head.appendChild(meta);
+                        head.appendChild(btn);
+                        wrapper.insertBefore(head, pre);
+                    }
+                };
+
+                if (document.readyState === "loading") {
+                    document.addEventListener("DOMContentLoaded", enhance, { once: true });
+                } else {
+                    enhance();
+                }
+            })();
+        </script>
+    </body>
+</html>
+

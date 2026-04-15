@@ -1,0 +1,42 @@
+{
+    "semi": true,
+    "tabWidth": 4,
+    "printWidth": 140,
+    "plugins": [
+        "prettier-plugin-tailwindcss",
+        "prettier-plugin-astro"
+    ],
+    "overrides": [
+        {
+            "files": "*.astro",
+            "options": {
+                "parser": "astro"
+            }
+        },
+        {
+            "files": "*.svg",
+            "options": {
+                "parser": "html"
+            }
+        },
+        {
+            "files": "*.mjs",
+            "options": {
+                "parser": "typescript"
+            }
+        },
+        {
+            "files": "*.svg",
+            "options": {
+                "parser": "html"
+            }
+        },
+        {
+            "files": "*.xml",
+            "options": {
+                "parser": "html"
+            }
+        }
+    ],
+    "proseWrap": "always"
+}

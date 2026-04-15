@@ -1,0 +1,160 @@
+---
+import { type CollectionEntry, render } from "astro:content";
+import ArticleCard from "../../components/ArticleCard.astro";
+import Pagination from "../../components/Pagination.astro";
+import Page from "../../layouts/Page.astro";
+import PostLayout from "../../layouts/Post.astro";
+import { SITE_TITLE } from "../../consts";
+import { slugify } from "../../utils/slugify";
+import { getAllPosts, getPostHref, getUniqueCategories, paginate, PAGE_SIZE } from "../../utils/posts";
+
+type Post = CollectionEntry<"posts">;
+
+export async function getStaticPaths() {
+    const allPosts = await getAllPosts();
+    const categories = getUniqueCategories(allPosts);
+    const paths: Array<{ params: { category: string; rest: string }; props: any }> = [];
+
+    // Post pages: /{categorySlug}/{slug}/
+    for (const post of allPosts) {
+        paths.push({
+            params: { category: post.data.categorySlug, rest: post.data.slug },
+            props: { kind: "post", post },
+        });
+    }
+
+    // Category pagination: /{categorySlug}/{page}/ (starting at 2)
+    for (const category of categories) {
+        const inCategory = allPosts.filter((p) => p.data.categorySlug === category.slug);
+        const totalPages = Math.max(1, Math.ceil(inCategory.length / PAGE_SIZE));
+        for (let page = 2; page <= totalPages; page++) {
+            paths.push({
+                params: { category: category.slug, rest: String(page) },
+                props: { kind: "categoryPage", category, page },
+            });
+        }
+    }
+
+    return paths;
+}
+
+const { kind } = Astro.props;
+
+let pageNumber = 1;
+let categoryName = "";
+let categorySlug = Astro.params.category;
+let pageItems: Post[] = [];
+let totalPages = 1;
+
+let post: Post | null = null;
+let Content: any = null;
+let headings: Array<{ depth: number; slug: string; text: string }> = [];
+let seriesPrev: { title: string; href: string } | undefined;
+let seriesNext: { title: string; href: string } | undefined;
+let seriesPosition: number | undefined;
+let seriesTotal: number | undefined;
+let relatedPosts: Array<{ title: string; href: string }> = [];
+
+if (kind === "post") {
+    const postEntry = Astro.props.post as Post;
+    post = postEntry;
+    const rendered = await render(postEntry);
+    Content = rendered.Content;
+    headings = rendered.headings ?? [];
+
+    const allPosts = await getAllPosts();
+
+    // Series navigation (Pelican-like: series + seriesIndex)
+    if (postEntry.data.series) {
+        const seriesPosts = allPosts
+            .filter((p) => p.data.series === postEntry.data.series)
+            .sort((a, b) => (a.data.seriesIndex ?? Number.POSITIVE_INFINITY) - (b.data.seriesIndex ?? Number.POSITIVE_INFINITY));
+
+        const currentIndex = seriesPosts.findIndex(
+            (p) => p.data.categorySlug === postEntry.data.categorySlug && p.data.slug === postEntry.data.slug,
+        );
+
+        if (currentIndex >= 0) {
+            seriesPosition = currentIndex + 1;
+            seriesTotal = seriesPosts.length;
+        }
+
+        if (currentIndex > 0) {
+            const prev = seriesPosts[currentIndex - 1];
+            seriesPrev = { title: prev.data.title, href: getPostHref(prev) };
+        }
+        if (currentIndex >= 0 && currentIndex < seriesPosts.length - 1) {
+            const next = seriesPosts[currentIndex + 1];
+            seriesNext = { title: next.data.title, href: getPostHref(next) };
+        }
+    }
+
+    // Related posts (simple similarity: shared tags + same category)
+    const currentTags = new Set((postEntry.data.tags ?? []).map((t) => slugify(t)));
+    const scored = allPosts
+        .filter((p) => !(p.data.categorySlug === postEntry.data.categorySlug && p.data.slug === postEntry.data.slug))
+        .map((p) => {
+            let score = 0;
+            if (p.data.categorySlug === postEntry.data.categorySlug) score += 3;
+            for (const t of p.data.tags ?? []) {
+                if (currentTags.has(slugify(t))) score += 2;
+            }
+            return { post: p, score };
+        })
+        .filter((x) => x.score > 0)
+        .sort((a, b) => b.score - a.score || b.post.data.pubDate.valueOf() - a.post.data.pubDate.valueOf())
+        .slice(0, 5);
+
+    relatedPosts = scored.map((x) => ({ title: x.post.data.title, href: getPostHref(x.post) }));
+} else {
+    pageNumber = Number(Astro.props.page);
+    categoryName = Astro.props.category?.name ?? categorySlug;
+    const allPosts = await getAllPosts();
+    const inCategory = allPosts.filter((p) => p.data.categorySlug === categorySlug);
+    const paged = paginate(inCategory, pageNumber);
+    pageItems = paged.items;
+    totalPages = paged.totalPages;
+}
+---
+
+{kind === "post" && post && Content ? (
+    <PostLayout
+        title={post.data.title}
+        description={post.data.description}
+        pubDate={post.data.pubDate}
+        updatedDate={post.data.updatedDate}
+        category={post.data.category}
+        categorySlug={post.data.categorySlug}
+        author={post.data.author}
+        authorSlug={post.data.authorSlug}
+        tags={post.data.tags}
+        keywords={post.data.keywords}
+        youtubeId={post.data.youtubeId}
+        series={post.data.series}
+        seriesPrev={seriesPrev}
+        seriesNext={seriesNext}
+        seriesPosition={seriesPosition}
+        seriesTotal={seriesTotal}
+        relatedPosts={relatedPosts}
+        headings={headings}
+    >
+        <Content />
+    </PostLayout>
+) : (
+    <Page
+        title={`${SITE_TITLE} · ${categoryName} · Page ${pageNumber}`}
+        description={`All posts in ${categoryName}.`}
+        heading={categoryName}
+        subheading={`Page ${pageNumber} of posts in ${categoryName}.`}
+        label="Category"
+    >
+        {pageItems.map((p) => (
+            <ArticleCard href={getPostHref(p)} title={p.data.title} description={p.data.description} tags={p.data.tags} />
+        ))}
+
+        <div slot="pagination">
+            <Pagination basePath={`/${categorySlug}`} currentPage={pageNumber} totalPages={totalPages} />
+        </div>
+    </Page>
+)}
+

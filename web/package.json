@@ -1,0 +1,42 @@
+{
+  "name": "cloudbytes.dev",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@algolia/autocomplete-js": "^1.19.8",
+    "@astrojs/mdx": "^5.0.3",
+    "@astrojs/partytown": "^2.1.7",
+    "@astrojs/react": "^5.0.3",
+    "@astrojs/rss": "^4.0.18",
+    "@astrojs/sitemap": "^3.7.2",
+    "@tailwindcss/vite": "^4.2.2",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "algoliasearch": "^5.50.1",
+    "astro": "^6.1.6",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "sharp": "^0.34.3",
+    "tailwindcss": "^4.2.2"
+  },
+  "devDependencies": {
+    "cheerio": "^1.2.0",
+    "daisyui": "^5.5.19",
+    "prettier": "^3.8.2",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.7.2",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.4"
+  }
+}

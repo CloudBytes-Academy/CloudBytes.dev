@@ -1,0 +1,41 @@
+---
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import Layout from "./Layout.astro";
+import { buildBreadcrumbs } from "../utils/breadcrumbs";
+
+interface Props {
+    title: string;
+    description: string;
+    heading: string;
+    subheading?: string;
+    label?: string;
+}
+
+const { title, description, heading, subheading, label } = Astro.props;
+const hasSidebar = Astro.slots.has("sidebar");
+const breadcrumbs = buildBreadcrumbs(Astro.url.pathname);
+---
+
+<Layout title={title} description={description}>
+    <header class="mb-8">
+        {breadcrumbs.length ? <Breadcrumbs items={breadcrumbs} class="mb-4" /> : null}
+        {label && <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">{label}</p>}
+        <h1 class="border-bottom text-3xl md:text-4xl">{heading}</h1>
+        {subheading && <p class="mt-4 text-lg text-base-content/75">{subheading}</p>}
+    </header>
+
+    <div class="grid grid-cols-1 gap-4">
+        <slot />
+    </div>
+
+    <div class="mt-8">
+        <slot name="pagination" />
+    </div>
+
+    {hasSidebar && (
+        <div slot="sidebar">
+            <slot name="sidebar" />
+        </div>
+    )}
+</Layout>
+

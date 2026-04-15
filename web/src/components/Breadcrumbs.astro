@@ -1,0 +1,29 @@
+---
+import type { BreadcrumbItem } from "../utils/breadcrumbs";
+
+interface Props {
+    items: BreadcrumbItem[];
+    class?: string;
+}
+
+const { items, class: className } = Astro.props;
+---
+
+{items?.length ? (
+    <nav class:list={["breadcrumbs text-sm text-base-content/60", className]} aria-label="Breadcrumbs">
+        <ul>
+            {items.map((item, idx) => (
+                <li>
+                    {item.href && idx !== items.length - 1 ? (
+                        <a class="no-underline hover:text-base-content" href={item.href}>
+                            {item.label}
+                        </a>
+                    ) : (
+                        <span class="text-base-content/70">{item.label}</span>
+                    )}
+                </li>
+            ))}
+        </ul>
+    </nav>
+) : null}
+

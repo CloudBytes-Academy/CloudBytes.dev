@@ -1,0 +1,106 @@
+---
+import { getCollection } from "astro:content";
+
+interface Props {
+    variant?: "default" | "compact";
+}
+
+const { variant = "default" } = Astro.props;
+const isCompact = variant === "compact";
+
+const GITHUB_URL = "https://github.com/CloudBytesDotDev/CloudBytes.dev";
+const YOUTUBE_URL = "https://www.youtube.com/@CloudBytesDotDev";
+
+const posts = (await getCollection("posts"))
+    .filter((p) => !p.data.draft)
+    .sort((a, b) => a.data.category.localeCompare(b.data.category));
+
+const categoryMap = new Map();
+for (const post of posts) {
+    const slug = post.data.categorySlug;
+    const name = post.data.category;
+    const existing = categoryMap.get(slug);
+    categoryMap.set(slug, { slug, name, count: (existing?.count ?? 0) + 1 });
+}
+
+const categories = Array.from(categoryMap.values()).sort((a, b) => {
+    if (b.count !== a.count) return b.count - a.count;
+    return a.name.localeCompare(b.name);
+});
+---
+
+<div class:list={["dropdown dropdown-bottom", isCompact && "dropdown-end"]}>
+    {isCompact ? (
+        <div tabindex="0" role="button" class="btn btn-ghost btn-circle" aria-label="Menu" title="Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-5 w-5" aria-hidden="true">
+                <path
+                    fill="currentColor"
+                    d="M4 6.5A1.5 1.5 0 0 1 5.5 5h13a1.5 1.5 0 0 1 0 3h-13A1.5 1.5 0 0 1 4 6.5Zm0 5A1.5 1.5 0 0 1 5.5 10h13a1.5 1.5 0 0 1 0 3h-13A1.5 1.5 0 0 1 4 11.5Zm0 5A1.5 1.5 0 0 1 5.5 15h13a1.5 1.5 0 0 1 0 3h-13A1.5 1.5 0 0 1 4 16.5Z"
+                />
+            </svg>
+        </div>
+    ) : (
+        <div tabindex="0" role="button" class="btn btn-ghost">
+            Categories
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="ml-1 h-4 w-4 opacity-80"
+                aria-hidden="true"
+            >
+                <path d="m6 9 6 6 6-6" />
+            </svg>
+        </div>
+    )}
+    <ul
+        tabindex="0"
+        class="menu dropdown-content mt-2 w-56 rounded-box border border-base-300 bg-base-200 p-2 shadow"
+        aria-label={isCompact ? "Menu" : "Categories"}
+    >
+        {isCompact ? (
+            <>
+                <li>
+                    <a href="/books/">Books</a>
+                </li>
+                <li>
+                    <a href="/tags/">Tags</a>
+                </li>
+                <li>
+                    <a href={GITHUB_URL} target="_blank" rel="noopener">
+                        GitHub
+                    </a>
+                </li>
+                <li>
+                    <a href={YOUTUBE_URL} target="_blank" rel="noopener">
+                        YouTube
+                    </a>
+                </li>
+                <li class="menu-title mt-2">
+                    <span>Categories</span>
+                </li>
+            </>
+        ) : null}
+        {categories.map((category) => (
+            <li>
+                <a href={`/${category.slug}/`} class="flex items-center justify-between gap-3">
+                    <span>{category.name}</span>
+                    <span class="text-xs text-base-content/60">{category.count}</span>
+                </a>
+            </li>
+        ))}
+        {!isCompact ? (
+            <li class="mt-1">
+                <a href="/tags/" class="flex items-center justify-between gap-3">
+                    <span>Tags</span>
+                    <span class="text-xs text-base-content/60">#</span>
+                </a>
+            </li>
+        ) : null}
+    </ul>
+</div>
+
