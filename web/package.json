@@ -16,6 +16,7 @@
   "dependencies": {
     "@algolia/autocomplete-js": "^1.19.8",
     "@astrojs/mdx": "^5.0.3",
+    "@astrojs/partytown": "^2.1.7",
     "@astrojs/react": "^5.0.3",
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.2",

@@ -11,10 +11,12 @@ import { rehypePelicanAdmonitions } from "./src/utils/rehype/pelicanAdmonitions.
 import tailwindcss from "@tailwindcss/vite";
 import react from "@astrojs/react";
 
+import partytown from "@astrojs/partytown";
+
 // https://astro.build/config
 export default defineConfig({
     site: "https://cloudbytes.dev",
-    integrations: [mdx(), sitemap(), react()],
+    integrations: [mdx(), sitemap(), react(), partytown()],
 
     markdown: {
         remarkPlugins: [remarkStripPelicanToc, remarkCodeBlockMeta, remarkRewritePelicanFilenameLinks],
