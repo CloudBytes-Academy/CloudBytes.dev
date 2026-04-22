@@ -22,7 +22,7 @@ async function pathExists(p) {
     }
 }
 
-async function loadDotEnv(dotEnvPath) {
+async function loadDotEnv(dotEnvPath, { override = false } = {}) {
     if (!(await pathExists(dotEnvPath))) return;
     const text = await fs.readFile(dotEnvPath, "utf8");
     for (const rawLine of text.split(/\r?\n/)) {
@@ -32,7 +32,7 @@ async function loadDotEnv(dotEnvPath) {
         if (idx === -1) continue;
         const key = line.slice(0, idx).trim();
         const value = line.slice(idx + 1).trim();
-        if (!process.env[key]) process.env[key] = value;
+        if (override || !process.env[key]) process.env[key] = value;
     }
 }
 
@@ -124,6 +124,7 @@ function stripMarkdown(md) {
 async function main() {
     // Load local env for convenience (CI should set env explicitly)
     await loadDotEnv(path.join(WEB_ROOT, ".env"));
+    await loadDotEnv(path.join(WEB_ROOT, ".env.local"), { override: true });
 
     const appId = process.env.PUBLIC_ALGOLIA_APP_ID;
     const indexName = process.env.PUBLIC_ALGOLIA_INDEX_NAME;

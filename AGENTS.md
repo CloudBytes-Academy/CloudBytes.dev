@@ -64,6 +64,11 @@ Preferred local workflow is:
 - **`make emulate` (hosting behavior check)**: runs Firebase Hosting emulator against the built `web/dist/` output at `http://localhost:8080`.
 - **`make build`**: compiles static output to `web/dist/`.
 
+## Environment variables
+- **Public build-time values (`PUBLIC_*`)**: tracked in `web/.env` and used by both local dev and CI.
+- **Local-only secrets**: put in `web/.env.local` (ignored by git). Template: `web/.env.local.example`.
+- **CI secrets**: stored in GitHub Secrets (e.g. `ALGOLIA_ADMIN_API_KEY`).
+
 ## Content + images
 - **Content (Astro collections)**:
   - Posts: `web/src/content/posts/**`
