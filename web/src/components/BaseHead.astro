@@ -154,7 +154,7 @@ const jsonLd = JSON.stringify(schema);
 
 {enableAnalytics && (
 	<>
-		<script type="text/partytown" async src={`https://www.googletagmanager.com/gtag/js?id=${gtagId}`}></script>
+		<script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gtagId}`}></script>
 		<script is:inline set:html={gtagInit} />
 	</>
 )}
