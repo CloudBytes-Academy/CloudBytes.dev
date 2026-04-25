@@ -139,3 +139,9 @@ desktop.ini
 urlsin.txt
 urlsout.txt
 proofer_report-*.json
+
+# The Python-style `lib/`, `build/`, `dist/` patterns above (legacy from the
+# Pelican days) accidentally match unrelated source folders inside the Astro
+# app. Re-include the source directories so CI sees them.
+!web/src/lib/
+!web/src/lib/**
