@@ -9,7 +9,7 @@ tags:
     - "python"
     - "typer"
 keywords:
-    - "Python"
+    - "python"
     - "typer"
 author: "Rehan Haider"
 authorSlug: "rehan-haider"

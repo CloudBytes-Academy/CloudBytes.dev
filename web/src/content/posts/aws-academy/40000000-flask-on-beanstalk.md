@@ -9,8 +9,8 @@ tags:
     - "aws"
     - "python"
 keywords:
-    - "AWS"
-    - "Python"
+    - "aws"
+    - "python"
     - "beanstalk"
     - "flask"
     - "elastic beanstalk"

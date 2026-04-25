@@ -2,7 +2,8 @@
 import ArticleCard from "../../components/ArticleCard.astro";
 import Pagination from "../../components/Pagination.astro";
 import PageLayout from "../../layouts/Page.astro";
-import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
+import { SITE_TITLE } from "../../consts";
+import { buildGraph, buildItemList, buildWebPage } from "../../lib/seo";
 import { getAllPosts, getPostHref, paginate, PAGE_SIZE } from "../../utils/posts";
 
 export async function getStaticPaths() {
@@ -22,13 +23,32 @@ const pageNumber = Number(page);
 
 const posts = await getAllPosts();
 const { items, totalPages } = paginate(posts, pageNumber);
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site!).toString();
+const description = `Page ${pageNumber} of latest posts on ${SITE_TITLE}.`;
+
+const jsonLd = [
+    buildGraph([
+        buildWebPage({
+            type: "CollectionPage",
+            url: canonicalUrl,
+            name: `Latest · Page ${pageNumber} · ${SITE_TITLE}`,
+            description,
+        }),
+        buildItemList({
+            url: canonicalUrl,
+            items: items.map((post) => ({ url: getPostHref(post), name: post.data.title })),
+        }),
+    ]),
+];
 ---
 
 <PageLayout
-    title={`${SITE_TITLE} · Latest · Page ${pageNumber}`}
-    description={SITE_DESCRIPTION}
+    title={`Latest · Page ${pageNumber} · ${SITE_TITLE}`}
+    description={description}
     heading="Latest"
     subheading={`Page ${pageNumber} of latest posts.`}
+    jsonLd={jsonLd}
 >
     {items.map((post) => (
         <ArticleCard
@@ -43,4 +63,3 @@ const { items, totalPages } = paginate(posts, pageNumber);
         <Pagination basePath="/page" firstPagePath="/" currentPage={pageNumber} totalPages={totalPages} />
     </div>
 </PageLayout>
-

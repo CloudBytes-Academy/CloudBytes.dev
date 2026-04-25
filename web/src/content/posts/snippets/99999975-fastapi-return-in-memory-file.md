@@ -9,8 +9,8 @@ tags:
     - "python"
     - "fastapi"
 keywords:
-    - "Python"
-    - "fastAPI"
+    - "python"
+    - "fastapi"
 author: "Rehan Haider"
 authorSlug: "rehan-haider"
 ---

@@ -9,7 +9,7 @@ tags:
     - "aws"
     - "linux"
 keywords:
-    - "AWS"
+    - "aws"
     - "cli"
 author: "Rehan Haider"
 authorSlug: "rehan-haider"

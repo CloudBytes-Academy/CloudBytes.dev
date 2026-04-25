@@ -8,7 +8,7 @@ slug: "python-for-loops-using-range-vs-enumerate"
 tags:
     - "python"
 keywords:
-    - "Python"
+    - "python"
     - "for loop"
 author: "Rehan Haider"
 authorSlug: "rehan-haider"

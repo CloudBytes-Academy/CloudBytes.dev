@@ -1,0 +1,146 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { SITE_TITLE, SITE_URL } from "../consts";
+import { buildGraph, buildWebPage } from "../lib/seo";
+import { buildSearchIndex } from "../lib/search/manifest";
+
+const index = await buildSearchIndex();
+const indexJson = JSON.stringify(index);
+
+const grouped = new Map<string, typeof index>();
+for (const entry of index) {
+    if (!grouped.has(entry.section)) grouped.set(entry.section, []);
+    grouped.get(entry.section)!.push(entry);
+}
+
+const canonicalUrl = `${SITE_URL}/search/`;
+const description = `Search all posts, snippets, and pages on ${SITE_TITLE}.`;
+
+const jsonLd = [
+    buildGraph([
+        buildWebPage({
+            type: "WebPage",
+            url: canonicalUrl,
+            name: `Search · ${SITE_TITLE}`,
+            description,
+        }),
+    ]),
+];
+---
+
+<Layout
+    title={`Search · ${SITE_TITLE}`}
+    description={description}
+    jsonLd={jsonLd}
+>
+    <header class="mb-6">
+        <h1 class="border-bottom text-3xl md:text-4xl" data-speakable>Search</h1>
+        <p class="mt-3 text-base-content/70" data-speakable>
+            Filter all {index.length} posts and pages on {SITE_TITLE}. Type a query, press Enter, and the URL updates so you can share results.
+        </p>
+    </header>
+
+    <form method="get" action="/search/" class="mb-8">
+        <label class="sr-only" for="cb-search-q">Search</label>
+        <div class="relative">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-base-content/60"
+                aria-hidden="true"
+            >
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.3-4.3" />
+            </svg>
+            <input
+                id="cb-search-q"
+                name="q"
+                type="search"
+                class="input input-bordered w-full bg-base-100 pl-9 pr-3 text-base text-base-content placeholder:text-base-content/40"
+                placeholder="Try ‘aws cdk lambda’ or ‘wsl2 install’"
+                autocomplete="off"
+                data-cb-search-page-input
+            />
+        </div>
+    </form>
+
+    <p class="mb-6 text-sm text-base-content/60" data-cb-search-page-status>
+        Showing all {index.length} entries — type to filter.
+    </p>
+
+    <div data-cb-search-page-results>
+        {Array.from(grouped.entries()).map(([section, entries]) => (
+            <section class="mb-10">
+                <h2 class="mb-4 text-base font-semibold uppercase tracking-wide text-base-content/70">{section} ({entries.length})</h2>
+                <div class="grid grid-cols-1 gap-3">
+                    {entries.map((entry) => (
+                        <a class="box no-underline transition hover:border-primary/60 hover:bg-base-200" href={entry.url} data-cb-search-page-entry data-search-text={`${entry.title} ${entry.description} ${entry.section}`.toLowerCase()}>
+                            <div class="box-content">
+                                <div class="text-base font-semibold text-base-content">{entry.title}</div>
+                                <p class="subtext mt-1">{entry.description}</p>
+                            </div>
+                        </a>
+                    ))}
+                </div>
+            </section>
+        ))}
+    </div>
+
+    <script type="application/json" id="cb-search-index" set:html={indexJson} />
+
+    <script is:inline>
+        (() => {
+            const input = document.querySelector("[data-cb-search-page-input]");
+            const status = document.querySelector("[data-cb-search-page-status]");
+            const sections = document.querySelectorAll("[data-cb-search-page-results] section");
+            if (!(input instanceof HTMLInputElement) || !status) return;
+
+            const params = new URLSearchParams(window.location.search);
+            const initialQ = params.get("q") ?? "";
+            input.value = initialQ;
+
+            const filter = (q) => {
+                const tokens = q.trim().toLowerCase().split(/\s+/).filter(Boolean);
+                let visibleTotal = 0;
+                for (const section of sections) {
+                    let sectionVisible = 0;
+                    const entries = section.querySelectorAll("[data-cb-search-page-entry]");
+                    for (const el of entries) {
+                        if (!(el instanceof HTMLElement)) continue;
+                        const haystack = el.dataset.searchText ?? "";
+                        const match = tokens.every((t) => haystack.includes(t));
+                        el.classList.toggle("hidden", !match);
+                        if (match) sectionVisible += 1;
+                    }
+                    section.classList.toggle("hidden", sectionVisible === 0);
+                    visibleTotal += sectionVisible;
+                }
+                if (status) {
+                    status.textContent = q
+                        ? `${visibleTotal} match${visibleTotal === 1 ? "" : "es"} for “${q}”`
+                        : `Showing all ${document.querySelectorAll("[data-cb-search-page-entry]").length} entries — type to filter.`;
+                }
+            };
+
+            if (initialQ) filter(initialQ);
+
+            input.addEventListener("input", (event) => {
+                const target = event.target;
+                if (!(target instanceof HTMLInputElement)) return;
+                filter(target.value);
+            });
+
+            input.addEventListener("keydown", (event) => {
+                if (event.key === "Escape") {
+                    input.value = "";
+                    filter("");
+                }
+            });
+        })();
+    </script>
+</Layout>

@@ -9,11 +9,11 @@ tags:
     - "aws"
     - "linux"
 keywords:
-    - "AWS"
-    - "Python"
-    - "Lustre"
-    - "EC2"
-    - "Linux"
+    - "aws"
+    - "python"
+    - "lustre"
+    - "ec2"
+    - "linux"
 author: "Rehan Haider"
 authorSlug: "rehan-haider"
 ---

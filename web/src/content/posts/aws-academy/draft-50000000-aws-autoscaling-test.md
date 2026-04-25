@@ -9,9 +9,9 @@ tags:
     - "aws"
     - "python"
 keywords:
-    - "AWS"
-    - "Python"
-    - "EC2"
+    - "aws"
+    - "python"
+    - "ec2"
     - "stress testing"
     - "autoscaling"
 author: "Rehan Haider"

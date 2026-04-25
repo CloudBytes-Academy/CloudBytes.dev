@@ -9,8 +9,8 @@ tags:
     - "python"
     - "typer"
 keywords:
-    - "Python"
-    - "Typer"
+    - "python"
+    - "typer"
 author: "Rehan Haider"
 authorSlug: "rehan-haider"
 ---

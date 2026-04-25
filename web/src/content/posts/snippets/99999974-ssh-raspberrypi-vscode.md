@@ -9,8 +9,8 @@ tags:
     - "python"
     - "raspberrypi"
 keywords:
-    - "Python"
-    - "Raspberrypi"
+    - "python"
+    - "raspberrypi"
     - "vscode"
     - "ssh"
 author: "Rehan Haider"

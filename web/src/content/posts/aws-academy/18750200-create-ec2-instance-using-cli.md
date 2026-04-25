@@ -8,9 +8,9 @@ slug: "how-to-create-an-aws-ec2-instance-using-aws-cli"
 tags:
     - "aws"
 keywords:
-    - "AWS"
-    - "Python"
-    - "EC2"
+    - "aws"
+    - "python"
+    - "ec2"
 author: "Rehan Haider"
 authorSlug: "rehan-haider"
 ---

@@ -11,8 +11,8 @@ tags:
     - "windows"
 keywords:
     - "ubuntu"
-    - "WSL"
-    - "WSL2"
+    - "wsl"
+    - "wsl2"
     - "linux"
     - "windows"
     - "install multiple ubuntu in wsl2"

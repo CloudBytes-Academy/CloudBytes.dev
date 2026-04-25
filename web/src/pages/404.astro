@@ -9,7 +9,7 @@ const rendered = page ? await render(page) : null;
 const Content = rendered?.Content;
 ---
 
-<Layout title={`404 · ${SITE_TITLE}`} description="Page not found.">
+<Layout title={`404 · ${SITE_TITLE}`} description="Page not found." noindex>
     <article class="content-article">
         <h1 class="article-title">404</h1>
         <p class="text-lg text-base-content/75">That page doesn’t exist.</p>

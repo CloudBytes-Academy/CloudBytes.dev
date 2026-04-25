@@ -1,7 +1,9 @@
 ---
+import type { ImageMetadata } from "astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import Layout from "./Layout.astro";
 import { buildBreadcrumbs } from "../utils/breadcrumbs";
+import { adaptBreadcrumbs, buildBreadcrumbList, buildGraph } from "../lib/seo";
 
 interface Props {
     title: string;
@@ -9,18 +11,61 @@ interface Props {
     heading: string;
     subheading?: string;
     label?: string;
+    image?: ImageMetadata | string;
+    imageWidth?: number;
+    imageHeight?: number;
+    imageAlt?: string;
+    noindex?: boolean;
+    /** Pre-built JSON-LD graphs (one <script> per entry). */
+    jsonLd?: unknown[];
+    /** Render `data-speakable` on the H1 for AEO/voice. Defaults true. */
+    speakableHeading?: boolean;
 }
 
-const { title, description, heading, subheading, label } = Astro.props;
+const {
+    title,
+    description,
+    heading,
+    subheading,
+    label,
+    image,
+    imageWidth,
+    imageHeight,
+    imageAlt,
+    noindex,
+    jsonLd,
+    speakableHeading = true,
+} = Astro.props;
 const hasSidebar = Astro.slots.has("sidebar");
 const breadcrumbs = buildBreadcrumbs(Astro.url.pathname);
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const breadcrumbLd = breadcrumbs.length
+    ? buildGraph([buildBreadcrumbList(canonicalUrl, adaptBreadcrumbs(breadcrumbs, Astro.site!))])
+    : null;
+const finalJsonLd: unknown[] = [
+    ...(jsonLd ?? []),
+    ...(breadcrumbLd ? [breadcrumbLd] : []),
+];
 ---
 
-<Layout title={title} description={description}>
+<Layout
+    title={title}
+    description={description}
+    image={image}
+    imageWidth={imageWidth}
+    imageHeight={imageHeight}
+    imageAlt={imageAlt}
+    noindex={noindex}
+    jsonLd={finalJsonLd}
+>
     <header class="mb-8">
         {breadcrumbs.length ? <Breadcrumbs items={breadcrumbs} class="mb-4" /> : null}
         {label && <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">{label}</p>}
-        <h1 class="border-bottom text-3xl md:text-4xl">{heading}</h1>
+        <h1
+            class="border-bottom text-3xl md:text-4xl"
+            data-speakable={speakableHeading ? "" : undefined}
+        >{heading}</h1>
         {subheading && <p class="mt-4 text-lg text-base-content/75">{subheading}</p>}
     </header>
 
@@ -38,4 +83,3 @@ const breadcrumbs = buildBreadcrumbs(Astro.url.pathname);
         </div>
     )}
 </Layout>
-

@@ -10,8 +10,8 @@ tags:
     - "cdk"
     - "python"
 keywords:
-    - "API"
-    - "API Gateway"
+    - "api"
+    - "api gateway"
     - "route53"
     - "domain"
     - "subdomain"

@@ -10,7 +10,7 @@ tags:
     - "pelican"
     - "python"
 keywords:
-    - "Python"
+    - "python"
     - "firebase"
     - "hosting"
     - "redirect"

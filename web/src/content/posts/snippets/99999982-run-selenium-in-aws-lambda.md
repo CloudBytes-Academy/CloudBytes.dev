@@ -10,9 +10,9 @@ tags:
     - "selenium"
     - "python"
 keywords:
-    - "Python"
-    - "AWS"
-    - "CloudFormation"
+    - "python"
+    - "aws"
+    - "cloudformation"
     - "lambda"
     - "serverless"
     - "docker"

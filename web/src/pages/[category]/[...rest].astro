@@ -4,8 +4,13 @@ import ArticleCard from "../../components/ArticleCard.astro";
 import Pagination from "../../components/Pagination.astro";
 import Page from "../../layouts/Page.astro";
 import PostLayout from "../../layouts/Post.astro";
-import { SITE_TITLE } from "../../consts";
+import { SECTION_LABELS, SITE_TITLE } from "../../consts";
 import { slugify } from "../../utils/slugify";
+import {
+    buildGraph,
+    buildItemList,
+    buildWebPage,
+} from "../../lib/seo";
 import { getAllPosts, getPostHref, getUniqueCategories, paginate, PAGE_SIZE } from "../../utils/posts";
 
 type Post = CollectionEntry<"posts">;
@@ -137,16 +142,37 @@ if (kind === "post") {
         seriesTotal={seriesTotal}
         relatedPosts={relatedPosts}
         headings={headings}
+        heroImage={post.data.heroImage}
+        heroImageAlt={post.data.heroImageAlt}
+        howto={post.data.howto}
+        faq={post.data.faq}
     >
         <Content />
     </PostLayout>
 ) : (
     <Page
-        title={`${SITE_TITLE} · ${categoryName} · Page ${pageNumber}`}
-        description={`All posts in ${categoryName}.`}
+        title={`${categoryName} · Page ${pageNumber} · ${SITE_TITLE}`}
+        description={`Page ${pageNumber} of posts in ${categoryName} on ${SITE_TITLE}.`}
         heading={categoryName}
         subheading={`Page ${pageNumber} of posts in ${categoryName}.`}
         label="Category"
+        jsonLd={[
+            buildGraph([
+                buildWebPage({
+                    type: "CollectionPage",
+                    url: new URL(Astro.url.pathname, Astro.site!).toString(),
+                    name: `${categoryName} · Page ${pageNumber}`,
+                    description: `Page ${pageNumber} of posts in ${categoryName} on ${SITE_TITLE}.`,
+                }),
+                buildItemList({
+                    url: new URL(Astro.url.pathname, Astro.site!).toString(),
+                    items: pageItems.map((p) => ({
+                        url: getPostHref(p),
+                        name: p.data.title,
+                    })),
+                }),
+            ]),
+        ]}
     >
         {pageItems.map((p) => (
             <ArticleCard href={getPostHref(p)} title={p.data.title} description={p.data.description} tags={p.data.tags} />

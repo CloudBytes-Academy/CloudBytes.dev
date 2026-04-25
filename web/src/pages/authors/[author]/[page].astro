@@ -2,7 +2,8 @@
 import ArticleCard from "../../../components/ArticleCard.astro";
 import Pagination from "../../../components/Pagination.astro";
 import Page from "../../../layouts/Page.astro";
-import { SITE_DESCRIPTION, SITE_TITLE } from "../../../consts";
+import { SITE_TITLE } from "../../../consts";
+import { buildGraph, buildItemList, buildWebPage } from "../../../lib/seo";
 import { getAllPosts, getPostHref, getUniqueAuthors, paginate, PAGE_SIZE } from "../../../utils/posts";
 
 export async function getStaticPaths() {
@@ -26,14 +27,33 @@ const pageNumber = Number(page);
 
 const posts = (await getAllPosts()).filter((post) => post.data.authorSlug === author.slug);
 const { items, totalPages } = paginate(posts, pageNumber);
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site!).toString();
+const description = `Page ${pageNumber} of posts by ${author.name} on ${SITE_TITLE}.`;
+
+const jsonLd = [
+    buildGraph([
+        buildWebPage({
+            type: "CollectionPage",
+            url: canonicalUrl,
+            name: `${author.name} · Page ${pageNumber} · ${SITE_TITLE}`,
+            description,
+        }),
+        buildItemList({
+            url: canonicalUrl,
+            items: items.map((p) => ({ url: getPostHref(p), name: p.data.title })),
+        }),
+    ]),
+];
 ---
 
 <Page
-    title={`${SITE_TITLE} · ${author.name} · Page ${pageNumber}`}
-    description={SITE_DESCRIPTION}
+    title={`${author.name} · Page ${pageNumber} · ${SITE_TITLE}`}
+    description={description}
     heading={author.name}
     subheading={`Page ${pageNumber} of posts by ${author.name}.`}
     label="Author"
+    jsonLd={jsonLd}
 >
     {items.map((post) => (
         <ArticleCard
@@ -48,4 +68,3 @@ const { items, totalPages } = paginate(posts, pageNumber);
         <Pagination basePath={`/authors/${author.slug}`} currentPage={pageNumber} totalPages={totalPages} />
     </div>
 </Page>
-

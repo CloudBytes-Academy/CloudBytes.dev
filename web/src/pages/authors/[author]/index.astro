@@ -1,8 +1,16 @@
 ---
+import { render } from "astro:content";
 import ArticleCard from "../../../components/ArticleCard.astro";
 import Pagination from "../../../components/Pagination.astro";
 import Page from "../../../layouts/Page.astro";
-import { SITE_DESCRIPTION, SITE_TITLE } from "../../../consts";
+import { SITE_TITLE } from "../../../consts";
+import {
+    buildGraph,
+    buildItemList,
+    buildPerson,
+    buildProfilePage,
+} from "../../../lib/seo";
+import { entryToArticleAuthor, findAuthorBySlug } from "../../../lib/authors";
 import { getAllPosts, getPostHref, getUniqueAuthors, paginate } from "../../../utils/posts";
 
 export async function getStaticPaths() {
@@ -12,18 +20,75 @@ export async function getStaticPaths() {
 }
 
 const { author } = Astro.props;
+const authorEntry = await findAuthorBySlug(author.slug);
+const articleAuthor = authorEntry
+    ? entryToArticleAuthor(authorEntry)
+    : { name: author.name, slug: author.slug };
 
 const posts = (await getAllPosts()).filter((post) => post.data.authorSlug === author.slug);
 const { items, totalPages } = paginate(posts, 1);
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site!).toString();
+const description = authorEntry?.data.bio
+    ? authorEntry.data.bio
+    : `Posts by ${author.name} on ${SITE_TITLE}.`;
+
+const jsonLd = [
+    buildGraph([
+        buildProfilePage({
+            url: canonicalUrl,
+            person: articleAuthor,
+            description,
+        }),
+        buildPerson(articleAuthor),
+        buildItemList({
+            url: canonicalUrl,
+            items: items.map((p) => ({ url: getPostHref(p), name: p.data.title })),
+        }),
+    ]),
+];
+
+const Bio = authorEntry ? (await render(authorEntry)).Content : null;
 ---
 
 <Page
-    title={`${SITE_TITLE} · ${author.name}`}
-    description={SITE_DESCRIPTION}
+    title={`${author.name} · ${SITE_TITLE}`}
+    description={description}
     heading={author.name}
-    subheading={`All posts by ${author.name}.`}
+    subheading={authorEntry?.data.jobTitle}
     label="Author"
+    jsonLd={jsonLd}
 >
+    {authorEntry && (
+        <section class="box mb-2">
+            <div class="box-content">
+                {authorEntry.data.bio && (
+                    <p class="text-base-content/80 leading-relaxed">{authorEntry.data.bio}</p>
+                )}
+                {Bio && (
+                    <div class="cb-prose mt-4">
+                        <Bio />
+                    </div>
+                )}
+                {authorEntry.data.sameAs.length > 0 && (
+                    <div class="mt-5 flex flex-wrap items-center gap-2">
+                        <span class="text-xs font-semibold uppercase tracking-wide text-base-content/60">Find me on</span>
+                        {authorEntry.data.sameAs.map((url) => {
+                            const host = new URL(url).hostname.replace(/^www\./, "");
+                            return (
+                                <a class="badge badge-outline border-base-300 text-base-content/80 no-underline hover:border-primary/60 hover:text-primary" href={url} target="_blank" rel="noopener me">
+                                    {host}
+                                </a>
+                            );
+                        })}
+                    </div>
+                )}
+            </div>
+        </section>
+    )}
+
+    <h2 class="mt-2 text-base font-semibold uppercase tracking-wide text-base-content/60">Posts by {author.name}</h2>
+
     {items.map((post) => (
         <ArticleCard
             href={getPostHref(post)}
@@ -37,4 +102,3 @@ const { items, totalPages } = paginate(posts, 1);
         <Pagination basePath={`/authors/${author.slug}`} currentPage={1} totalPages={totalPages} />
     </div>
 </Page>
-

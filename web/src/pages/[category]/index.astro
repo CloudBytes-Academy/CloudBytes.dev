@@ -2,7 +2,8 @@
 import ArticleCard from "../../components/ArticleCard.astro";
 import Pagination from "../../components/Pagination.astro";
 import Page from "../../layouts/Page.astro";
-import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
+import { SITE_TITLE } from "../../consts";
+import { buildGraph, buildItemList, buildWebPage } from "../../lib/seo";
 import { getAllPosts, getPostHref, getUniqueCategories, paginate } from "../../utils/posts";
 
 export async function getStaticPaths() {
@@ -13,16 +14,35 @@ export async function getStaticPaths() {
 
 const { category } = Astro.props;
 
-const posts = (await getAllPosts()).filter((post) => post.data.categorySlug === category.slug);
-const { items, totalPages } = paginate(posts, 1);
+const allInCategory = (await getAllPosts()).filter((post) => post.data.categorySlug === category.slug);
+const { items, totalPages } = paginate(allInCategory, 1);
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site!).toString();
+const description = `All ${allInCategory.length} posts in ${category.name} on ${SITE_TITLE} — hands-on tutorials and code snippets.`;
+
+const jsonLd = [
+    buildGraph([
+        buildWebPage({
+            type: "CollectionPage",
+            url: canonicalUrl,
+            name: `${category.name} · ${SITE_TITLE}`,
+            description,
+        }),
+        buildItemList({
+            url: canonicalUrl,
+            items: items.map((post) => ({ url: getPostHref(post), name: post.data.title })),
+        }),
+    ]),
+];
 ---
 
 <Page
-    title={`${SITE_TITLE} · ${category.name}`}
-    description={SITE_DESCRIPTION}
+    title={`${category.name} · ${SITE_TITLE}`}
+    description={description}
     heading={category.name}
-    subheading={`All posts in ${category.name}.`}
+    subheading={`All ${allInCategory.length} posts in ${category.name}.`}
     label="Category"
+    jsonLd={jsonLd}
 >
     {items.map((post) => (
         <ArticleCard
@@ -37,4 +57,3 @@ const { items, totalPages } = paginate(posts, 1);
         <Pagination basePath={`/${category.slug}`} currentPage={1} totalPages={totalPages} />
     </div>
 </Page>
-

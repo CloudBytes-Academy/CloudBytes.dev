@@ -9,9 +9,9 @@ tags:
     - "aws"
     - "python"
 keywords:
-    - "AWS"
-    - "Lambda"
-    - "Python"
+    - "aws"
+    - "lambda"
+    - "python"
 author: "Rehan Haider"
 authorSlug: "rehan-haider"
 ---

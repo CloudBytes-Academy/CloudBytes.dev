@@ -9,7 +9,7 @@ tags:
     - "pelican"
     - "python"
 keywords:
-    - "Python"
+    - "python"
     - "pelican"
     - "minify"
 author: "Rehan Haider"

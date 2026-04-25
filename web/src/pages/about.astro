@@ -1,13 +1,98 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import { GITHUB_URL, SITE_TITLE, SITE_URL, YOUTUBE_URL } from "../consts";
+import { buildGraph, buildPerson, buildWebPage } from "../lib/seo";
+import { findAuthorBySlug } from "../lib/authors";
+
+const authorEntry = await findAuthorBySlug("rehan-haider");
+const person = authorEntry
+    ? {
+          name: authorEntry.data.name,
+          slug: authorEntry.data.slug,
+          jobTitle: authorEntry.data.jobTitle,
+          sameAs: authorEntry.data.sameAs,
+      }
+    : { name: "Rehan Haider", slug: "rehan-haider" };
+
+const canonicalUrl = `${SITE_URL}/about/`;
+const description =
+    "About CloudBytes/dev — a hands-on knowledge base for AWS, Python, Linux, and developer-tooling tutorials, written by Rehan Haider.";
+
+const jsonLd = [
+    buildGraph([
+        buildWebPage({
+            type: "AboutPage",
+            url: canonicalUrl,
+            name: `About · ${SITE_TITLE}`,
+            description,
+            speakable: true,
+        }),
+        buildPerson(person),
+    ]),
+];
 ---
 
-<Layout title={`${SITE_TITLE} · About`} description={SITE_DESCRIPTION}>
-	<article class="content-article">
-		<h1 class="article-title">About</h1>
-		<p class="text-lg text-base-content/75">
-			CloudBytes/dev&gt; is a personal knowledge base for cloud + developer tooling — focused on practical snippets and end-to-end tutorials.
-		</p>
-	</article>
+<Layout
+    title={`About · ${SITE_TITLE}`}
+    description={description}
+    jsonLd={jsonLd}
+>
+    <article class="content-article">
+        <h1 class="article-title" data-speakable>About CloudBytes/dev</h1>
+        <p class="text-lg text-base-content/80 leading-relaxed" data-speakable>
+            CloudBytes/dev is a hands-on knowledge base for cloud and developer tooling — code snippets, AWS Academy
+            lessons, and end-to-end tutorials. The site focuses on practical, reproducible recipes for the day-to-day
+            stack of an engineer working with AWS, Python, Linux, and WSL2.
+        </p>
+
+        <h2 id="what-youll-find" class="mt-10 text-2xl font-semibold text-base-content">What you’ll find here</h2>
+        <ul class="mt-4 space-y-2 text-base-content/80">
+            <li>
+                <strong>Snippets</strong> — short, copy-pasteable how-tos for everyday tooling problems: Python virtualenvs,
+                WSL2 fixes, Selenium on AWS Lambda, FastAPI patterns, and more.
+            </li>
+            <li>
+                <strong>AWS Academy</strong> — longer, project-style guides for AWS CDK in Python: Lambda, S3, EC2, VPCs,
+                multiple stacks, IAM, EFS/FSx for Lustre, RDS migrations.
+            </li>
+            <li>
+                <strong>Books</strong> — “Build WebAPIs with Python using Flask &amp; FastAPI”, a beginner-friendly,
+                project-based guide to building HTTP APIs.
+            </li>
+        </ul>
+
+        <h2 id="who-runs-it" class="mt-10 text-2xl font-semibold text-base-content">Who runs it</h2>
+        <p class="mt-3 text-base-content/80 leading-relaxed">
+            CloudBytes/dev is written by <a class="link link-primary" href="/authors/rehan-haider/">Rehan Haider</a>, a
+            software and cloud engineer who has spent over a decade shipping AWS infrastructure with the AWS CDK,
+            building Python and TypeScript apps, and running Linux/WSL2 dev environments end to end.
+        </p>
+
+        <h2 id="why-trust-it" class="mt-10 text-2xl font-semibold text-base-content">Why you can trust the content</h2>
+        <ul class="mt-4 space-y-2 text-base-content/80">
+            <li>Every post is written from working code — the commands, configs, and stacks have been run on a real machine.</li>
+            <li>Posts include version numbers and dates so you know how fresh the recipe is.</li>
+            <li>The code that generates this site is open-source on <a class="link link-primary" href={GITHUB_URL} target="_blank" rel="noopener">GitHub</a>; if a snippet is wrong, please open an issue.</li>
+        </ul>
+
+        <h2 id="contact" class="mt-10 text-2xl font-semibold text-base-content">Contact &amp; community</h2>
+        <ul class="mt-4 space-y-2 text-base-content/80">
+            <li>
+                <strong>GitHub</strong>: <a class="link link-primary" href={GITHUB_URL} target="_blank" rel="noopener">github.com/CloudBytesDotDev</a>
+            </li>
+            <li>
+                <strong>YouTube</strong>: <a class="link link-primary" href={YOUTUBE_URL} target="_blank" rel="noopener">youtube.com/@CloudBytesDotDev</a>
+            </li>
+            <li>
+                <strong>Discussions</strong>: <a class="link link-primary" href="https://github.com/CloudBytesDotDev/CloudBytes.dev/discussions" target="_blank" rel="noopener">GitHub Discussions</a> — best place for questions or post suggestions.
+            </li>
+        </ul>
+
+        <h2 id="how-its-built" class="mt-10 text-2xl font-semibold text-base-content">How it’s built</h2>
+        <p class="mt-3 text-base-content/80 leading-relaxed">
+            The site is a static build using Astro 6, Tailwind CSS v4, and DaisyUI v5, hosted on Firebase. It was migrated
+            from a long-running Pelican (Python static-site generator) install — you’ll occasionally find posts about that
+            move tagged <a class="link link-primary" href="/tags/pelican/">#pelican</a>.
+        </p>
+    </article>
 </Layout>

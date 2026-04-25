@@ -8,7 +8,7 @@ slug: "cross-account-access-to-aws-services-using-iam-roles"
 tags:
     - "aws"
 keywords:
-    - "AWS"
+    - "aws"
     - "sts"
     - "iam"
 author: "Rehan Haider"

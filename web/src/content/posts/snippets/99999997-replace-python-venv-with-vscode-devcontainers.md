@@ -10,7 +10,7 @@ tags:
     - "vscode"
     - "github"
 keywords:
-    - "Python"
+    - "python"
     - "venv"
     - "virtual environment"
     - "vscode"

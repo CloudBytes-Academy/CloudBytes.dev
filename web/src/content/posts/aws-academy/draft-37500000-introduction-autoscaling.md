@@ -8,9 +8,9 @@ slug: "a-brief-introduction-to-aws-autoscaling"
 tags:
     - "aws"
 keywords:
-    - "AWS"
-    - "Python"
-    - "EC2"
+    - "aws"
+    - "python"
+    - "ec2"
     - "stress testing"
     - "autoscaling"
 author: "Rehan Haider"

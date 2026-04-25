@@ -1,13 +1,32 @@
 ---
+import type { ImageMetadata } from "astro";
+import FallbackImage from "../assets/blog-placeholder-1.jpg";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import Layout from "./Layout.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import TableOfContents from "../components/TableOfContents.astro";
 import TagList from "../components/TagList.astro";
-import { SITE_TITLE } from "../consts";
+import { SECTION_LABELS, SITE_TITLE, TWITTER_SITE } from "../consts";
 import { buildBreadcrumbs } from "../utils/breadcrumbs";
+import {
+    adaptBreadcrumbs,
+    buildArticle,
+    buildBreadcrumbList,
+    buildFaqPage,
+    buildGraph,
+    buildHowTo,
+} from "../lib/seo";
+import { resolvePostAuthor } from "../lib/authors";
 
 type NavLink = { title: string; href: string };
+type HowToData = {
+    totalTime?: string;
+    estimatedCost?: { currency: string; value: string };
+    tools?: string[];
+    supplies?: string[];
+    steps: { title: string; description: string }[];
+};
+type FaqData = { question: string; answer: string }[];
 
 interface Props {
     title: string;
@@ -28,6 +47,10 @@ interface Props {
     seriesTotal?: number;
     relatedPosts?: NavLink[];
     headings?: Array<{ depth: number; slug: string; text: string }>;
+    heroImage?: ImageMetadata;
+    heroImageAlt?: string;
+    howto?: HowToData;
+    faq?: FaqData;
 }
 
 const {
@@ -49,24 +72,82 @@ const {
     seriesTotal,
     relatedPosts = [],
     headings = [],
+    heroImage,
+    heroImageAlt,
+    howto,
+    faq,
 } = Astro.props;
 
 const breadcrumbs = buildBreadcrumbs(Astro.url.pathname);
 if (breadcrumbs.length) breadcrumbs[breadcrumbs.length - 1] = { label: title };
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const resolvedAuthor = await resolvePostAuthor({ authorName: author, authorSlug });
+const articleSection = SECTION_LABELS[categorySlug] ?? category;
+
+// JSON-LD: BreadcrumbList + Article (+ optional HowTo / FAQ).
+const articleImage = heroImage?.src ?? FallbackImage.src;
+const articleNodes: unknown[] = [
+    buildBreadcrumbList(canonicalUrl, adaptBreadcrumbs(breadcrumbs, Astro.site!)),
+    buildArticle({
+        url: canonicalUrl,
+        headline: title,
+        description,
+        datePublished: pubDate,
+        dateModified: updatedDate ?? pubDate,
+        image: articleImage,
+        author: resolvedAuthor,
+        keywords,
+        articleSection,
+        speakable: true,
+    }),
+];
+
+if (howto) {
+    articleNodes.push(
+        buildHowTo({
+            url: canonicalUrl,
+            name: title,
+            description,
+            image: articleImage,
+            totalTime: howto.totalTime,
+            estimatedCost: howto.estimatedCost,
+            tools: howto.tools,
+            supplies: howto.supplies,
+            steps: howto.steps,
+        }),
+    );
+}
+
+if (faq && faq.length) {
+    articleNodes.push(buildFaqPage(canonicalUrl, faq));
+}
+
+const jsonLd = [buildGraph(articleNodes)];
+
+const layoutImage = heroImage ?? undefined;
+const layoutImageAlt = heroImageAlt ?? title;
 ---
 
 <Layout
     title={`${title} · ${SITE_TITLE}`}
     description={description}
+    image={layoutImage}
+    imageAlt={layoutImageAlt}
     type="article"
-    author={author ?? "CloudBytes"}
+    author={resolvedAuthor.name}
+    twitterCreator={TWITTER_SITE}
     keywords={keywords}
     publishedTime={pubDate}
     modifiedTime={updatedDate ?? pubDate}
+    articleAuthor={resolvedAuthor.name}
+    articleSection={articleSection}
+    articleTags={tags}
+    jsonLd={jsonLd}
 >
     <article class="content-article">
         {breadcrumbs.length ? <Breadcrumbs items={breadcrumbs} class="mb-4" /> : null}
-        <h1 class="article-title">{title}</h1>
+        <h1 class="article-title" data-speakable>{title}</h1>
 
         <div class="article-byline">
             <div class="flex flex-wrap items-center gap-x-4 gap-y-1">
@@ -116,6 +197,12 @@ if (breadcrumbs.length) breadcrumbs[breadcrumbs.length - 1] = { label: title };
                     </svg>
                     <FormattedDate date={pubDate} />
                 </span>
+                {updatedDate && updatedDate.getTime() !== pubDate.getTime() && (
+                    <span class="inline-flex items-center gap-1 text-base-content/60 text-xs">
+                        Updated
+                        <FormattedDate date={updatedDate} />
+                    </span>
+                )}
             </div>
 
             <div class="flex items-center gap-2">
@@ -128,6 +215,8 @@ if (breadcrumbs.length) breadcrumbs[breadcrumbs.length - 1] = { label: title };
                 </a>
             </div>
         </div>
+
+        <p class="sr-only" data-speakable>{description}</p>
 
         {headings.length ? (
             <div class="mb-6 lg:hidden">
@@ -160,6 +249,22 @@ if (breadcrumbs.length) breadcrumbs[breadcrumbs.length - 1] = { label: title };
         <div class="cb-prose">
             <slot />
         </div>
+
+        {faq && faq.length ? (
+            <section class="mt-10">
+                <h2 class="text-lg font-semibold text-base-content">Frequently asked questions</h2>
+                <dl class="mt-4 grid grid-cols-1 gap-4">
+                    {faq.map((q) => (
+                        <div class="box">
+                            <div class="box-content">
+                                <dt class="font-semibold text-base-content">{q.question}</dt>
+                                <dd class="mt-2 text-sm text-base-content/80">{q.answer}</dd>
+                            </div>
+                        </div>
+                    ))}
+                </dl>
+            </section>
+        ) : null}
 
         <div class="mt-8 border-t border-base-300 pt-6">
             <h3 class="text-lg font-semibold text-base-content">Need help?</h3>
@@ -285,4 +390,3 @@ if (breadcrumbs.length) breadcrumbs[breadcrumbs.length - 1] = { label: title };
         </div>
     </div>
 </Layout>
-

@@ -8,8 +8,8 @@ slug: "what-is-anaconda-for-python"
 tags:
     - "python"
 keywords:
-    - "Python"
-    - "Anaconda"
+    - "python"
+    - "anaconda"
 author: "Rehan Haider"
 authorSlug: "rehan-haider"
 ---

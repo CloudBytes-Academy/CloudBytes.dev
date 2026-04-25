@@ -8,7 +8,7 @@ slug: "create-a-python-virtual-environment-using-venv"
 tags:
     - "python"
 keywords:
-    - "Python"
+    - "python"
     - "venv"
     - "virtual environment"
     - "pip"

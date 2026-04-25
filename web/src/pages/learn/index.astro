@@ -1,0 +1,66 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import { SITE_TITLE, SITE_URL } from "../../consts";
+import {
+    adaptBreadcrumbs,
+    buildBreadcrumbList,
+    buildGraph,
+    buildItemList,
+    buildWebPage,
+} from "../../lib/seo";
+import { buildBreadcrumbs } from "../../utils/breadcrumbs";
+
+const canonicalUrl = `${SITE_URL}/learn/`;
+const description = `Reference content on ${SITE_TITLE} — start with the glossary of recurring AWS, CDK, Linux, and Python terms.`;
+
+const ENTRIES = [
+    {
+        url: "/learn/glossary/",
+        title: "Glossary",
+        description: "Definitions of recurring AWS, CDK, Linux, Python, and developer-tooling terms.",
+    },
+];
+
+const breadcrumbs = buildBreadcrumbs(Astro.url.pathname);
+breadcrumbs.push({ label: "Learn" });
+
+const jsonLd = [
+    buildGraph([
+        buildWebPage({
+            type: "CollectionPage",
+            url: canonicalUrl,
+            name: `Learn · ${SITE_TITLE}`,
+            description,
+        }),
+        buildBreadcrumbList(canonicalUrl, adaptBreadcrumbs(breadcrumbs, Astro.site!)),
+        buildItemList({
+            url: canonicalUrl,
+            items: ENTRIES.map((e) => ({ url: e.url, name: e.title })),
+        }),
+    ]),
+];
+---
+
+<Layout
+    title={`Learn · ${SITE_TITLE}`}
+    description={description}
+    jsonLd={jsonLd}
+>
+    <header class="mb-8">
+        <Breadcrumbs items={breadcrumbs} class="mb-4" />
+        <h1 class="border-bottom text-3xl md:text-4xl" data-speakable>Learn</h1>
+        <p class="mt-3 text-lg text-base-content/75" data-speakable>{description}</p>
+    </header>
+
+    <div class="grid grid-cols-1 gap-4">
+        {ENTRIES.map((e) => (
+            <a class="box block no-underline transition hover:border-primary/60 hover:bg-base-200" href={e.url}>
+                <div class="box-content">
+                    <p class="text-xl font-semibold text-base-content">{e.title}</p>
+                    <p class="subtext mt-2">{e.description}</p>
+                </div>
+            </a>
+        ))}
+    </div>
+</Layout>

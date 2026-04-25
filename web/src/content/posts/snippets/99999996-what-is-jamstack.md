@@ -11,7 +11,7 @@ tags:
     - "pelican"
     - "netlify"
 keywords:
-    - "Jamstack"
+    - "jamstack"
     - "hugo"
     - "functions"
     - "serverless"

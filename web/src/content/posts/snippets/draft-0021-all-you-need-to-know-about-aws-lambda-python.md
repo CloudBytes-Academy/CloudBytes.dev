@@ -9,10 +9,10 @@ tags:
     - "python"
     - "aws"
 keywords:
-    - "Lambda"
-    - "Docker"
-    - "AWS"
-    - "Python"
+    - "lambda"
+    - "docker"
+    - "aws"
+    - "python"
 author: "Rehan Haider"
 authorSlug: "rehan-haider"
 draft: true

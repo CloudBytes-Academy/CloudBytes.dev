@@ -9,7 +9,7 @@ tags:
     - "aws"
     - "cdk"
 keywords:
-    - "AWS"
+    - "aws"
 author: "Rehan Haider"
 authorSlug: "rehan-haider"
 series: "AWS CDK"

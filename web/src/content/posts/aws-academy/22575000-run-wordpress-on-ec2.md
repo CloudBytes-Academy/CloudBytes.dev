@@ -10,8 +10,8 @@ tags:
     - "linux"
     - "wordpress"
 keywords:
-    - "AWS"
-    - "EC2"
+    - "aws"
+    - "ec2"
     - "wordpress"
     - "nginx"
     - "php"

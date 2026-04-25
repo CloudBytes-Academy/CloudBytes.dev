@@ -1,0 +1,99 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import { SITE_TITLE, SITE_URL } from "../../consts";
+import {
+    adaptBreadcrumbs,
+    buildBreadcrumbList,
+    buildDefinedTermSet,
+    buildGraph,
+    buildWebPage,
+} from "../../lib/seo";
+import { buildBreadcrumbs } from "../../utils/breadcrumbs";
+import { GLOSSARY_TERMS } from "../../lib/glossary/manifest";
+
+const canonicalUrl = `${SITE_URL}/learn/glossary/`;
+const description = `Glossary of ${GLOSSARY_TERMS.length} AWS, CDK, Linux, Python, and developer-tooling terms used across CloudBytes/dev.`;
+
+// Group by category
+const byCategory = new Map<string, typeof GLOSSARY_TERMS>();
+for (const term of GLOSSARY_TERMS) {
+    if (!byCategory.has(term.category)) byCategory.set(term.category, []);
+    byCategory.get(term.category)!.push(term);
+}
+
+const breadcrumbs = buildBreadcrumbs(Astro.url.pathname);
+breadcrumbs.push({ label: "Glossary" });
+
+const jsonLd = [
+    buildGraph([
+        buildWebPage({
+            type: "WebPage",
+            url: canonicalUrl,
+            name: `Glossary · ${SITE_TITLE}`,
+            description,
+            speakable: true,
+        }),
+        buildBreadcrumbList(canonicalUrl, adaptBreadcrumbs(breadcrumbs, Astro.site!)),
+        buildDefinedTermSet({
+            url: canonicalUrl,
+            name: `${SITE_TITLE} Glossary`,
+            description,
+            terms: GLOSSARY_TERMS.map((t) => ({
+                slug: t.slug,
+                term: t.term,
+                description: t.definition,
+                sameAs: t.sameAs,
+            })),
+        }),
+    ]),
+];
+---
+
+<Layout
+    title={`Glossary · ${SITE_TITLE}`}
+    description={description}
+    jsonLd={jsonLd}
+>
+    <article class="content-article">
+        <Breadcrumbs items={breadcrumbs} class="mb-4" />
+        <h1 class="article-title" data-speakable>Glossary</h1>
+        <p class="text-base-content/80 leading-relaxed" data-speakable>
+            {description}
+        </p>
+
+        {Array.from(byCategory.entries()).map(([category, terms]) => (
+            <section class="mt-10">
+                <h2 class="text-2xl font-semibold text-base-content">{category}</h2>
+                <dl class="mt-4 space-y-6">
+                    {terms.map((term) => (
+                        <div class="border-l-2 border-base-300 pl-4">
+                            <dt class="flex items-baseline gap-2">
+                                <span id={term.slug} class="text-lg font-semibold text-base-content">{term.term}</span>
+                                <a class="text-xs font-mono text-base-content/40 hover:text-primary" href={`#${term.slug}`} aria-label={`Anchor for ${term.term}`}>
+                                    #{term.slug}
+                                </a>
+                            </dt>
+                            <dd class="mt-2 text-base-content/80 leading-relaxed">
+                                {term.definition}
+                            </dd>
+                            {term.sameAs && term.sameAs.length > 0 && (
+                                <dd class="mt-2 text-xs text-base-content/60">
+                                    Reference: {term.sameAs.map((url, idx) => {
+                                        const host = new URL(url).hostname.replace(/^www\./, "");
+                                        return (
+                                            <span>
+                                                {idx > 0 ? ", " : ""}
+                                                <a class="link link-hover" href={url} target="_blank" rel="noopener">{host}</a>
+                                            </span>
+                                        );
+                                    })}
+                                </dd>
+                            )}
+                        </div>
+                    ))}
+                </dl>
+            </section>
+        ))}
+    </article>
+</Layout>

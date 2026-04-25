@@ -1,19 +1,44 @@
 ---
 import Page from "../../layouts/Page.astro";
-import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
+import { SITE_TITLE } from "../../consts";
+import { buildGraph, buildItemList, buildWebPage } from "../../lib/seo";
 import { getAllPosts, getUniqueTags } from "../../utils/posts";
 
 const posts = await getAllPosts();
 const tags = getUniqueTags(posts);
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site!).toString();
+const description = `Browse ${tags.length} tags on ${SITE_TITLE} — AWS, Python, CDK, Lambda, Linux, WSL2, Docker, and more.`;
+
+const jsonLd = [
+    buildGraph([
+        buildWebPage({
+            type: "CollectionPage",
+            url: canonicalUrl,
+            name: `Tags · ${SITE_TITLE}`,
+            description,
+        }),
+        buildItemList({
+            url: canonicalUrl,
+            items: tags.map((tag) => ({ url: `/tags/${tag.slug}/`, name: `#${tag.name}` })),
+        }),
+    ]),
+];
 ---
 
-<Page title={`${SITE_TITLE} · Tags`} description={SITE_DESCRIPTION} heading="Tags" subheading="Browse by topic." label="Tag cloud">
+<Page
+    title={`Tags · ${SITE_TITLE}`}
+    description={description}
+    heading="Tags"
+    subheading={`Browse ${tags.length} topics across ${posts.length} posts.`}
+    label="Tag cloud"
+    jsonLd={jsonLd}
+>
     <div class="flex flex-wrap gap-2">
         {tags.map((tag) => (
             <a class="no-underline" href={`/tags/${tag.slug}/`}>
-                <span class:list={["tag tag-lg", `tag-${tag.slug}`]}>#{tag.name}</span>
+                <span class:list={["tag tag-lg", `tag-${tag.slug}`]}>#{tag.name} <span class="opacity-60">({tag.count})</span></span>
             </a>
         ))}
     </div>
 </Page>
-

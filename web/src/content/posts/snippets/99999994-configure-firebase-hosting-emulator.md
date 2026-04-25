@@ -10,7 +10,7 @@ tags:
     - "github"
     - "python"
 keywords:
-    - "Firebase"
+    - "firebase"
     - "hosting"
     - "emulator"
     - "pelican"

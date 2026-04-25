@@ -1,17 +1,55 @@
 ---
 import ArticleCard from "../components/ArticleCard.astro";
 import Pagination from "../components/Pagination.astro";
-import { SITE_DESCRIPTION, SITE_TITLE } from "@/consts";
+import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from "@/consts";
 import Page from "../layouts/Page.astro";
 import { getAllPosts, getPostHref, paginate } from "../utils/posts";
+import {
+    buildGraph,
+    buildItemList,
+    buildOrganization,
+    buildWebPage,
+    buildWebSite,
+} from "../lib/seo";
 
 const posts = await getAllPosts();
 const { items, totalPages } = paginate(posts, 1);
+
+const canonicalUrl = `${SITE_URL}/`;
+
+const jsonLd = buildGraph([
+    buildOrganization(),
+    buildWebSite({ searchUrlTemplate: `${SITE_URL}/search?q={search_term_string}` }),
+    buildWebPage({
+        url: canonicalUrl,
+        name: `${SITE_TITLE} — code snippets and tutorials`,
+        description: SITE_DESCRIPTION,
+        speakable: true,
+    }),
+    buildItemList({
+        url: canonicalUrl,
+        items: items.map((post) => ({
+            url: getPostHref(post),
+            name: post.data.title,
+        })),
+    }),
+]);
 ---
 
-<Page title={SITE_TITLE} description={SITE_DESCRIPTION} heading="Latest" subheading="New posts across snippets, AWS Academy, and books.">
+<Page
+    title={`${SITE_TITLE} — code snippets, AWS Academy & developer tutorials`}
+    description={SITE_DESCRIPTION}
+    heading="Latest"
+    subheading="New posts across snippets, AWS Academy, and books."
+    jsonLd={[jsonLd]}
+>
     {items.map((post) => (
-        <ArticleCard href={getPostHref(post)} title={post.data.title} description={post.data.description} tags={post.data.tags} />
+        <ArticleCard
+            href={getPostHref(post)}
+            title={post.data.title}
+            description={post.data.description}
+            tags={post.data.tags}
+        />
     ))}
 
     <div slot="pagination">
@@ -26,7 +64,9 @@ const { items, totalPages } = paginate(posts, 1);
                     <a class="link link-hover text-base-content/70" href="/snippets/">Snippets</a>
                     <a class="link link-hover text-base-content/70" href="/aws-academy/">AWS Academy</a>
                     <a class="link link-hover text-base-content/70" href="/books/">Books</a>
+                    <a class="link link-hover text-base-content/70" href="/learn/glossary/">Glossary</a>
                     <a class="link link-hover text-base-content/70" href="/tags/">Tag cloud</a>
+                    <a class="link link-hover text-base-content/70" href="/search/">Search</a>
                 </div>
             </div>
         </div>

@@ -2,6 +2,7 @@
 import { type CollectionEntry, getCollection, render } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import { SITE_TITLE } from "../consts";
+import { buildGraph, buildWebPage } from "../lib/seo";
 
 export async function getStaticPaths() {
     const pages = await getCollection("pages");
@@ -20,14 +21,31 @@ type Props = {
 
 const { page } = Astro.props;
 const { Content } = await render(page);
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site!).toString();
+const jsonLd = [
+    buildGraph([
+        buildWebPage({
+            type: "WebPage",
+            url: canonicalUrl,
+            name: page.data.title,
+            description: page.data.description,
+        }),
+    ]),
+];
 ---
 
-<Layout title={`${page.data.title} · ${SITE_TITLE}`} description={page.data.description}>
+<Layout
+    title={`${page.data.title} · ${SITE_TITLE}`}
+    description={page.data.description}
+    keywords={page.data.keywords}
+    jsonLd={jsonLd}
+>
     <article class="content-article">
-        <h1 class="article-title">{page.data.title}</h1>
+        <h1 class="article-title" data-speakable>{page.data.title}</h1>
+        <p class="sr-only" data-speakable>{page.data.description}</p>
         <div class="cb-prose">
             <Content />
         </div>
     </article>
 </Layout>
-

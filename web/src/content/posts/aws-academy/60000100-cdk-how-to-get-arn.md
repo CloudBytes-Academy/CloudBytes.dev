@@ -10,9 +10,9 @@ tags:
     - "cdk"
     - "python"
 keywords:
-    - "ARN"
-    - "AWS"
-    - "CDK"
+    - "arn"
+    - "aws"
+    - "cdk"
 author: "Rehan Haider"
 authorSlug: "rehan-haider"
 ---

@@ -1,18 +1,38 @@
 ---
 import Page from "../../layouts/Page.astro";
-import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
+import { SITE_TITLE } from "../../consts";
+import { buildGraph, buildItemList, buildWebPage } from "../../lib/seo";
 import { getAllPosts, getUniqueAuthors } from "../../utils/posts";
 
 const posts = await getAllPosts();
 const authors = getUniqueAuthors(posts);
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site!).toString();
+const description = `Authors with published posts on ${SITE_TITLE}.`;
+
+const jsonLd = [
+    buildGraph([
+        buildWebPage({
+            type: "CollectionPage",
+            url: canonicalUrl,
+            name: `Authors · ${SITE_TITLE}`,
+            description,
+        }),
+        buildItemList({
+            url: canonicalUrl,
+            items: authors.map((a) => ({ url: `/authors/${a.slug}/`, name: a.name })),
+        }),
+    ]),
+];
 ---
 
 <Page
-    title={`${SITE_TITLE} · Authors`}
-    description={SITE_DESCRIPTION}
+    title={`Authors · ${SITE_TITLE}`}
+    description={description}
     heading="Authors"
     subheading="All authors with published posts."
     label="Authors"
+    jsonLd={jsonLd}
 >
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
         {authors.map((author) => (
@@ -32,4 +52,3 @@ const authors = getUniqueAuthors(posts);
         ))}
     </div>
 </Page>
-

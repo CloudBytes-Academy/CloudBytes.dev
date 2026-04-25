@@ -8,9 +8,9 @@ slug: "migrate-a-db-to-rds-using-aws-database-migration-service-dms"
 tags:
     - "aws"
 keywords:
-    - "AWS"
-    - "RDS"
-    - "DMS"
+    - "aws"
+    - "rds"
+    - "dms"
 author: "Rehan Haider"
 authorSlug: "rehan-haider"
 ---

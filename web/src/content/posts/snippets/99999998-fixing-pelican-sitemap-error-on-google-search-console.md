@@ -9,9 +9,9 @@ tags:
     - "python"
     - "pelican"
 keywords:
-    - "Python"
+    - "python"
     - "pelican"
-    - "SSG"
+    - "ssg"
     - "google"
     - "webmaster"
     - "sitemap"

@@ -8,7 +8,7 @@ slug: "setup-your-dev-environment-for-use-with-aws"
 tags:
     - "aws"
 keywords:
-    - "AWS"
+    - "aws"
 author: "Rehan Haider"
 authorSlug: "rehan-haider"
 series: "AWS CDK"

@@ -1,4 +1,8 @@
 User-agent: *
+Allow: /
 
+Sitemap: https://cloudbytes.dev/sitemap-index.xml
 
-Sitemap: https://cloudbytes.dev/sitemap.xml
+# AI / LLM index files
+# Curated index for AI crawlers: https://cloudbytes.dev/llms.txt
+# Full corpus: https://cloudbytes.dev/llms-full.txt

@@ -8,8 +8,8 @@ slug: "how-to-install-check-python-version-and-update-it"
 tags:
     - "python"
 keywords:
-    - "Python"
-    - "Install"
+    - "python"
+    - "install"
     - "version"
     - "upgrade"
     - "opensource"

@@ -9,7 +9,7 @@ tags:
     - "aws"
     - "cdk"
 keywords:
-    - "AWS"
+    - "aws"
     - "bootstrap"
     - "cdk"
     - "python"

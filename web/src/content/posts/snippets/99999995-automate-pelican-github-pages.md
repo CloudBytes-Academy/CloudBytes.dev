@@ -10,9 +10,9 @@ tags:
     - "python"
     - "pelican"
 keywords:
-    - "GitHub"
-    - "Python"
-    - "Pelican"
+    - "github"
+    - "python"
+    - "pelican"
 author: "Rehan Haider"
 authorSlug: "rehan-haider"
 ---

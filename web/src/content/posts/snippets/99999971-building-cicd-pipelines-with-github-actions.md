@@ -10,7 +10,7 @@ tags:
     - "pelican"
     - "python"
 keywords:
-    - "Github"
+    - "github"
     - "pelican"
     - "devops"
     - "actions"

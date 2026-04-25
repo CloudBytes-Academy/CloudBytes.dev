@@ -11,8 +11,8 @@ tags:
     - "ubuntu"
     - "windows"
 keywords:
-    - "Zone.Identifier"
-    - "WSL2"
+    - "zone.identifier"
+    - "wsl2"
     - "ubuntu"
     - "windows"
 author: "Rehan Haider"

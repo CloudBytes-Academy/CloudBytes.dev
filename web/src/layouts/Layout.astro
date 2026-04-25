@@ -1,4 +1,5 @@
 ---
+import type { ImageMetadata } from "astro";
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar.astro";
@@ -6,15 +7,43 @@ import Navbar from "../components/Navbar.astro";
 interface Props {
     title: string;
     description: string;
+    image?: ImageMetadata | string;
+    imageWidth?: number;
+    imageHeight?: number;
+    imageAlt?: string;
     type?: "website" | "article";
     author?: string;
+    twitterCreator?: string;
     keywords?: string[];
     publishedTime?: Date;
     modifiedTime?: Date;
+    articleAuthor?: string | string[];
+    articleSection?: string;
+    articleTags?: string[];
     noindex?: boolean;
+    jsonLd?: unknown[];
 }
 
-const { title, description, type, author, keywords, publishedTime, modifiedTime, noindex } = Astro.props;
+const {
+    title,
+    description,
+    image,
+    imageWidth,
+    imageHeight,
+    imageAlt,
+    type,
+    author,
+    twitterCreator,
+    keywords,
+    publishedTime,
+    modifiedTime,
+    articleAuthor,
+    articleSection,
+    articleTags,
+    noindex,
+    jsonLd,
+} = Astro.props;
+
 const hasSidebar = Astro.slots.has("sidebar");
 ---
 
@@ -24,12 +53,21 @@ const hasSidebar = Astro.slots.has("sidebar");
         <BaseHead
             title={title}
             description={description}
+            image={image}
+            imageWidth={imageWidth}
+            imageHeight={imageHeight}
+            imageAlt={imageAlt}
             type={type}
             author={author}
+            twitterCreator={twitterCreator}
             keywords={keywords}
             publishedTime={publishedTime}
             modifiedTime={modifiedTime}
+            articleAuthor={articleAuthor}
+            articleSection={articleSection}
+            articleTags={articleTags}
             noindex={noindex}
+            jsonLd={jsonLd}
         />
         <script is:inline>
             // Apply the saved theme immediately to prevent flash of unstyled content
@@ -168,4 +206,3 @@ const hasSidebar = Astro.slots.has("sidebar");
         </script>
     </body>
 </html>
-

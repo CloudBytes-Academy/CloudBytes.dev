@@ -9,8 +9,8 @@ tags:
     - "aws"
     - "linux"
 keywords:
-    - "AWS"
-    - "Python"
+    - "aws"
+    - "python"
 author: "Rehan Haider"
 authorSlug: "rehan-haider"
 ---

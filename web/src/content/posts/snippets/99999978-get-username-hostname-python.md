@@ -8,7 +8,7 @@ slug: "get-username-hostname-and-home-directory-using-python"
 tags:
     - "python"
 keywords:
-    - "Python"
+    - "python"
 author: "Rehan Haider"
 authorSlug: "rehan-haider"
 ---

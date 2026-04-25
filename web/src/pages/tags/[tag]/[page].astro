@@ -2,7 +2,8 @@
 import ArticleCard from "../../../components/ArticleCard.astro";
 import Pagination from "../../../components/Pagination.astro";
 import Page from "../../../layouts/Page.astro";
-import { SITE_DESCRIPTION, SITE_TITLE } from "../../../consts";
+import { SITE_TITLE } from "../../../consts";
+import { buildGraph, buildItemList, buildWebPage } from "../../../lib/seo";
 import { slugify } from "../../../utils/slugify";
 import { getAllPosts, getPostHref, getUniqueTags, paginate, PAGE_SIZE } from "../../../utils/posts";
 
@@ -27,14 +28,33 @@ const pageNumber = Number(page);
 
 const posts = (await getAllPosts()).filter((post) => (post.data.tags ?? []).some((t) => slugify(t) === tag.slug));
 const { items, totalPages } = paginate(posts, pageNumber);
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site!).toString();
+const description = `Page ${pageNumber} of posts tagged ${tag.name} on ${SITE_TITLE}.`;
+
+const jsonLd = [
+    buildGraph([
+        buildWebPage({
+            type: "CollectionPage",
+            url: canonicalUrl,
+            name: `#${tag.name} · Page ${pageNumber} · ${SITE_TITLE}`,
+            description,
+        }),
+        buildItemList({
+            url: canonicalUrl,
+            items: items.map((p) => ({ url: getPostHref(p), name: p.data.title })),
+        }),
+    ]),
+];
 ---
 
 <Page
-    title={`${SITE_TITLE} · #${tag.name} · Page ${pageNumber}`}
-    description={SITE_DESCRIPTION}
+    title={`#${tag.name} · Page ${pageNumber} · ${SITE_TITLE}`}
+    description={description}
     heading={`#${tag.name}`}
     subheading={`Page ${pageNumber} of posts tagged “${tag.name}”.`}
     label="Tag"
+    jsonLd={jsonLd}
 >
     {items.map((post) => (
         <ArticleCard
@@ -49,4 +69,3 @@ const { items, totalPages } = paginate(posts, pageNumber);
         <Pagination basePath={`/tags/${tag.slug}`} currentPage={pageNumber} totalPages={totalPages} />
     </div>
 </Page>
-
