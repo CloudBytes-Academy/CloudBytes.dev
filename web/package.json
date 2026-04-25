@@ -7,6 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "node scripts/generate-default-og.mjs",
     "build": "astro build",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -31,11 +32,14 @@
     "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/jetbrains-mono": "^5.2.8",
     "cheerio": "^1.2.0",
     "daisyui": "^5.5.19",
     "prettier": "^3.8.2",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
+    "satori": "^0.26.0",
     "typescript": "^5.9.3",
     "vitest": "^4.1.4"
   }

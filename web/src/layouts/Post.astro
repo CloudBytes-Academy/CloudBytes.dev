@@ -1,12 +1,11 @@
 ---
 import type { ImageMetadata } from "astro";
-import FallbackImage from "../assets/blog-placeholder-1.jpg";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import Layout from "./Layout.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import TableOfContents from "../components/TableOfContents.astro";
 import TagList from "../components/TagList.astro";
-import { SECTION_LABELS, SITE_TITLE, TWITTER_SITE } from "../consts";
+import { SECTION_LABELS, SITE_TITLE, SITE_URL, TWITTER_SITE } from "../consts";
 import { buildBreadcrumbs } from "../utils/breadcrumbs";
 import {
     adaptBreadcrumbs,
@@ -17,6 +16,7 @@ import {
     buildHowTo,
 } from "../lib/seo";
 import { resolvePostAuthor } from "../lib/authors";
+import { pathToSlug } from "../lib/og/manifest";
 
 type NavLink = { title: string; href: string };
 type HowToData = {
@@ -86,7 +86,9 @@ const resolvedAuthor = await resolvePostAuthor({ authorName: author, authorSlug 
 const articleSection = SECTION_LABELS[categorySlug] ?? category;
 
 // JSON-LD: BreadcrumbList + Article (+ optional HowTo / FAQ).
-const articleImage = heroImage?.src ?? FallbackImage.src;
+// Use the heroImage when provided; otherwise the per-post dynamic OG card
+// (which matches the og:image meta) so social and schema stay in sync.
+const articleImage = heroImage?.src ?? `${SITE_URL}/og/${pathToSlug(Astro.url.pathname)}.png`;
 const articleNodes: unknown[] = [
     buildBreadcrumbList(canonicalUrl, adaptBreadcrumbs(breadcrumbs, Astro.site!)),
     buildArticle({
