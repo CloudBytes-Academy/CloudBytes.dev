@@ -200,7 +200,7 @@ python3.14 --version
 E.g. you can create a new virtual environment by running
 
 ```bash
-python3.13 -m venv env
+python3.14 -m venv env
 ```
 
 and activate it by running
@@ -212,19 +212,19 @@ source env/bin/activate
 Now you can run `python --version` and you should see the latest version of Python as the output.
 
 #### [Extra] Create an alias for Python 3.14
-If you really, really, really don't want to type `python3.13` every time you want to run a file, you can create an alias. 
+If you really, really, really don't want to type `python3.14` every time you want to run a file, you can create an alias. 
 
 If you are using bash, run
 ```bash
-echo "alias py=/usr/bin/python3" >> ~/.bashrc
-echo "alias python=/usr/bin/python3" >> ~/.bashrc
+echo "alias py=/usr/bin/python3.14" >> ~/.bashrc
+echo "alias python=/usr/bin/python3.14" >> ~/.bashrc
 ```
 
 
 Or, if you have [oh-my-zsh](https://ohmyz.sh/) installed, you can avoid typing out `python3` by running
 ```bash
-echo "alias py=/usr/bin/python3" >> ~/.zshrc
-echo "alias python=/usr/bin/python3" >> ~/.zshrc
+echo "alias py=/usr/bin/python3.14" >> ~/.zshrc
+echo "alias python=/usr/bin/python3.14" >> ~/.zshrc
 ```
 After restarting your terminal, you can run your Python apps with `py` or `python`.
 
