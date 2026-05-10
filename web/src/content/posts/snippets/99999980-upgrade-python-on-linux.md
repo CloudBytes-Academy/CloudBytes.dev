@@ -23,6 +23,7 @@ keywords:
     - "wsl update python"
 author: "Rehan Haider"
 authorSlug: "rehan-haider"
+youtubeId: "nmMBPN7ell0"
 ---
 
 **Last Updated:** 2026-04-13
