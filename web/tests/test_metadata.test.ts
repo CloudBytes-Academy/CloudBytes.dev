@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 
-import { getSitemapUrls, loadHtml, normalizeUrl } from "./testUtils";
+import { getSitemapUrls, loadHtml } from "./testUtils";
 
 describe("Metadata", () => {
     it("all sitemap pages include SEO + social metadata + canonical", async () => {
@@ -58,12 +58,29 @@ describe("Metadata", () => {
                 continue;
             }
 
-            if (normalizeUrl(canonical) !== normalizeUrl(url)) {
+            // Strict byte-equal compare. The previous version of this test
+            // normalized URLs (stripped trailing slashes) before comparing, which
+            // silently hid the trailing-slash mismatch that caused the May 2026
+            // deindexing event: sitemap + canonical + og:url all had a trailing
+            // slash while Firebase Hosting (`trailingSlash: false`) served the
+            // same pages without one, producing a 301 redirect chain on every URL.
+            if (canonical !== url) {
                 failures.push(`${url}: canonical mismatch (${canonical})`);
             }
 
-            if (normalizeUrl(ogUrl) !== normalizeUrl(canonical)) {
+            if (ogUrl !== canonical) {
                 failures.push(`${url}: og:url mismatch (${ogUrl})`);
+            }
+
+            // Regression guard: Firebase Hosting is `cleanUrls: true, trailingSlash: false`,
+            // so non-root URLs must never end with `/` in the sitemap, canonical, og:url,
+            // or twitter:url. Otherwise Googlebot follows sitemap → 301 → canonical
+            // (which points back at the redirecting URL) and drops the page from the index.
+            const parsedSitemap = new URL(url);
+            if (parsedSitemap.pathname !== "/" && parsedSitemap.pathname.endsWith("/")) {
+                failures.push(
+                    `${url}: sitemap URL has trailing slash; Firebase trailingSlash:false will 301-redirect (set trailingSlash: "never" in astro.config.mjs)`,
+                );
             }
 
             try {

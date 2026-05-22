@@ -18,8 +18,8 @@ describe("Homepage", () => {
         const $ = await loadHtml("/");
 
         expect($('header a[href="/"]').length).toBeGreaterThan(0);
-        expect($('header a[href="/books/"]').length).toBeGreaterThan(0);
-        expect($('header a[href="/tags/"]').length).toBeGreaterThan(0);
+        expect($('header a[href="/books"]').length).toBeGreaterThan(0);
+        expect($('header a[href="/tags"]').length).toBeGreaterThan(0);
 
         expect($("[data-cb-search-desktop-input]").length).toBeGreaterThan(0);
         expect($("#cb-theme-toggle").length).toBe(1);
@@ -29,8 +29,8 @@ describe("Homepage", () => {
         const $ = await loadHtml("/");
 
         expect($("footer").length).toBe(1);
-        expect($('footer a[href="/terms/"]').length).toBeGreaterThan(0);
-        expect($('footer a[href="/privacy/"]').length).toBeGreaterThan(0);
+        expect($('footer a[href="/terms"]').length).toBeGreaterThan(0);
+        expect($('footer a[href="/privacy"]').length).toBeGreaterThan(0);
 
         const footerText = $("footer").text();
         expect(footerText).toContain(String(new Date().getFullYear()));

@@ -38,9 +38,10 @@ export function buildBreadcrumbs(pathname: string): BreadcrumbItem[] {
     for (let i = 0; i < segments.length; i++) {
         const seg = segments[i];
         acc += `/${seg}`;
-        let href = `${acc}/`;
+        // Firebase Hosting is `trailingSlash: false` — emit links without one.
+        let href = acc;
 
-        // /page/{n}/ is pagination for the homepage. There is no /page/ index route.
+        // /page/{n} is pagination for the homepage. There is no /page/ index route.
         if (seg === "page") href = "/";
 
         items.push({ label: labelForSegment(seg, segments, i), href });

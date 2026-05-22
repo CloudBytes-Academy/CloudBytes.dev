@@ -48,8 +48,10 @@ describe("Sitemap", () => {
 
     it("uses the post's updatedDate or pubDate (not the build date) for posts", async () => {
         const urls = await readSitemapUrls();
-        // Pick a post URL we know exists
-        const post = urls.find((u) => u.loc.endsWith("/snippets/upgrade-python-to-latest-version-on-ubuntu-linux/"));
+        // Pick a post URL we know exists. With Astro `trailingSlash: "never"`
+        // (set in astro.config.mjs to match Firebase's `trailingSlash: false`),
+        // sitemap URLs no longer end with `/`.
+        const post = urls.find((u) => u.loc.endsWith("/snippets/upgrade-python-to-latest-version-on-ubuntu-linux"));
         expect(post, "expected sample post in sitemap").toBeTruthy();
         // The post pubDate is 2026-04-13 — lastmod should reflect that, not the build date
         expect(post!.lastmod).toMatch(/^2026-04-13/);

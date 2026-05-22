@@ -13,7 +13,9 @@ export async function getAllPosts(): Promise<PostEntry[]> {
 }
 
 export function getPostHref(post: PostEntry): string {
-    return `/${post.data.categorySlug}/${post.data.slug}/`;
+    // Firebase Hosting (firebase.json) is configured with `trailingSlash: false`,
+    // so emit URLs without a trailing slash. Otherwise every link would 301-redirect.
+    return `/${post.data.categorySlug}/${post.data.slug}`;
 }
 
 export function getUniqueCategories(posts: PostEntry[]) {

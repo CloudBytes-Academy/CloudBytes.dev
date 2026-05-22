@@ -11,7 +11,7 @@ const { tags, class: className } = Astro.props;
 
 <div class:list={["article-tags", className]}>
     {tags.map((tag) => (
-        <a href={`/tags/${slugify(tag)}/`} class="no-underline">
+        <a href={`/tags/${slugify(tag)}`} class="no-underline">
             <span class:list={["tag tag-sm", `tag-${slugify(tag)}`]}>#{tag}</span>
         </a>
     ))}

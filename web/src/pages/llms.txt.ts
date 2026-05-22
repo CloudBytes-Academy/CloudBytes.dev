@@ -39,9 +39,9 @@ export const GET: APIRoute = async () => {
 
     lines.push("## About");
     lines.push("");
-    lines.push(bullet("About", `${SITE_URL}/about/`, "Who runs CloudBytes/dev, focus areas, and how to get in touch."));
-    lines.push(bullet("Authors hub", `${SITE_URL}/authors/`, "All authors with bios and post lists."));
-    lines.push(bullet("Glossary", `${SITE_URL}/learn/glossary/`, "Definitions of recurring AWS, CDK, Linux, and Python terms used across the site."));
+    lines.push(bullet("About", `${SITE_URL}/about`, "Who runs CloudBytes/dev, focus areas, and how to get in touch."));
+    lines.push(bullet("Authors hub", `${SITE_URL}/authors`, "All authors with bios and post lists."));
+    lines.push(bullet("Glossary", `${SITE_URL}/learn/glossary`, "Definitions of recurring AWS, CDK, Linux, and Python terms used across the site."));
     lines.push("");
 
     for (const [category, catPosts] of byCategory) {
@@ -57,7 +57,7 @@ export const GET: APIRoute = async () => {
         lines.push("## Policies");
         lines.push("");
         for (const p of pages) {
-            lines.push(bullet(p.data.title, `${SITE_URL}/${p.data.slug}/`, p.data.description));
+            lines.push(bullet(p.data.title, `${SITE_URL}/${p.data.slug}`, p.data.description));
         }
         lines.push("");
     }

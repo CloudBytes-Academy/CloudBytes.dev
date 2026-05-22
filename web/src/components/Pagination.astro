@@ -9,8 +9,10 @@ interface Props {
 const { basePath, currentPage, totalPages, firstPagePath } = Astro.props;
 
 const normalizedBase = basePath.replace(/\/+$/, "");
-const firstUrl = firstPagePath ?? `${normalizedBase}/`;
-const pageUrl = (n: number) => (n === 1 ? firstUrl : `${normalizedBase}/${n}/`);
+// No trailing slash on any link (Firebase trailingSlash:false); for the root
+// page-1 URL, fall back to "/" so the link doesn't become an empty string.
+const firstUrl = firstPagePath ?? (normalizedBase || "/");
+const pageUrl = (n: number) => (n === 1 ? firstUrl : `${normalizedBase}/${n}`);
 
 const prevUrl = currentPage > 1 ? pageUrl(currentPage - 1) : null;
 const nextUrl = currentPage < totalPages ? pageUrl(currentPage + 1) : null;

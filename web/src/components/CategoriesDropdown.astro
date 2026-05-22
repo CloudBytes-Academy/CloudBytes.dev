@@ -65,10 +65,10 @@ const categories = Array.from(categoryMap.values()).sort((a, b) => {
         {isCompact ? (
             <>
                 <li>
-                    <a href="/books/">Books</a>
+                    <a href="/books">Books</a>
                 </li>
                 <li>
-                    <a href="/tags/">Tags</a>
+                    <a href="/tags">Tags</a>
                 </li>
                 <li>
                     <a href={GITHUB_URL} target="_blank" rel="noopener">
@@ -87,7 +87,7 @@ const categories = Array.from(categoryMap.values()).sort((a, b) => {
         ) : null}
         {categories.map((category) => (
             <li>
-                <a href={`/${category.slug}/`} class="flex items-center justify-between gap-3">
+                <a href={`/${category.slug}`} class="flex items-center justify-between gap-3">
                     <span>{category.name}</span>
                     <span class="text-xs text-base-content/60">{category.count}</span>
                 </a>
@@ -95,7 +95,7 @@ const categories = Array.from(categoryMap.values()).sort((a, b) => {
         ))}
         {!isCompact ? (
             <li class="mt-1">
-                <a href="/tags/" class="flex items-center justify-between gap-3">
+                <a href="/tags" class="flex items-center justify-between gap-3">
                     <span>Tags</span>
                     <span class="text-xs text-base-content/60">#</span>
                 </a>

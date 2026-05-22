@@ -44,7 +44,12 @@ interface Props {
     jsonLd?: unknown[];
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+// Strip trailing slash to match Firebase Hosting's `trailingSlash: false`
+// policy and the sitemap. Astro's `trailingSlash: "never"` covers this for
+// non-root URLs, but `new URL("/", "https://…").toString()` always re-adds
+// a slash to the root, which would still leave the home page canonical
+// mismatching the sitemap loc.
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString().replace(/\/+$/, "");
 
 const {
     title,

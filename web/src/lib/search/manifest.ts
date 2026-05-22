@@ -31,7 +31,7 @@ export async function buildSearchIndex(): Promise<SearchEntry[]> {
     const pages = (await getCollection("pages")).filter((p) => !p.data.draft && p.data.slug !== "404");
     for (const p of pages) {
         entries.push({
-            url: `/${p.data.slug}/`,
+            url: `/${p.data.slug}`,
             title: p.data.title,
             description: p.data.description,
             section: "Pages",
@@ -39,7 +39,7 @@ export async function buildSearchIndex(): Promise<SearchEntry[]> {
     }
 
     entries.push({
-        url: "/about/",
+        url: "/about",
         title: "About",
         description: "About CloudBytes/dev — who runs it, focus areas, and how to get in touch.",
         section: "Pages",
@@ -48,37 +48,37 @@ export async function buildSearchIndex(): Promise<SearchEntry[]> {
     // Hubs
     entries.push(
         {
-            url: "/snippets/",
+            url: "/snippets",
             title: "Snippets",
             description: "All snippets — short, copy-pasteable how-tos for everyday tooling problems.",
             section: "Hubs",
         },
         {
-            url: "/aws-academy/",
+            url: "/aws-academy",
             title: "AWS Academy",
             description: "Project-style guides for AWS CDK in Python: Lambda, S3, EC2, VPCs, IAM, EFS/FSx for Lustre.",
             section: "Hubs",
         },
         {
-            url: "/books/",
+            url: "/books",
             title: "Books",
             description: "Build WebAPIs with Python using Flask and FastAPI.",
             section: "Hubs",
         },
         {
-            url: "/learn/glossary/",
+            url: "/learn/glossary",
             title: "Glossary",
             description: "Definitions of recurring AWS, CDK, Linux, Python, and WSL2 terms.",
             section: "Hubs",
         },
         {
-            url: "/tags/",
+            url: "/tags",
             title: "Tag cloud",
             description: "Browse all topics across the site.",
             section: "Hubs",
         },
         {
-            url: "/authors/",
+            url: "/authors",
             title: "Authors",
             description: "All authors with published posts.",
             section: "Hubs",

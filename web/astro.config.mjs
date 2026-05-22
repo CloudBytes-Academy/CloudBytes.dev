@@ -22,6 +22,11 @@ const buildLastMod = new Date().toISOString();
 // https://astro.build/config
 export default defineConfig({
     site: "https://cloudbytes.dev",
+    // Firebase Hosting (firebase.json) is configured with `trailingSlash: false`,
+    // so served URLs never have a trailing slash. Astro must match: if Astro emits
+    // canonical/sitemap/og:url with a trailing slash, every page becomes a 301
+    // redirect chain in Googlebot's eyes and Google deindexes the site.
+    trailingSlash: "never",
     integrations: [
         mdx(),
         sitemap({

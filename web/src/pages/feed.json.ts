@@ -9,7 +9,7 @@ export const GET: APIRoute = async () => {
     const feed = {
         version: "https://jsonfeed.org/version/1.1",
         title: SITE_TITLE,
-        home_page_url: `${SITE_URL}/`,
+        home_page_url: SITE_URL,
         feed_url: `${SITE_URL}/feed.json`,
         description: SITE_DESCRIPTION,
         language: "en",
@@ -23,7 +23,7 @@ export const GET: APIRoute = async () => {
             date_modified: (post.data.updatedDate ?? post.data.pubDate).toISOString(),
             tags: post.data.tags ?? [],
             ...(post.data.author
-                ? { author: { name: post.data.author, url: post.data.authorSlug ? `${SITE_URL}/authors/${post.data.authorSlug}/` : undefined } }
+                ? { author: { name: post.data.author, url: post.data.authorSlug ? `${SITE_URL}/authors/${post.data.authorSlug}` : undefined } }
                 : {}),
         })),
     };

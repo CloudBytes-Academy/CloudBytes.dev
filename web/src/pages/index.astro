@@ -15,7 +15,7 @@ import {
 const posts = await getAllPosts();
 const { items, totalPages } = paginate(posts, 1);
 
-const canonicalUrl = `${SITE_URL}/`;
+const canonicalUrl = SITE_URL;
 
 const jsonLd = buildGraph([
     buildOrganization(),
@@ -61,12 +61,12 @@ const jsonLd = buildGraph([
             <div class="box-content">
                 <h2 class="text-base font-semibold text-base-content">Quick links</h2>
                 <div class="mt-3 flex flex-col gap-2 text-sm">
-                    <a class="link link-hover text-base-content/70" href="/snippets/">Snippets</a>
-                    <a class="link link-hover text-base-content/70" href="/aws-academy/">AWS Academy</a>
-                    <a class="link link-hover text-base-content/70" href="/books/">Books</a>
-                    <a class="link link-hover text-base-content/70" href="/learn/glossary/">Glossary</a>
-                    <a class="link link-hover text-base-content/70" href="/tags/">Tag cloud</a>
-                    <a class="link link-hover text-base-content/70" href="/search/">Search</a>
+                    <a class="link link-hover text-base-content/70" href="/snippets">Snippets</a>
+                    <a class="link link-hover text-base-content/70" href="/aws-academy">AWS Academy</a>
+                    <a class="link link-hover text-base-content/70" href="/books">Books</a>
+                    <a class="link link-hover text-base-content/70" href="/learn/glossary">Glossary</a>
+                    <a class="link link-hover text-base-content/70" href="/tags">Tag cloud</a>
+                    <a class="link link-hover text-base-content/70" href="/search">Search</a>
                 </div>
             </div>
         </div>

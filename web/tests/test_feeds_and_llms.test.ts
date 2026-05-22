@@ -21,8 +21,9 @@ describe("Feeds & LLM index files", () => {
     it("/llms-full.txt is generated and contains post bodies", async () => {
         const text = await readDist("llms-full.txt");
         expect(text).toMatch(/full content corpus/i);
-        // Should reference at least one known post URL
-        expect(text).toMatch(/\/snippets\/upgrade-python-to-latest-version-on-ubuntu-linux\//);
+        // Should reference at least one known post URL. URLs now have no
+        // trailing slash to match Firebase's `trailingSlash: false` policy.
+        expect(text).toMatch(/\/snippets\/upgrade-python-to-latest-version-on-ubuntu-linux(?!\w)/);
     });
 
     it("/feed.json is generated and is valid JSON Feed 1.1", async () => {

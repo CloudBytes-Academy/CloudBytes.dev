@@ -13,7 +13,7 @@ for (const entry of index) {
     grouped.get(entry.section)!.push(entry);
 }
 
-const canonicalUrl = `${SITE_URL}/search/`;
+const canonicalUrl = `${SITE_URL}/search`;
 const description = `Search all posts, snippets, and pages on ${SITE_TITLE}.`;
 
 const jsonLd = [
@@ -40,7 +40,7 @@ const jsonLd = [
         </p>
     </header>
 
-    <form method="get" action="/search/" class="mb-8">
+    <form method="get" action="/search" class="mb-8">
         <label class="sr-only" for="cb-search-q">Search</label>
         <div class="relative">
             <svg

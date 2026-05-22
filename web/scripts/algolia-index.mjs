@@ -155,7 +155,9 @@ async function main() {
 
         const cat = String(categorySlug).replace(/^\/+/, "").replace(/\/+$/, "");
         const s = String(slug).replace(/^\/+/, "").replace(/\/+$/, "");
-        const url = `/${cat}/${s}/`;
+        // Firebase Hosting is `trailingSlash: false`; index URLs without one
+        // so search-result clicks don't trigger a 301 redirect.
+        const url = `/${cat}/${s}`;
         const content = stripMarkdown(body).slice(0, 20000);
 
         records.push({

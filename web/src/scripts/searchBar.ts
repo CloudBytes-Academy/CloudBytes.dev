@@ -19,8 +19,9 @@ function isTypingTarget(target: unknown) {
 }
 
 function normalizeHref(url: string) {
+    // Firebase Hosting is `trailingSlash: false`, so emit links without one.
     const cleaned = url.replace(/^\/+/, "").replace(/\/+$/, "");
-    return `/${cleaned}/`;
+    return cleaned ? `/${cleaned}` : "/";
 }
 
 function hitHtml(hit: Hit) {

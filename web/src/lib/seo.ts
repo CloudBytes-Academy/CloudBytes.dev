@@ -123,7 +123,7 @@ export function buildWebSite(opts: { searchUrlTemplate?: string } = {}): JsonLd 
 }
 
 export function buildPerson(author: ArticleAuthor & { id?: string }): JsonLd {
-    const profileUrl = author.url ?? (author.slug ? abs(`/authors/${author.slug}/`) : undefined);
+    const profileUrl = author.url ?? (author.slug ? abs(`/authors/${author.slug}`) : undefined);
     const id = author.id ?? (profileUrl ? `${profileUrl}#person` : `${SITE_URL}/#person-${slugify(author.name)}`);
 
     const node: JsonLd = {

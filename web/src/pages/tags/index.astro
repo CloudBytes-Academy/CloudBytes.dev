@@ -20,7 +20,7 @@ const jsonLd = [
         }),
         buildItemList({
             url: canonicalUrl,
-            items: tags.map((tag) => ({ url: `/tags/${tag.slug}/`, name: `#${tag.name}` })),
+            items: tags.map((tag) => ({ url: `/tags/${tag.slug}`, name: `#${tag.name}` })),
         }),
     ]),
 ];
@@ -36,7 +36,7 @@ const jsonLd = [
 >
     <div class="flex flex-wrap gap-2">
         {tags.map((tag) => (
-            <a class="no-underline" href={`/tags/${tag.slug}/`}>
+            <a class="no-underline" href={`/tags/${tag.slug}`}>
                 <span class:list={["tag tag-lg", `tag-${tag.slug}`]}>#{tag.name} <span class="opacity-60">({tag.count})</span></span>
             </a>
         ))}

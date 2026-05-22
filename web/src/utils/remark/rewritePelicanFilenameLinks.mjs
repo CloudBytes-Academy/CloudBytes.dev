@@ -151,7 +151,7 @@ function buildFilenameToUrlIndex() {
         const slug = normalizeSlugSegment(data.slug);
 
         if (!categorySlug || !slug) continue;
-        const url = `/${categorySlug}/${slug}/`;
+        const url = `/${categorySlug}/${slug}`;
         map.set(path.basename(filePath), url);
     }
 
@@ -160,7 +160,7 @@ function buildFilenameToUrlIndex() {
         const { data } = parseFrontmatter(text);
         const slug = normalizeSlugSegment(data.slug);
         if (!slug) continue;
-        const url = `/${slug}/`;
+        const url = `/${slug}`;
         map.set(path.basename(filePath), url);
     }
 
