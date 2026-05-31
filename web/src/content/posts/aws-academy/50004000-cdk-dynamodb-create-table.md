@@ -235,7 +235,7 @@ Because this tutorial used `RemovalPolicy.DESTROY`, the DynamoDB table and the d
 
 Now that we can create a basic DynamoDB table, the next useful topics are:
 
-1. Configure point-in-time recovery and deletion protection.
+1. [Configure point-in-time recovery and deletion protection]({filename}50004010-cdk-dynamodb-pitr-deletion-protection.md).
 2. Add a Global Secondary Index.
 3. Query items by partition key and sort key.
 4. Use the table from a Lambda function when you are ready to connect DynamoDB to an application workflow.

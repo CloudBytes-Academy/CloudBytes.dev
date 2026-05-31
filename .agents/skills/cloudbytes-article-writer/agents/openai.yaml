@@ -1,0 +1,4 @@
+interface:
+  display_name: "CloudBytes Article Writer"
+  short_description: "Draft CloudBytes articles in Rehan's style"
+  default_prompt: "Use $cloudbytes-article-writer to draft or revise a CloudBytes technical article."
