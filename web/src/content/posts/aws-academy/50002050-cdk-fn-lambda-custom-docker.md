@@ -20,7 +20,7 @@ keywords:
 author: "Rehan Haider"
 authorSlug: "rehan-haider"
 series: "AWS CDK"
-seriesIndex: 2040
+seriesIndex: 2050
 ---
 In previous posts we looked at how to create using AWS CDK:
 

@@ -19,7 +19,7 @@ keywords:
 author: "Rehan Haider"
 authorSlug: "rehan-haider"
 series: "AWS CDK"
-seriesIndex: 2080
+seriesIndex: 3000
 ---
 3-tier architecture is an almost ubiquitous design patter in software development. It separates the application into three layers:
 

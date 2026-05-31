@@ -9,10 +9,12 @@ tags:
     - "aws"
     - "cdk"
     - "python"
+    - "dynamodb"
+    - "lambda"
 keywords:
     - "lambda"
     - "cdk"
-    - "s3"
+    - "dynamodb"
     - "python"
     - "aws"
 author: "Rehan Haider"
