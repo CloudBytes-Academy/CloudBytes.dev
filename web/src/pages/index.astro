@@ -4,16 +4,24 @@ import Pagination from "../components/Pagination.astro";
 import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from "@/consts";
 import Page from "../layouts/Page.astro";
 import { getAllPosts, getPostHref, paginate } from "../utils/posts";
-import {
-    buildGraph,
-    buildItemList,
-    buildOrganization,
-    buildWebPage,
-    buildWebSite,
-} from "../lib/seo";
+import { buildGraph, buildItemList, buildOrganization, buildWebPage, buildWebSite } from "../lib/seo";
 
 const posts = await getAllPosts();
 const { items, totalPages } = paginate(posts, 1);
+
+// Evergreen top earners, kept permanently one click from the homepage so they
+// never lose internal-link equity as newer posts push them off page 1.
+const POPULAR_SLUGS = [
+    "upgrade-python-to-latest-version-on-ubuntu-linux",
+    "create-a-python-virtual-environment",
+    "how-to-check-python-version",
+    "run-selenium-in-aws-lambda",
+    "install-multiple-ubuntu-wsl2",
+];
+const popularPosts = POPULAR_SLUGS.flatMap((slug) => {
+    const post = posts.find((p) => p.data.slug === slug);
+    return post ? [post] : [];
+});
 
 const canonicalUrl = SITE_URL;
 
@@ -43,20 +51,34 @@ const jsonLd = buildGraph([
     subheading="New posts across snippets, AWS Academy, and books."
     jsonLd={[jsonLd]}
 >
-    {items.map((post) => (
-        <ArticleCard
-            href={getPostHref(post)}
-            title={post.data.title}
-            description={post.data.description}
-            tags={post.data.tags}
-        />
-    ))}
+    {
+        items.map((post) => (
+            <ArticleCard href={getPostHref(post)} title={post.data.title} description={post.data.description} tags={post.data.tags} />
+        ))
+    }
 
     <div slot="pagination">
         <Pagination basePath="/page" firstPagePath="/" currentPage={1} totalPages={totalPages} />
     </div>
 
-    <div slot="sidebar">
+    <div slot="sidebar" class="space-y-4">
+        {
+            popularPosts.length ? (
+                <div class="box">
+                    <div class="box-content">
+                        <h2 class="text-base font-semibold text-base-content">Popular guides</h2>
+                        <div class="mt-3 flex flex-col gap-2 text-sm">
+                            {popularPosts.map((post) => (
+                                <a class="link link-hover text-base-content/70" href={getPostHref(post)}>
+                                    {post.data.title}
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            ) : null
+        }
+
         <div class="box">
             <div class="box-content">
                 <h2 class="text-base font-semibold text-base-content">Quick links</h2>
