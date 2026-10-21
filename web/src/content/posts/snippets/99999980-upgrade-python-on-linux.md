@@ -1,7 +1,8 @@
 ---
-title: "Upgrade Python to latest version (3.14) on Ubuntu Linux or WSL2"
-description: "A complete guide on how to upgrade Python to the latest version (Python 3.14) on Ubuntu Linux and solve associated issues. Also works on WSL2. Can also be used to upgrade to any Python version."
+title: "Upgrade Python to latest version (3.15) on Ubuntu Linux or WSL2"
+description: "A complete guide on how to upgrade Python to the latest version (Python 3.15) on Ubuntu Linux and solve associated issues. Also works on WSL2. Can also be used to upgrade to any Python version."
 pubDate: "2026-04-13"
+updatedDate: "2026-10-21"
 category: "Snippets"
 categorySlug: "snippets"
 slug: "upgrade-python-to-latest-version-on-ubuntu-linux"
@@ -13,7 +14,7 @@ keywords:
     - "linux"
     - "python"
     - "ubuntu"
-    - "python 3.14"
+    - "python 3.15"
     - "upgrade python"
     - "ubuntu update python"
     - "update python ubuntu"
@@ -26,16 +27,16 @@ authorSlug: "rehan-haider"
 youtubeId: "nmMBPN7ell0"
 ---
 
-**Last Updated:** 2026-04-13
+**Last Updated:** 2026-10-21
 
 Ubuntu both Desktop & WSL2 Linux systems come with Python installed by default, but, they are usually not the latest. 
 
 
-This is a short guide on how to upgrade your Python to the latest version (Python 3.14) on Ubuntu Linux and solve associated issues.
+This is a short guide on how to upgrade your Python to the latest version (Python 3.15) on Ubuntu Linux and solve associated issues.
 This guide covers two options to upgrade Python to the latest version:
 
 1. [**Using [UV](https://docs.astral.sh/uv)**](#method-1-using-uv) - which has become the de facto standard for Python version management. This is recommended way to work with Python
-2. [**Using apt**](#method-2-using-apt) - which is the default package manager for Ubuntu. This is the traditional way to work with Python.
+2. [**Using apt**](#method-2-using-apt-to-install-python-315) - which is the default package manager for Ubuntu. This is the traditional way to work with Python.
 
 If you want to install a different version of Python, this guide will cover that as well. 
 
@@ -62,7 +63,7 @@ For this we first need to install UV, this can be done by running the following 
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-You need to then restart you shell by running the below command:
+You need to then restart your shell by running the below command:
 ```bash
 source $HOME/.local/bin/env
 ```
@@ -75,14 +76,19 @@ uv --version
 ![UV Installed](/images/99999980-01-uv-install.png)
 
 
-### Step 2: Install Python 3.14
+### Step 2: Install Python 3.15
+
+Python 3.15 needs a recent version of uv. If you installed uv before October 2026, update it first:
+```bash
+uv self update
+```
 
 If you want to install python globally, you can do so by running the below command:
 ```bash
-uv install python 3.14
+uv python install 3.15
 ```
 
-This will install the latest version of Python 3.14. To view all available versions, you can run the below command:
+This will install the latest version of Python 3.15. To view all available versions, you can run the below command:
 ```bash
 uv python list --only-installed
 ```
@@ -93,15 +99,15 @@ This displays all installed Python versions, including those that are not instal
 
 > !!! warning " This doesn't change the system default Python version."
 
-If you want to change the system default Python version (which I warn against as it could result in system instability), you can find the instructions [here](#method-2-using-apt-to-install-python-314).
+If you want to change the system default Python version (which I warn against as it could result in system instability), you can find the instructions [here](#method-2-using-apt-to-install-python-315).
 
-### Step 3: [Bonus] Python 3.14 using uv
+### Step 3: [Bonus] Python 3.15 using uv
 
 The recommendation is you use uv to create a virtual environment for your project. This is because uv is designed to work with multiple Python versions and projects.
 
 For each project, you can create a virtual environment by running the below command:
 ```bash
-uv venv .venv --python 3.14
+uv venv .venv --python 3.15
 ```
 
 This will create a virtual environment in the `.venv` folder. You can activate it by running
@@ -110,7 +116,7 @@ This will create a virtual environment in the `.venv` folder. You can activate i
 source .venv/bin/activate
 ```
 
-After that you can check where you `python` command is pointing to by running
+After that you can check where your `python` command is pointing to by running
 ```bash
 which python
 ```
@@ -123,19 +129,19 @@ Now you can run `python --version` and you should see the latest version of Pyth
 python --version
 ```
 
-![use python 3.14 in uv](/images/99999980-03-use-python-uv.png)
+![use python 3.15 in uv](/images/99999980-03-use-python-uv.png)
 
 You can pin the version of Python in a project by running:
 
 ```bash
-uv python pin 3.14
+uv python pin 3.15
 ```
 
-This create a file named `.python-version` in the root of the project with the version of Python pinned. So if in future you can track which version of Python is used in the project.
+This creates a file named `.python-version` in the root of the project with the version of Python pinned. So if in future you can track which version of Python is used in the project.
 
 ### Step 4: Installing packages in the virtual environment
 
-The advantage of using uv is that you can isntall packages in a virtual environment without activating it or affecting the system Python version.
+The advantage of using uv is that you can install packages in a virtual environment without activating it or affecting the system Python version.
 
 For example, you can install a package by running
 ```bash
@@ -144,7 +150,7 @@ uv pip install <package-name>
 
 This will install the package in the virtual environment.
 
-## Method 2: Using apt to install Python 3.14
+## Method 2: Using apt to install Python 3.15
 Ubuntu's default repositories do not contain the latest version of Python, but an open source repository named `deadsnakes` does.
 
 
@@ -152,7 +158,7 @@ Ubuntu's default repositories do not contain the latest version of Python, but a
 
 > !!! note " Since WSL doesn't have a GUI, this is largely safe on WSL, but still discouraged."
 
-### Step 1: Prepare to install Python 3.14
+### Step 1: Prepare to install Python 3.15
 
 First, update your system by running
 
@@ -165,43 +171,43 @@ sudo add-apt-repository ppa:deadsnakes/ppa && \
 sudo apt update
 ```
 
-### Step 2: Check if Python 3.14 is available
+### Step 2: Check if Python 3.15 is available
 
-Check if Python 3.14 is available by running
+Check if Python 3.15 is available by running
 
 ```bash
-apt list | grep python3.14
+apt list | grep python3.15
 ```
 
-This will produce the below result, if you see python3.14 it means you can install it
+This will produce the below result, if you see python3.15 it means you can install it
 
 ![apt list check if python is present](/images/99999980-03-apt_list.png)
 
-If you see something similar to the above, it means you can install Python 3.14.
+If you see something similar to the above, it means you can install Python 3.15.
 
-### Step 2: Install Python 3.14
-Now you can install Python 3.14 by running
+### Step 3: Install Python 3.15
+Now you can install Python 3.15 by running
 
 ```bash 
-sudo apt install python3.14
+sudo apt install python3.15
 ```
 
-Now though Python 3.14 is installed, if you check the version of your python by running `python3 --version` you will still see an older version. This is because if you are using Ubuntu Desktop, the default Python is needed by the system and changing it will break your system.
+Now though Python 3.15 is installed, if you check the version of your python by running `python3 --version` you will still see an older version. This is because if you are using Ubuntu Desktop, the default Python is needed by the system and changing it will break your system.
 
-### Step 3: Run Python 3.14
+### Step 4: Run Python 3.15
 
-You can run Python 3.14 by running
+You can run Python 3.15 by running
 
 ```bash
-python3.14 --version
+python3.15 --version
 ```
 
-**The right way to run Python 3.14 On Linux Desktops is by using a virtual environment.**
+**The right way to run Python 3.15 On Linux Desktops is by using a virtual environment.**
 
 E.g. you can create a new virtual environment by running
 
 ```bash
-python3.14 -m venv env
+python3.15 -m venv env
 ```
 
 and activate it by running
@@ -212,25 +218,25 @@ source env/bin/activate
 
 Now you can run `python --version` and you should see the latest version of Python as the output.
 
-#### [Extra] Create an alias for Python 3.14
-If you really, really, really don't want to type `python3.14` every time you want to run a file, you can create an alias. 
+#### [Extra] Create an alias for Python 3.15
+If you really, really, really don't want to type `python3.15` every time you want to run a file, you can create an alias. 
 
 If you are using bash, run
 ```bash
-echo "alias py=/usr/bin/python3.14" >> ~/.bashrc
-echo "alias python=/usr/bin/python3.14" >> ~/.bashrc
+echo "alias py=/usr/bin/python3.15" >> ~/.bashrc
+echo "alias python=/usr/bin/python3.15" >> ~/.bashrc
 ```
 
 
 Or, if you have [oh-my-zsh](https://ohmyz.sh/) installed, you can avoid typing out `python3` by running
 ```bash
-echo "alias py=/usr/bin/python3.14" >> ~/.zshrc
-echo "alias python=/usr/bin/python3.14" >> ~/.zshrc
+echo "alias py=/usr/bin/python3.15" >> ~/.zshrc
+echo "alias python=/usr/bin/python3.15" >> ~/.zshrc
 ```
 After restarting your terminal, you can run your Python apps with `py` or `python`.
 
 
-### Optional: Set Python 3.14 as system default
+### Optional: Set Python 3.15 as system default
 > !!! danger " If you're on Ubuntu Desktop, changing the system-wide Python will break your Gnome terminal and potentially other system tools that depend on the default python3. Using virtual environments (described above) is the better approach for Desktop users. If you still want to proceed, follow the Desktop-specific steps below carefully."
 
 Changing the default alternatives for Python will break your Gnome terminal. To avoid this, you need to edit the `gnome-terminal` configuration file.
@@ -247,7 +253,7 @@ Then save and close the file.
 Next, update the default Python by adding both versions to an alternatives by running the below
 ```bash
 sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.12 1
-sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.14 2
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.15 2
 ```
 
 Now run 
@@ -255,17 +261,17 @@ Now run
 sudo update-alternatives --config python3
 ```
 
-Choose the selection corresponding to Python3.14 (if not selected by default). 
+Choose the selection corresponding to Python3.15 (if not selected by default). 
 ![Python alternatives on linux](/images/99999980-04-alternatives.png)
 
 Now run `python3 --version` again and you should see the latest Python as the output.
 
-#### [Extra] Fix pip and disutils errors
+#### [Extra] Fix pip errors
 
-Installing the new version of Python will break `pip` as the `distutils` for Python3.13 is not installed yet.
+Installing the new version of Python will break `pip`, because `pip` was installed for the old system Python. The next two steps fix this: repair `python3-apt`, then install `pip` for Python 3.15.
 
 #### [Extra] Fix Python3-apt errors
-Running `pip` in terminal will not work, as the current pip is not compatible with Python3.13 and python3-apt will be broken, that will generate an error like
+Running `pip` in terminal will not work, as the current pip is not compatible with Python 3.15 and python3-apt will be broken, that will generate an error like
 ```text
 Traceback (most recent call last):   
     File "/usr/lib/command-not-found", line 28, in <module>     
@@ -296,13 +302,13 @@ sudo apt install python3-apt
 
 #### [Extra] Install pip 
 
-Running `pip`  will still throw an error `pip: command not found`. We need to install the latest version of pip compatible with Python 3.14. 
+Running `pip`  will still throw an error `pip: command not found`. We need to install the latest version of pip compatible with Python 3.15. 
 
 Now you can install `pip` by running
 
 ```bash
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
-sudo python3.14 get-pip.py
+sudo python3.15 get-pip.py
 ```
 
 > If you get an error like `bash: curl: command not found` then you need to install curl first by running `sudo apt install curl`
@@ -315,7 +321,7 @@ All should be done now. It is complicated, but this is how you update Python to 
 If you want to install a different version of Python, you can use the below command:
 
 ```bash
-uv install python <version>
+uv python install <version>
 ```
 
 This will install the specified version of Python.

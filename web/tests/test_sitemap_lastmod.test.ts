@@ -1,7 +1,7 @@
 import path from "node:path";
 import fs from "node:fs/promises";
 import { describe, expect, it } from "vitest";
-import { DIST_DIR, getSitemapUrls } from "./testUtils";
+import { DIST_DIR, WEB_ROOT, getSitemapUrls } from "./testUtils";
 
 interface SitemapUrl {
     loc: string;
@@ -82,7 +82,10 @@ describe("Sitemap", () => {
         // sitemap URLs no longer end with `/`.
         const post = urls.find((u) => u.loc.endsWith("/snippets/upgrade-python-to-latest-version-on-ubuntu-linux"));
         expect(post, "expected sample post in sitemap").toBeTruthy();
-        // The post pubDate is 2026-04-13 — lastmod should reflect that, not the build date
-        expect(post!.lastmod).toMatch(/^2026-04-13/);
+        const source = await fs.readFile(path.join(WEB_ROOT, "src/content/posts/snippets/99999980-upgrade-python-on-linux.md"), "utf8");
+        const date = (key: string) => source.match(new RegExp(`^${key}:\\s*"?(\\d{4}-\\d{2}-\\d{2})`, "m"))?.[1];
+        const expected = date("updatedDate") ?? date("pubDate");
+        expect(expected, "expected pubDate in the post frontmatter").toBeTruthy();
+        expect(post!.lastmod).toBe(`${expected}T00:00:00.000Z`);
     });
 });
