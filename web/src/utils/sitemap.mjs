@@ -3,7 +3,9 @@
  *
  * Builds a `Map<canonicalPath, ISO-date>` from the posts content collection by
  * reading frontmatter directly off disk. Used by `@astrojs/sitemap`'s
- * `serialize` callback to add `<lastmod>` to every post URL.
+ * `serialize` callback to add `<lastmod>` to post URLs and to the home and
+ * category hubs. Other pages get no `<lastmod>`: a build-time value changes on
+ * every deploy, and Google ignores lastmod on sites where it is not accurate.
  *
  * Plain ESM because astro.config.mjs runs at config time, before Vite resolves
  * the `@/` alias.
@@ -53,9 +55,15 @@ function canonicalPathFor(category, slug) {
     return `/${category}/${slug}/`;
 }
 
+function setIfNewer(map, key, iso) {
+    const current = map.get(key);
+    if (!current || iso > current) map.set(key, iso);
+}
+
 /**
  * Build a Map<canonicalPath, ISODate> from the posts collection.
- * Returned dates use `updatedDate` if present, otherwise `pubDate`.
+ * Post dates use `updatedDate` if present, otherwise `pubDate`. The home page
+ * and each category hub get the newest date of the posts they list.
  */
 export async function buildLastModMap() {
     let files;
@@ -76,6 +84,8 @@ export async function buildLastModMap() {
             if (!fm.categorySlug || !fm.slug) continue;
             const iso = new Date(date).toISOString();
             map.set(canonicalPathFor(fm.categorySlug, fm.slug), iso);
+            setIfNewer(map, "/", iso);
+            setIfNewer(map, `/${fm.categorySlug}/`, iso);
         } catch {
             /* ignore individual file failures */
         }
@@ -91,12 +101,16 @@ const PAGINATION_RE = /\/\d+\/?$/;
  *  - paginated archive URLs (`/page/2/`, `/aws-academy/3/`, `/tags/python/4/`,
  *    `/authors/rehan-haider/2/`)
  *  - the 404 route
+ *  - tag archives (`/tags`, `/tags/python`): thin lists that Search Console
+ *    reports as "Crawled - currently not indexed". Internal links still reach them.
  */
 export function sitemapFilter(url) {
     const u = new URL(url);
     const pathname = u.pathname;
 
     if (pathname === "/404/" || pathname === "/404") return false;
+
+    if (/^\/tags(\/|$)/.test(pathname)) return false;
 
     // Trailing-numeric segment = pagination
     if (PAGINATION_RE.test(pathname)) return false;
@@ -106,17 +120,14 @@ export function sitemapFilter(url) {
 
 /**
  * Serialize callback wrapper. Returns a closure bound to the lastmod map so
- * astro.config.mjs can pass it directly.
+ * astro.config.mjs can pass it directly. URLs not in the map get no lastmod.
  */
-export function sitemapSerialize(lastModMap, fallbackIso) {
+export function sitemapSerialize(lastModMap) {
     return (item) => {
         const u = new URL(item.url);
         const pathname = u.pathname.endsWith("/") ? u.pathname : `${u.pathname}/`;
 
         const iso = lastModMap.get(pathname);
-        return {
-            ...item,
-            lastmod: iso ?? fallbackIso,
-        };
+        return iso ? { ...item, lastmod: iso } : item;
     };
 }

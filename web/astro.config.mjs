@@ -17,7 +17,6 @@ import partytown from "@astrojs/partytown";
 // Resolve once at config time so every URL in the sitemap can pull lastmod
 // from the same map.
 const lastModMap = await buildLastModMap();
-const buildLastMod = new Date().toISOString();
 
 // https://astro.build/config
 export default defineConfig({
@@ -31,7 +30,7 @@ export default defineConfig({
         mdx(),
         sitemap({
             filter: sitemapFilter,
-            serialize: sitemapSerialize(lastModMap, buildLastMod),
+            serialize: sitemapSerialize(lastModMap),
         }),
         react(),
         partytown({

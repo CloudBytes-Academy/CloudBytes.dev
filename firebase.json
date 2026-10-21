@@ -18,6 +18,36 @@
         "type": 301
       },
       {
+        "source": "/snippets/wsl2-find-and-delete-zoneidentifier-files",
+        "destination": "/snippets/wsl2-find-and-delete-zone-identifier-files",
+        "type": 301
+      },
+      {
+        "source": "/snippets/enable-hyper-v-on-windows-1011-home",
+        "destination": "/snippets/enable-hyper-v-on-windows-10-11-home",
+        "type": 301
+      },
+      {
+        "source": "/snippets/how-to-install-nodejs-and-npm-on-wsl2",
+        "destination": "/snippets/how-to-install-node-js-and-npm-on-wsl2",
+        "type": 301
+      },
+      {
+        "source": "/snippets/how-to-install-wsl2-on-windows-1011",
+        "destination": "/snippets/how-to-install-wsl2-on-windows-10-11",
+        "type": 301
+      },
+      {
+        "source": "/snippets/build-cicd-pipelines-using-artifacts-with-github-actions",
+        "destination": "/snippets/build-ci-cd-pipelines-using-artifacts-with-github-actions",
+        "type": 301
+      },
+      {
+        "source": "/images/aws/:file",
+        "destination": "/images/:file",
+        "type": 301
+      },
+      {
         "source": "/articles/upgrade-python-to-latest-version-39-on-ubuntu-linux",
         "destination": "/snippets/upgrade-python-to-latest-version-on-ubuntu-linux",
         "type": 301

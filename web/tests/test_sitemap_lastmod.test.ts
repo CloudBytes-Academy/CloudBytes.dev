@@ -29,10 +29,39 @@ async function readSitemapUrls(): Promise<SitemapUrl[]> {
 }
 
 describe("Sitemap", () => {
-    it("includes <lastmod> on every URL", async () => {
+    it("includes <lastmod> on every post URL and on the home and category hubs", async () => {
         const urls = await readSitemapUrls();
-        const missing = urls.filter((u) => !u.lastmod);
+        const needsLastmod = /^\/(snippets|aws-academy)(\/[^/]+)?$|^\/$/;
+        const missing = urls.filter((u) => needsLastmod.test(new URL(u.loc).pathname) && !u.lastmod);
         expect(missing.map((u) => u.loc)).toEqual([]);
+    });
+
+    it("never uses the build time as <lastmod>", async () => {
+        // Content dates are date-only frontmatter values, so they serialize to
+        // midnight UTC. Anything else is a build timestamp that changes on every deploy.
+        const urls = await readSitemapUrls();
+        const offenders = urls.filter((u) => u.lastmod && !u.lastmod.endsWith("T00:00:00.000Z"));
+        expect(offenders.map((u) => `${u.loc} ${u.lastmod}`)).toEqual([]);
+    });
+
+    it("excludes tag archives", async () => {
+        const urls = await getSitemapUrls();
+        const offenders = urls.filter((u) => /^\/tags(\/|$)/.test(new URL(u).pathname));
+        expect(offenders).toEqual([]);
+    });
+
+    it("gives each category hub the newest lastmod of its posts", async () => {
+        const urls = await readSitemapUrls();
+        for (const category of ["snippets", "aws-academy"]) {
+            const hub = urls.find((u) => new URL(u.loc).pathname === `/${category}`);
+            expect(hub, `expected /${category} in sitemap`).toBeTruthy();
+            const newest = urls
+                .filter((u) => new URL(u.loc).pathname.startsWith(`/${category}/`) && u.lastmod)
+                .map((u) => u.lastmod!)
+                .sort()
+                .pop();
+            expect(hub!.lastmod).toBe(newest);
+        }
     });
 
     it("excludes paginated archive URLs", async () => {
