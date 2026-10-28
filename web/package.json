@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@algolia/autocomplete-js": "^1.19.8",
-    "@astrojs/mdx": "^5.0.3",
+    "@astrojs/mdx": "^8.1.1",
     "@astrojs/partytown": "^2.1.7",
     "@astrojs/react": "^5.0.3",
     "@astrojs/rss": "^4.0.18",
@@ -25,7 +25,7 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "algoliasearch": "^5.50.1",
-    "astro": "^6.1.6",
+    "astro": "^7.4.2",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "sharp": "^0.34.3",
