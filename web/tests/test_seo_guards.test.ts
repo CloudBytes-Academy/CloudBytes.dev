@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { loadHtml } from "./testUtils";
+import { listHtmlPages, loadHtml } from "./testUtils";
 
 type JsonLdNode = Record<string, unknown>;
 
@@ -161,5 +161,41 @@ describe("SEO Guards — Search", () => {
         expect(indexJson.length, "expected inline JSON index").toBeGreaterThan(0);
         const parsed = JSON.parse(indexJson);
         expect(Array.isArray(parsed)).toBe(true);
+    });
+});
+
+describe("SEO Guards — Robots", () => {
+    // Tag archives, the search page and author pagination repeat lists the home
+    // and category pages already carry, so they ask to stay out of Google's index.
+    // Home and category pagination must stay indexable: with six posts a page they
+    // are the only indexable route to most posts.
+    const NOINDEX = /^(tags\/|search\/|authors\/[^/]+\/\d+\/|404\.html$)/;
+    const toRoute = (file: string) =>
+        file === "index.html" ? "/" : file.endsWith("/index.html") ? `/${file.slice(0, -"index.html".length)}` : `/${file}`;
+
+    it("marks only tag archives, search, author pagination and 404 as noindex,follow", async () => {
+        const failures: string[] = [];
+        const seen = { noindex: 0, index: 0 };
+
+        for (const file of await listHtmlPages()) {
+            const $ = await loadHtml(toRoute(file));
+            const robots = $('meta[name="robots"]').attr("content");
+            if (robots === undefined) continue; // a static file, not a page built from BaseHead
+
+            const expected = NOINDEX.test(file) ? "noindex,follow" : "index,follow";
+            seen[expected === "noindex,follow" ? "noindex" : "index"] += 1;
+            if (robots !== expected) failures.push(`${file}: robots is "${robots}", expected "${expected}"`);
+        }
+
+        expect(failures).toEqual([]);
+        expect(seen.noindex, "expected tag, search and author pagination pages").toBeGreaterThan(0);
+        expect(seen.index, "expected indexable pages").toBeGreaterThan(seen.noindex);
+    });
+
+    it("keeps home and category pagination indexable", async () => {
+        for (const route of ["/page/2/", "/snippets/2/", "/aws-academy/2/"]) {
+            const $ = await loadHtml(route);
+            expect($('meta[name="robots"]').attr("content"), route).toBe("index,follow");
+        }
     });
 });

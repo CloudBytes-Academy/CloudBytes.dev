@@ -1,7 +1,7 @@
 import path from "node:path";
 import fs from "node:fs/promises";
 import { describe, expect, it } from "vitest";
-import { DIST_DIR, WEB_ROOT, getSitemapUrls } from "./testUtils";
+import { DIST_DIR, WEB_ROOT, getSitemapUrls, loadHtml } from "./testUtils";
 
 interface SitemapUrl {
     loc: string;
@@ -47,6 +47,21 @@ describe("Sitemap", () => {
     it("excludes tag archives", async () => {
         const urls = await getSitemapUrls();
         const offenders = urls.filter((u) => /^\/tags(\/|$)/.test(new URL(u).pathname));
+        expect(offenders).toEqual([]);
+    });
+
+    it("lists no page that is marked noindex", async () => {
+        // A sitemap entry asks Google to index the page; a noindex tag on the same
+        // page asks the opposite, and Search Console reports the pair as an error.
+        const urls = await getSitemapUrls();
+        expect(urls.some((u) => new URL(u).pathname === "/search")).toBe(false);
+
+        const offenders: string[] = [];
+        for (const url of urls) {
+            const $ = await loadHtml(url);
+            const robots = $('meta[name="robots"]').attr("content") ?? "";
+            if (robots !== "index,follow") offenders.push(`${url}: robots is "${robots}"`);
+        }
         expect(offenders).toEqual([]);
     });
 

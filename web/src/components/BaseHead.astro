@@ -93,7 +93,9 @@ if (typeof image === "string") {
 
 const resolvedImageAlt = imageAlt ?? title;
 const metaKeywords = (keywords?.length ? keywords : DEFAULT_KEYWORDS).join(", ");
-const robots = noindex ? "noindex,nofollow" : "index,follow";
+// A noindex page keeps `follow`: it stays out of Google's index, but its links
+// (a tag's posts, the search list) still lead Google to the posts.
+const robots = noindex ? "noindex,follow" : "index,follow";
 
 const articleAuthors = articleAuthor ? (Array.isArray(articleAuthor) ? articleAuthor : [articleAuthor]) : [];
 const articleTagList = articleTags ?? [];
