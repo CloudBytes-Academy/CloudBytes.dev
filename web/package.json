@@ -41,6 +41,6 @@
     "prettier-plugin-tailwindcss": "^0.7.2",
     "satori": "^0.26.0",
     "typescript": "^5.9.3",
-    "vitest": "^4.1.4"
+    "vitest": "^4.1.12"
   }
 }
