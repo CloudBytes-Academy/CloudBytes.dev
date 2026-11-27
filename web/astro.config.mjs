@@ -1,5 +1,6 @@
 // @ts-check
 
+import { unified } from "@astrojs/markdown-remark";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import { defineConfig } from "astro/config";
@@ -44,8 +45,13 @@ export default defineConfig({
     ],
 
     markdown: {
-        remarkPlugins: [remarkStripPelicanToc, remarkCodeBlockMeta, remarkRewritePelicanFilenameLinks],
-        rehypePlugins: [rehypePelicanAdmonitions],
+        // Astro 7 defaults to the Sätteri processor, which does not run
+        // remark/rehype plugins. Keep the unified pipeline so the Pelican
+        // compatibility plugins below still apply.
+        processor: unified({
+            remarkPlugins: [remarkStripPelicanToc, remarkCodeBlockMeta, remarkRewritePelicanFilenameLinks],
+            rehypePlugins: [rehypePelicanAdmonitions],
+        }),
     },
 
     vite: {
