@@ -1,9 +1,9 @@
 # CloudBytes (Astro) — Project Standards
 
-This repository is being refactored from a Pelican blog into an **Astro 6** static site under `web/`.
+This repository is being refactored from a Pelican blog into an **Astro 7** static site under `web/`.
 
 ## Stack
-- **Framework**: Astro 6
+- **Framework**: Astro 7
 - **Islands**: React 19 **only when required** (client state / complex interactions). Prefer Astro components.
 - **Styling**: Tailwind CSS v4 (via `@tailwindcss/vite`)
 - **UI**: DaisyUI v5 (themes configured in CSS via `@plugin`)
