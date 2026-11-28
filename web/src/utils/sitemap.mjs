@@ -103,6 +103,8 @@ const PAGINATION_RE = /\/\d+\/?$/;
  *  - the 404 route
  *  - tag archives (`/tags`, `/tags/python`): thin lists that Search Console
  *    reports as "Crawled - currently not indexed". Internal links still reach them.
+ *  - the search page: it is marked noindex, and a sitemap must not list a page
+ *    that asks to stay out of the index.
  */
 export function sitemapFilter(url) {
     const u = new URL(url);
@@ -111,6 +113,8 @@ export function sitemapFilter(url) {
     if (pathname === "/404/" || pathname === "/404") return false;
 
     if (/^\/tags(\/|$)/.test(pathname)) return false;
+
+    if (pathname === "/search/" || pathname === "/search") return false;
 
     // Trailing-numeric segment = pagination
     if (PAGINATION_RE.test(pathname)) return false;

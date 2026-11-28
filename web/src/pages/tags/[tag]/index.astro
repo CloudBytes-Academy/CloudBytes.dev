@@ -43,6 +43,7 @@ const jsonLd = [
     heading={`#${tag.name}`}
     subheading={`All ${matching.length} posts tagged “${tag.name}”.`}
     label="Tag"
+    noindex
     jsonLd={jsonLd}
 >
     {items.map((post) => (
