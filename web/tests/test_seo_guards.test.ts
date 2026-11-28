@@ -180,7 +180,11 @@ describe("SEO Guards — Robots", () => {
         for (const file of await listHtmlPages()) {
             const $ = await loadHtml(toRoute(file));
             const robots = $('meta[name="robots"]').attr("content");
-            if (robots === undefined) continue; // a static file, not a page built from BaseHead
+            // Every built page renders BaseHead, so a missing tag means the page lost its robots directive.
+            if (robots === undefined) {
+                failures.push(`${file}: no robots meta tag`);
+                continue;
+            }
 
             const expected = NOINDEX.test(file) ? "noindex,follow" : "index,follow";
             seen[expected === "noindex,follow" ? "noindex" : "index"] += 1;
